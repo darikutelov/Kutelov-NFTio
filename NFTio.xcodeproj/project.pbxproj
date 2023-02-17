@@ -37,7 +37,6 @@
 		9CF42CF8299FC92600CAA856 = {
 			isa = PBXGroup;
 			children = (
-				9CF42D12299FDC7400CAA856 /* Models */,
 				9CF42D03299FC92600CAA856 /* NFTio */,
 				9CF42D02299FC92600CAA856 /* Products */,
 			);
@@ -54,6 +53,7 @@
 		9CF42D03299FC92600CAA856 /* NFTio */ = {
 			isa = PBXGroup;
 			children = (
+				9CF42D12299FDC7400CAA856 /* Models */,
 				9CF42D04299FC92600CAA856 /* NFTioApp.swift */,
 				9CF42D06299FC92600CAA856 /* ContentView.swift */,
 				9CF42D08299FC92800CAA856 /* Assets.xcassets */,
