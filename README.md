@@ -1,6 +1,8 @@
 # NFTio - Go Shopping NFT
 
-## Description: NFTio is a iOS SwiftUI mobile app designed for users to discover, buy, sell, and trade unique digital assets known as non-fungible tokens (NFTs). The app is designed with an easy-to-use interface, allowing users to browse through various collections of NFTs and view detailed information about each individual NFT.
+## Description:
+
+- NFTio is a full featured iOS SwiftUI mobile app designed for users to discover, buy, sell, and trade unique digital assets known as non-fungible tokens (NFTs). The app is designed with an easy-to-use interface, allowing users to browse through various collections of NFTs and view detailed information about each individual NFT.
 
 ## Must Have Features
 
