@@ -1,4 +1,4 @@
-# NFTio - Go Shopping NFT
+# App Name: NFTio (Go Shopping)
 
 ## Description:
 

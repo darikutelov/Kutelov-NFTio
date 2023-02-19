@@ -16,7 +16,6 @@ enum Constants {
     public static let roundedRectCornerRadius = CGFloat(28.0)
     public static let appIconSize = CGFloat(150.0)
     public static let roundedRectViewWidth = CGFloat(270.0)
-
   }
   
   enum Spacing {
@@ -38,12 +37,12 @@ enum Constants {
     public static let primary = "Violet"
     public static let primaryText = "TextColor"
     public static let buttonBorderGradientColors = [
-      Color(red: 230.0/255.0, green: 4.0/255.0, blue: 4.0/255.0),
-      Color(red: 251.0/255.0, green: 21.0/255.0, blue: 242.0/255.0),
-      Color(red: 225.0/255.0, green: 225.0/255.0, blue: 225.0/255.0),
-      Color(red: 23.0/255.0, green: 255.0/255.0, blue: 213.0/255.0),
-      Color(red: 115.0/255.0, green: 249.0/255.0, blue: 10.0/255.0),
-      Color(red: 239.0/255.0, green: 219.0/255.0, blue: 34.0/255.0)
+      Color.init(hex: "E60404"),
+      Color.init(hex: "FB15F2"),
+      Color.init(hex: "E1E1E1"),
+      Color.init(hex: "17FFD5"),
+      Color.init(hex: "73F90A"),
+      Color.init(hex: "EFDB22")
     ]
     public static let buttonBackgroundGradientColors = [
       Color(red: 1.0, green: 1.0, blue: 1.0, opacity: 0.4),

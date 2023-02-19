@@ -22,7 +22,9 @@ struct HomeScreenView: View {
             )
           WelcomeTextView(text: "Welcome, \(user.username)!")
             .padding(Constants.Spacing.xlarge)
-        }
+        }.background(
+          HomeBackgroundImageView()
+        )
       }
     }
 }
@@ -40,7 +42,9 @@ struct HomeBackgroundView: View {
           }
           .padding(.trailing)
           .sheet(isPresented: $isOnboardingScreenOpen) {
-            OnboardingScreenView()
+            OnboardingScreenView(
+              isOnboardingScreenOpen: $isOnboardingScreenOpen
+            )
           }
         }
         Spacer()

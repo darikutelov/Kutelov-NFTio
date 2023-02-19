@@ -25,7 +25,7 @@ struct GetStartedButton: View {
             colors: Constants.Colors.buttonBorderGradientColors),
             center: .leading,
             startRadius: Constants.Spacing.small,
-            endRadius: Constants.General.roundedRectViewWidth),
+          endRadius: Constants.General.roundedRectViewWidth),
           lineWidth: Constants.General.strokeWidth)
         .background(
           RoundedRectangle(cornerRadius: .infinity)
@@ -35,7 +35,7 @@ struct GetStartedButton: View {
                   colors: Constants.Colors.buttonBackgroundGradientColors),
                   center: .leading,
                   startRadius: Constants.Spacing.small,
-                  endRadius: Constants.General.roundedRectViewWidth)
+                endRadius: Constants.General.roundedRectViewWidth)
             )
         )
         .frame(width: Constants.General.roundedRectViewWidth + Constants.Spacing.standard, height: Constants.Spacing.xxxlarge)

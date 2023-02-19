@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnboardingScreenView: View {
-  @Environment(\.dismiss) var dismiss
+  @Binding var isOnboardingScreenOpen: Bool
   
   var body: some View {
     VStack {
@@ -19,7 +19,7 @@ struct OnboardingScreenView: View {
         DescriptionTextView()
           .padding(.bottom, Constants.Spacing.xlarge)
         Button {
-          dismiss()
+          isOnboardingScreenOpen.toggle()
         } label: {
           GetStartedButton()
         }
@@ -35,6 +35,7 @@ struct OnboardingScreenView: View {
         )
         .cornerRadius(Constants.General.roundedRectCornerRadius)
         .padding(.bottom, -Constants.Spacing.xxlarge)
+        .ignoresSafeArea(.all)
       }
     }
     .background(
@@ -48,6 +49,6 @@ struct OnboardingScreenView: View {
 
 struct OnboardingScreenView_Previews: PreviewProvider {
   static var previews: some View {
-    OnboardingScreenView()
+    OnboardingScreenView(isOnboardingScreenOpen: .constant(true))
   }
 }

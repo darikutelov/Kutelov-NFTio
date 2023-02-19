@@ -55,8 +55,8 @@
 			children = (
 				9CF42D06299FC92600CAA856 /* ContentView.swift */,
 				9C2EA9A929A10A99009A831C /* HomeScreenView.swift */,
-				9C2EA9AC29A10E13009A831C /* RoundedViews.swift */,
 				9C2EA9B029A113E9009A831C /* OnboardingScreenView.swift */,
+				9C2EA9AC29A10E13009A831C /* RoundedViews.swift */,
 				9C2EA9B229A14162009A831C /* AppLogo.swift */,
 				9CBB98E229A21CCB00759204 /* TextViews.swift */,
 				9CBB98E429A2229E00759204 /* ButtonViews.swift */,
