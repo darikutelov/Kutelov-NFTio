@@ -9,13 +9,14 @@ import SwiftUI
 
 struct AppLogo: View {
     var body: some View {
-      VStack(alignment: .center, spacing: 8.0) {
-        Image(Constants.imageFileNames.appIcon)
-          .resizable()
-          .frame(width: 44, height: 44.0)
+      HStack(alignment: .center, spacing: Constants.Spacing.small) {
+        AppIcon()
+          .frame(
+            width: Constants.Spacing.xxlarge,
+            height: Constants.Spacing.xxlarge)
           .overlay(
             RoundedRectangle(
-              cornerRadius: 12.0
+              cornerRadius: Constants.Spacing.small
             )
               .strokeBorder(
                 Color(.white),
@@ -29,9 +30,8 @@ struct AppLogo: View {
           .fontWeight(.semibold)
           .kerning(1.2)
       }
-      .padding()
       .background(
-        Color(Constants.colors.primary)
+        Color(Constants.Colors.primary)
       )
     }
 }

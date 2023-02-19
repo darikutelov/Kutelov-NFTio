@@ -14,16 +14,14 @@ struct HomeScreenView: View {
     var body: some View {
       ZStack {
         HomeBackgroundView(isOnboardingScreenOpen: $isOnboardingScreenOpen)
-        VStack(spacing: 24) {
-          Image(Constants.imageFileNames.appIcon)
-            .resizable()
-            .scaledToFill()
-            .cornerRadius(12.0)
-            .frame(width: 150.0, height: 150.0)
-          Text("Welcome, \(user.username)!")
-            .font(.title)
-            .fontWeight(.semibold)
-            .foregroundColor(Color(Constants.colors.primaryText))
+        VStack(spacing: Constants.Spacing.large) {
+          AppIcon()
+            .frame(
+              width: Constants.General.appIconSize,
+              height: Constants.General.appIconSize
+            )
+          WelcomeTextView(text: "Welcome, \(user.username)!")
+            .padding(Constants.Spacing.xlarge)
         }
       }
     }

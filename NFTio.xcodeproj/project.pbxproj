@@ -13,6 +13,8 @@
 		9C2EA9B129A113E9009A831C /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9B029A113E9009A831C /* OnboardingScreenView.swift */; };
 		9C2EA9B329A14162009A831C /* AppLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9B229A14162009A831C /* AppLogo.swift */; };
 		9CBB98E129A20C3F00759204 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98E029A20C3F00759204 /* Color.swift */; };
+		9CBB98E329A21CCB00759204 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98E229A21CCB00759204 /* TextViews.swift */; };
+		9CBB98E529A2229E00759204 /* ButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98E429A2229E00759204 /* ButtonViews.swift */; };
 		9CF42D05299FC92600CAA856 /* NFTioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF42D04299FC92600CAA856 /* NFTioApp.swift */; };
 		9CF42D07299FC92600CAA856 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF42D06299FC92600CAA856 /* ContentView.swift */; };
 		9CF42D09299FC92800CAA856 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF42D08299FC92800CAA856 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		9C2EA9B029A113E9009A831C /* OnboardingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenView.swift; sourceTree = "<group>"; };
 		9C2EA9B229A14162009A831C /* AppLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogo.swift; sourceTree = "<group>"; };
 		9CBB98E029A20C3F00759204 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		9CBB98E229A21CCB00759204 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		9CBB98E429A2229E00759204 /* ButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViews.swift; sourceTree = "<group>"; };
 		9CF42D01299FC92600CAA856 /* NFTio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFTio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF42D04299FC92600CAA856 /* NFTioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTioApp.swift; sourceTree = "<group>"; };
 		9CF42D06299FC92600CAA856 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 				9C2EA9AC29A10E13009A831C /* RoundedViews.swift */,
 				9C2EA9B029A113E9009A831C /* OnboardingScreenView.swift */,
 				9C2EA9B229A14162009A831C /* AppLogo.swift */,
+				9CBB98E229A21CCB00759204 /* TextViews.swift */,
+				9CBB98E429A2229E00759204 /* ButtonViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,9 +199,11 @@
 				9CF42D07299FC92600CAA856 /* ContentView.swift in Sources */,
 				9CF42D05299FC92600CAA856 /* NFTioApp.swift in Sources */,
 				9C2EA9B329A14162009A831C /* AppLogo.swift in Sources */,
+				9CBB98E329A21CCB00759204 /* TextViews.swift in Sources */,
 				9C2EA9AD29A10E13009A831C /* RoundedViews.swift in Sources */,
 				9C2EA9B129A113E9009A831C /* OnboardingScreenView.swift in Sources */,
 				9CF42D14299FDC8800CAA856 /* User.swift in Sources */,
+				9CBB98E529A2229E00759204 /* ButtonViews.swift in Sources */,
 				9C2EA9AA29A10A99009A831C /* HomeScreenView.swift in Sources */,
 				9C2EA9AF29A1104E009A831C /* Constants.swift in Sources */,
 				9CBB98E129A20C3F00759204 /* Color.swift in Sources */,

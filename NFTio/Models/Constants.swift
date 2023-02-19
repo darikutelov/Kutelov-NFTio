@@ -13,18 +13,28 @@ enum Constants {
     public static let strokeWidth = CGFloat(2.0)
     public static let roundedViewLength = CGFloat(36.0)
     public static let roundedViewHeight = CGFloat(36.0)
-    
-    public static let roundedRectViewWidth = CGFloat(68.0)
-    public static let roundedRectViewHeight = CGFloat(56.0)
     public static let roundedRectCornerRadius = CGFloat(28.0)
+    public static let appIconSize = CGFloat(150.0)
+    public static let roundedRectViewWidth = CGFloat(270.0)
+
   }
   
-  enum imageFileNames {
+  enum Spacing {
+    public static let small = CGFloat(8.0)
+    public static let standard = CGFloat(12.0)
+    public static let medium = CGFloat(16.0)
+    public static let large = CGFloat(20.0)
+    public static let xlarge = CGFloat(24.0)
+    public static let xxlarge = CGFloat(36.0)
+    public static let xxxlarge = CGFloat(64.0)
+  }
+  
+  enum ImageFileNames {
     public static let onboardingBackground = "onboarding-background"
     public static let appIcon = "app-icon"
   }
   
-  enum colors {
+  enum Colors {
     public static let primary = "Violet"
     public static let primaryText = "TextColor"
     public static let buttonBorderGradientColors = [
