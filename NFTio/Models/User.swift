@@ -8,5 +8,6 @@
 import Foundation
 
 struct User {
-  let username: String
+  var isAuthenticated = true
+  let username: String = "Joe"
 }
