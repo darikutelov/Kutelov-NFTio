@@ -13,13 +13,43 @@ struct NFTCellView: View {
     
     var body: some View {
         VStack {
-            KFImage(URL(string: nft.imageUrl))
-                .resizable()
-                .scaledToFit()
-            Text("\(nft.tokenName)")
+            ZStack {
+                KFImage(URL(string: nft.imageUrl))
+                    .resizable()
+                    .scaledToFit()
+                    .padding(8.0)
+                VStack {
+                    Spacer()
+                    PriceView(price: nft.price.priceInCryptoCurrency)
+                }
+                .padding([.bottom], Constants.Spacing.medium)
+                VStack {
+                    if nft.likes > 0 {
+                        LikesView(numberOfLikes: nft.likes)
+                            .padding([.trailing, .top], Constants.Spacing.medium)
+                    }
+                    Spacer()
+                }
+            }
+            .aspectRatio(1.0, contentMode: .fit)
+            
+            NameView(name: nft.tokenName)
+                .padding(EdgeInsets(
+                    top: Constants.Spacing.small,
+                    leading: Constants.Spacing.standard,
+                    bottom: 0.0,
+                    trailing: Constants.Spacing.standard))
+            
+            CreatorNameView(creator: nft.creator)
+                .padding(EdgeInsets(
+                    top: 0.0,
+                    leading: Constants.Spacing.standard,
+                    bottom: Constants.Spacing.large,
+                    trailing: Constants.Spacing.standard)
+                )
         }
         .background(
-            RoundedRectangle(cornerRadius: 15)
+            RoundedRectangle(cornerRadius: Constants.General.standardCornerRadius)
                 .fill(.white)
         )
         

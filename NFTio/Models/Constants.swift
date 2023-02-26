@@ -16,6 +16,8 @@ enum Constants {
         public static let roundedRectCornerRadius = CGFloat(28.0)
         public static let appIconSize = CGFloat(150.0)
         public static let roundedRectViewWidth = CGFloat(270.0)
+        public static let standardCornerRadius = CGFloat(15.0)
+        public static let smallCornerRadius = CGFloat(7.0)
     }
     
     enum Spacing {

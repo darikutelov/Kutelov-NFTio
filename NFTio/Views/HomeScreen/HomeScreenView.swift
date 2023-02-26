@@ -29,9 +29,11 @@ struct HomeScreenView: View {
                         .navigationTitle("All NFTs")
                         , label: {
                         ButtonView(buttonText: "Get Started")
+                            .padding([.bottom])
                     })
                     .navigationBarTitleDisplayMode(.large)
-                    .padding()
+                    .padding([.bottom])
+                    
                 }.background(
                     HomeBackgroundImageView()
                 )
@@ -52,7 +54,7 @@ struct HomeBackgroundView: View {
                 } label: {
                     RoundedIconViewFilled(systemName: "play.fill")
                 }
-                .padding(.trailing)
+                .padding([.trailing, .top])
                 .sheet(isPresented: $isOnboardingScreenOpen) {
                     OnboardingScreenView(
                         isOnboardingScreenOpen: $isOnboardingScreenOpen
