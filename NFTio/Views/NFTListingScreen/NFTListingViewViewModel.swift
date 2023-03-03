@@ -8,10 +8,7 @@
 import SwiftUI
 
 class NFTListingViewViewModel: ObservableObject {
-    @Published var nftItems = [NFT]()
+    @Published var nftItems = [NFT](NFTDataManager().nftItems)
     
-    init() {
-        let dataManager = DataManager()
-        nftItems = dataManager.nftItems
-    }
+    init() {}
 }

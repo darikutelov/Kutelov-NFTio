@@ -14,7 +14,6 @@
 		9C0386F129A7C3AE00EF4BAD /* HomeBackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386F029A7C3AE00EF4BAD /* HomeBackgroundImageView.swift */; };
 		9C0386F329A7C4A700EF4BAD /* RoundedIconViewFilledWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386F229A7C4A700EF4BAD /* RoundedIconViewFilledWhite.swift */; };
 		9C0386F529A7C54200EF4BAD /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386F429A7C54200EF4BAD /* Text.swift */; };
-		9C0386F829AA84C500EF4BAD /* HomeworkWeek02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386F729AA84C500EF4BAD /* HomeworkWeek02.swift */; };
 		9C0386FB29AB529900EF4BAD /* NFTCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386FA29AB529900EF4BAD /* NFTCellView.swift */; };
 		9C0386FD29AB52B600EF4BAD /* NFTListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386FC29AB52B600EF4BAD /* NFTListingView.swift */; };
 		9C0386FF29AB548C00EF4BAD /* NFTListingViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386FE29AB548C00EF4BAD /* NFTListingViewViewModel.swift */; };
@@ -27,6 +26,11 @@
 		9C2EA9AF29A1104E009A831C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9AE29A1104E009A831C /* Constants.swift */; };
 		9C2EA9B129A113E9009A831C /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9B029A113E9009A831C /* OnboardingScreenView.swift */; };
 		9C2EA9B329A14162009A831C /* AppLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9B229A14162009A831C /* AppLogo.swift */; };
+		9C94667629B20AD500129EB1 /* NFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667529B20AD500129EB1 /* NFT.swift */; };
+		9C94667829B20AF800129EB1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667729B20AF800129EB1 /* Category.swift */; };
+		9C94667A29B20B4600129EB1 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667929B20B4600129EB1 /* Collection.swift */; };
+		9C94667D29B20BB000129EB1 /* NFTDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667C29B20BB000129EB1 /* NFTDataManager.swift */; };
+		9C94667F29B20F7A00129EB1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667E29B20F7A00129EB1 /* String.swift */; };
 		9CB7A8DA29ABAD71008F56F8 /* LikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7A8D929ABAD71008F56F8 /* LikesView.swift */; };
 		9CBB98E129A20C3F00759204 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98E029A20C3F00759204 /* Color.swift */; };
 		9CBB98E529A2229E00759204 /* GetStartedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98E429A2229E00759204 /* GetStartedButtonView.swift */; };
@@ -45,8 +49,7 @@
 		9C0386F029A7C3AE00EF4BAD /* HomeBackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBackgroundImageView.swift; sourceTree = "<group>"; };
 		9C0386F229A7C4A700EF4BAD /* RoundedIconViewFilledWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedIconViewFilledWhite.swift; sourceTree = "<group>"; };
 		9C0386F429A7C54200EF4BAD /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
-		9C0386F629A7CB5500EF4BAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		9C0386F729AA84C500EF4BAD /* HomeworkWeek02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkWeek02.swift; sourceTree = "<group>"; };
+		9C0386F629A7CB5500EF4BAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C0386FA29AB529900EF4BAD /* NFTCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTCellView.swift; sourceTree = "<group>"; };
 		9C0386FC29AB52B600EF4BAD /* NFTListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTListingView.swift; sourceTree = "<group>"; };
 		9C0386FE29AB548C00EF4BAD /* NFTListingViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTListingViewViewModel.swift; sourceTree = "<group>"; };
@@ -58,6 +61,11 @@
 		9C2EA9AE29A1104E009A831C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9C2EA9B029A113E9009A831C /* OnboardingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenView.swift; sourceTree = "<group>"; };
 		9C2EA9B229A14162009A831C /* AppLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogo.swift; sourceTree = "<group>"; };
+		9C94667529B20AD500129EB1 /* NFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFT.swift; sourceTree = "<group>"; };
+		9C94667729B20AF800129EB1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9C94667929B20B4600129EB1 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		9C94667C29B20BB000129EB1 /* NFTDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDataManager.swift; sourceTree = "<group>"; };
+		9C94667E29B20F7A00129EB1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9CB7A8D929ABAD71008F56F8 /* LikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesView.swift; sourceTree = "<group>"; };
 		9CBB98E029A20C3F00759204 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9CBB98E429A2229E00759204 /* GetStartedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedButtonView.swift; sourceTree = "<group>"; };
@@ -139,11 +147,20 @@
 		9C2EA9AB29A10C19009A831C /* App */ = {
 			isa = PBXGroup;
 			children = (
+				9C0386F629A7CB5500EF4BAD /* Info.plist */,
 				9CF42D04299FC92600CAA856 /* NFTioApp.swift */,
 				9CF42D08299FC92800CAA856 /* Assets.xcassets */,
 				9CF42D0A299FC92800CAA856 /* Preview Content */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		9C94667B29B20B9300129EB1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9C94667C29B20BB000129EB1 /* NFTDataManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		9CB7A8D829ABAD4F008F56F8 /* SubViews */ = {
@@ -162,6 +179,7 @@
 			children = (
 				9CBB98E029A20C3F00759204 /* Color.swift */,
 				9C0386F429A7C54200EF4BAD /* Text.swift */,
+				9C94667E29B20F7A00129EB1 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -185,9 +203,8 @@
 		9CF42D03299FC92600CAA856 /* NFTio */ = {
 			isa = PBXGroup;
 			children = (
-				9C0386F729AA84C500EF4BAD /* HomeworkWeek02.swift */,
-				9C0386F629A7CB5500EF4BAD /* Info.plist */,
 				9C2EA9AB29A10C19009A831C /* App */,
+				9C94667B29B20B9300129EB1 /* Managers */,
 				9C2EA9A629A109C0009A831C /* Views */,
 				9CF42D12299FDC7400CAA856 /* Models */,
 				9CBB98DF29A20C1700759204 /* Extensions */,
@@ -208,6 +225,9 @@
 			children = (
 				9CF42D13299FDC8800CAA856 /* User.swift */,
 				9C2EA9AE29A1104E009A831C /* Constants.swift */,
+				9C94667529B20AD500129EB1 /* NFT.swift */,
+				9C94667729B20AF800129EB1 /* Category.swift */,
+				9C94667929B20B4600129EB1 /* Collection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,12 +308,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C94667F29B20F7A00129EB1 /* String.swift in Sources */,
 				9C0386FD29AB52B600EF4BAD /* NFTListingView.swift in Sources */,
 				9CF42D07299FC92600CAA856 /* ContentView.swift in Sources */,
 				9CF42D05299FC92600CAA856 /* NFTioApp.swift in Sources */,
 				9C0386F329A7C4A700EF4BAD /* RoundedIconViewFilledWhite.swift in Sources */,
 				9C2EA9B329A14162009A831C /* AppLogo.swift in Sources */,
 				9C0E478D29ABB6E100DEB975 /* NameView.swift in Sources */,
+				9C94667D29B20BB000129EB1 /* NFTDataManager.swift in Sources */,
 				9C2EA9B129A113E9009A831C /* OnboardingScreenView.swift in Sources */,
 				9CF42D14299FDC8800CAA856 /* User.swift in Sources */,
 				9CBB98E529A2229E00759204 /* GetStartedButtonView.swift in Sources */,
@@ -302,14 +324,16 @@
 				9C0386ED29A7BF3B00EF4BAD /* RoundedIconViewFilled.swift in Sources */,
 				9C2EA9AA29A10A99009A831C /* HomeScreenView.swift in Sources */,
 				9C2EA9AF29A1104E009A831C /* Constants.swift in Sources */,
+				9C94667629B20AD500129EB1 /* NFT.swift in Sources */,
 				9C0386FF29AB548C00EF4BAD /* NFTListingViewViewModel.swift in Sources */,
 				9C0386EB29A7BE8C00EF4BAD /* DescriptionTextView.swift in Sources */,
 				9CBB98E129A20C3F00759204 /* Color.swift in Sources */,
 				9C0E478B29ABB64100DEB975 /* PriceView.swift in Sources */,
+				9C94667A29B20B4600129EB1 /* Collection.swift in Sources */,
 				9C0E478F29ABB73600DEB975 /* CreatorNameView.swift in Sources */,
-				9C0386F829AA84C500EF4BAD /* HomeworkWeek02.swift in Sources */,
 				9CB7A8DA29ABAD71008F56F8 /* LikesView.swift in Sources */,
 				9C0386FB29AB529900EF4BAD /* NFTCellView.swift in Sources */,
+				9C94667829B20AF800129EB1 /* Category.swift in Sources */,
 				9C0386EF29A7C35700EF4BAD /* AppIconView.swift in Sources */,
 				9C0386F129A7C3AE00EF4BAD /* HomeBackgroundImageView.swift in Sources */,
 				9C03870129AB5AEE00EF4BAD /* ButtonView.swift in Sources */,
@@ -444,7 +468,7 @@
 				DEVELOPMENT_TEAM = NV786K8W94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NFTio/Info.plist;
+				INFOPLIST_FILE = NFTio/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NFTio;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -475,7 +499,7 @@
 				DEVELOPMENT_TEAM = NV786K8W94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NFTio/Info.plist;
+				INFOPLIST_FILE = NFTio/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NFTio;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

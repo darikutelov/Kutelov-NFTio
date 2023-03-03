@@ -9,8 +9,6 @@ import SwiftUI
 
 @main
 struct NFTioApp: App {
-    let dataManager = DataManager()
-    
     var body: some Scene {
         WindowGroup {
             ContentView()

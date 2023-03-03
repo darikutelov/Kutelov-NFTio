@@ -74,8 +74,8 @@ struct NFTCellView_Previews: PreviewProvider {
                                     priceInCryptoCurrency: 67.45)
                                   ,
                                   quantity: 1,
-                                  auctionExpiryDate: getDateFromString("2023-02-28T12:00:00.000Z"
-                                                                      ),
+                                  auctionExpiryDate: "2023-02-28T12:00:00.000Z"
+                .getDateFromString(),
                                   bids: [])
                         
             )
