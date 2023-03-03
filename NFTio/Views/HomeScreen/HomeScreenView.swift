@@ -12,20 +12,34 @@ struct HomeScreenView: View {
     @State private var isOnboardingScreenOpen = false
     
     var body: some View {
-        ZStack {
-            HomeBackgroundView(isOnboardingScreenOpen: $isOnboardingScreenOpen)
-            VStack(spacing: Constants.Spacing.large) {
-                AppIconView()
-                    .frame(
-                        width: Constants.General.appIconSize,
-                        height: Constants.General.appIconSize
-                    )
-                WelcomeTextView(text: "\(Constants.Text.Home.welcome), \(user.username)!")
-                    .padding(Constants.Spacing.xlarge)
-            }.background(
-                HomeBackgroundImageView()
-            )
+        NavigationView {
+            ZStack {
+                HomeBackgroundView(isOnboardingScreenOpen: $isOnboardingScreenOpen)
+                VStack(spacing: Constants.Spacing.large) {
+                    Spacer()
+                    AppIconView()
+                        .frame(
+                            width: Constants.General.appIconSize,
+                            height: Constants.General.appIconSize
+                        )
+                    WelcomeTextView(text: "\(Constants.Text.Home.welcome), \(user.username)!")
+                        .padding(Constants.Spacing.xlarge)
+                    Spacer()
+                    NavigationLink(destination: NFTListingView().navigationBarBackButtonHidden(true)
+                        .navigationTitle("All NFTs")
+                        , label: {
+                        ButtonView(buttonText: "Get Started")
+                            .padding([.bottom])
+                    })
+                    .navigationBarTitleDisplayMode(.large)
+                    .padding([.bottom])
+                    
+                }.background(
+                    HomeBackgroundImageView()
+                )
+            }
         }
+       
     }
 }
 
@@ -40,7 +54,7 @@ struct HomeBackgroundView: View {
                 } label: {
                     RoundedIconViewFilled(systemName: "play.fill")
                 }
-                .padding(.trailing)
+                .padding([.trailing, .top])
                 .sheet(isPresented: $isOnboardingScreenOpen) {
                     OnboardingScreenView(
                         isOnboardingScreenOpen: $isOnboardingScreenOpen
