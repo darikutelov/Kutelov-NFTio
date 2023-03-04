@@ -1,60 +1,47 @@
 import UIKit
 
-
 var itemPrices: [Decimal] = [10.5, 11.33, 5.45, 6.00, 21.15, 45.21, 12.32]
-var totalAmount: Decimal
-var discountPercentage: Float
-
-let discountType: [String: Float] = [
+let discountType: [String: Decimal] = [
     "Default": 0.05,
     "Thanksgiving": 0.10,
     "Christmas": 0.15,
     "New Year": 0.20
 ]
 
-var discountedAmount: Decimal
-var totalAmountAfterDiscount: Decimal
 
-
-// MARK: - Assignment 1
+// MARK: - Assignment 1: Function
 
 /// Applies a discount to a total amount and returns the amount after the discount
 /// - Parameters:
 ///   - totalAmount: total amount before the discount
 ///   - discountPercentage: discount percentage
 /// - Returns: the amount after the discount is applied
-func calculateDiscount(totalAmount: Decimal, discountPercentage: Float) -> Decimal {
-    let discountedAmount = totalAmount * NSNumber(value: discountPercentage).decimalValue
+func calculateDiscount(totalAmount: Decimal, discountPercentage: Decimal) -> Decimal {
+    let discountedAmount = totalAmount * discountPercentage
     var totalAmountAfterDiscount = totalAmount - discountedAmount
     return totalAmountAfterDiscount.roundToDigit(scale: 2)
 }
 
-
-totalAmount = itemPrices[0]
-discountPercentage = discountType["Default"] ?? 0.0
-totalAmountAfterDiscount = calculateDiscount(totalAmount: totalAmount, discountPercentage: discountPercentage)
+calculateDiscount(totalAmount: 100.0, discountPercentage: 0.10)
 
 
-
-// MARK: - Assignment 2
+// MARK: - Assignment 2: Function
 
 /// Applies a discount to a total amount and returns the amount after the discount. If no discount is provided, applies a default discount of 5%.
 /// - Parameters:
 ///   - totalAmount: total amount before the discount
 ///   - discountPercentageOrDefault: discount percentage with a default value of 5%
 /// - Returns: he amount after the discount is applied
-func calculateDiscount(totalAmount: Decimal, discountPercentageOrDefault: Float = 0.05) -> Decimal {
-    let discountedAmount = totalAmount * NSNumber(value: discountPercentageOrDefault).decimalValue
+func calculateDiscount(totalAmount: Decimal, discountPercentageOrDefault: Decimal = 0.05) -> Decimal {
+    let discountedAmount = totalAmount * discountPercentageOrDefault
     var totalAmountAfterDiscount = totalAmount - discountedAmount
     return totalAmountAfterDiscount.roundToDigit(scale: 2)
 }
 
-totalAmount = itemPrices[0]
-totalAmountAfterDiscount = calculateDiscount(totalAmount: totalAmount)
+calculateDiscount(totalAmount: 100.0)
 
 
-
-// MARK: - Assignment 3
+// MARK: - Assignment 3: Typealias
 
 /// Type annotation for a function that applies a discount provided by name on the total amount
 typealias ApplyDiscount = (Decimal, String) -> Decimal
@@ -64,7 +51,7 @@ typealias ApplyDiscount = (Decimal, String) -> Decimal
 ///   - totalAmount: total amount before discount
 ///   - discountName: discount name
 /// - Returns: total amount after discount is applies
-func calculateADiscount(totalAmount: Decimal, discountName: String) -> Decimal {
+func calculateDiscount(_ totalAmount: Decimal, _ discountName: String) -> Decimal {
     let discountPercentage = discountType[discountName] ?? 0
     guard discountPercentage > 0 else { return totalAmount }
     
@@ -76,42 +63,54 @@ func calculateADiscount(totalAmount: Decimal, discountName: String) -> Decimal {
 ///   - totalAmount: total amount before discounts
 ///   - calculateDiscount: function to calculate a discount based on the discount name
 func printDiscount(totalAmount: Decimal, calculateDiscount: ApplyDiscount) {
+    print("Total amount discounted for all existing discounts:")
     discountType.keys
         .sorted()
         .forEach { discountName in
-            let totalAmountAfterDiscount = calculateDiscount(totalAmount,discountName)
-            print(NumberFormatter.currencyFormatter.string(from: totalAmountAfterDiscount as NSDecimalNumber)!)
+            let totalAmountAfterDiscount = calculateDiscount(totalAmount, discountName)
+            print(NumberFormatter.currencyFormatter.string(from: totalAmountAfterDiscount as NSDecimalNumber)!, terminator: " ")
         }
+    print("\n---")
 }
 
-printDiscount(totalAmount: 100.0, calculateDiscount: calculateADiscount)
+printDiscount(totalAmount: 100.0, calculateDiscount: calculateDiscount)
 
 
 // MARK: - Assignment 4: Closure
 
-let calculateDiscount: ApplyDiscount = { totalAmount, discountName in
-    let discountPercentage = discountType[discountName] ?? 0
-    
-    guard discountPercentage > 0 else { return totalAmount }
-    
-    let discountedAmount = totalAmount * NSNumber(value: discountPercentage).decimalValue
+/// A closure that calculates discounted amount on a given total amount and a discount type
+/// - Parameters:
+///   - totalAmount: total amount before discounts
+///   - discountType: enum DiscountType -> see assignment 7
+/// - Returns: total amount after discount is applies
+let calculateDiscount: (Decimal, DiscountType) -> Decimal  = { totalAmount, discountType in
+    let discountedAmount = totalAmount * discountType.discountRate
     var totalAmountAfterDiscount = totalAmount - discountedAmount
     
     return totalAmountAfterDiscount.roundToDigit(scale: 2)
 }
 
-
 calculateDiscount(100.25, "Default")
+
 
 // MARK: - Assignment 5: Map
 
+/// Increase all items' prices with a given percentage and print them
+/// - Parameters:
+///   - itemPrices: an array of existing items' prices
+///   - percentIncrease: a percentage to increase the prices
+/// - Returns: total amount after discount is applies
 func increasePrices(itemPrices: inout [Decimal], percentIncrease: Decimal) {
+    print("Increased all items' prices by \(percentIncrease)%:")
     itemPrices
         .map {
             var increasedPrice = $0 * (1 + percentIncrease)
             return increasedPrice.roundToDigit(scale: 2)
         }
-        .forEach{ print(NumberFormatter.currencyFormatter.string(from: $0 as NSDecimalNumber)!) }
+        .forEach{
+            print(NumberFormatter.currencyFormatter.string(from: $0 as NSDecimalNumber)!, terminator: " ")
+        }
+    print("\n---")
 }
 
 increasePrices(itemPrices: &itemPrices, percentIncrease: 0.5)
@@ -119,23 +118,27 @@ increasePrices(itemPrices: &itemPrices, percentIncrease: 0.5)
 
 // MARK: Assignment 6: Sorted
 
-typealias DiscountTypes = [String: Float]
-
-func sortDiscounts(discountTypes: DiscountTypes) -> [DiscountTypes.Element] {
-    return discountTypes.sorted(by: { $0.value > $1.value } )
+/// Sorts a dictionary with all discount names and values in a decinding order
+/// - Parameter discountType: dictionary with all discounts' names and values
+/// - Returns: An array of named tupples with discount name as key and discount percentage as value
+func sortDiscounts(discountType: [String: Decimal]) -> Any {
+    return Array(discountType.sorted(by: { $0.value > $1.value }))
 }
-let sortedDiscounts = sortDiscounts(discountTypes: discountType)
-print(sortedDiscounts)
+
+let sortedDiscounts = sortDiscounts(discountType: discountType)
+print("All Discounts sorted descending:\n",sortedDiscounts, "\n---")
 
 
 // MARK: - Assignment 7: Enums and Switch Cases
+
+/// Enum with all types of dicounts' names and percetages
 enum DiscountType: String, CaseIterable {
     case `default` = "Default"
     case tanksgiving = "Thanksgiving"
     case christmas = "Christmas"
     case newYear = "New Year"
     
-    var discountRate: Double {
+    var discountRate: Decimal {
         switch self {
         case .default:
             return 0.05
@@ -149,61 +152,76 @@ enum DiscountType: String, CaseIterable {
     }
 }
 
+/// Prints a discount name and percentage
+/// - Parameter discountType: DiscountType enum
 func printDiscount(discountType: DiscountType) {
-    print(discountType.discountRate)
+    print("\(discountType.rawValue) discount: \(discountType.discountRate * 100)%\n---")
+}
+
+/// Prints all discount names and values
+func printDiscount() {
+    DiscountType.allCases.forEach {
+        print("\($0.rawValue) discount: \($0.discountRate * 100)%")
+    }
 }
 
 printDiscount(discountType: .christmas)
+printDiscount()
 
 
 // MARK: - Assignment 8: Computed Property
 
+/// Shopping cart data model
 struct ShoppingCart {
-    var itemPrices: [Decimal] = [10.5, 12.25, 14.0]
+    var itemPrices: [Decimal] = [10.0, 20.0, 30.0]
     var currentDiscount = DiscountType.christmas
     
     var totalAmount: Decimal {
+        return itemPrices.reduce(0.0, +)
+    }
+    
+    
+    /// Assigment 8: Computed property
+    var currentDiscountedAmount: Decimal {
         return itemPrices.reduce(0.0) { partialResult, itemPrice in
-            partialResult + itemPrice
+            partialResult + itemPrice * (1 - currentDiscount.discountRate)
         }
     }
     
-    lazy var maxDiscount: Double? = {
+    /// Assigment 9: Lazy  property
+    lazy var maxDiscount: Decimal? = {
         let maxDiscount = DiscountType.allCases.max(by: { $0.discountRate < $1.discountRate})
         
         return maxDiscount?.discountRate
     }()
     
-    var currentDiscountedAmount: Decimal {
-        return itemPrices.reduce(0.0) { partialResult, itemPrice in
-            partialResult + itemPrice * NSNumber(value: 1 - currentDiscount.discountRate).decimalValue
-        }
-    }
-    
-    func getTotalAmountAfterApplyingDiscount(discountType: DiscountType) -> Decimal {
-        var totalAmountAfterApplyingDiscount = totalAmount * NSNumber(value: 1 - currentDiscount.discountRate).decimalValue
+    /// Assigment 10: Method
+    func getTotalAmountAfterDiscount(discountType: DiscountType) -> Decimal {
+        var totalAmountAfterApplyingDiscount = totalAmount * (1 - discountType.discountRate)
         return totalAmountAfterApplyingDiscount.roundToDigit(scale: 2)
     }
 }
 
 var shoppingCart = ShoppingCart()
+shoppingCart.totalAmount
 shoppingCart.currentDiscountedAmount
 shoppingCart.maxDiscount
-shoppingCart.getTotalAmountAfterApplyingDiscount(discountType: .newYear)
+shoppingCart.getTotalAmountAfterDiscount(discountType: .newYear)
 
 
 // MARK: Assignment 11: Protocol
 
+/// Discount protocol requiring discountType as DiscountType enum, discount percentage and method to apply the discount on given total amount
 protocol Discount {
     var discountType: DiscountType { get set }
-    var dicountPercentage: Double { get set }
+    var dicountPercentage: Decimal { get set }
     func calculateDiscount(totalAmount: Decimal) -> Decimal
 }
 
+/// A class implementing the Discount protocol
 class CurrentDiscount: Discount {
     var discountType: DiscountType
-    
-    var dicountPercentage: Double
+    var dicountPercentage: Decimal
     
     init(discountType: DiscountType) {
         self.discountType = discountType
@@ -211,8 +229,7 @@ class CurrentDiscount: Discount {
     }
     
     func calculateDiscount(totalAmount: Decimal) -> Decimal {
-        var totalAmountAfterApplyingDiscount = totalAmount * NSNumber(value: 1 - discountType.discountRate).decimalValue
-        
+        var totalAmountAfterApplyingDiscount = totalAmount * (1 - dicountPercentage)
         return totalAmountAfterApplyingDiscount.roundToDigit(scale: 2)
     }
 }
@@ -220,20 +237,13 @@ class CurrentDiscount: Discount {
 
 //MARK: - Assignment 12: Extension
 
+/// Extenion of the Shopping cart struct that rounds the total discounted amount
 extension ShoppingCart {
-    
     var roundedTotalDiscountedAmount: Decimal {
-        var totalAmount = self.totalAmount
-        return totalAmount.roundToDigit(scale: 0)
-    }
-}
-
-
-extension Decimal {
-    mutating func roundToDigit(scale: Int) -> Decimal {
-        var roundedAmount: Decimal = 0
-        NSDecimalRound(&roundedAmount, &self, scale, NSDecimalNumber.RoundingMode.plain)
-        return roundedAmount
+        var roundedTotalDiscountedAmount: Decimal = 0
+        var currentTotalAmount = self.totalAmount
+        NSDecimalRound(&roundedTotalDiscountedAmount, &currentTotalAmount, 0, NSDecimalNumber.RoundingMode.plain)
+        return roundedTotalDiscountedAmount
     }
 }
 
@@ -244,11 +254,21 @@ shoppingCart.itemPrices = [50.4]
 shoppingCart.roundedTotalDiscountedAmount
 
 
+// MARK: - Extensions
+
+extension Decimal {
+    mutating func roundToDigit(scale: Int) -> Decimal {
+        var roundedAmount: Decimal = 0
+        NSDecimalRound(&roundedAmount, &self, scale, NSDecimalNumber.RoundingMode.plain)
+        return roundedAmount
+    }
+}
+
 extension NumberFormatter {
     static var currencyFormatter: NumberFormatter {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currency
-            formatter.locale = Locale(identifier: "us_US")
-            return formatter
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "us_US")
+        return formatter
     }
 }
