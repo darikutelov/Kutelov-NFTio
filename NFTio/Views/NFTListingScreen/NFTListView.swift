@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-struct NFTListingView: View {
-    @StateObject var viewModel = NFTListingViewViewModel()
+struct NFTListView: View {
+    @StateObject var viewModel = NFTListViewViewModel()
     
     let columns = [
-           GridItem(.flexible()),
-           GridItem(.flexible())
-       ]
-
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         ZStack {
             Color(uiColor: .secondarySystemBackground)
+                .edgesIgnoringSafeArea(.all)
             
             ScrollView(.vertical,
                        showsIndicators: false) {
@@ -34,6 +35,6 @@ struct NFTListingView: View {
 
 struct NFTListingView_Previews: PreviewProvider {
     static var previews: some View {
-        NFTListingView(viewModel: NFTListingViewViewModel())
+        NFTListView(viewModel: NFTListViewViewModel())
     }
 }

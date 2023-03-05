@@ -15,7 +15,10 @@ struct ButtonView: View {
             .font(.subheadline)
             .fontWeight(.semibold)
             .foregroundColor(Color(Constants.Colors.buttonText))
-            .padding(EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 32))
+            .padding(
+                EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 32)
+            )
+            .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 15.0)
                     .fill(Color(Constants.Colors.buttonBackground))

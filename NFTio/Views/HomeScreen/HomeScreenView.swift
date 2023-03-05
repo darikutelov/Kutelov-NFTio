@@ -15,24 +15,26 @@ struct HomeScreenView: View {
         NavigationView {
             ZStack {
                 HomeBackgroundView(isOnboardingScreenOpen: $isOnboardingScreenOpen)
-                VStack(spacing: Constants.Spacing.large) {
+                VStack() {
                     Spacer()
                     AppIconView()
                         .frame(
                             width: Constants.General.appIconSize,
                             height: Constants.General.appIconSize
                         )
+                        .padding(.top, Constants.Spacing.xlarge)
                     WelcomeTextView(text: "\(Constants.Text.Home.welcome), \(user.username)!")
                         .padding(Constants.Spacing.xlarge)
                     Spacer()
-                    NavigationLink(destination: NFTListingView().navigationBarBackButtonHidden(true)
+                    NavigationLink(destination: NFTListView().navigationBarBackButtonHidden(true)
                         .navigationTitle("All NFTs")
                         , label: {
                         ButtonView(buttonText: "Get Started")
-                            .padding([.bottom])
+                            .padding()
+                            .frame(maxWidth: 400)
                     })
                     .navigationBarTitleDisplayMode(.large)
-                    .padding([.bottom])
+                    .padding(.bottom)
                     
                 }.background(
                     HomeBackgroundImageView()
@@ -63,7 +65,6 @@ struct HomeBackgroundView: View {
             }
             Spacer()
         }
-        .padding()
     }
 }
 
