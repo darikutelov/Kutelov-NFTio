@@ -17,8 +17,7 @@ let discountType: [String: Decimal] = [
 ///   - discountPercentage: discount percentage
 /// - Returns: the amount after the discount is applied
 func calculateDiscount(totalAmount: Decimal, discountPercentage: Decimal) -> Decimal {
-    let discountedAmount = totalAmount * discountPercentage
-    var totalAmountAfterDiscount = totalAmount - discountedAmount
+    var totalAmountAfterDiscount = totalAmount * ( 1 - discountPercentage)
     return totalAmountAfterDiscount.roundToDigit(scale: 2)
 }
 
@@ -33,8 +32,7 @@ calculateDiscount(totalAmount: 100.0, discountPercentage: 0.10)
 ///   - discountPercentageOrDefault: discount percentage with a default value of 5%
 /// - Returns: he amount after the discount is applied
 func calculateDiscount(totalAmount: Decimal, discountPercentageOrDefault: Decimal = 0.05) -> Decimal {
-    let discountedAmount = totalAmount * discountPercentageOrDefault
-    var totalAmountAfterDiscount = totalAmount - discountedAmount
+    var totalAmountAfterDiscount = totalAmount * ( 1 - discountPercentageOrDefault)
     return totalAmountAfterDiscount.roundToDigit(scale: 2)
 }
 
@@ -90,8 +88,15 @@ let calculateDiscount: (Decimal, DiscountType) -> Decimal  = { totalAmount, disc
     return totalAmountAfterDiscount.roundToDigit(scale: 2)
 }
 
-calculateDiscount(100.25, "Default")
+let calculateDiscount1: (Decimal, DiscountType) -> Decimal  = {
+    var totalAmountAfterDiscount = $0 * (1 - $1.discountRate)
+    
+    return totalAmountAfterDiscount.roundToDigit(scale: 2)
+}
 
+
+calculateDiscount(100.25, .default)
+calculateDiscount1(100.25, .default)
 
 // MARK: - Assignment 5: Map
 
@@ -172,7 +177,7 @@ printDiscount()
 // MARK: - Assignment 8: Computed Property
 
 /// Shopping cart data model
-struct ShoppingCart {
+struct Checkout {
     var itemPrices: [Decimal] = [10.0, 20.0, 30.0]
     var currentDiscount = DiscountType.christmas
     
@@ -190,9 +195,9 @@ struct ShoppingCart {
     
     /// Assigment 9: Lazy  property
     lazy var maxDiscount: Decimal? = {
-        let maxDiscount = DiscountType.allCases.max(by: { $0.discountRate < $1.discountRate})
-        
-        return maxDiscount?.discountRate
+        return DiscountType.allCases
+            .map({ $0.discountRate })
+            .max()
     }()
     
     /// Assigment 10: Method
@@ -202,28 +207,31 @@ struct ShoppingCart {
     }
 }
 
-var shoppingCart = ShoppingCart()
-shoppingCart.totalAmount
-shoppingCart.currentDiscountedAmount
-shoppingCart.maxDiscount
-shoppingCart.getTotalAmountAfterDiscount(discountType: .newYear)
+var checkout = Checkout()
+checkout.totalAmount
+checkout.currentDiscountedAmount
+checkout.maxDiscount
+checkout.getTotalAmountAfterDiscount(discountType: .newYear)
 
 
 // MARK: Assignment 11: Protocol
 
 /// Discount protocol requiring discountType as DiscountType enum, discount percentage and method to apply the discount on given total amount
 protocol Discount {
-    var discountType: DiscountType { get set }
-    var dicountPercentage: Decimal { get set }
+    var discountType: DiscountType { get }
+    var dicountPercentage: Decimal { get }
+    
+    init(discountType: DiscountType)
+    
     func calculateDiscount(totalAmount: Decimal) -> Decimal
 }
 
 /// A class implementing the Discount protocol
 class CurrentDiscount: Discount {
-    var discountType: DiscountType
-    var dicountPercentage: Decimal
+    let discountType: DiscountType
+    let dicountPercentage: Decimal
     
-    init(discountType: DiscountType) {
+    required init(discountType: DiscountType) {
         self.discountType = discountType
         self.dicountPercentage = discountType.discountRate
     }
@@ -238,7 +246,7 @@ class CurrentDiscount: Discount {
 //MARK: - Assignment 12: Extension
 
 /// Extenion of the Shopping cart struct that rounds the total discounted amount
-extension ShoppingCart {
+extension Checkout {
     var roundedTotalDiscountedAmount: Decimal {
         var roundedTotalDiscountedAmount: Decimal = 0
         var currentTotalAmount = self.totalAmount
@@ -247,11 +255,11 @@ extension ShoppingCart {
     }
 }
 
-shoppingCart.itemPrices = [50.5]
-shoppingCart.roundedTotalDiscountedAmount
+checkout.itemPrices = [50.5]
+checkout.roundedTotalDiscountedAmount
 
-shoppingCart.itemPrices = [50.4]
-shoppingCart.roundedTotalDiscountedAmount
+checkout.itemPrices = [50.4]
+checkout.roundedTotalDiscountedAmount
 
 
 // MARK: - Extensions
