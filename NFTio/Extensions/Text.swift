@@ -26,6 +26,8 @@ extension Constants {
             public static let totalAmount = "total amount"
             public static let amountToPay = "amount to pay"
             public static let discount = "discount"
+            public static let promoCodeInvite = "Enter promo code"
+            public static let promoCodeAppyButton = "Apply Code"
         }
     }
 }

@@ -16,7 +16,6 @@ struct CheckoutCellTopContentView: View {
             Spacer()
             Label(text: "Price")
         }
-        
     }
 }
 

@@ -13,7 +13,7 @@ struct TotalAmountLabelView: View {
     var body: some View {
         Text("\(text)".capitalized)
             .font(.title3)
-            .fontWeight(.semibold)
+            .fontWeight(.medium)
             .foregroundColor(Color(Constants.Colors.primaryText))
             .opacity(0.8)
     }

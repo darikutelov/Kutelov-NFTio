@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct CheckoutItemCellView: View {
-    var checkoutItem: ShoppingCartDataManager.ShoppingCartItem
+    var checkoutItem: ShoppingCartItem
     
     var body: some View {
         HStack {

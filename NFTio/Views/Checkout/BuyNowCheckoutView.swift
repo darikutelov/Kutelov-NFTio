@@ -9,22 +9,42 @@ import SwiftUI
 
 struct BuyNowCheckoutView: View {
     @StateObject var viewModel = BuyNowCheckoutViewViewModel()
+    @State var promoCode: String = ""
     
     var body: some View {
         ZStack {
             Color(uiColor: .secondarySystemBackground)
                 .edgesIgnoringSafeArea(.all)
-            VStack {
-                Title(text: Constants.Text.Checkout.screenTitle)
-                    .padding(.vertical)
-                CheckoutItemListView(
-                    checkoutItems: viewModel.checkoutItems
-                )
-                TotalCheckoutAmountView(viewModel: viewModel)
-                Button {
-                    print("checkout")
-                } label: {
-                    ButtonView(buttonText: Constants.Text.Checkout.checkoutButton)
+            ScrollView(.vertical,
+                       showsIndicators: false) {
+                VStack {
+                    Title(text: Constants.Text.Checkout.screenTitle)
+                        .padding(.vertical)
+                    CheckoutItemListView(
+                        checkoutItems: viewModel.checkoutItems
+                    )
+                    Spacer()
+                        .frame(height: Constants.Spacing.xlarge)
+                    HStack {
+                        TextField(Constants.Text.Checkout.promoCodeInvite, text: $promoCode)
+                        Spacer()
+                        Button {
+                            guard promoCode.count > 0 else { return }
+                            viewModel.applyPromoCode(promoCode)
+                        } label: {
+                            ButtonView(buttonText: Constants.Text.Checkout.promoCodeAppyButton)
+                        }
+                    }.padding(.vertical, Constants.Spacing.standard)
+                    TotalCheckoutAmountView(
+                        seasonalDiscount: viewModel.seasonalDiscount,
+                        promoCode: viewModel.promoCodeDiscount,
+                        totalAmount: viewModel.totalAmount
+                    )
+                    Button {
+                        print("checkout")
+                    } label: {
+                        ButtonView(buttonText: Constants.Text.Checkout.checkoutButton)
+                    }
                 }
             }
             .padding()

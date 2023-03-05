@@ -26,8 +26,10 @@ struct HomeScreenView: View {
                     WelcomeTextView(text: "\(Constants.Text.Home.welcome), \(user.username)!")
                         .padding(Constants.Spacing.xlarge)
                     Spacer()
-                    NavigationLink(destination: NFTListView().navigationBarBackButtonHidden(true)
-                        .navigationTitle("All NFTs")
+                    NavigationLink(
+//                        destination: NFTListView().navigationBarBackButtonHidden(true)
+//                        .navigationTitle("All NFTs")
+                        destination: BuyNowCheckoutView().navigationBarBackButtonHidden(true)
                         , label: {
                         ButtonView(buttonText: "Get Started")
                             .padding()

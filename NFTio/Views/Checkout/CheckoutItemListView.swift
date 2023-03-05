@@ -8,18 +8,15 @@
 import SwiftUI
 
 struct CheckoutItemListView: View {
-    var checkoutItems: [ShoppingCartDataManager.ShoppingCartItem]
+    var checkoutItems: [ShoppingCartItem]
     let columns = [
         GridItem(.flexible())
     ]
     
     var body: some View {
-        ScrollView(.vertical,
-                   showsIndicators: false) {
-            LazyVGrid(columns: columns, spacing: 12) {
-                ForEach(checkoutItems, id: \.self.nftItem.id) {
-                    CheckoutItemCellView(checkoutItem: $0)
-                }
+        LazyVGrid(columns: columns, spacing: 12) {
+            ForEach(checkoutItems, id: \.self.nftItem.id) {
+                CheckoutItemCellView(checkoutItem: $0)
             }
         }
     }

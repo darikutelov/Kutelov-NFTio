@@ -24,6 +24,7 @@
 		9C0B042129B4FE55000330AB /* CardEthereumPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B042029B4FE54000330AB /* CardEthereumPriceView.swift */; };
 		9C0B042329B50008000330AB /* TotalCheckoutAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B042229B50008000330AB /* TotalCheckoutAmountView.swift */; };
 		9C0B042529B50287000330AB /* TotalAmountLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B042429B50287000330AB /* TotalAmountLabelView.swift */; };
+		9C0B042729B5225A000330AB /* DiscountAndDiscountAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B042629B5225A000330AB /* DiscountAndDiscountAmountView.swift */; };
 		9C0C4E9A29B4D6470018E546 /* ShoppingCartDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C4E9929B4D6470018E546 /* ShoppingCartDataManager.swift */; };
 		9C0C4E9C29B4DDC50018E546 /* CheckoutItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C4E9B29B4DDC50018E546 /* CheckoutItemCellView.swift */; };
 		9C0C4E9E29B4DDE30018E546 /* CheckoutItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C4E9D29B4DDE30018E546 /* CheckoutItemListView.swift */; };
@@ -74,6 +75,7 @@
 		9C0B042029B4FE54000330AB /* CardEthereumPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEthereumPriceView.swift; sourceTree = "<group>"; };
 		9C0B042229B50008000330AB /* TotalCheckoutAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCheckoutAmountView.swift; sourceTree = "<group>"; };
 		9C0B042429B50287000330AB /* TotalAmountLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountLabelView.swift; sourceTree = "<group>"; };
+		9C0B042629B5225A000330AB /* DiscountAndDiscountAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountAndDiscountAmountView.swift; sourceTree = "<group>"; };
 		9C0C4E9929B4D6470018E546 /* ShoppingCartDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartDataManager.swift; sourceTree = "<group>"; };
 		9C0C4E9B29B4DDC50018E546 /* CheckoutItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemCellView.swift; sourceTree = "<group>"; };
 		9C0C4E9D29B4DDE30018E546 /* CheckoutItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemListView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				9C0B042029B4FE54000330AB /* CardEthereumPriceView.swift */,
 				9C0B042229B50008000330AB /* TotalCheckoutAmountView.swift */,
 				9C0B042429B50287000330AB /* TotalAmountLabelView.swift */,
+				9C0B042629B5225A000330AB /* DiscountAndDiscountAmountView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				9C0E478D29ABB6E100DEB975 /* NameView.swift in Sources */,
 				9C94667D29B20BB000129EB1 /* NFTDataManager.swift in Sources */,
 				9C2EA9B129A113E9009A831C /* OnboardingScreenView.swift in Sources */,
+				9C0B042729B5225A000330AB /* DiscountAndDiscountAmountView.swift in Sources */,
 				9C0C4EA529B4E5B50018E546 /* NumberFormatter.swift in Sources */,
 				9CF42D14299FDC8800CAA856 /* User.swift in Sources */,
 				9CBB98E529A2229E00759204 /* GetStartedButtonView.swift in Sources */,
