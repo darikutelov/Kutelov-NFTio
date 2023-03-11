@@ -12,7 +12,7 @@ struct ContentView: View {
   
   var body: some View {
     if user.isAuthenticated {
-      HomeScreenView(user: $user)
+      WelcomeScreenView(user: $user)
     } else {
       //LoginScreenView()
     }

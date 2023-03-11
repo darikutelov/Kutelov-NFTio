@@ -22,16 +22,19 @@ final class NFTDataManager {
     }
 }
 
+//Categort
+let artCategory = Category(id: "1", name: .art, imageUrl: "art.jpg")
 
 //Collection
 var collection1 = Collection(
+    id: "2",
     collectionName: "Bored Ape Yacht Club",
     description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
     imageUrl: "https://i.seadn.io/gae/lHexKRMpw-aoSyB1WdFBff5yfANLReFxHzt1DOj_sg7mS14yARpuvYcUtsyyx-Nkpk6WTcUPFoG53VnLJezYi8hAs0OxNZwlw6Y-dmI?auto=format&w=3840",
     contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
     numberOfItems: 9998,
     createdAt: "2021-04-01T12:00:00.000Z".getDateFromString(),
-    category: .art,
+    category: artCategory,
     totalVolume: 890277,
     floorPrice: 68.86,
     owners: 5888
@@ -55,7 +58,7 @@ let demoNFT = [NFT(
     imageUrl: "https://i.seadn.io/gae/v4CjskuHJt0F_exzLeoIxlZqctqu6TbzFU1kUV9-dH7zHAPUH8K9P_cZyFFmcAlUc1aT4JjkvRVdwQpwjTR34L8XsNxD5lvh922w?auto=format&w=1000",
     likes: 29,
     creator: "YugaLabs",
-    category: .art,
+    category: artCategory,
     collection: collection1,
     contractAddress:"0xd4307e0acd12cf46fd6cf93bc264f5d5d1598792",
     price: Price(
@@ -72,7 +75,7 @@ let demoNFT = [NFT(
     imageUrl: "https://i.seadn.io/gae/JvfjXuTz7Kxgj-FeITNEjzto2kuNr690OLYDWWFSrJ4S30D7GR2-X0EglRPxyoVJKLbaurORsrxGOFeUDXhCsm7MtzwK_K9K3RnNxaQ?auto=format&w=1000",
     likes: 37,
     creator: "YugaLabs",
-    category: .art,
+    category: artCategory,
     collection: collection1,
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
@@ -89,7 +92,7 @@ let demoNFT = [NFT(
     imageUrl: "https://i.seadn.io/gae/-706iQmTnV6N7aqbCj5MGpHsEvrBknwpBjoVJFjbPogUUar0wjpsLp2wlxIvcGZjAFmZKtcz-2j510MfR9P0H_NeBDJ3xaqrTUPdaxo?auto=format&w=1000",
     likes: 34,
     creator: "YugaLabs",
-    category: .art,
+    category: artCategory,
     collection: collection1,
     contractAddress:"0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
     price: Price(
@@ -106,7 +109,7 @@ let demoNFT = [NFT(
     imageUrl: "https://i.seadn.io/gae/0YflX-YXzFapvdTa-waESblOV9AuGqm1iKVEPDxzyekbOhSupCvuNahwKulrVrkQUvW2xN4sw30bnvSHnUcszRIZJzq2P7z19JK-aLU?auto=format&w=3840",
     likes: 34,
     creator: "YugaLabs",
-    category: .art,
+    category: artCategory,
     collection: collection1,
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
@@ -123,7 +126,7 @@ let demoNFT = [NFT(
     imageUrl: "https://i.seadn.io/gae/MrrzxdlB4u0-7CrC4pKakSuCkhqU834l1qen6HI0MdLZzzGCkt5KdSMrxavl3vOb1uYEabR_wwhGUxtQM0g3xlcU7GgSCpkg-3J4_A?auto=format&w=3840",
     likes: 25,
     creator: "YugaLabs",
-    category: .art,
+    category: artCategory,
     collection: collection1,
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
@@ -140,7 +143,7 @@ let demoNFT = [NFT(
     imageUrl: "https://i.seadn.io/gae/7YZf35HGBGQjf34S6qlNDQRlvQ02qn0Wnrk-d7JR336wCy--KaltTk-X8PrOLqJa1zY8zW0kT4vzVx0ODxfgj74bTZ6N8ltl0_asK3M?auto=format&w=3840",
     likes: 21,
     creator: "YugaLabs",
-    category: .art,
+    category: artCategory,
     collection: collection1,
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(

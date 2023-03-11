@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeScreenView: View {
+struct WelcomeScreenView: View {
     @Binding var user: User
     @State private var isOnboardingScreenOpen = false
     
@@ -27,9 +27,7 @@ struct HomeScreenView: View {
                         .padding(Constants.Spacing.xlarge)
                     Spacer()
                     NavigationLink(
-//                        destination: NFTListView().navigationBarBackButtonHidden(true)
-//                        .navigationTitle("All NFTs")
-                        destination: BuyNowCheckoutView().navigationBarBackButtonHidden(true)
+                        destination: HomeView().navigationBarBackButtonHidden(true)
                         , label: {
                         ButtonView(buttonText: "Get Started")
                             .padding()
@@ -39,7 +37,7 @@ struct HomeScreenView: View {
                     .padding(.bottom)
                     
                 }.background(
-                    HomeBackgroundImageView()
+                    WelcomeBackgroundImageView()
                 )
             }
         }
@@ -75,6 +73,6 @@ struct HomeBackgroundView: View {
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreenView(user: .constant(User()))
+        WelcomeScreenView(user: .constant(User()))
     }
 }

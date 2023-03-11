@@ -66,7 +66,7 @@ struct NFTCellView_Previews: PreviewProvider {
                                   imageUrl: "https://i.seadn.io/gae/v4CjskuHJt0F_exzLeoIxlZqctqu6TbzFU1kUV9-dH7zHAPUH8K9P_cZyFFmcAlUc1aT4JjkvRVdwQpwjTR34L8XsNxD5lvh922w?auto=format&w=1000",
                                   likes: 29,
                                   creator: "YugaLabs",
-                                  category: .art,
+                                  category: Category(id: "1", name: .art, imageUrl: "art.jpg"),
                                   collection: collection1,
                                   contractAddress:"0xd4307e0acd12cf46fd6cf93bc264f5d5d1598792",
                                   price: Price(

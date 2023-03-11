@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeBackgroundImageView: View {
+struct WelcomeBackgroundImageView: View {
     var body: some View {
         Image(systemName: "bitcoinsign.circle")
             .font(.system(size: Constants.General.roundedRectViewWidth * 2.15))
@@ -22,6 +22,6 @@ struct HomeBackgroundImageView: View {
 
 struct HomeBackgroundImageView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeBackgroundImageView()
+        WelcomeBackgroundImageView()
     }
 }
