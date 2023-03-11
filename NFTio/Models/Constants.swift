@@ -16,8 +16,9 @@ enum Constants {
         public static let roundedRectCornerRadius = CGFloat(28.0)
         public static let appIconSize = CGFloat(150.0)
         public static let roundedRectViewWidth = CGFloat(270.0)
-        public static let standardCornerRadius = CGFloat(15.0)
+        public static let standardCornerRadius = CGFloat(16.0)
         public static let smallCornerRadius = CGFloat(7.0)
+        public static let ethereumRateToUsd = Decimal(1568.73)
     }
     
     enum Spacing {
@@ -52,5 +53,13 @@ enum Constants {
             Color(red: 1.0, green: 1.0, blue: 1.0, opacity: 0.4),
             Color(red: 1.0, green: 1.0, blue: 1.0, opacity: 0.0)
         ]
+    }
+    
+    enum Discounts {
+        public static let firstTimeShopper: Decimal = 0.03
+        public static let abandonedCart: Decimal = 0.05
+        public static let influencers: Decimal = 0.075
+        public static let referal: Decimal = 0.05
+        public static let seasonalDeals: Decimal = 0.10
     }
 }

@@ -27,7 +27,7 @@ struct NFT: Identifiable {
 /// Data structure for price of NFT itme
 struct Price {
     let cryptoCurrency: CryptoCurrency
-    let priceInCryptoCurrency: Double
+    let priceInCryptoCurrency: Decimal
 }
 
 /// Data structure for a bit in NFT auction

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NFTDataManager {
+final class NFTDataManager {
     var nftItems = [NFT]()
     
     init() {
@@ -60,7 +60,7 @@ let demoNFT = [NFT(
     contractAddress:"0xd4307e0acd12cf46fd6cf93bc264f5d5d1598792",
     price: Price(
         cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 67.45)
+        priceInCryptoCurrency: 67.452345)
     ,
     quantity: 1,
     auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
@@ -77,7 +77,7 @@ let demoNFT = [NFT(
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
         cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 67.401)
+        priceInCryptoCurrency: 67.4012)
     ,
     quantity: 1,
     auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
@@ -94,7 +94,7 @@ let demoNFT = [NFT(
     contractAddress:"0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
     price: Price(
         cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 67.401)
+        priceInCryptoCurrency: 67.4201)
     ,
     quantity: 1,
     auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
@@ -111,7 +111,7 @@ let demoNFT = [NFT(
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
         cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 75)
+        priceInCryptoCurrency: 75.4323)
     ,
     quantity: 1,
     auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
@@ -128,7 +128,7 @@ let demoNFT = [NFT(
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
         cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 75.45)
+        priceInCryptoCurrency: 75.4532)
     ,
     quantity: 1,
     auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
@@ -145,7 +145,7 @@ let demoNFT = [NFT(
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
         cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 75)
+        priceInCryptoCurrency: 75.1)
     ,
     quantity: 1,
     auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),

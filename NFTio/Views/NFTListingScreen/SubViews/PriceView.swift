@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct PriceView: View {
-    var price: Double
+    var price: Decimal
     
     var body: some View {
         HStack {
-            Image("ethereum")
+            Image("ethereumIconWhite")
                 .resizable()
                 .scaledToFit()
                 .frame(width: Constants.Spacing.standard,
                        height: Constants.Spacing.standard
                 )
-            Text("\(price)")
+            Text("\(price.rounded(3, .bankers))" as String)
                 .font(.footnote)
                 .foregroundColor(.white)
         }
