@@ -13,9 +13,9 @@ struct NameView: View {
     var body: some View {
         HStack {
             Text("\(name)")
-                .font(.title3)
+                .font(.headline)
                 .fontWeight(.medium)
-                .foregroundColor(Color("Black"))
+                .foregroundColor(Color("TextColor"))
             Spacer()
         }
     }

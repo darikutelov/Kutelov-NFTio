@@ -40,21 +40,18 @@ struct CategoryListView: View {
 }
 
 extension Category {
-  var view: some View {
-      VStack(spacing: Constants.Spacing.standard) {
-          SquareRoundedImageView(
-            imageAsString: imageUrl,
-            size: Constants.Spacing.superLarge,
-            roundedCornerSize: Constants.Spacing.standard
-          )
-      Text(name.rawValue.capitalized)
-        .font(.footnote)
-        .fontWeight(.medium)
-        .frame(maxWidth: Constants.Spacing.superLarge)
-        .multilineTextAlignment(.center)
-        .fixedSize(horizontal: false, vertical: true)
+    var view: some View {
+        VStack(spacing: Constants.Spacing.standard) {
+            RoundedImageView(imageUrlAsString: imageUrl)
+                .frame(width: Constants.Spacing.superLarge)
+            Text(name.rawValue.capitalized)
+                .font(.footnote)
+                .fontWeight(.medium)
+                .frame(maxWidth: Constants.Spacing.superLarge)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
+        }
     }
-  }
 }
 
 struct CategoryListView_Previews: PreviewProvider {

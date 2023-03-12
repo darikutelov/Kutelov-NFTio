@@ -51,9 +51,13 @@ struct CollectionListView: View {
 extension Collection {
     var view: some View {
         HStack {
-            RoundImageView(
-                urlAsString: Constants.Api.collectionBaseUrl + imageUrl,
-                size: Constants.Spacing.xxxlarge)
+            RoundedImageView(
+                imageUrlAsString: Constants.Api.collectionBaseUrl + imageUrl,
+                roundedCornerSize: .infinity)
+            .frame(
+                width: Constants.Spacing.xxxlarge,
+                height: Constants.Spacing.xxxlarge
+            )
             VStack(
                 alignment: .leading,
                 spacing: Constants.Spacing.small / 2

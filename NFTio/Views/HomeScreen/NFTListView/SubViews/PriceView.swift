@@ -12,13 +12,7 @@ struct PriceView: View {
     
     var body: some View {
         HStack {
-            Image("ethereumIconWhite")
-                .resizable()
-                .scaledToFit()
-                .frame(width: Constants.Spacing.standard,
-                       height: Constants.Spacing.standard
-                )
-            Text("\(price.rounded(3, .bankers))" as String)
+            Text("\(price.rounded(3, .bankers)) \(CryptoCurrency.ethereum.rawValue)" as String)
                 .font(.footnote)
                 .foregroundColor(.white)
         }
@@ -26,7 +20,7 @@ struct PriceView: View {
         .background(
             RoundedRectangle(cornerRadius: Constants.General.smallCornerRadius)
                 .fill(Color("Black"))
-                .opacity(0.34)
+                .opacity(0.5)
         )
     }
 }

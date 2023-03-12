@@ -13,20 +13,32 @@ struct LikesView: View {
     var body: some View {
         HStack {
             Spacer()
-            HStack {
+      
                 Image(systemName: "heart.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: Constants.Spacing.large)
                     .foregroundColor(.red)
-                    .font(.subheadline)
-                Text("\(numberOfLikes)")
-                    .font(.caption)
-                    .foregroundColor(.white)
-            }
+              
+   
             .padding(Constants.Spacing.small)
             .background(
-                RoundedRectangle(cornerRadius: Constants.General.smallCornerRadius)
+                RoundedRectangle(cornerRadius: .infinity)
                     .fill(Color("Black"))
-                    .opacity(0.15)
+                    .opacity(0.2)
             )
+            .overlay {
+                Text("\(numberOfLikes)")
+                    .font(.system(size: 8.0))
+                    .foregroundColor(.white)
+                    .fontWeight(.semibold)
+                    .frame(
+                        width: Constants.Spacing.xlarge,
+                        height: Constants.Spacing.medium,
+                        alignment: .bottomTrailing
+                    )
+            
+            }
         }
     }
 }

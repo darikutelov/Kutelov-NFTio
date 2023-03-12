@@ -13,9 +13,9 @@ struct CreatorNameView: View {
     var body: some View {
         HStack {
             Text("@\(creator)")
-                .font(.subheadline)
+                .font(.footnote)
                 .fontWeight(.medium)
-                .foregroundColor(Color("Black"))
+                .foregroundColor(Color("TextColor"))
                 .opacity(0.6)
             Spacer()
         }
