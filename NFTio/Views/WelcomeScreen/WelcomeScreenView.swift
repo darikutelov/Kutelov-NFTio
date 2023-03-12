@@ -47,6 +47,7 @@ struct WelcomeScreenView: View {
 
 struct HomeBackgroundView: View {
     @Binding var isOnboardingScreenOpen: Bool
+    
     var body: some View {
         VStack {
             HStack {
@@ -67,9 +68,6 @@ struct HomeBackgroundView: View {
         }
     }
 }
-
-
-
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {

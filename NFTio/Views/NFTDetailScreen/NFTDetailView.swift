@@ -27,6 +27,7 @@ struct NFTDetailView: View {
                 }
             }
             .navigationTitle("Details")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

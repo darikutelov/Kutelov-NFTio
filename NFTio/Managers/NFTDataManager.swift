@@ -154,4 +154,40 @@ let demoNFT = [NFT(
     quantity: 1,
     auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
     bids: [bid2, bid3]
-)]
+), NFT(
+    id: "13531",
+    tokenName: "#1353",
+    description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+    imageUrl: "https://i.seadn.io/gae/7YZf35HGBGQjf34S6qlNDQRlvQ02qn0Wnrk-d7JR336wCy--KaltTk-X8PrOLqJa1zY8zW0kT4vzVx0ODxfgj74bTZ6N8ltl0_asK3M?auto=format&w=3840",
+    likes: 21,
+    creator: "YugaLabs",
+    category: artCategory,
+    collection: collection1,
+    contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+    price: Price(
+        cryptoCurrency: .ethereum,
+        priceInCryptoCurrency: 75.1)
+    ,
+    quantity: 1,
+    auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
+    bids: [bid2, bid3]
+)
+               , NFT(
+                id: "13532",
+                tokenName: "#1353",
+                description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+                imageUrl: "https://i.seadn.io/gae/7YZf35HGBGQjf34S6qlNDQRlvQ02qn0Wnrk-d7JR336wCy--KaltTk-X8PrOLqJa1zY8zW0kT4vzVx0ODxfgj74bTZ6N8ltl0_asK3M?auto=format&w=3840",
+                likes: 21,
+                creator: "YugaLabs",
+                category: artCategory,
+                collection: collection1,
+                contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+                price: Price(
+                    cryptoCurrency: .ethereum,
+                    priceInCryptoCurrency: 75.1)
+                ,
+                quantity: 1,
+                auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
+                bids: [bid2, bid3]
+               )
+]

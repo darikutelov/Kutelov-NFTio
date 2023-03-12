@@ -11,7 +11,7 @@ struct HomeView: View {
     @ObservedObject var viewModel = HomeViewViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color(uiColor: .secondarySystemBackground)
                     .edgesIgnoringSafeArea(.all)
@@ -28,6 +28,8 @@ struct HomeView: View {
                     .padding(.horizontal)
                 }
             }
+            .padding(.top, Constants.Spacing.xxlarge)
+            .edgesIgnoringSafeArea(.all)
         }
     }
 }

@@ -14,27 +14,34 @@ struct CollectionView: View {
     
     
     var body: some View {
-        ScrollView {
-            NFTListView(nftItems: viewModel.filteredNftItems)
-            .onAppear {
-                viewModel.setSelectedCollection(collection: selectedCollection)
-            }
-            .navigationTitle("\(selectedCollection.collectionName)")
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "arrow.backward")
-                            .foregroundColor(Color(Constants.Colors.primaryText))
+        ZStack {
+            Color(uiColor: .secondarySystemBackground)
+            ScrollView {
+                Spacer()
+                    .frame(height: Constants.Spacing.xxxlarge)
+                NFTListView(nftItems: viewModel.filteredNftItems)
+                    .onAppear {
+                        viewModel.setSelectedCollection(collection: selectedCollection)
                     }
-                }
-            }
-            .onDisappear {
-                viewModel.setSelectedCategory(category: nil)
+                    .navigationTitle("\(selectedCollection.collectionName)")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarBackButtonHidden(true)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button {
+                                dismiss()
+                            } label: {
+                                Image(systemName: "arrow.backward")
+                                    .foregroundColor(Color(Constants.Colors.primaryText))
+                            }
+                        }
+                    }
+                    .onDisappear {
+                        viewModel.setSelectedCategory(category: nil)
+                    }
             }
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

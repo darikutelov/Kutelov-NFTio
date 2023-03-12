@@ -15,7 +15,7 @@ struct NameView: View {
             Text("\(name)")
                 .font(.headline)
                 .fontWeight(.medium)
-                .foregroundColor(Color("TextColor"))
+                .foregroundColor(Color("Black"))
             Spacer()
         }
     }

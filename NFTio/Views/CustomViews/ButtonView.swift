@@ -14,7 +14,7 @@ struct ButtonView: View {
         Text("\(buttonText)".uppercased())
             .font(.subheadline)
             .fontWeight(.semibold)
-            .foregroundColor(Color(Constants.Colors.buttonText))
+            .foregroundColor(Color(Constants.Colors.buttonText).opacity(0.9))
             .padding(
                 EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 32)
             )

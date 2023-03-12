@@ -15,7 +15,7 @@ struct CreatorNameView: View {
             Text("@\(creator)")
                 .font(.footnote)
                 .fontWeight(.medium)
-                .foregroundColor(Color("TextColor"))
+                .foregroundColor(Color("Black"))
                 .opacity(0.6)
             Spacer()
         }

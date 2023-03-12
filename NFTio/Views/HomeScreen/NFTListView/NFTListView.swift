@@ -23,6 +23,7 @@ struct NFTListView: View {
                 } label: {
                     nft.view
                 }
+                .isDetailLink(true)
             }
         }
     }
