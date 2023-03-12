@@ -22,6 +22,7 @@ enum Constants {
     }
     
     enum Spacing {
+        public static let xsmall = CGFloat(4.0)
         public static let small = CGFloat(8.0)
         public static let standard = CGFloat(12.0)
         public static let medium = CGFloat(16.0)
@@ -38,10 +39,13 @@ enum Constants {
     }
     
     enum Colors {
-        public static let primary = "Violet"
+        //public static let primary = "Violet"
+        public static let primary = "Raspberry"
         public static let primaryText = "TextColor"
         public static let buttonText = "ButtonText"
         public static let buttonBackground = "ButtonBackground"
+        public static let secondary = "UltraViolet"
+        public static let terciary = "CambridgeBlue"
         public static let buttonBorderGradientColors = [
             Color.init(hex: "E60404"),
             Color.init(hex: "FB15F2"),

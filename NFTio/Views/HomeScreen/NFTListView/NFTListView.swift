@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct NFTListView: View {
     @ObservedObject var viewModel: HomeViewViewModel

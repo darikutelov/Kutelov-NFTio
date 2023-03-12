@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct AppIconView: View {
+    var cornerRadius = Constants.Spacing.standard
+    
     var body: some View {
         Image(Constants.ImageFileNames.appIcon)
             .resizable()
             .scaledToFill()
-            .cornerRadius(Constants.Spacing.standard)
+            .cornerRadius(cornerRadius)
     }
 }
 

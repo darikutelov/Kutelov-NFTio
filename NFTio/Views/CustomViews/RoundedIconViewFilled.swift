@@ -20,7 +20,7 @@ struct RoundedIconViewFilled: View {
             )
             .background(
                 Circle()
-                    .fill(Color(Constants.Colors.primary))
+                    .fill(Color(Constants.Colors.terciary))
             )
     }
 }

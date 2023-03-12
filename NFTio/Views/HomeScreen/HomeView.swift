@@ -18,6 +18,7 @@ struct HomeView: View {
                 ScrollView(.vertical,
                            showsIndicators: false) {
                     VStack(spacing: 0) {
+                        ShopName()
                         CategoryListView(viewModel: viewModel)
                             .padding(.bottom, Constants.Spacing.xxlarge)
                         CollectionListView(viewModel: viewModel)
@@ -36,3 +37,5 @@ struct HomeView_Previews: PreviewProvider {
         HomeView(viewModel: HomeViewViewModel())
     }
 }
+
+

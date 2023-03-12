@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
-import Kingfisher
+
 
 struct CheckoutItemCellView: View {
     var checkoutItem: ShoppingCartItem
     
     var body: some View {
         HStack {
-            KFImage(URL(string: checkoutItem.nftItem.imageUrl))
-                .resizable()
+            RoundedImageView(
+                imageUrlAsString: checkoutItem.nftItem.imageUrl,
+                roundedCornerSize: .infinity
+            )
                 .scaledToFit()
-                .cornerRadius(.infinity)
                 .frame(width: Constants.Spacing.xxxlarge)
             VStack(spacing: Constants.Spacing.small) {
                 CheckoutCellTopContentView(

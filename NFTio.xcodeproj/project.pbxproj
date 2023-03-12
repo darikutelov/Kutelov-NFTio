@@ -17,7 +17,6 @@
 		9C0386FD29AB52B600EF4BAD /* NFTListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386FC29AB52B600EF4BAD /* NFTListView.swift */; };
 		9C0386FF29AB548C00EF4BAD /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386FE29AB548C00EF4BAD /* HomeViewViewModel.swift */; };
 		9C03870129AB5AEE00EF4BAD /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C03870029AB5AEE00EF4BAD /* ButtonView.swift */; };
-		9C03870429AB9B8100EF4BAD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9C03870329AB9B8100EF4BAD /* Kingfisher */; };
 		9C0B041D29B4ECAE000330AB /* CheckoutCellMainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B041C29B4ECAE000330AB /* CheckoutCellMainContentView.swift */; };
 		9C0B041F29B4ECC9000330AB /* CheckoutCellBottomContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B041E29B4ECC9000330AB /* CheckoutCellBottomContentView.swift */; };
 		9C0B042129B4FE55000330AB /* CardEthereumPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B042029B4FE54000330AB /* CardEthereumPriceView.swift */; };
@@ -54,6 +53,9 @@
 		9CBB98E129A20C3F00759204 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98E029A20C3F00759204 /* Color.swift */; };
 		9CBB98E529A2229E00759204 /* GetStartedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98E429A2229E00759204 /* GetStartedButtonView.swift */; };
 		9CD226AC29BCF3D600462C35 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226AB29BCF3D600462C35 /* RoundedImageView.swift */; };
+		9CD226B029BDCC3E00462C35 /* ShopName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226AF29BDCC3E00462C35 /* ShopName.swift */; };
+		9CD226B329BDCCA500462C35 /* NFTDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226B229BDCCA500462C35 /* NFTDetailView.swift */; };
+		9CD226B529BDCDC000462C35 /* NFTDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226B429BDCDC000462C35 /* NFTDetailViewViewModel.swift */; };
 		9CF42D05299FC92600CAA856 /* NFTioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF42D04299FC92600CAA856 /* NFTioApp.swift */; };
 		9CF42D07299FC92600CAA856 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF42D06299FC92600CAA856 /* ContentView.swift */; };
 		9CF42D09299FC92800CAA856 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF42D08299FC92800CAA856 /* Assets.xcassets */; };
@@ -112,6 +114,9 @@
 		9CBB98E029A20C3F00759204 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9CBB98E429A2229E00759204 /* GetStartedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedButtonView.swift; sourceTree = "<group>"; };
 		9CD226AB29BCF3D600462C35 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		9CD226AF29BDCC3E00462C35 /* ShopName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopName.swift; sourceTree = "<group>"; };
+		9CD226B229BDCCA500462C35 /* NFTDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailView.swift; sourceTree = "<group>"; };
+		9CD226B429BDCDC000462C35 /* NFTDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailViewViewModel.swift; sourceTree = "<group>"; };
 		9CF42D01299FC92600CAA856 /* NFTio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFTio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF42D04299FC92600CAA856 /* NFTioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTioApp.swift; sourceTree = "<group>"; };
 		9CF42D06299FC92600CAA856 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,7 +130,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C03870429AB9B8100EF4BAD /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +166,7 @@
 				9C0386F229A7C4A700EF4BAD /* RoundedIconViewFilledWhite.swift */,
 				9C03870029AB5AEE00EF4BAD /* ButtonView.swift */,
 				9C0C4E9F29B4E19E0018E546 /* TextViews.swift */,
+				9CD226AF29BDCC3E00462C35 /* ShopName.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				9C0386E729A7BD5200EF4BAD /* CustomViews */,
 				9C0386E629A7BD0600EF4BAD /* OnboardingScreen */,
 				9C0386E529A7BCEF00EF4BAD /* WelcomeScreen */,
+				9CD226B129BDCC7000462C35 /* NFTDetailScreen */,
 				9C0386F929AB522400EF4BAD /* HomeScreen */,
 				9C86225029B4825000CF20E8 /* Checkout */,
 				9CF42D06299FC92600CAA856 /* ContentView.swift */,
@@ -305,6 +311,15 @@
 			path = ImageViews;
 			sourceTree = "<group>";
 		};
+		9CD226B129BDCC7000462C35 /* NFTDetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9CD226B229BDCCA500462C35 /* NFTDetailView.swift */,
+				9CD226B429BDCDC000462C35 /* NFTDetailViewViewModel.swift */,
+			);
+			path = NFTDetailScreen;
+			sourceTree = "<group>";
+		};
 		9CF42CF8299FC92600CAA856 = {
 			isa = PBXGroup;
 			children = (
@@ -371,7 +386,6 @@
 			);
 			name = NFTio;
 			packageProductDependencies = (
-				9C03870329AB9B8100EF4BAD /* Kingfisher */,
 			);
 			productName = NFTio;
 			productReference = 9CF42D01299FC92600CAA856 /* NFTio.app */;
@@ -402,7 +416,6 @@
 			);
 			mainGroup = 9CF42CF8299FC92600CAA856;
 			packageReferences = (
-				9C03870229AB9B8100EF4BAD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 9CF42D02299FC92600CAA856 /* Products */;
 			projectDirPath = "";
@@ -430,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD226B029BDCC3E00462C35 /* ShopName.swift in Sources */,
 				9C94667F29B20F7A00129EB1 /* String.swift in Sources */,
 				9C0386FD29AB52B600EF4BAD /* NFTListView.swift in Sources */,
 				9C0C4EA029B4E19E0018E546 /* TextViews.swift in Sources */,
@@ -469,6 +483,7 @@
 				9C0E478F29ABB73600DEB975 /* CreatorNameView.swift in Sources */,
 				9CB7A8DA29ABAD71008F56F8 /* LikesView.swift in Sources */,
 				9C86225829B48FEC00CF20E8 /* Decimal.swift in Sources */,
+				9CD226B329BDCCA500462C35 /* NFTDetailView.swift in Sources */,
 				9C0C4E9E29B4DDE30018E546 /* CheckoutItemListView.swift in Sources */,
 				9C0B042529B50287000330AB /* TotalAmountLabelView.swift in Sources */,
 				9C94667829B20AF800129EB1 /* Category.swift in Sources */,
@@ -477,6 +492,7 @@
 				9C37C1C729BCB1FB00125E09 /* SectionHeaderView.swift in Sources */,
 				9C0386F129A7C3AE00EF4BAD /* WelcomeBackgroundImageView.swift in Sources */,
 				9C0B042329B50008000330AB /* TotalCheckoutAmountView.swift in Sources */,
+				9CD226B529BDCDC000462C35 /* NFTDetailViewViewModel.swift in Sources */,
 				9C03870129AB5AEE00EF4BAD /* ButtonView.swift in Sources */,
 				9C0C4E9C29B4DDC50018E546 /* CheckoutItemCellView.swift in Sources */,
 			);
@@ -683,25 +699,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9C03870229AB9B8100EF4BAD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9C03870329AB9B8100EF4BAD /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C03870229AB9B8100EF4BAD /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9CF42CF9299FC92600CAA856 /* Project object */;
 }
