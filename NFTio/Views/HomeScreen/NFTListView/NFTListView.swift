@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NFTListView: View {
-    @ObservedObject var viewModel: HomeViewViewModel
+    let nftItems: [NFT]
     
     let columns = [
         GridItem(.flexible()),
@@ -17,7 +17,7 @@ struct NFTListView: View {
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 12) {
-            ForEach(viewModel.nftItems) { nft in
+            ForEach(nftItems) { nft in
                 NavigationLink {
                     NFTDetailView(nft: nft)
                 } label: {
@@ -33,7 +33,6 @@ extension NFT {
         VStack {
             ZStack {
                 RoundedImageView(imageUrlAsString: imageUrl)
-                    .scaledToFit()
                     .padding(8.0)
                 VStack {
                     Spacer()
@@ -75,6 +74,6 @@ extension NFT {
 
 struct NFTListingView_Previews: PreviewProvider {
     static var previews: some View {
-        NFTListView(viewModel: HomeViewViewModel())
+        NFTListView(nftItems: HomeViewViewModel().nftItems)
     }
 }

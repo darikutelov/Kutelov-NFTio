@@ -23,7 +23,7 @@ struct HomeView: View {
                             .padding(.bottom, Constants.Spacing.xxlarge)
                         CollectionListView(viewModel: viewModel)
                             .padding(.bottom, Constants.Spacing.xxlarge)
-                        NFTListView(viewModel: viewModel)
+                        NFTListView(nftItems: viewModel.nftItems)
                     }
                     .padding(.horizontal)
                 }

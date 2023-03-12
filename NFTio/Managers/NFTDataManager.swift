@@ -24,6 +24,7 @@ final class NFTDataManager {
 
 //Categort
 let artCategory = Category(id: "1", name: .art, imageUrl: "art.jpg")
+let musicCategory = Category(id: "2", name: .music, imageUrl: "music.jpg")
 
 //Collection
 var collection1 = Collection(
@@ -58,7 +59,7 @@ let demoNFT = [NFT(
     imageUrl: "https://i.seadn.io/gae/v4CjskuHJt0F_exzLeoIxlZqctqu6TbzFU1kUV9-dH7zHAPUH8K9P_cZyFFmcAlUc1aT4JjkvRVdwQpwjTR34L8XsNxD5lvh922w?auto=format&w=1000",
     likes: 29,
     creator: "YugaLabs",
-    category: artCategory,
+    category: musicCategory,
     collection: collection1,
     contractAddress:"0xd4307e0acd12cf46fd6cf93bc264f5d5d1598792",
     price: Price(
@@ -92,7 +93,7 @@ let demoNFT = [NFT(
     imageUrl: "https://i.seadn.io/gae/-706iQmTnV6N7aqbCj5MGpHsEvrBknwpBjoVJFjbPogUUar0wjpsLp2wlxIvcGZjAFmZKtcz-2j510MfR9P0H_NeBDJ3xaqrTUPdaxo?auto=format&w=1000",
     likes: 34,
     creator: "YugaLabs",
-    category: artCategory,
+    category: musicCategory,
     collection: collection1,
     contractAddress:"0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
     price: Price(

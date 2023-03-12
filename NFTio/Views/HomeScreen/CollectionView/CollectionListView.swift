@@ -26,8 +26,9 @@ struct CollectionListView: View {
                 ) {
                     ForEach(viewModel.collections) {collection in
                         NavigationLink(
-                            destination: NFTListView(
-                                viewModel: viewModel
+                            destination: CollectionView(
+                                viewModel: viewModel,
+                                selectedCollection: collection
                             )
                         ) {
                             collection.view

@@ -9,9 +9,34 @@ import SwiftUI
 
 final class HomeViewViewModel: ObservableObject {
     @Published var nftItems = [NFT](NFTDataManager().nftItems)
+    @Published var selectedCategory: Category? = nil
+    @Published var selectedCollection: Collection? = nil
     
     let categories = Category.categories
     let collections = Collection.collections
     
-    init() {}
+    var filteredNftItems: [NFT] {
+        if let selectedCategory = selectedCategory {
+            return nftItems.filter {
+                $0.category.id == selectedCategory.id
+            }
+        }
+        
+        if let selectedCollection = selectedCollection {
+            return nftItems.filter {
+                $0.collection.id == selectedCollection.id
+            }
+        }
+        
+        return nftItems
+    }
+    
+    
+    func setSelectedCategory(category: Category?) {
+        selectedCategory = category
+    }
+    
+    func setSelectedCollection(collection: Collection?) {
+        selectedCollection = collection
+    }
 }
