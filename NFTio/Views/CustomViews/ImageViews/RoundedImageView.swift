@@ -17,6 +17,7 @@ struct RoundedImageView: View {
                 switch response {
                 case .empty:
                     ProgressView()
+                        .accentColor(Color(Constants.Colors.primary))
                 case .success(let image):
                     image.resizable()
                         .scaledToFill()

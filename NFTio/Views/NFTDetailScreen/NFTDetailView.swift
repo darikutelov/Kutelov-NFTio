@@ -8,13 +8,43 @@
 import SwiftUI
 
 struct NFTDetailView: View {
+    @Environment(\.dismiss) private var dismiss
+    
+    private var viewModel: NFTDetailViewViewModel
+    
+    init(nft: NFT) {
+        self.viewModel = NFTDetailViewViewModel(nft: nft)
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            ScrollView {
+                GeometryReader { proxy in
+                VStack {
+                    TopInfoSectionView(
+                        nft: viewModel.nft,
+                        proxy: proxy
+                    )
+                }
+            }
+            .navigationTitle("Details")
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "arrow.backward")
+                            .foregroundColor(Color(Constants.Colors.primaryText))
+                    }
+                }
+            }
+            .padding()
+        }
     }
 }
 
 struct NFTDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NFTDetailView()
+        NFTDetailView(nft: NFTDataManager().nftItems[0])
     }
 }

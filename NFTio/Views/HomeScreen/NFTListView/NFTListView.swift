@@ -17,7 +17,13 @@ struct NFTListView: View {
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 12) {
-            ForEach(viewModel.nftItems, content: \.view)
+            ForEach(viewModel.nftItems) { nft in
+                NavigationLink {
+                    NFTDetailView(nft: nft)
+                } label: {
+                    nft.view
+                }
+            }
         }
     }
 }
