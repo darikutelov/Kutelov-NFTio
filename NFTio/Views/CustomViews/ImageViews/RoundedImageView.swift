@@ -20,12 +20,16 @@ struct RoundedImageView: View {
                         .accentColor(
                             Color(Constants.Colors.primary)
                         )
+                        .frame(width: 150, height: 150)
+                        .scaledToFit()
                 case .success(let image):
                     image.resizable()
                         .scaledToFill()
                         .cornerRadius(roundedCornerSize)
                 case .failure:
                     Image(systemName: "photo")
+                        .frame(width: 150, height: 150)
+                        .scaledToFit()
                 @unknown default:
                     EmptyView()
                 }

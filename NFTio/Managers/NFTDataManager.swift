@@ -41,6 +41,19 @@ var collection1 = Collection(
     owners: 5888
 )
 
+var collection2 = Collection(
+    id: "5",
+    collectionName: "Pukenza",
+    description: "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
+    imageUrl: "azuki.png",
+    contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+    numberOfItems: 10000,
+    createdAt: "2022-01-01T12:00:00.000Z".getDateFromString(),
+    category: categoryStore.getCategoryByCategoryName(name: .virtualWorlds)!,
+    totalVolume: 432888,
+    floorPrice: 14.3,
+    owners: 4910
+)
 
 //Users
 let user1 = User(username: "userOne", avatarUrl: "", walletAddress: "")
@@ -77,7 +90,7 @@ let demoNFT = [NFT(
     likes: 37,
     creator: "YugaLabs",
     category: artCategory,
-    collection: collection1,
+    collection: collection2,
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
         cryptoCurrency: .ethereum,

@@ -41,6 +41,7 @@ struct CollectionView: View {
                     .onDisappear {
                         viewModel.setSelectedCategory(category: nil)
                     }
+                    .padding(.horizontal)
             }
             .padding(.top, Constants.Spacing.xxlarge)
         }
