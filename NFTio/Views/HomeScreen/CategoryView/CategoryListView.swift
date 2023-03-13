@@ -13,8 +13,10 @@ struct CategoryListView: View {
     var body: some View {
         VStack {
             Section(
-                header: SectionHeaderView(sectionName: "Categories")
-                    .padding(.bottom, Constants.Spacing.small)
+                header: SectionHeaderView(
+                    sectionName: Constants.Text.Home.categoriesLabel
+                )
+                .padding(.bottom, Constants.Spacing.small)
             ) {
                 ScrollView(.horizontal) {
                     HStack(
@@ -22,16 +24,16 @@ struct CategoryListView: View {
                         spacing: Constants.Spacing.medium
                     ) {
                         ForEach(viewModel.categories) {category in
-                            NavigationLink(
-                                destination: CategoryView(
-                                    viewModel: viewModel,
-                                    selectedCategory: category
-                                )
-                            ) {
+                            NavigationLink(value: category) {
                                 category.view
                             }
-                            .buttonStyle(PlainButtonStyle())
                         }
+                    }
+                    .navigationDestination(for: Category.self) { category in
+                        CategoryView(
+                            viewModel: viewModel,
+                            selectedCategory: category
+                        )
                     }
                 }
                 .scrollIndicators(.hidden)

@@ -31,7 +31,6 @@ struct WelcomeScreenView: View {
                         , label: {
                         ButtonView(buttonText: "Get Started")
                             .padding()
-                            .frame(maxWidth: 400)
                     })
                     .navigationBarTitleDisplayMode(.large)
                     .padding(.bottom)

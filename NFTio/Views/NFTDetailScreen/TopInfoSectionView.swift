@@ -14,7 +14,9 @@ struct TopInfoSectionView: View {
     var body: some View {
         VStack{
             RoundedImageView(imageUrlAsString: nft.imageUrl)
+                .scaledToFit()
                 .frame(height: proxy.size.width)
+                .padding()
             
             VStack(spacing: Constants.Spacing.small) {
                 Text("\(nft.tokenName)")
@@ -35,7 +37,7 @@ struct TopInfoSectionView: View {
             .padding()
             Divider()
             HStack {
-                Text("Current price:")
+                Text(Constants.Text.NFTDetail.priceLabel)
                     .font(.subheadline)
                     .foregroundColor(Color(Constants.Colors.primaryText)).opacity(0.7)
                 Text("\(nft.price.priceInCryptoCurrency.rounded(3, .bankers)) \(CryptoCurrency.ethereum.rawValue)" as String)

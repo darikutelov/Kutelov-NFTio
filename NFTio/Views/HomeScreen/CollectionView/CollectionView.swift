@@ -21,7 +21,9 @@ struct CollectionView: View {
                     .frame(height: Constants.Spacing.xxxlarge)
                 NFTListView(nftItems: viewModel.filteredNftItems)
                     .onAppear {
-                        viewModel.setSelectedCollection(collection: selectedCollection)
+                        viewModel.setSelectedCollection(
+                            collection: selectedCollection
+                        )
                     }
                     .navigationTitle("\(selectedCollection.collectionName)")
                     .navigationBarTitleDisplayMode(.inline)

@@ -14,8 +14,8 @@ struct CollectionListView: View {
         VStack {
             Section(
                 header: SectionHeaderView(
-                    sectionName: "Collections",
-                    secondaryLabel: "Volume"
+                    sectionName: Constants.Text.Home.collectionsLabel,
+                    secondaryLabel: Constants.Text.Home.volumeLabel
                 )
                 .padding(.bottom, Constants.Spacing.small)
             ) {
@@ -25,22 +25,22 @@ struct CollectionListView: View {
                     spacing: Constants.Spacing.small
                 ) {
                     ForEach(viewModel.collections) {collection in
-                        NavigationLink(
-                            destination: CollectionView(
-                                viewModel: viewModel,
-                                selectedCollection: collection
-                            )
-                        ) {
+                        NavigationLink(value: collection) {
                             collection.view
                         }
-                        .buttonStyle(PlainButtonStyle())
                     }
+                }
+                .navigationDestination(for: Collection.self) { collection in
+                    CollectionView(
+                        viewModel: viewModel,
+                        selectedCollection: collection
+                    )
                 }
                 
             }
             HStack() {
                 Spacer()
-                Text("See All")
+                Text(Constants.Text.Home.seeAllLabel)
                     .font(.subheadline)
                     .fontWeight(.medium)
                     .foregroundColor(Color(Constants.Colors.primary))

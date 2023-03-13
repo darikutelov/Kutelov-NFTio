@@ -24,9 +24,14 @@ struct NFTDetailView: View {
                         nft: viewModel.nft,
                         proxy: proxy
                     )
+                    ActionButtonView(
+                        buttonText: Constants.Text.NFTDetail.buyButton,
+                        backgroundColor: Constants.Colors.primary
+                    )
+                    .padding()
                 }
             }
-            .navigationTitle("Details")
+            .navigationTitle(Constants.Text.NFTDetail.screenTitle)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
@@ -39,8 +44,28 @@ struct NFTDetailView: View {
                     }
                 }
             }
-            .padding()
+          
         }
+    }
+}
+
+struct ActionButtonView: View {
+    let buttonText: String
+    let backgroundColor: String
+    
+    var body: some View {
+        Text("\(buttonText)".uppercased())
+            .font(.subheadline)
+            .fontWeight(.semibold)
+            .foregroundColor(Color(backgroundColor).opacity(0.9))
+            .padding(
+                EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 32)
+            )
+            .frame(maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 15.0)
+                    .fill(Color(Constants.Colors.buttonBackground))
+            )
     }
 }
 

@@ -49,6 +49,7 @@
 		9C94667A29B20B4600129EB1 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667929B20B4600129EB1 /* Collection.swift */; };
 		9C94667D29B20BB000129EB1 /* NFTDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667C29B20BB000129EB1 /* NFTDataManager.swift */; };
 		9C94667F29B20F7A00129EB1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667E29B20F7A00129EB1 /* String.swift */; };
+		9CB548CE29BF068B00A67C6D /* Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB548CD29BF068B00A67C6D /* Hashable.swift */; };
 		9CB7A8DA29ABAD71008F56F8 /* LikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7A8D929ABAD71008F56F8 /* LikesView.swift */; };
 		9CBB98E129A20C3F00759204 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98E029A20C3F00759204 /* Color.swift */; };
 		9CBB98E529A2229E00759204 /* GetStartedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98E429A2229E00759204 /* GetStartedButtonView.swift */; };
@@ -113,6 +114,7 @@
 		9C94667929B20B4600129EB1 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		9C94667C29B20BB000129EB1 /* NFTDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDataManager.swift; sourceTree = "<group>"; };
 		9C94667E29B20F7A00129EB1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		9CB548CD29BF068B00A67C6D /* Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashable.swift; sourceTree = "<group>"; };
 		9CB7A8D929ABAD71008F56F8 /* LikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesView.swift; sourceTree = "<group>"; };
 		9CBB98E029A20C3F00759204 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9CBB98E429A2229E00759204 /* GetStartedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedButtonView.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				9C94667E29B20F7A00129EB1 /* String.swift */,
 				9C86225729B48FEC00CF20E8 /* Decimal.swift */,
 				9C0C4EA429B4E5B50018E546 /* NumberFormatter.swift */,
+				9CB548CD29BF068B00A67C6D /* Hashable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				9C0C4EA529B4E5B50018E546 /* NumberFormatter.swift in Sources */,
 				9CF42D14299FDC8800CAA856 /* User.swift in Sources */,
 				9CBB98E529A2229E00759204 /* GetStartedButtonView.swift in Sources */,
+				9CB548CE29BF068B00A67C6D /* Hashable.swift in Sources */,
 				9C0C4E9A29B4D6470018E546 /* ShoppingCartDataManager.swift in Sources */,
 				9C0386F529A7C54200EF4BAD /* Text.swift in Sources */,
 				9C86225629B483A300CF20E8 /* DiscountTypes.swift in Sources */,

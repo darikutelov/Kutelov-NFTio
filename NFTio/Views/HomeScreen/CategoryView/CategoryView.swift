@@ -23,7 +23,9 @@ struct CategoryView: View {
                     nftItems: viewModel.filteredNftItems
                 )
                 .onAppear {
-                    viewModel.setSelectedCategory(category: selectedCategory)
+                    viewModel.setSelectedCategory(
+                        category: selectedCategory
+                    )
                 }
                 .navigationTitle("\(selectedCategory.name.rawValue)")
                 .navigationBarTitleDisplayMode(.inline)
