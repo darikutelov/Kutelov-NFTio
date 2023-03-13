@@ -14,7 +14,6 @@ struct HomeView: View {
         NavigationStack {
             ZStack {
                 Color(uiColor: .secondarySystemBackground)
-                    .edgesIgnoringSafeArea(.all)
                 ScrollView(.vertical,
                            showsIndicators: false) {
                     VStack(spacing: 0) {
@@ -27,8 +26,8 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
                 }
+                .padding(.top, Constants.Spacing.xxlarge)
             }
-            .padding(.top, Constants.Spacing.xxlarge)
             .edgesIgnoringSafeArea(.all)
         }
     }

@@ -41,7 +41,7 @@ struct CategoryView: View {
                 .onDisappear {
                     viewModel.setSelectedCategory(category: nil)
                 }
-            }
+            }.padding(.top, Constants.Spacing.xxlarge)
         }
         .edgesIgnoringSafeArea(.all)
     }

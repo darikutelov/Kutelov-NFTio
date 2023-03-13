@@ -35,7 +35,7 @@ struct CategoryListView: View {
                     }
                 }
                 .scrollIndicators(.hidden)
-        }
+            }
         }
     }
 }

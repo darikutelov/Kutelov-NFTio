@@ -17,8 +17,8 @@ struct NFTDetailView: View {
     }
     
     var body: some View {
+        GeometryReader { proxy in
             ScrollView {
-                GeometryReader { proxy in
                 VStack {
                     TopInfoSectionView(
                         nft: viewModel.nft,
