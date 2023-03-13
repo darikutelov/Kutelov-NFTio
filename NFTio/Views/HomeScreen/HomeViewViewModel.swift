@@ -12,8 +12,8 @@ final class HomeViewViewModel: ObservableObject {
     @Published var selectedCategory: Category? = nil
     @Published var selectedCollection: Collection? = nil
     
-    let categories = Category.categories
-    let collections = Collection.collections
+    var categories = Category.categories
+    var collections = Collection.collections
     
     var filteredNftItems: [NFT] {
         if let selectedCategory = selectedCategory {

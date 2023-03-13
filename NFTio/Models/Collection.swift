@@ -18,14 +18,14 @@ struct Collection: Hashable, Identifiable {
     let createdAt: Date
     let category: Category
     let totalVolume: Int
-    let floorPrice: Decimal
+    var floorPrice: Decimal
     let owners: Int
 }
 
 let categoryStore = CategoryStore()
 
 extension Collection {
-    static let collections: [Collection] = [
+    static var collections: [Collection] = [
         Collection(
             id: "1",
             collectionName: "The Real Vision Collective",
@@ -51,7 +51,47 @@ extension Collection {
             totalVolume: 890277,
             floorPrice: 68.86,
             owners: 5888
+        ),
+        Collection(
+            id: "3",
+            collectionName: "Pukenza",
+            description: "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Art Foundry.",
+            imageUrl: "pukenza.png",
+            contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            numberOfItems: 8010,
+            createdAt: "2021-12-01T12:00:00.000Z".getDateFromString(),
+            category: categoryStore.getCategoryByCategoryName(name: .art)!,
+            totalVolume: 831,
+            floorPrice: 0.03,
+            owners: 3466
+        ),
+        Collection(
+            id: "4",
+            collectionName: "ChillTuna",
+            description: "Chill Tuna is a collection of 5,000 utility-enabled NFT with a doomsday-saving background. Chill Tuna aims to create a community for web3 adventurers and builders through ongoing storytelling, interactive designs and long-term value.\n\nLet’s party amidst the chaos; let’s toast to the looming darkness; let’s fight even if it’s the end of light. Just remember… Do not go gentle into that dark night, Fighting, fighting against the dying of the light...",
+            imageUrl: "chilltuna.png",
+            contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            numberOfItems: 5000,
+            createdAt: "2022-11-01T12:00:00.000Z".getDateFromString(),
+            category: categoryStore.getCategoryByCategoryName(name: .virtualWorlds)!,
+            totalVolume: 651,
+            floorPrice: 0.0298,
+            owners: 1006
+        ),
+        Collection(
+            id: "5",
+            collectionName: "Pukenza",
+            description: "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
+            imageUrl: "azuki.png",
+            contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            numberOfItems: 10000,
+            createdAt: "2022-01-01T12:00:00.000Z".getDateFromString(),
+            category: categoryStore.getCategoryByCategoryName(name: .virtualWorlds)!,
+            totalVolume: 432888,
+            floorPrice: 14.3,
+            owners: 4910
         )
+        
     ].sorted {
         $0.totalVolume > $1.totalVolume
     }
