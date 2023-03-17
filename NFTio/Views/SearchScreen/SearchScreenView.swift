@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchScreenView: View {
     @EnvironmentObject var viewModel: NFTViewModel
+    @State private var text: String = ""
     
     var columns: [GridItem] {
         [GridItem(.adaptive(minimum: 300, maximum: 560))]
@@ -19,22 +20,27 @@ struct SearchScreenView: View {
             ZStack {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: Constants.Spacing.standard) {
-                        ForEach(viewModel.nftItems) { nft in
+                        ForEach(viewModel.filteredNftItems) { nft in
                             SearchItemCellView(nftItem: nft)
                         }
                     }
                     .padding()
                 }
             }
-            .searchable(text: $viewModel.searchTerm, prompt: "NFT name") {
-                //              ForEach(viewModel.nftItemsContaining(city), id: \.self) { city in
-                //                Text(city).searchCompletion(city)
-                //              }
+            .searchable(text: $text, prompt: "NFT name") {
+                ForEach(viewModel.nftNameCointaining(), id: \.self) { name in
+                    Text(name).searchCompletion(name)
+                }
             }
+            .onChange(of: text, perform: { text in
+                viewModel.searchTerm = text
+            })
             .background(
                 Color(uiColor: .secondarySystemBackground)
                     .edgesIgnoringSafeArea(.all)
             )
+        }.onDisappear {
+            viewModel.searchTerm = ""
         }
     }
 }

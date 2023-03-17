@@ -29,9 +29,12 @@ final class NFTViewModel: ObservableObject {
             }
         }
         
+        if !searchTerm.isEmpty {
+            return nftItems.filter { $0.tokenName.lowercased().contains(searchTerm.lowercased()) }
+        }
+        
         return nftItems
     }
-    
     
     func setSelectedCategory(category: Category?) {
         selectedCategory = category
@@ -40,4 +43,14 @@ final class NFTViewModel: ObservableObject {
     func setSelectedCollection(collection: Collection?) {
         selectedCollection = collection
     }
+    
+    /// Returns sorted unique token names for search suggestions
+    func nftNameCointaining() -> [String] {
+        let nameArray = nftItems.map { $0.tokenName }
+        let matchingNames =
+        searchTerm.isEmpty ? nameArray : nameArray.filter { $0.contains(searchTerm) }
+        let nameSet = Set(matchingNames)
+        return Array(nameSet.sorted())
+    }
 }
+//
