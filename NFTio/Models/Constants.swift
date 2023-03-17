@@ -22,6 +22,7 @@ enum Constants {
     }
     
     enum Spacing {
+        public static let xsmall = CGFloat(4.0)
         public static let small = CGFloat(8.0)
         public static let standard = CGFloat(12.0)
         public static let medium = CGFloat(16.0)
@@ -29,6 +30,7 @@ enum Constants {
         public static let xlarge = CGFloat(24.0)
         public static let xxlarge = CGFloat(36.0)
         public static let xxxlarge = CGFloat(64.0)
+        public static let superLarge = CGFloat(92.0)
     }
     
     enum ImageFileNames {
@@ -37,10 +39,14 @@ enum Constants {
     }
     
     enum Colors {
-        public static let primary = "Violet"
+        //public static let primary = "Violet"
+        public static let primary = "Raspberry"
         public static let primaryText = "TextColor"
         public static let buttonText = "ButtonText"
         public static let buttonBackground = "ButtonBackground"
+        public static let secondary = "UltraViolet"
+        public static let terciary = "CambridgeBlue"
+        public static let charcoal = "Charcoal"
         public static let buttonBorderGradientColors = [
             Color.init(hex: "E60404"),
             Color.init(hex: "FB15F2"),
@@ -61,5 +67,10 @@ enum Constants {
         public static let influencers: Decimal = 0.075
         public static let referal: Decimal = 0.05
         public static let seasonalDeals: Decimal = 0.10
+    }
+    
+    enum Api {
+        public static let categoryBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1647330626/nftio/categories/"
+        public static let collectionBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1678552863/nftio/collections/"
     }
 }

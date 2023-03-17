@@ -13,14 +13,14 @@ struct RoundedIconViewFilled: View {
     var body: some View {
         Image(systemName: systemName)
             .font(.caption)
-            .foregroundColor(Color(.white))
+            .foregroundColor(Color("DarkYellow"))
             .frame(
                 width: Constants.General.roundedViewLength,
                 height: Constants.General.roundedViewHeight
             )
             .background(
                 Circle()
-                    .fill(Color(Constants.Colors.primary))
+                    .fill(Color(Constants.Colors.charcoal))
             )
     }
 }

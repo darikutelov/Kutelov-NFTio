@@ -14,4 +14,13 @@ extension NumberFormatter {
         formatter.locale = Locale(identifier: "us_US")
         return formatter
     }
+    
+    static var ethereumCurrencyFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "bg_BG")
+        formatter.currencyDecimalSeparator = "."
+        formatter.currencySymbol = "ETH"
+        return formatter
+    }
 }

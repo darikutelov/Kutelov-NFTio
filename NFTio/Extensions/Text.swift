@@ -11,7 +11,12 @@ extension Constants {
     enum Text {
         enum Home {
             public static let welcome = String(localized: "Welcome", comment: "Welcome message on home screen")
+            public static let categoriesLabel = "Categories"
+            public static let collectionsLabel = "Collections"
+            public static let volumeLabel = "Collections"
+            public static let seeAllLabel = "See All"
         }
+        
         enum Onboarding {
             public static let description = String(localized: "Discover, buy, sell, and trade unique digital assets known as non-fungible tokens (NFTs). Browse through various collections of NFTs and view detailed information about each individual NFT.", comment: "App description on onboarding screen")
             public static let getStartedLabel = String(localized: "Get Started", comment: "Text label of get started button")
@@ -28,6 +33,12 @@ extension Constants {
             public static let discount = "discount"
             public static let promoCodeInvite = "Enter promo code"
             public static let promoCodeAppyButton = "Apply Code"
+        }
+        
+        enum NFTDetail {
+            public static let screenTitle = "Details"
+            public static let buyButton = "Buy Now"
+            public static let priceLabel = "Current Price"
         }
     }
 }

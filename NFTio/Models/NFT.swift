@@ -8,7 +8,7 @@
 import Foundation
 
 /// Data Structure to Represent NFT  item for sale
-struct NFT: Identifiable {
+struct NFT: Hashable, Identifiable {
     let id: String
     let tokenName: String
     let description: String?
@@ -22,6 +22,12 @@ struct NFT: Identifiable {
     var quantity: Int
     var auctionExpiryDate: Date
     var bids: [Bid]
+}
+
+extension NFT {
+    static func == (lhs: NFT, rhs: NFT) -> Bool {
+        lhs.id > rhs.id
+    }
 }
 
 /// Data structure for price of NFT itme
