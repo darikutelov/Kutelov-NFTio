@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryListView: View {
-    @ObservedObject var viewModel: NFTViewModel
+    @EnvironmentObject var viewModel: NFTViewModel
     
     var body: some View {
         VStack {
@@ -30,10 +30,7 @@ struct CategoryListView: View {
                         }
                     }
                     .navigationDestination(for: Category.self) { category in
-                        CategoryView(
-                            viewModel: viewModel,
-                            selectedCategory: category
-                        )
+                        CategoryView(selectedCategory: category)
                     }
                 }
                 .scrollIndicators(.hidden)
@@ -62,7 +59,7 @@ extension Category {
 
 struct CategoryListView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryListView(viewModel: NFTViewModel())
+        CategoryListView()
             .frame(maxHeight: 200)
     }
 }

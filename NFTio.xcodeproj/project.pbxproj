@@ -70,6 +70,7 @@
 		9CFD9B2B29C4602E00D12148 /* CartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9B2A29C4602E00D12148 /* CartScreenView.swift */; };
 		9CFD9B2E29C460B300D12148 /* ProfileScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9B2D29C460B300D12148 /* ProfileScreenView.swift */; };
 		9CFD9B3129C4613600D12148 /* AddNFTForSaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9B3029C4613600D12148 /* AddNFTForSaleView.swift */; };
+		9CFD9B3329C487FC00D12148 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9B3229C487FC00D12148 /* CartViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +142,7 @@
 		9CFD9B2A29C4602E00D12148 /* CartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartScreenView.swift; sourceTree = "<group>"; };
 		9CFD9B2D29C460B300D12148 /* ProfileScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenView.swift; sourceTree = "<group>"; };
 		9CFD9B3029C4613600D12148 /* AddNFTForSaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNFTForSaleView.swift; sourceTree = "<group>"; };
+		9CFD9B3229C487FC00D12148 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				9CFD9B2A29C4602E00D12148 /* CartScreenView.swift */,
+				9CFD9B3229C487FC00D12148 /* CartViewModel.swift */,
 			);
 			path = CartScreen;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				9C0386E929A7BD9500EF4BAD /* WelcomeTextView.swift in Sources */,
 				9CFD9B2529C4550B00D12148 /* TabNavigationView.swift in Sources */,
 				9C0386ED29A7BF3B00EF4BAD /* RoundedIconViewFilled.swift in Sources */,
+				9CFD9B3329C487FC00D12148 /* CartViewModel.swift in Sources */,
 				9C2EA9AA29A10A99009A831C /* WelcomeScreenView.swift in Sources */,
 				9C2EA9AF29A1104E009A831C /* Constants.swift in Sources */,
 				9C86225229B482CB00CF20E8 /* BuyNowCheckoutView.swift in Sources */,

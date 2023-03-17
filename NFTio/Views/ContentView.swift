@@ -11,11 +11,13 @@ struct ContentView: View {
     @State private var user = User()
     @AppStorage("hasSeenWelcomeScreen") private var hasSeenWelcomeScreen = false
     @ObservedObject var nftViewModel = NFTViewModel()
+    @ObservedObject var cartViewModel = CartViewModel()
     
     var body: some View {
         if hasSeenWelcomeScreen {
             TabNavigationView()
                 .environmentObject(nftViewModel)
+                .environmentObject(cartViewModel)
         } else {
             WelcomeScreenView(user: $user)
                 .onAppear {

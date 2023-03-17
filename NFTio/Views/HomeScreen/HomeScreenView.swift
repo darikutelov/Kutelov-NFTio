@@ -18,9 +18,9 @@ struct HomeScreenView: View {
                            showsIndicators: false) {
                     VStack(spacing: 0) {
                         ShopName()
-                        CategoryListView(viewModel: viewModel)
+                        CategoryListView()
                             .padding(.bottom, Constants.Spacing.xxlarge)
-                        CollectionListView(viewModel: viewModel)
+                        CollectionListView()
                             .padding(.bottom, Constants.Spacing.xxlarge)
                         NFTListView(nftItems: viewModel.nftItems)
                     }

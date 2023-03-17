@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SearchScreenView: View {
+    @EnvironmentObject var viewModel: NFTViewModel
+    
     var body: some View {
         Text("Search Me")
     }

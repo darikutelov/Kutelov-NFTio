@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CollectionListView: View {
-    @ObservedObject var viewModel: NFTViewModel
+    @EnvironmentObject var viewModel: NFTViewModel
     
     var body: some View {
         VStack {
@@ -31,10 +31,7 @@ struct CollectionListView: View {
                     }
                 }
                 .navigationDestination(for: Collection.self) { collection in
-                    CollectionView(
-                        viewModel: viewModel,
-                        selectedCollection: collection
-                    )
+                    CollectionView(selectedCollection: collection)
                 }
                 
             }
@@ -85,6 +82,6 @@ extension Collection {
 
 struct CollectionListView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionListView(viewModel: NFTViewModel())
+        CollectionListView()
     }
 }
