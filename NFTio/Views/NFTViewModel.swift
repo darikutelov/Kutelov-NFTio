@@ -11,6 +11,7 @@ final class NFTViewModel: ObservableObject {
     @Published var nftItems = [NFT](NFTDataManager().nftItems)
     @Published var selectedCategory: Category? = nil
     @Published var selectedCollection: Collection? = nil
+    @Published var searchTerm: String = ""
     
     var categories = Category.categories
     var collections = Collection.collections

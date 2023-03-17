@@ -71,6 +71,7 @@
 		9CFD9B2E29C460B300D12148 /* ProfileScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9B2D29C460B300D12148 /* ProfileScreenView.swift */; };
 		9CFD9B3129C4613600D12148 /* AddNFTForSaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9B3029C4613600D12148 /* AddNFTForSaleView.swift */; };
 		9CFD9B3329C487FC00D12148 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9B3229C487FC00D12148 /* CartViewModel.swift */; };
+		9CFD9B3629C4952500D12148 /* SearchItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9B3529C4952500D12148 /* SearchItemCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +144,7 @@
 		9CFD9B2D29C460B300D12148 /* ProfileScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenView.swift; sourceTree = "<group>"; };
 		9CFD9B3029C4613600D12148 /* AddNFTForSaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNFTForSaleView.swift; sourceTree = "<group>"; };
 		9CFD9B3229C487FC00D12148 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		9CFD9B3529C4952500D12148 /* SearchItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,6 +403,7 @@
 		9CFD9B2629C45F8000D12148 /* SearchScreen */ = {
 			isa = PBXGroup;
 			children = (
+				9CFD9B3429C494E700D12148 /* SubViews */,
 				9CFD9B2729C45FA200D12148 /* SearchScreenView.swift */,
 			);
 			path = SearchScreen;
@@ -429,6 +432,14 @@
 				9CFD9B3029C4613600D12148 /* AddNFTForSaleView.swift */,
 			);
 			path = AddNFTForSaleScreen;
+			sourceTree = "<group>";
+		};
+		9CFD9B3429C494E700D12148 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD9B3529C4952500D12148 /* SearchItemCellView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,6 +518,7 @@
 			files = (
 				9CD226B029BDCC3E00462C35 /* ShopName.swift in Sources */,
 				9C94667F29B20F7A00129EB1 /* String.swift in Sources */,
+				9CFD9B3629C4952500D12148 /* SearchItemCellView.swift in Sources */,
 				9C0386FD29AB52B600EF4BAD /* NFTListView.swift in Sources */,
 				9C0C4EA029B4E19E0018E546 /* TextViews.swift in Sources */,
 				9CF42D07299FC92600CAA856 /* ContentView.swift in Sources */,
