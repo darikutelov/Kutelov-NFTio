@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryListView: View {
-    @ObservedObject var viewModel: HomeViewViewModel
+    @ObservedObject var viewModel: NFTViewModel
     
     var body: some View {
         VStack {
@@ -62,7 +62,7 @@ extension Category {
 
 struct CategoryListView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryListView(viewModel: HomeViewViewModel())
+        CategoryListView(viewModel: NFTViewModel())
             .frame(maxHeight: 200)
     }
 }

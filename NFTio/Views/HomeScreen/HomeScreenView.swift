@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct HomeView: View {
-    @ObservedObject var viewModel = HomeViewViewModel()
+struct HomeScreenView: View {
+    @EnvironmentObject var viewModel: NFTViewModel
     
     var body: some View {
         NavigationStack {
@@ -35,7 +35,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewViewModel())
+        HomeScreenView()
     }
 }
 

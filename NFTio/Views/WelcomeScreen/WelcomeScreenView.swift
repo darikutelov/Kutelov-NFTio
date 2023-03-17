@@ -27,7 +27,7 @@ struct WelcomeScreenView: View {
                         .padding(Constants.Spacing.xlarge)
                     Spacer()
                     NavigationLink(
-                        destination: HomeView().navigationBarBackButtonHidden(true)
+                        destination: HomeScreenView().navigationBarBackButtonHidden(true)
                         , label: {
                         ButtonView(buttonText: "Get Started")
                             .padding()

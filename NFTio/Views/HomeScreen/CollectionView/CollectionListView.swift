@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CollectionListView: View {
-    @ObservedObject var viewModel: HomeViewViewModel
+    @ObservedObject var viewModel: NFTViewModel
     
     var body: some View {
         VStack {
@@ -85,6 +85,6 @@ extension Collection {
 
 struct CollectionListView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionListView(viewModel: HomeViewViewModel())
+        CollectionListView(viewModel: NFTViewModel())
     }
 }

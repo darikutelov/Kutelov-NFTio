@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CollectionView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: HomeViewViewModel
+    @ObservedObject var viewModel: NFTViewModel
     let selectedCollection: Collection
     
     
@@ -52,7 +52,7 @@ struct CollectionView: View {
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
         CollectionView(
-            viewModel: HomeViewViewModel(),
+            viewModel: NFTViewModel(),
             selectedCollection: NFTDataManager().nftItems.first!.collection
         )
     }

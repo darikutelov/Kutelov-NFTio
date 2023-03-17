@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class HomeViewViewModel: ObservableObject {
+final class NFTViewModel: ObservableObject {
     @Published var nftItems = [NFT](NFTDataManager().nftItems)
     @Published var selectedCategory: Category? = nil
     @Published var selectedCollection: Collection? = nil
