@@ -47,9 +47,18 @@ struct TabNavigationView: View {
         }
         .onAppear {
             selectedTab = 1
-            UITabBar.appearance().backgroundColor = UIColor( Color(.systemGroupedBackground))
+            setTabBarUI()
         }
         .edgesIgnoringSafeArea(.all)
+    }
+    
+    private func setTabBarUI() {
+        UITabBar.appearance().backgroundColor = UIColor(
+            Color(.systemGroupedBackground)
+        )
+        UITabBarItem.appearance().badgeColor = UIColor(
+            Color(Constants.Colors.secondary)
+        )
     }
 }
 

@@ -47,6 +47,7 @@ enum Constants {
         public static let secondary = "UltraViolet"
         public static let terciary = "CambridgeBlue"
         public static let charcoal = "Charcoal"
+        public static let darkYellow = "DarkYellow"
         public static let buttonBorderGradientColors = [
             Color.init(hex: "E60404"),
             Color.init(hex: "FB15F2"),

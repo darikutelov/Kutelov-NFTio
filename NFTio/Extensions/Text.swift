@@ -17,6 +17,10 @@ extension Constants {
             public static let seeAllLabel = "See All"
         }
         
+        enum LaunchScreen {
+            public static let headline = "Explore the World of NFTs"
+        }
+        
         enum Onboarding {
             public static let description = String(localized: "Discover, buy, sell, and trade unique digital assets known as non-fungible tokens (NFTs). Browse through various collections of NFTs and view detailed information about each individual NFT.", comment: "App description on onboarding screen")
             public static let getStartedLabel = String(localized: "Get Started", comment: "Text label of get started button")
