@@ -54,5 +54,6 @@ struct CollectionView_Previews: PreviewProvider {
         CollectionView(
             selectedCollection: NFTDataManager().nftItems.first!.collection
         )
+        .environmentObject(NFTViewModel())
     }
 }

@@ -8,26 +8,26 @@
 import SwiftUI
 
 
-struct CheckoutItemCellView: View {
-    var checkoutItem: ShoppingCartItem
+struct ShoppingCartItemCellView: View {
+    var shoppingCartItem: ShoppingCartItem
     
     var body: some View {
         HStack {
             RoundedImageView(
-                imageUrlAsString: checkoutItem.nftItem.imageUrl,
+                imageUrlAsString: shoppingCartItem.nftItem.imageUrl,
                 roundedCornerSize: .infinity
             )
                 .scaledToFit()
                 .frame(width: Constants.Spacing.xxxlarge)
             VStack(spacing: Constants.Spacing.small) {
                 CheckoutCellTopContentView(
-                    collectionName: checkoutItem.nftItem.collection.collectionName
+                    collectionName: shoppingCartItem.nftItem.collection.collectionName
                 )
                 CheckoutCellMainContentView(
-                    ethereumPrice: checkoutItem.nftItem.price.priceInCryptoCurrency)
+                    ethereumPrice: shoppingCartItem.nftItem.price.priceInCryptoCurrency)
                 CheckoutCellBottomContentView(
-                    ethereumPrice: checkoutItem.nftItem.price.priceInCryptoCurrency,
-                    quantity: checkoutItem.quantity
+                    ethereumPrice: shoppingCartItem.nftItem.price.priceInCryptoCurrency,
+                    quantity: shoppingCartItem.quantity
                 )
             }
             .padding(.leading, Constants.Spacing.small)
@@ -35,13 +35,13 @@ struct CheckoutItemCellView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: Constants.General.standardCornerRadius)
-                .fill(.white)
+                .fill(Color(Constants.Colors.cardBackground))
         )
     }
 }
 
 struct CheckoutItemCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutItemCellView(checkoutItem: ShoppingCartDataManager().shoppingCartItems[0])
+        ShoppingCartItemCellView(shoppingCartItem: ShoppingCartDataManager().shoppingCartItems[0])
     }
 }

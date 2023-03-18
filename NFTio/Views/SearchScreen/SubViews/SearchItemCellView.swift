@@ -17,7 +17,10 @@ struct SearchItemCellView: View {
                 roundedCornerSize: Constants.Spacing.standard
             )
             .scaledToFit()
-            .frame(width: Constants.Spacing.superLarge)
+            .frame(
+                width: Constants.Spacing.superLarge,
+                height: Constants.Spacing.superLarge
+            )
             VStack(alignment: .leading, spacing: Constants.Spacing.xsmall) {
                 HStack(spacing: Constants.Spacing.small) {
                     CardTitle(text: "\(nftItem.tokenName)")
@@ -40,7 +43,7 @@ struct SearchItemCellView: View {
         .padding(Constants.Spacing.small)
         .background(
             RoundedRectangle(cornerRadius: Constants.General.standardCornerRadius)
-                .fill(.white)
+                .fill(Color(Constants.Colors.cardBackground))
         )
     }
 }

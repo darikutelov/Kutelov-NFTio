@@ -16,7 +16,7 @@ struct CheckoutItemListView: View {
     var body: some View {
         LazyVGrid(columns: columns, spacing: 12) {
             ForEach(checkoutItems, id: \.self.nftItem.id) {
-                CheckoutItemCellView(checkoutItem: $0)
+                ShoppingCartItemCellView(shoppingCartItem: $0)
             }
         }
     }

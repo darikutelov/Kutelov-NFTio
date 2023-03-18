@@ -30,7 +30,10 @@ final class NFTViewModel: ObservableObject {
         }
         
         if !searchTerm.isEmpty {
-            return nftItems.filter { $0.tokenName.lowercased().contains(searchTerm.lowercased()) }
+            return nftItems.filter { $0.tokenName
+                .lowercased()
+                .localizedCaseInsensitiveContains(searchTerm.lowercased())
+            }
         }
         
         return nftItems

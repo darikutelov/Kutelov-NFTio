@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct TabNavigationView: View {
-    @AppStorage("HomeScreenCurrentTab") var selectedTab = 0
+    @AppStorage(Constants.Text.TabView.userdefaultsKey) var selectedTab = 0
+    @EnvironmentObject var cartViewModel: CartViewModel
+    
     // MARK: - Assignment 1
+    // THE CART TAB BADGE TO APPEAR YOU WOULD NEED TO
+    // ADD ITEMS TO THE CART FROM THE DETAIL VIEW
+    // WITH THE "BUY NOW" BUTTON
     var body: some View {
         TabView(selection: $selectedTab) {
             HomeScreenView()
@@ -37,7 +42,7 @@ struct TabNavigationView: View {
                     Text("Cart")
                 }
                 .tag(3)
-                .badge(3)
+                .badge(cartViewModel.cartItems.count)
             ProfileScreenView()
                 .tabItem {
                     Image(systemName: "person")
@@ -46,7 +51,7 @@ struct TabNavigationView: View {
                 .tag(4)
         }
         .onAppear {
-            selectedTab = 1
+            selectedTab = 3
             setTabBarUI()
         }
         .edgesIgnoringSafeArea(.all)
@@ -66,5 +71,6 @@ struct TabNavigationView_Previews: PreviewProvider {
     static var previews: some View {
         TabNavigationView()
             .previewLayout(.sizeThatFits)
+            .environmentObject(CartViewModel())
     }
 }

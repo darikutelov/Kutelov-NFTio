@@ -83,5 +83,6 @@ extension Collection {
 struct CollectionListView_Previews: PreviewProvider {
     static var previews: some View {
         CollectionListView()
+            .environmentObject(NFTViewModel())
     }
 }

@@ -27,6 +27,10 @@ struct DiscountAndDiscountAmountView: View {
         }
     }
     
+    var discountAmount: Decimal {
+        return discount?.calculateDiscount(totalAmount: totalAmount) ?? 0.0
+    }
+    
     var body: some View {
         HStack {
             Text("\(discountMessage)")
@@ -42,7 +46,7 @@ struct DiscountAndDiscountAmountView: View {
         HStack {
             TotalAmountLabelView(text: Constants.Text.Checkout.amountToPay)
             Spacer()
-            CardEthereumPriceView(ethereumPrice: (discount?.calculateDiscount(totalAmount: totalAmount))!)
+            CardTitle(text: "\(NumberFormatter.ethereumCurrencyFormatter.string(from: discountAmount as NSNumber) ?? "0")")
         }
     }
 }

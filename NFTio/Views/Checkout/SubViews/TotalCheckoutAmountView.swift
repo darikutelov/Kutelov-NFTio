@@ -17,7 +17,7 @@ struct TotalCheckoutAmountView: View {
             HStack {
                 TotalAmountLabelView(text: Constants.Text.Checkout.totalAmount)
                 Spacer()
-                CardEthereumPriceView(ethereumPrice: totalAmount)
+                CardTitle(text: "\(NumberFormatter.ethereumCurrencyFormatter.string(from: totalAmount as NSNumber) ?? "0")")
             }
             
             if let seasonalDiscount =  seasonalDiscount,

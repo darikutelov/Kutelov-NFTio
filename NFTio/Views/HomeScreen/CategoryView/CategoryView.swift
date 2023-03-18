@@ -54,5 +54,6 @@ struct CategoryView: View {
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
         CategoryView(selectedCategory: Category.categories[0])
+            .environmentObject(NFTViewModel())
     }
 }

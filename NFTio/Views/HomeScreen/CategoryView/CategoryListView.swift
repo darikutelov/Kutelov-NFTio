@@ -61,5 +61,6 @@ struct CategoryListView_Previews: PreviewProvider {
     static var previews: some View {
         CategoryListView()
             .frame(maxHeight: 200)
+            .environmentObject(NFTViewModel())
     }
 }

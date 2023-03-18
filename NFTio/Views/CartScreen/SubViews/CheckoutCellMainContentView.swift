@@ -14,7 +14,7 @@ struct CheckoutCellMainContentView: View {
         HStack(spacing: Constants.Spacing.small) {
             CardTitle(text: "#3469")
             Spacer()
-            CardEthereumPriceView(ethereumPrice: ethereumPrice)
+            CardTitle(text: "\(NumberFormatter.ethereumCurrencyFormatter.string(from: ethereumPrice as NSNumber) ?? "0")")
         }
     }
 }
