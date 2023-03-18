@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabNavigationView: View {
     @AppStorage("HomeScreenCurrentTab") var selectedTab = 0
-    
+    // MARK: - Assignment 1
     var body: some View {
         TabView(selection: $selectedTab) {
             HomeScreenView()

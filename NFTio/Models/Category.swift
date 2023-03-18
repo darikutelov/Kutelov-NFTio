@@ -21,6 +21,8 @@ enum CategoryName: String, CaseIterable {
     case unknown = "Unknown"
 }
 
+
+//TODO: - add category position prop
 struct Category: Hashable, Identifiable {
   let id: String
   let name: CategoryName

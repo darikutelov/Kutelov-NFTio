@@ -19,14 +19,22 @@ struct SearchScreenView: View {
         NavigationStack {
             ZStack {
                 ScrollView {
+                    // MARK: - Assignment 3
                     LazyVGrid(columns: columns, spacing: Constants.Spacing.standard) {
                         ForEach(viewModel.filteredNftItems) { nft in
-                            SearchItemCellView(nftItem: nft)
+                            // MARK: - Assignment 2
+                            NavigationLink(value: nft) {
+                                SearchItemCellView(nftItem: nft)
+                            }
+                        }
+                        .navigationDestination(for: NFT.self) { nft in
+                            NFTDetailView(nft: nft)
                         }
                     }
                     .padding()
                 }
             }
+            // MARK: - Assignment 5
             .searchable(text: $text, prompt: "NFT name") {
                 ForEach(viewModel.nftNameCointaining(), id: \.self) { name in
                     Text(name).searchCompletion(name)
