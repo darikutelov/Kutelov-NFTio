@@ -20,15 +20,19 @@ struct CartScreenView: View {
             Color(uiColor: .secondarySystemBackground)
                 .edgesIgnoringSafeArea(.all)
             NavigationStack {
-                VStack {
+                VStack(spacing: 0) {
                     if viewModel.cartItems.count > 0 {
-                       CartItemsListView()
-                        HStack {
-                            TotalAmountLabelView(text: Constants.Text.Checkout.totalAmount)
-                            Spacer()
-                            CardTitle(text: "\(NumberFormatter.ethereumCurrencyFormatter.string(from: viewModel.totalAmount as NSNumber) ?? "0")")
+                        CartItemsListView()
+                        NavigationLink {
+                            BuyNowCheckoutView()
+                        } label: {
+                            ButtonView(buttonText: "Checkout")
                         }
-                        
+                        .padding()
+                        .background(
+                            Color(uiColor: .secondarySystemBackground)
+                            .edgesIgnoringSafeArea(.all)
+                        )
                     }
                     else {
                         VStack {
@@ -38,7 +42,8 @@ struct CartScreenView: View {
                     }
                 }
                 .navigationTitle("Your Cart")
-                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitleDisplayMode(.large)
+                .padding(.top)
             }
         }
     }

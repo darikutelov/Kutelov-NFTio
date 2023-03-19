@@ -19,7 +19,7 @@ struct LaunchScreen: View {
             Color(backgroundColor)
            
                 VStack {
-                    Image("app-icon")
+                    Image(Constants.Text.LaunchScreen.appIcon)
                         .cornerRadius(Constants.Spacing.small)
                         .scaleEffect(scaleRatio)
                         .rotationEffect(rotationAngle)

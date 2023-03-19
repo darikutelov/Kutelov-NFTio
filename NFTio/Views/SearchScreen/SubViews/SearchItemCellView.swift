@@ -32,7 +32,7 @@ struct SearchItemCellView: View {
             .frame(height: Constants.Spacing.superLarge)
             Spacer()
             VStack(alignment: .trailing, spacing: Constants.Spacing.xsmall) {
-                Label(text: "Price")
+                Label(text: Constants.Text.SearchScreen.priceLabel)
                 Text("\(NumberFormatter.ethereumCurrencyFormatter.string(from: nftItem.price.priceInCryptoCurrency as NSNumber) ?? "0")")
                     .foregroundColor(Color(Constants.Colors.primary))
                     .font(.footnote)

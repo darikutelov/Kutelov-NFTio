@@ -31,6 +31,7 @@ enum Constants {
         public static let xxlarge = CGFloat(36.0)
         public static let xxxlarge = CGFloat(64.0)
         public static let superLarge = CGFloat(92.0)
+        public static let minCardSize = CGFloat(350.0)
     }
     
     enum ImageFileNames {

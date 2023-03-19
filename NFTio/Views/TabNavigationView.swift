@@ -12,46 +12,42 @@ struct TabNavigationView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     
     // MARK: - Assignment 1
-    // THE CART TAB BADGE TO APPEAR YOU WOULD NEED TO
-    // ADD ITEMS TO THE CART FROM THE DETAIL VIEW
-    // WITH THE "BUY NOW" BUTTON
     var body: some View {
         TabView(selection: $selectedTab) {
             HomeScreenView()
                 .tabItem {
-                    Image(systemName: "house")
-                        .foregroundColor(.white)
-                    Text("Home")
+                    Image(systemName: Constants.Text.TabView.homeIcon)
+                    Text(Constants.Text.TabView.homeLabel)
                 }
                 .tag(0)
             SearchScreenView()
                 .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
+                    Image(systemName: Constants.Text.TabView.searchIcon)
+                    Text(Constants.Text.TabView.searchLabel)
                 }
                 .tag(1)
             AddNFTForSaleView()
                 .tabItem {
-                    Image(systemName: "plus.circle.fill")
-                    Text("Add")
+                    Image(systemName: Constants.Text.TabView.addNFTIcon)
+                    Text(Constants.Text.TabView.searchLabel)
                 }
                 .tag(2)
             CartScreenView()
                 .tabItem {
-                    Image(systemName: "cart")
-                    Text("Cart")
+                    Image(systemName: Constants.Text.TabView.cartIcon)
+                    Text(Constants.Text.TabView.cartLabel)
                 }
                 .tag(3)
                 .badge(cartViewModel.cartItems.count)
             ProfileScreenView()
                 .tabItem {
-                    Image(systemName: "person")
-                    Text("Profile")
+                    Image(systemName: Constants.Text.TabView.profileIcon)
+                    Text(Constants.Text.TabView.profileLabel)
                 }
                 .tag(4)
         }
         .onAppear {
-            selectedTab = 3
+            selectedTab = 0
             setTabBarUI()
         }
         .edgesIgnoringSafeArea(.all)
