@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CheckoutCellMainContentView: View {
+struct CartCellMainContentView: View {
     var ethereumPrice: Decimal
     
     var body: some View {
@@ -21,6 +21,6 @@ struct CheckoutCellMainContentView: View {
 
 struct CheckoutCellMainContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutCellMainContentView(ethereumPrice: 125.755)
+        CartCellMainContentView(ethereumPrice: 125.755)
     }
 }

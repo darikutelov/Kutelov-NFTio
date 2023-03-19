@@ -17,16 +17,16 @@
 		9C0386FD29AB52B600EF4BAD /* NFTListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386FC29AB52B600EF4BAD /* NFTListView.swift */; };
 		9C0386FF29AB548C00EF4BAD /* NFTViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386FE29AB548C00EF4BAD /* NFTViewModel.swift */; };
 		9C03870129AB5AEE00EF4BAD /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C03870029AB5AEE00EF4BAD /* ButtonView.swift */; };
-		9C0B041D29B4ECAE000330AB /* CheckoutCellMainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B041C29B4ECAE000330AB /* CheckoutCellMainContentView.swift */; };
-		9C0B041F29B4ECC9000330AB /* CheckoutCellBottomContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B041E29B4ECC9000330AB /* CheckoutCellBottomContentView.swift */; };
+		9C0B041D29B4ECAE000330AB /* CartCellMainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B041C29B4ECAE000330AB /* CartCellMainContentView.swift */; };
+		9C0B041F29B4ECC9000330AB /* CartCellBottomContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B041E29B4ECC9000330AB /* CartCellBottomContentView.swift */; };
 		9C0B042329B50008000330AB /* TotalCheckoutAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B042229B50008000330AB /* TotalCheckoutAmountView.swift */; };
 		9C0B042529B50287000330AB /* TotalAmountLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B042429B50287000330AB /* TotalAmountLabelView.swift */; };
 		9C0B042729B5225A000330AB /* DiscountAndDiscountAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B042629B5225A000330AB /* DiscountAndDiscountAmountView.swift */; };
 		9C0C4E9A29B4D6470018E546 /* ShoppingCartDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C4E9929B4D6470018E546 /* ShoppingCartDataManager.swift */; };
-		9C0C4E9C29B4DDC50018E546 /* ShoppingCartItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C4E9B29B4DDC50018E546 /* ShoppingCartItemCellView.swift */; };
+		9C0C4E9C29B4DDC50018E546 /* CartItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C4E9B29B4DDC50018E546 /* CartItemCellView.swift */; };
 		9C0C4E9E29B4DDE30018E546 /* CheckoutItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C4E9D29B4DDE30018E546 /* CheckoutItemListView.swift */; };
 		9C0C4EA029B4E19E0018E546 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C4E9F29B4E19E0018E546 /* TextViews.swift */; };
-		9C0C4EA329B4E4730018E546 /* CheckoutCellTopContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C4EA229B4E4730018E546 /* CheckoutCellTopContentView.swift */; };
+		9C0C4EA329B4E4730018E546 /* CartCellTopContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C4EA229B4E4730018E546 /* CartCellTopContentView.swift */; };
 		9C0C4EA529B4E5B50018E546 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C4EA429B4E5B50018E546 /* NumberFormatter.swift */; };
 		9C0E478B29ABB64100DEB975 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E478A29ABB64100DEB975 /* PriceView.swift */; };
 		9C0E478D29ABB6E100DEB975 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E478C29ABB6E100DEB975 /* NameView.swift */; };
@@ -52,6 +52,7 @@
 		9C94667F29B20F7A00129EB1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667E29B20F7A00129EB1 /* String.swift */; };
 		9CB548CE29BF068B00A67C6D /* Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB548CD29BF068B00A67C6D /* Hashable.swift */; };
 		9CB7A8DA29ABAD71008F56F8 /* LikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7A8D929ABAD71008F56F8 /* LikesView.swift */; };
+		9CB7F37529C705C900ACF69F /* CartItemsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7F37429C705C800ACF69F /* CartItemsListView.swift */; };
 		9CBB98E129A20C3F00759204 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98E029A20C3F00759204 /* Color.swift */; };
 		9CBB98E529A2229E00759204 /* GetStartedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98E429A2229E00759204 /* GetStartedButtonView.swift */; };
 		9CD226AC29BCF3D600462C35 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226AB29BCF3D600462C35 /* RoundedImageView.swift */; };
@@ -87,16 +88,16 @@
 		9C0386FC29AB52B600EF4BAD /* NFTListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTListView.swift; sourceTree = "<group>"; };
 		9C0386FE29AB548C00EF4BAD /* NFTViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTViewModel.swift; sourceTree = "<group>"; };
 		9C03870029AB5AEE00EF4BAD /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		9C0B041C29B4ECAE000330AB /* CheckoutCellMainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCellMainContentView.swift; sourceTree = "<group>"; };
-		9C0B041E29B4ECC9000330AB /* CheckoutCellBottomContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCellBottomContentView.swift; sourceTree = "<group>"; };
+		9C0B041C29B4ECAE000330AB /* CartCellMainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellMainContentView.swift; sourceTree = "<group>"; };
+		9C0B041E29B4ECC9000330AB /* CartCellBottomContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellBottomContentView.swift; sourceTree = "<group>"; };
 		9C0B042229B50008000330AB /* TotalCheckoutAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCheckoutAmountView.swift; sourceTree = "<group>"; };
 		9C0B042429B50287000330AB /* TotalAmountLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountLabelView.swift; sourceTree = "<group>"; };
 		9C0B042629B5225A000330AB /* DiscountAndDiscountAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountAndDiscountAmountView.swift; sourceTree = "<group>"; };
 		9C0C4E9929B4D6470018E546 /* ShoppingCartDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartDataManager.swift; sourceTree = "<group>"; };
-		9C0C4E9B29B4DDC50018E546 /* ShoppingCartItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartItemCellView.swift; sourceTree = "<group>"; };
+		9C0C4E9B29B4DDC50018E546 /* CartItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCellView.swift; sourceTree = "<group>"; };
 		9C0C4E9D29B4DDE30018E546 /* CheckoutItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemListView.swift; sourceTree = "<group>"; };
 		9C0C4E9F29B4E19E0018E546 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
-		9C0C4EA229B4E4730018E546 /* CheckoutCellTopContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCellTopContentView.swift; sourceTree = "<group>"; };
+		9C0C4EA229B4E4730018E546 /* CartCellTopContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellTopContentView.swift; sourceTree = "<group>"; };
 		9C0C4EA429B4E5B50018E546 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		9C0E478A29ABB64100DEB975 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		9C0E478C29ABB6E100DEB975 /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		9C94667E29B20F7A00129EB1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9CB548CD29BF068B00A67C6D /* Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashable.swift; sourceTree = "<group>"; };
 		9CB7A8D929ABAD71008F56F8 /* LikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesView.swift; sourceTree = "<group>"; };
+		9CB7F37429C705C800ACF69F /* CartItemsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsListView.swift; sourceTree = "<group>"; };
 		9CBB98E029A20C3F00759204 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9CBB98E429A2229E00759204 /* GetStartedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedButtonView.swift; sourceTree = "<group>"; };
 		9CD226AB29BCF3D600462C35 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
@@ -263,9 +265,9 @@
 		9C32AA5229C62818001486DA /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				9C0C4EA229B4E4730018E546 /* CheckoutCellTopContentView.swift */,
-				9C0B041C29B4ECAE000330AB /* CheckoutCellMainContentView.swift */,
-				9C0B041E29B4ECC9000330AB /* CheckoutCellBottomContentView.swift */,
+				9C0C4EA229B4E4730018E546 /* CartCellTopContentView.swift */,
+				9C0B041C29B4ECAE000330AB /* CartCellMainContentView.swift */,
+				9C0B041E29B4ECC9000330AB /* CartCellBottomContentView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -422,8 +424,9 @@
 			isa = PBXGroup;
 			children = (
 				9C32AA5229C62818001486DA /* SubViews */,
-				9C0C4E9B29B4DDC50018E546 /* ShoppingCartItemCellView.swift */,
+				9C0C4E9B29B4DDC50018E546 /* CartItemCellView.swift */,
 				9CFD9B2A29C4602E00D12148 /* CartScreenView.swift */,
+				9CB7F37429C705C800ACF69F /* CartItemsListView.swift */,
 				9CFD9B3229C487FC00D12148 /* CartViewModel.swift */,
 			);
 			path = CartScreen;
@@ -537,7 +540,7 @@
 				9CF42D05299FC92600CAA856 /* NFTioApp.swift in Sources */,
 				9C0386F329A7C4A700EF4BAD /* RoundedIconViewFilledWhite.swift in Sources */,
 				9C2EA9B329A14162009A831C /* AppLogo.swift in Sources */,
-				9C0B041F29B4ECC9000330AB /* CheckoutCellBottomContentView.swift in Sources */,
+				9C0B041F29B4ECC9000330AB /* CartCellBottomContentView.swift in Sources */,
 				9C0E478D29ABB6E100DEB975 /* NameView.swift in Sources */,
 				9C94667D29B20BB000129EB1 /* NFTDataManager.swift in Sources */,
 				9C2EA9B129A113E9009A831C /* OnboardingScreenView.swift in Sources */,
@@ -561,11 +564,12 @@
 				9C86225229B482CB00CF20E8 /* BuyNowCheckoutView.swift in Sources */,
 				9CD226B929BE20EC00462C35 /* CategoryView.swift in Sources */,
 				9C94667629B20AD500129EB1 /* NFT.swift in Sources */,
-				9C0B041D29B4ECAE000330AB /* CheckoutCellMainContentView.swift in Sources */,
+				9C0B041D29B4ECAE000330AB /* CartCellMainContentView.swift in Sources */,
 				9C0386FF29AB548C00EF4BAD /* NFTViewModel.swift in Sources */,
 				9CFD9B3129C4613600D12148 /* AddNFTForSaleView.swift in Sources */,
 				9C37C1C529BC784300125E09 /* HomeScreenView.swift in Sources */,
 				9CFD9B2E29C460B300D12148 /* ProfileScreenView.swift in Sources */,
+				9CB7F37529C705C900ACF69F /* CartItemsListView.swift in Sources */,
 				9CD226BC29BE31F400462C35 /* CollectionView.swift in Sources */,
 				9C32AA4F29C5AAD0001486DA /* LaunchScreen.swift in Sources */,
 				9C37C1CA29BCB56800125E09 /* CollectionListView.swift in Sources */,
@@ -583,14 +587,14 @@
 				9C0B042529B50287000330AB /* TotalAmountLabelView.swift in Sources */,
 				9C94667829B20AF800129EB1 /* Category.swift in Sources */,
 				9C0386EF29A7C35700EF4BAD /* AppIconView.swift in Sources */,
-				9C0C4EA329B4E4730018E546 /* CheckoutCellTopContentView.swift in Sources */,
+				9C0C4EA329B4E4730018E546 /* CartCellTopContentView.swift in Sources */,
 				9C37C1C729BCB1FB00125E09 /* SectionHeaderView.swift in Sources */,
 				9C0386F129A7C3AE00EF4BAD /* WelcomeBackgroundImageView.swift in Sources */,
 				9C0B042329B50008000330AB /* TotalCheckoutAmountView.swift in Sources */,
 				9CD226B529BDCDC000462C35 /* NFTDetailViewViewModel.swift in Sources */,
 				9C03870129AB5AEE00EF4BAD /* ButtonView.swift in Sources */,
 				9CFD9B2B29C4602E00D12148 /* CartScreenView.swift in Sources */,
-				9C0C4E9C29B4DDC50018E546 /* ShoppingCartItemCellView.swift in Sources */,
+				9C0C4E9C29B4DDC50018E546 /* CartItemCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

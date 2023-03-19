@@ -10,10 +10,6 @@ import SwiftUI
 struct CartScreenView: View {
     @EnvironmentObject var viewModel: CartViewModel
     
-    let columns = [
-        GridItem(.flexible(minimum: 300, maximum: 600))
-    ]
-    
     var body: some View {
         ZStack(
             alignment: Alignment(
@@ -23,27 +19,27 @@ struct CartScreenView: View {
         ) {
             Color(uiColor: .secondarySystemBackground)
                 .edgesIgnoringSafeArea(.all)
-            VStack {
-                LazyVGrid(
-                    columns: columns,
-                    spacing: Constants.Spacing.medium
-                ) {
-                    ForEach(viewModel.cartItems, id: \.self.nftItem.id) { cartItem in
-                        ShoppingCartItemCellView(shoppingCartItem: cartItem)
+            NavigationStack {
+                VStack {
+                    if viewModel.cartItems.count > 0 {
+                       CartItemsListView()
+                    }
+                    else {
+                        VStack {
+                            Text("No NFT items in cart!")
+                        }
+                        .padding()
                     }
                 }
-                if viewModel.cartItems.count == 0 {
-                    Spacer()
-                    Text("No NFT items in cart!")
-                    Spacer()
-                }
+                .navigationTitle("Your Cart")
+                .navigationBarTitleDisplayMode(.inline)
             }
-            .padding()
         }
     }
 }
 
 struct CartScreenView_Previews: PreviewProvider {
+    
     static var previews: some View {
         CartScreenView()
             .environmentObject(CartViewModel())

@@ -8,7 +8,7 @@
 import Foundation
 
 final class CartViewModel: ObservableObject {
-    @Published var cartItems: [ShoppingCartItem] = []
+    @Published var cartItems: [ShoppingCartItem] = ShoppingCartDataManager().shoppingCartItems
     
     var cartItemIds: [String] {
         cartItems.map{ $0.nftItem.id }
@@ -41,7 +41,7 @@ final class CartViewModel: ObservableObject {
             return
         }
     
-        guard cartItems[itemIndex].quantity > 0 else {
+        guard cartItems[itemIndex].quantity > 1 else {
             return
         }
         

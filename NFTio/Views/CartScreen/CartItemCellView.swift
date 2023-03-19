@@ -8,31 +8,30 @@
 import SwiftUI
 
 
-struct ShoppingCartItemCellView: View {
+struct CartItemCellView: View {
     var shoppingCartItem: ShoppingCartItem
     
     var body: some View {
-        HStack {
+        HStack(alignment:.center) {
             RoundedImageView(
                 imageUrlAsString: shoppingCartItem.nftItem.imageUrl,
                 roundedCornerSize: .infinity
             )
                 .scaledToFit()
-                .frame(width: Constants.Spacing.xxxlarge)
+                .frame(height: Constants.Spacing.xxxlarge)
             VStack(spacing: Constants.Spacing.small) {
-                CheckoutCellTopContentView(
+                CartCellTopContentView(
                     collectionName: shoppingCartItem.nftItem.collection.collectionName
                 )
-                CheckoutCellMainContentView(
+                CartCellMainContentView(
                     ethereumPrice: shoppingCartItem.nftItem.price.priceInCryptoCurrency)
-                CheckoutCellBottomContentView(
+                CartCellBottomContentView(
                     ethereumPrice: shoppingCartItem.nftItem.price.priceInCryptoCurrency,
                     quantity: shoppingCartItem.quantity
                 )
             }
             .padding(.leading, Constants.Spacing.small)
         }
-        .padding()
         .background(
             RoundedRectangle(cornerRadius: Constants.General.standardCornerRadius)
                 .fill(Color(Constants.Colors.cardBackground))
@@ -42,6 +41,6 @@ struct ShoppingCartItemCellView: View {
 
 struct CheckoutItemCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ShoppingCartItemCellView(shoppingCartItem: ShoppingCartDataManager().shoppingCartItems[0])
+        CartItemCellView(shoppingCartItem: ShoppingCartDataManager().shoppingCartItems[0])
     }
 }

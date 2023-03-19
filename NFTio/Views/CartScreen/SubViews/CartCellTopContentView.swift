@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CheckoutCellTopContentView: View {
+struct CartCellTopContentView: View {
     var collectionName: String
     
     var body: some View {
@@ -21,6 +21,6 @@ struct CheckoutCellTopContentView: View {
 
 struct CheckoutItemPriceView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutCellTopContentView(collectionName: "Apes")
+        CartCellTopContentView(collectionName: "Apes")
     }
 }
