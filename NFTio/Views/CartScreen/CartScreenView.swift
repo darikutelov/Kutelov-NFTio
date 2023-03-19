@@ -23,6 +23,12 @@ struct CartScreenView: View {
                 VStack {
                     if viewModel.cartItems.count > 0 {
                        CartItemsListView()
+                        HStack {
+                            TotalAmountLabelView(text: Constants.Text.Checkout.totalAmount)
+                            Spacer()
+                            CardTitle(text: "\(NumberFormatter.ethereumCurrencyFormatter.string(from: viewModel.totalAmount as NSNumber) ?? "0")")
+                        }
+                        
                     }
                     else {
                         VStack {

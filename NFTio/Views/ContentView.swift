@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var user = User()
     @State var showSplash = true
-    @AppStorage("hasSeenWelcomeScreen") private var hasSeenWelcomeScreen = false
+    @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = false
     @ObservedObject var nftViewModel = NFTViewModel()
     @ObservedObject var cartViewModel = CartViewModel()
     
@@ -18,13 +18,8 @@ struct ContentView: View {
         ZStack {
             if hasSeenWelcomeScreen {
                 TabNavigationView()
-                    .environmentObject(nftViewModel)
-                    .environmentObject(cartViewModel)
             } else {
                 WelcomeScreenView(user: $user)
-                    .onAppear {
-                        hasSeenWelcomeScreen = true
-                    }
             }
             LaunchScreen()
               .opacity(showSplash ? 1 : 0)
@@ -36,6 +31,8 @@ struct ContentView: View {
                 }
             }
         }
+        .environmentObject(nftViewModel)
+        .environmentObject(cartViewModel)
     }
 }
 

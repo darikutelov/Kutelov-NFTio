@@ -13,7 +13,13 @@ final class CartViewModel: ObservableObject {
     var cartItemIds: [String] {
         cartItems.map{ $0.nftItem.id }
     }
-        
+    
+    var totalAmount: Decimal {
+        cartItems.reduce(0.0) { prev, currentItem in
+            prev + currentItem.nftItem.price.priceInCryptoCurrency * Decimal(currentItem.quantity)
+        }
+    }
+    
     public func addItemToCart(nft: NFT) {
         guard let itemIndex = findCartItemIndex(nft.id) else {
             cartItems.append(

@@ -27,11 +27,11 @@ struct WelcomeScreenView: View {
                         .padding(Constants.Spacing.xlarge)
                     Spacer()
                     NavigationLink(
-                        destination: HomeScreenView().navigationBarBackButtonHidden(true)
+                        destination: TabNavigationView().navigationBarBackButtonHidden(true)
                         , label: {
-                        ButtonView(buttonText: "Get Started")
-                            .padding()
-                    })
+                            ButtonView(buttonText: "Get Started")
+                                .padding()
+                        })
                     .navigationBarTitleDisplayMode(.large)
                     .padding(.bottom)
                     
@@ -39,8 +39,13 @@ struct WelcomeScreenView: View {
                     WelcomeBackgroundImageView()
                 )
             }
+            .onDisappear() {
+                UserDefaults.standard.set(
+                    true,
+                    forKey: Constants.Text.LaunchScreen.hasSeenWelcomeScreen
+                )
+            }
         }
-       
     }
 }
 

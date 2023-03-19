@@ -19,6 +19,7 @@ extension Constants {
         
         enum LaunchScreen {
             public static let headline = "Explore the World of NFTs"
+            public static let hasSeenWelcomeScreen = "hasSeenWelcomeScreen"
         }
         
         enum TabView {
