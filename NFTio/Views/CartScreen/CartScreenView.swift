@@ -43,8 +43,8 @@ struct CartScreenView: View {
                 }
                 .navigationTitle("Your Cart")
                 .navigationBarTitleDisplayMode(.large)
-                .padding(.top)
             }
+
         }
     }
 }

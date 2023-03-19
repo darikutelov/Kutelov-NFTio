@@ -12,41 +12,44 @@ struct CartItemsListView: View {
     
     var body: some View {
         List {
-            ForEach(viewModel.cartItems, id: \.self.nftItem.id) { cartItem in
-                CartItemCellView(shoppingCartItem: cartItem)
-                    .swipeActions(edge: .leading) {
-                        Button {
-                            viewModel.reduceItemQuantityInCart(shoppingCardItem: cartItem)
-                        } label: {
-                            Image(systemName: "minus.circle")
+            ForEach(
+                viewModel.cartItems,
+                id: \.self.nftItem.id) { cartItem in
+                    CartItemCellView(shoppingCartItem: cartItem)
+                        .swipeActions(edge: .leading) {
+                            Button {
+                                viewModel.reduceItemQuantityInCart(shoppingCardItem: cartItem)
+                            } label: {
+                                Image(systemName: "minus.circle")
+                            }
+                            .tint(Color(Constants.Colors.terciary))
+                            Button {
+                                viewModel.addItemToCart(nft: cartItem.nftItem)
+                            } label: {
+                                Image(systemName: "plus.circle")
+                            }
+                            .tint(Color(Constants.Colors.darkYellow))
                         }
-                        .tint(Color(Constants.Colors.terciary))
-                        Button {
-                            viewModel.addItemToCart(nft: cartItem.nftItem)
-                        } label: {
-                            Image(systemName: "plus.circle")
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                viewModel.removeItemFromCart(shoppingCardItem: cartItem)
+                            } label: {
+                                Image(systemName: "trash")
+                            }
                         }
-                        .tint(Color(Constants.Colors.darkYellow))
-                    }
-                    .swipeActions(edge: .trailing) {
-                        Button(role: .destructive) {
-                            viewModel.removeItemFromCart(shoppingCardItem: cartItem)
-                        } label: {
-                            Image(systemName: "trash")
+                        .alignmentGuide(.listRowSeparatorLeading) { dimension in
+                            dimension[.leading]
                         }
-                    }
-                    .alignmentGuide(.listRowSeparatorLeading) { dimension in
-                        dimension[.leading]
-                    }
-                    .alignmentGuide(.listRowSeparatorTrailing) { dimension in
-                        dimension[.trailing]
-                    }
-            }
+                        .alignmentGuide(.listRowSeparatorTrailing) { dimension in
+                            dimension[.trailing]
+                        }
+                }
             HStack {
                 TotalAmountLabelView(text: Constants.Text.Checkout.totalAmount)
                 Spacer()
                 CardTitle(text: "\(NumberFormatter.ethereumCurrencyFormatter.string(from: viewModel.totalAmount as NSNumber) ?? "0")")
             }
+            
         }
         .listStyle(.insetGrouped)
     }

@@ -15,6 +15,7 @@ extension Constants {
             public static let collectionsLabel = "Collections"
             public static let volumeLabel = "Collections"
             public static let seeAllLabel = "See All"
+            public static let nftListLabel = "Trending NFTs"
         }
         
         enum LaunchScreen {
@@ -51,7 +52,7 @@ extension Constants {
         }
         
         enum Checkout {
-            public static let screenTitle = "buy now"
+            public static let screenTitle = "Buy Now"
             public static let checkoutButton = "complete purchase"
             public static let totalAmount = "total amount"
             public static let amountToPay = "amount to pay"
