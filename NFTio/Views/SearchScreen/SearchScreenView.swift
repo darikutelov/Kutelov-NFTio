@@ -35,23 +35,27 @@ struct SearchScreenView: View {
                 }
                 .padding()
             }
-            // MARK: - Assignment 5
-            .searchable(
-                text: $text,
-                prompt: Constants.Text.SearchScreen.searchLabel
-            ) {
-                ForEach(viewModel.nftNameCointaining(), id: \.self) { name in
-                    Text(name).searchCompletion(name)
-                }
-            }
-            .onChange(of: text, perform: { text in
-                viewModel.searchTerm = text
-            })
             .background(
                 Color(uiColor: .secondarySystemBackground)
                     .edgesIgnoringSafeArea(.all)
             )
-        }.onDisappear {
+        }
+        // MARK: - Assignment 5
+        .searchable(
+            text: $text,
+            placement: .navigationBarDrawer(
+                displayMode: .always
+            ),
+            prompt: Constants.Text.SearchScreen.searchLabel
+        ) {
+            ForEach(viewModel.nftNameCointaining(), id: \.self) { name in
+                Text(name).searchCompletion(name)
+            }
+        }
+        .onChange(of: text, perform: { text in
+            viewModel.searchTerm = text
+        })
+        .onDisappear {
             viewModel.searchTerm = ""
         }
     }

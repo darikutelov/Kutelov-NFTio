@@ -29,7 +29,7 @@ struct TabNavigationView: View {
             AddNFTForSaleView()
                 .tabItem {
                     Image(systemName: Constants.Text.TabView.addNFTIcon)
-                    Text(Constants.Text.TabView.searchLabel)
+                    Text(Constants.Text.TabView.addNFTLabel)
                 }
                 .tag(2)
             CartScreenView()
