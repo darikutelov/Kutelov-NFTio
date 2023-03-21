@@ -30,9 +30,9 @@ final class NFTViewModel: ObservableObject {
         }
         
         if !searchTerm.isEmpty {
-            return nftItems.filter { $0.tokenName
-                .lowercased()
-                .localizedCaseInsensitiveContains(searchTerm.lowercased())
+            return nftItems.filter {
+                $0.tokenName.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased()) ||
+                $0.collection.collectionName.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased())
             }
         }
         
@@ -47,22 +47,11 @@ final class NFTViewModel: ObservableObject {
         selectedCollection = collection
     }
     
-    /// Returns sorted unique token names for search suggestions
-    /// search term can be token name or collection name
     func nftNameCointaining() -> [String] {
         let nameArray = nftItems.map { $0.tokenName }
         let matchingNames =
         searchTerm.isEmpty ? nameArray : nameArray.filter { $0.contains(searchTerm) }
         var nameSet = Set(matchingNames)
-        
-        let matchingNamesByCollection = nftItems
-            .filter { $0.collection.collectionName.contains(searchTerm) }
-            .map { $0.tokenName }
-        
-        if !searchTerm.isEmpty {
-            nameSet = nameSet.union(Set(matchingNamesByCollection))
-        }
-        
         return Array(nameSet)
     }
 }
