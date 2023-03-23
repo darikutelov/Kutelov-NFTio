@@ -51,7 +51,7 @@ final class NFTViewModel: ObservableObject {
         let nameArray = nftItems.map { $0.tokenName }
         let matchingNames =
         searchTerm.isEmpty ? nameArray : nameArray.filter { $0.contains(searchTerm) }
-        var nameSet = Set(matchingNames)
+        let nameSet = Set(matchingNames)
         return Array(nameSet)
     }
 }
