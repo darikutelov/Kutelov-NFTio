@@ -15,6 +15,32 @@ extension Constants {
             public static let collectionsLabel = "Collections"
             public static let volumeLabel = "Collections"
             public static let seeAllLabel = "See All"
+            public static let nftListLabel = "Trending NFTs"
+        }
+        
+        enum LaunchScreen {
+            public static let appIcon = "app-icon"
+            public static let headline = "Explore the World of NFTs"
+            public static let hasSeenWelcomeScreen = "hasSeenWelcomeScreen"
+        }
+        
+        enum SearchScreen {
+            public static let searchLabel = "NFT name"
+            public static let priceLabel = "Price"
+        }
+        
+        enum TabView {
+            public static let userdefaultsKey = "HomeScreenCurrentTab"
+            public static let homeIcon = "house"
+            public static let homeLabel = "Home"
+            public static let searchIcon = "magnifyingglass"
+            public static let searchLabel = "Search"
+            public static let addNFTIcon = "plus.circle.fill"
+            public static let addNFTLabel = "Add"
+            public static let cartIcon = "cart"
+            public static let cartLabel = "Cart"
+            public static let profileIcon = "person"
+            public static let profileLabel = "Profile"
         }
         
         enum Onboarding {
@@ -26,7 +52,7 @@ extension Constants {
         }
         
         enum Checkout {
-            public static let screenTitle = "buy now"
+            public static let screenTitle = "Buy Now"
             public static let checkoutButton = "complete purchase"
             public static let totalAmount = "total amount"
             public static let amountToPay = "amount to pay"
@@ -38,6 +64,9 @@ extension Constants {
         enum NFTDetail {
             public static let screenTitle = "Details"
             public static let buyButton = "Buy Now"
+            public static let buyButtonIcon = "creditcard"
+            public static let makeOfferButton = "Make Offer"
+            public static let offerButtonIcon = "dollarsign.square"
             public static let priceLabel = "Current Price"
         }
     }

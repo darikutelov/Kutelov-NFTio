@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BuyNowCheckoutView: View {
-    @StateObject var viewModel = BuyNowCheckoutViewViewModel()
+    @EnvironmentObject var viewModel: CartViewModel
     @State var promoCode: String = ""
     
     var body: some View {
@@ -18,10 +18,8 @@ struct BuyNowCheckoutView: View {
             ScrollView(.vertical,
                        showsIndicators: false) {
                 VStack {
-                    Title(text: Constants.Text.Checkout.screenTitle)
-                        .padding(.vertical)
                     CheckoutItemListView(
-                        checkoutItems: viewModel.checkoutItems
+                        checkoutItems: viewModel.cartItems
                     )
                     Spacer()
                         .frame(height: Constants.Spacing.xlarge)
@@ -42,12 +40,14 @@ struct BuyNowCheckoutView: View {
                     )
                     Button {
                         print("checkout")
+                        viewModel.cartItems = []
                     } label: {
                         ButtonView(buttonText: Constants.Text.Checkout.checkoutButton)
                     }
                 }
             }
-            .padding()
+                       .navigationTitle(Constants.Text.Checkout.screenTitle)
+                       .padding()
         }
     }
 }
@@ -55,5 +55,6 @@ struct BuyNowCheckoutView: View {
 struct ByNowCheckoutView_Previews: PreviewProvider {
     static var previews: some View {
         BuyNowCheckoutView()
+            .environmentObject(CartViewModel())
     }
 }

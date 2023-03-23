@@ -31,6 +31,7 @@ enum Constants {
         public static let xxlarge = CGFloat(36.0)
         public static let xxxlarge = CGFloat(64.0)
         public static let superLarge = CGFloat(92.0)
+        public static let minCardSize = CGFloat(350.0)
     }
     
     enum ImageFileNames {
@@ -47,6 +48,9 @@ enum Constants {
         public static let secondary = "UltraViolet"
         public static let terciary = "CambridgeBlue"
         public static let charcoal = "Charcoal"
+        public static let darkYellow = "DarkYellow"
+        public static let white = "White"
+        public static let cardBackground = "CardBackground"
         public static let buttonBorderGradientColors = [
             Color.init(hex: "E60404"),
             Color.init(hex: "FB15F2"),

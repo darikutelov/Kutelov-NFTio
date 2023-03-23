@@ -9,9 +9,9 @@ import SwiftUI
 
 struct CollectionView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: HomeViewViewModel
-    let selectedCollection: Collection
+    @EnvironmentObject var viewModel: NFTViewModel
     
+    let selectedCollection: Collection
     
     var body: some View {
         ZStack {
@@ -52,8 +52,8 @@ struct CollectionView: View {
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
         CollectionView(
-            viewModel: HomeViewViewModel(),
             selectedCollection: NFTDataManager().nftItems.first!.collection
         )
+        .environmentObject(NFTViewModel())
     }
 }

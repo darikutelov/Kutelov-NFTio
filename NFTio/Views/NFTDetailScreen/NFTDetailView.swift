@@ -9,25 +9,52 @@ import SwiftUI
 
 struct NFTDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var cartViewModel: CartViewModel
     
-    private var viewModel: NFTDetailViewViewModel
-    
-    init(nft: NFT) {
-        self.viewModel = NFTDetailViewViewModel(nft: nft)
-    }
-    
+    let nft: NFT
+
+//    private var viewModel: NFTDetailViewViewModel
+//
+//    init(nft: NFT) {
+//        self.viewModel = NFTDetailViewViewModel(nft: nft)
+//    }
+//
     var body: some View {
         GeometryReader { proxy in
             ScrollView {
                 VStack {
                     TopInfoSectionView(
-                        nft: viewModel.nft,
+                        nft: nft,
                         proxy: proxy
                     )
-                    ActionButtonView(
-                        buttonText: Constants.Text.NFTDetail.buyButton,
-                        backgroundColor: Constants.Colors.primary
-                    )
+                    Divider()
+                    HStack {
+                        Button {
+                            cartViewModel.addItemToCart(nft: nft)
+                            UserDefaults.standard.set(
+                                3,
+                                forKey: Constants.Text.TabView.userdefaultsKey
+                            )
+                        } label: {
+                            ButtonIconView(
+                                buttonText: Constants.Text.NFTDetail.buyButton,
+                                buttonTextColor: Constants.Colors.white,
+                                buttonBackgroundColor: Constants.Colors.primary,
+                                iconName: Constants.Text.NFTDetail.buyButtonIcon
+                            )
+                        }
+                        Button {
+                            //TODO: - Add a bit
+                        } label: {
+                            ButtonIconView(
+                                buttonText: Constants.Text.NFTDetail.makeOfferButton,
+                                buttonTextColor: Constants.Colors.white,
+                                buttonBackgroundColor: Constants.Colors.secondary,
+                                iconName: Constants.Text.NFTDetail.offerButtonIcon
+                            )
+                        }
+
+                    }
                     .padding()
                 }
             }
@@ -49,28 +76,10 @@ struct NFTDetailView: View {
     }
 }
 
-struct ActionButtonView: View {
-    let buttonText: String
-    let backgroundColor: String
-    
-    var body: some View {
-        Text("\(buttonText)".uppercased())
-            .font(.subheadline)
-            .fontWeight(.semibold)
-            .foregroundColor(Color(backgroundColor).opacity(0.9))
-            .padding(
-                EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 32)
-            )
-            .frame(maxWidth: .infinity)
-            .background(
-                RoundedRectangle(cornerRadius: 15.0)
-                    .fill(Color(Constants.Colors.buttonBackground))
-            )
-    }
-}
 
 struct NFTDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NFTDetailView(nft: NFTDataManager().nftItems[0])
+            .environmentObject(CartViewModel())
     }
 }

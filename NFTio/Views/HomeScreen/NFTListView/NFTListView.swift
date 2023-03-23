@@ -16,14 +16,23 @@ struct NFTListView: View {
     ]
     
     var body: some View {
-        LazyVGrid(columns: columns, spacing: 12) {
-            ForEach(nftItems) { nft in
-                NavigationLink {
-                    NFTDetailView(nft: nft)
-                } label: {
-                    nft.view
+        VStack {
+            Section(
+                header: SectionHeaderView(
+                    sectionName: Constants.Text.Home.nftListLabel
+                )
+                .padding(.bottom, Constants.Spacing.small)
+            ) {
+                LazyVGrid(columns: columns, spacing: 12) {
+                    ForEach(nftItems) { nft in
+                        NavigationLink {
+                            NFTDetailView(nft: nft)
+                        } label: {
+                            nft.view
+                        }
+                        .isDetailLink(true)
+                    }
                 }
-                .isDetailLink(true)
             }
         }
     }
@@ -75,6 +84,6 @@ extension NFT {
 
 struct NFTListingView_Previews: PreviewProvider {
     static var previews: some View {
-        NFTListView(nftItems: HomeViewViewModel().nftItems)
+        NFTListView(nftItems: NFTViewModel().nftItems)
     }
 }

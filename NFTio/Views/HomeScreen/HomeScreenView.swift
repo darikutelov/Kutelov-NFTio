@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct HomeView: View {
-    @ObservedObject var viewModel = HomeViewViewModel()
+struct HomeScreenView: View {
+    @EnvironmentObject var viewModel: NFTViewModel
     
     var body: some View {
         NavigationStack {
@@ -18,9 +18,9 @@ struct HomeView: View {
                            showsIndicators: false) {
                     VStack(spacing: 0) {
                         ShopName()
-                        CategoryListView(viewModel: viewModel)
+                        CategoryListView()
                             .padding(.bottom, Constants.Spacing.xxlarge)
-                        CollectionListView(viewModel: viewModel)
+                        CollectionListView()
                             .padding(.bottom, Constants.Spacing.xxlarge)
                         NFTListView(nftItems: viewModel.nftItems)
                     }
@@ -35,7 +35,8 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewViewModel())
+        HomeScreenView()
+            .environmentObject(NFTViewModel())
     }
 }
 

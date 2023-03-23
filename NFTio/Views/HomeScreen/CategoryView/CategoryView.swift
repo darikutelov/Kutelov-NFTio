@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CategoryView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: HomeViewViewModel
+    @EnvironmentObject var viewModel: NFTViewModel
+    
     let selectedCategory: Category
     
     
@@ -52,6 +53,7 @@ struct CategoryView: View {
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(viewModel: HomeViewViewModel(), selectedCategory: Category.categories[0])
+        CategoryView(selectedCategory: Category.categories[0])
+            .environmentObject(NFTViewModel())
     }
 }

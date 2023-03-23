@@ -7,11 +7,11 @@
 
 import Foundation
 
-typealias ShoppingCartItem = (nftItem: NFT, quantity: Int)
+//typealias ShoppingCartItem = (nftItem: NFT, quantity: Int)
 
 final class ShoppingCartDataManager {    
     var shoppingCartItems: [ShoppingCartItem] = [
-        (nftItem: NFTDataManager().nftItems[0], quantity: 1),
-        (nftItem: NFTDataManager().nftItems[1], quantity: 2)
+        ShoppingCartItem(nftItem: NFTDataManager().nftItems[0], quantity: 1),
+        ShoppingCartItem(nftItem: NFTDataManager().nftItems[1], quantity: 2)
     ]
 }

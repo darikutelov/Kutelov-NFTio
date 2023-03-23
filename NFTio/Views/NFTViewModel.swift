@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-final class HomeViewViewModel: ObservableObject {
+final class NFTViewModel: ObservableObject {
     @Published var nftItems = [NFT](NFTDataManager().nftItems)
     @Published var selectedCategory: Category? = nil
     @Published var selectedCollection: Collection? = nil
+    @Published var searchTerm: String = ""
     
     var categories = Category.categories
     var collections = Collection.collections
@@ -28,9 +29,15 @@ final class HomeViewViewModel: ObservableObject {
             }
         }
         
+        if !searchTerm.isEmpty {
+            return nftItems.filter {
+                $0.tokenName.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased()) ||
+                $0.collection.collectionName.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased())
+            }
+        }
+        
         return nftItems
     }
-    
     
     func setSelectedCategory(category: Category?) {
         selectedCategory = category
@@ -39,4 +46,13 @@ final class HomeViewViewModel: ObservableObject {
     func setSelectedCollection(collection: Collection?) {
         selectedCollection = collection
     }
+    
+    func nftNameCointaining() -> [String] {
+        let nameArray = nftItems.map { $0.tokenName }
+        let matchingNames =
+        searchTerm.isEmpty ? nameArray : nameArray.filter { $0.contains(searchTerm) }
+        let nameSet = Set(matchingNames)
+        return Array(nameSet)
+    }
 }
+//

@@ -27,7 +27,7 @@ struct CardTitle: View {
             .font(.callout)
             .fontWeight(.semibold)
             .foregroundColor(Color(Constants.Colors.primaryText))
-            .lineSpacing(1.15)
+            .lineSpacing(1.25)
             .kerning(0.2)
     }
 }
@@ -54,7 +54,7 @@ struct CardSubheading: View {
             .font(.subheadline)
             .fontWeight(.medium)
             .foregroundColor(Color(Constants.Colors.primaryText))
-            .lineSpacing(1.39)
+            .lineSpacing(1.25)
             .kerning(0.2)
             .opacity(0.6)
     }
