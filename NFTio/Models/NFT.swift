@@ -26,7 +26,7 @@ struct NFT: Hashable, Identifiable {
 
 extension NFT {
     static func == (lhs: NFT, rhs: NFT) -> Bool {
-        lhs.id > rhs.id
+        lhs.id == rhs.id
     }
 }
 

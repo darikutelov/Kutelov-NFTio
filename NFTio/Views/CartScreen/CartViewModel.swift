@@ -25,6 +25,7 @@ final class CartViewModel: ObservableObject {
             prev + currentItem.nftItem.price.priceInCryptoCurrency * Decimal(currentItem.quantity)
         }
     }
+    
     var totalAmountAfterDiscount: Decimal? {
         guard let seasonalDiscount = seasonalDiscount else { return nil }
         

@@ -41,6 +41,8 @@
 		9C37C1C529BC784300125E09 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C37C1C429BC784300125E09 /* HomeScreenView.swift */; };
 		9C37C1C729BCB1FB00125E09 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C37C1C629BCB1FB00125E09 /* SectionHeaderView.swift */; };
 		9C37C1CA29BCB56800125E09 /* CollectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C37C1C929BCB56800125E09 /* CollectionListView.swift */; };
+		9C5B5EC829CC988100FD62D7 /* NFTioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B5EC729CC988100FD62D7 /* NFTioTests.swift */; };
+		9C5B5ECF29CC99C800FD62D7 /* CartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B5ECE29CC99C800FD62D7 /* CartViewModelTests.swift */; };
 		9C86225229B482CB00CF20E8 /* BuyNowCheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86225129B482CB00CF20E8 /* BuyNowCheckoutView.swift */; };
 		9C86225629B483A300CF20E8 /* DiscountTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86225529B483A300CF20E8 /* DiscountTypes.swift */; };
 		9C86225829B48FEC00CF20E8 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86225729B48FEC00CF20E8 /* Decimal.swift */; };
@@ -74,6 +76,16 @@
 		9CFD9B3329C487FC00D12148 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9B3229C487FC00D12148 /* CartViewModel.swift */; };
 		9CFD9B3629C4952500D12148 /* SearchItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD9B3529C4952500D12148 /* SearchItemCellView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C5B5EC929CC988100FD62D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CF42CF9299FC92600CAA856 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9CF42D00299FC92600CAA856;
+			remoteInfo = NFTio;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9C0386E829A7BD9500EF4BAD /* WelcomeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTextView.swift; sourceTree = "<group>"; };
@@ -114,6 +126,9 @@
 		9C37C1C429BC784300125E09 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		9C37C1C629BCB1FB00125E09 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		9C37C1C929BCB56800125E09 /* CollectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionListView.swift; sourceTree = "<group>"; };
+		9C5B5EC529CC988100FD62D7 /* NFTioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NFTioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C5B5EC729CC988100FD62D7 /* NFTioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTioTests.swift; sourceTree = "<group>"; };
+		9C5B5ECE29CC99C800FD62D7 /* CartViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
 		9C86225129B482CB00CF20E8 /* BuyNowCheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyNowCheckoutView.swift; sourceTree = "<group>"; };
 		9C86225529B483A300CF20E8 /* DiscountTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountTypes.swift; sourceTree = "<group>"; };
 		9C86225729B48FEC00CF20E8 /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
@@ -150,6 +165,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9C5B5EC229CC988100FD62D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CF42CFE299FC92600CAA856 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,6 +319,15 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		9C5B5EC629CC988100FD62D7 /* NFTioTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C5B5EC729CC988100FD62D7 /* NFTioTests.swift */,
+				9C5B5ECE29CC99C800FD62D7 /* CartViewModelTests.swift */,
+			);
+			path = NFTioTests;
+			sourceTree = "<group>";
+		};
 		9C86225029B4825000CF20E8 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				9CF42D03299FC92600CAA856 /* NFTio */,
+				9C5B5EC629CC988100FD62D7 /* NFTioTests */,
 				9CF42D02299FC92600CAA856 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -370,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				9CF42D01299FC92600CAA856 /* NFTio.app */,
+				9C5B5EC529CC988100FD62D7 /* NFTioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -456,6 +489,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9C5B5EC429CC988100FD62D7 /* NFTioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C5B5ECD29CC988100FD62D7 /* Build configuration list for PBXNativeTarget "NFTioTests" */;
+			buildPhases = (
+				9C5B5EC129CC988100FD62D7 /* Sources */,
+				9C5B5EC229CC988100FD62D7 /* Frameworks */,
+				9C5B5EC329CC988100FD62D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C5B5ECA29CC988100FD62D7 /* PBXTargetDependency */,
+			);
+			name = NFTioTests;
+			productName = NFTioTests;
+			productReference = 9C5B5EC529CC988100FD62D7 /* NFTioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9CF42D00299FC92600CAA856 /* NFTio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CF42D0F299FC92800CAA856 /* Build configuration list for PBXNativeTarget "NFTio" */;
@@ -485,6 +536,10 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					9C5B5EC429CC988100FD62D7 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 9CF42D00299FC92600CAA856;
+					};
 					9CF42D00299FC92600CAA856 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
@@ -506,11 +561,19 @@
 			projectRoot = "";
 			targets = (
 				9CF42D00299FC92600CAA856 /* NFTio */,
+				9C5B5EC429CC988100FD62D7 /* NFTioTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9C5B5EC329CC988100FD62D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CF42CFF299FC92600CAA856 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -523,6 +586,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9C5B5EC129CC988100FD62D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C5B5ECF29CC99C800FD62D7 /* CartViewModelTests.swift in Sources */,
+				9C5B5EC829CC988100FD62D7 /* NFTioTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CF42CFD299FC92600CAA856 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -596,7 +668,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9C5B5ECA29CC988100FD62D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9CF42D00299FC92600CAA856 /* NFTio */;
+			targetProxy = 9C5B5EC929CC988100FD62D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		9C5B5ECB29CC988100FD62D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NV786K8W94;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kutelov.NFTioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NFTio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NFTio";
+			};
+			name = Debug;
+		};
+		9C5B5ECC29CC988100FD62D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NV786K8W94;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kutelov.NFTioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NFTio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NFTio";
+			};
+			name = Release;
+		};
 		9CF42D0D299FC92800CAA856 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -776,6 +900,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9C5B5ECD29CC988100FD62D7 /* Build configuration list for PBXNativeTarget "NFTioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C5B5ECB29CC988100FD62D7 /* Debug */,
+				9C5B5ECC29CC988100FD62D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9CF42CFC299FC92600CAA856 /* Build configuration list for PBXProject "NFTio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
