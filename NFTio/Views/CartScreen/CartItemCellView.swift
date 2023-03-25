@@ -24,6 +24,7 @@ struct CartItemCellView: View {
                     collectionName: shoppingCartItem.nftItem.collection.collectionName
                 )
                 CartCellMainContentView(
+                    tokenName: shoppingCartItem.nftItem.tokenName,
                     ethereumPrice: shoppingCartItem.nftItem.price.priceInCryptoCurrency)
                 CartCellBottomContentView(
                     ethereumPrice: shoppingCartItem.nftItem.price.priceInCryptoCurrency,

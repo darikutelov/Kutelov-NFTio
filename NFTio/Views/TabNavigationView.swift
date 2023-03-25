@@ -47,7 +47,7 @@ struct TabNavigationView: View {
                 .tag(4)
         }
         .onAppear {
-            selectedTab = 0
+            selectedTab = 1
             setTabBarUI()
         }
         .edgesIgnoringSafeArea(.all)

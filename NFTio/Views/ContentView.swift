@@ -21,15 +21,17 @@ struct ContentView: View {
             } else {
                 WelcomeScreenView(user: $user)
             }
-            LaunchScreen()
-              .opacity(showSplash ? 1 : 0)
-              .onAppear {
-                  DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                  withAnimation() {
-                    self.showSplash = false
-                  }
-                }
-            }
+            
+            //TODO: - Switch on back animation
+//            LaunchScreen()
+//              .opacity(showSplash ? 1 : 0)
+//              .onAppear {
+//                  DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+//                  withAnimation() {
+//                    self.showSplash = false
+//                  }
+//                }
+//            }
         }
         .environmentObject(nftViewModel)
         .environmentObject(cartViewModel)

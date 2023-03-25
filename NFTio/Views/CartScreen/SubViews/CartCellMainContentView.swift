@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CartCellMainContentView: View {
+    let tokenName: String
     var ethereumPrice: Decimal
     
     var body: some View {
         HStack(spacing: Constants.Spacing.small) {
-            CardTitle(text: "#3469")
+            CardTitle(text: tokenName)
             Spacer()
             CardTitle(text: "\(NumberFormatter.ethereumCurrencyFormatter.string(from: ethereumPrice as NSNumber) ?? "0")")
         }
@@ -21,6 +22,6 @@ struct CartCellMainContentView: View {
 
 struct CheckoutCellMainContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CartCellMainContentView(ethereumPrice: 125.755)
+        CartCellMainContentView(tokenName:"#3479", ethereumPrice: 125.755)
     }
 }
