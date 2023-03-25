@@ -16,59 +16,57 @@ import XCTest
 final class NFTioUITabNavigationTests: XCTestCase {
     var app: XCUIApplication!
     var homePageScrollView: XCUIElementQuery!
+    var tabBar: XCUIElement!
     
     override func setUpWithError() throws {
         app = XCUIApplication()
         app.launch()
-        
-        homePageScrollView = app.scrollViews
-        continueAfterFailure = false
+        tabBar = app.tabBars["Tab Bar"]
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        tabBar.buttons["Home"].tap()
     }
 
-    func testTapOnCategory() throws {
+    func testTapOnHomeTabBar() {
+        tabBar.buttons["Home"].tap()
+        let appLogoText = app.scrollViews.otherElements.staticTexts["NFTio"]
         
-        // Tab bar
-        //app.tabBars["Tab Bar"].buttons["Search"].tap()
-        
-        
-//        let homePageElements = homePageScrollView.otherElements
-//        let categoriesHorizontalScrollView = homePageScrollView.scrollViews.otherElements
-//        let categoryCellView = categoriesHorizontalScrollView.buttons
-//        categoryCellView["Art"]
-//            .tap()
-        
-//        let categoriesCount = categoryCellView.count
-//        XCTAssertEqual(categoriesCount, 9)
-        
-        
-        
-        let app = XCUIApplication()
-        let scrollViewsQuery = app.scrollViews
-        let elementsQuery = scrollViewsQuery.otherElements
-        //elementsQuery.staticTexts["NFTio"].tap()
-        //scrollViewsQuery.otherElements.containing(.image, identifier:"app-icon").element.tap()
-        //app.tabBars["Tab Bar"].buttons["Home"].tap()
-        
-        elementsQuery.scrollViews.otherElements.buttons["Art"].tap()
-        
-        //XCTAssert
-        XCTAssert(elementsQuery.staticTexts["NFTio"].exists)
-        
-//        let categoryNavBar = app.navigationBars["Art"]
-//        XCTAssertFalse(categoryCellView.exists)
-//        XCTAssert(categoryNavBar.exists)
-        //       XCTAssertEqual(app.navigationBars["Art"].staticTexts["Art"].title, "Art")
-        
-        
-        let artButton = elementsQuery.scrollViews.otherElements.buttons["Art"]
-        XCTAssert(artButton.exists)
-        XCTAssertNotNil(app.navigationBars["Art"].staticTexts["Art"])
-                
-   
+        XCTAssert(appLogoText.exists)
+        XCTAssertEqual(appLogoText.label, "NFTio")
     }
-
+    
+    func testTabOnSearchTabBar() {
+        tabBar.buttons["Search"].tap()
+        let searchField = app.navigationBars.searchFields.element
+        
+        XCTAssert(searchField.exists)
+        XCTAssert(searchField.isHittable)
+        XCTAssertEqual(searchField.placeholderValue, "NFT name")
+    }
+    
+    func testTapAddNFTForSaleTabBar() {
+        tabBar.buttons["Add"].tap()
+        let pageText = app.staticTexts.element
+        
+        XCTAssert(pageText.exists)
+        XCTAssertEqual(pageText.label, "Add NFT for Sale!")
+    }
+    
+    func testTapOnCartTabBar() {
+        tabBar.buttons["Cart"].tap()
+        let cartScreenTitle = app/*@START_MENU_TOKEN@*/.navigationBars["Your Cart"]/*[[".otherElements[\"2\"].navigationBars[\"Your Cart\"]",".navigationBars[\"Your Cart\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.staticTexts["Your Cart"]
+        
+        XCTAssert(cartScreenTitle.exists)
+        XCTAssertEqual(cartScreenTitle.label, "Your Cart")
+    }
+    
+    
+    func testTapOnProfileTabBar() {
+        tabBar.buttons["Profile"].tap()
+        let pageText = app.staticTexts.element
+        
+        XCTAssert(pageText.exists)
+        XCTAssertEqual(pageText.label, "Profile!")
+    }
 }

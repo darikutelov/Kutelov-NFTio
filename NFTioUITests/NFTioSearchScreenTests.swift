@@ -30,12 +30,45 @@ final class NFTioSearchScreenTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
+    //    func testTapOnHomePage() {
+    //
+    //        // Tab bar
+    //        //app.tabBars["Tab Bar"].buttons["Search"].tap()
+    //
+    //
+    ////        let homePageElements = homePageScrollView.otherElements
+    ////        let categoriesHorizontalScrollView = homePageScrollView.scrollViews.otherElements
+    ////        let categoryCellView = categoriesHorizontalScrollView.buttons
+    ////        categoryCellView["Art"]
+    ////            .tap()
+    //
+    ////        let categoriesCount = categoryCellView.count
+    ////        XCTAssertEqual(categoriesCount, 9)
+    //
+    //
+    //
+    //        let app = XCUIApplication()
+    //        let scrollViewsQuery = app.scrollViews
+    //        let elementsQuery = scrollViewsQuery.otherElements
+    //        //elementsQuery.staticTexts["NFTio"].tap()
+    //        //scrollViewsQuery.otherElements.containing(.image, identifier:"app-icon").element.tap()
+    //        //app.tabBars["Tab Bar"].buttons["Home"].tap()
+    //
+    //        elementsQuery.scrollViews.otherElements.buttons["Art"].tap()
+    //
+    //        //XCTAssert
+    //        XCTAssert(elementsQuery.staticTexts["NFTio"].exists)
+    //
+    ////        let categoryNavBar = app.navigationBars["Art"]
+    ////        XCTAssertFalse(categoryCellView.exists)
+    ////        XCTAssert(categoryNavBar.exists)
+    //        //       XCTAssertEqual(app.navigationBars["Art"].staticTexts["Art"].title, "Art")
+    //
+    //
+    //        let artButton = elementsQuery.scrollViews.otherElements.buttons["Art"]
+    //        XCTAssert(artButton.exists)
+    //        XCTAssertNotNil(app.navigationBars["Art"].staticTexts["Art"])
+    //
+    //
+    //    }
 }
