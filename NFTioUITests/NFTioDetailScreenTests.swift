@@ -15,6 +15,8 @@ final class NFTioDetailScreenTests: XCTestCase {
     override func setUpWithError() throws {
         app = XCUIApplication()
         app.launch()
+        app.tabBars["Tab Bar"].buttons["Search"].tap()
+        
         let scrollViewsQuery = app.scrollViews
         elementsQuery = scrollViewsQuery.otherElements
         elementsQuery.buttons["#3479, Bored Ape Yacht Club, Price, 67.45 ETH"].tap()

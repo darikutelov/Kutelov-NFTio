@@ -8,67 +8,81 @@
 import XCTest
 
 final class NFTioSearchScreenTests: XCTestCase {
-
+    var app: XCUIApplication!
+    var homePageScrollView: XCUIElementQuery!
+    var scrollViewElements: XCUIElementQuery!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        app = XCUIApplication()
+        app.launch()
+        app.tabBars["Tab Bar"].buttons["Search"].tap()
+        scrollViewElements = app.scrollViews.otherElements
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testSearchItemsOnTheScreen() {
+        let listItems = scrollViewElements.children(matching: .button)
+        let searchItem1 = listItems.element(boundBy: 0)
+        let searchItem2 = listItems.element(boundBy: 1)
+        XCTAssert(searchItem1.exists)
+        XCTAssert(searchItem2.exists)
+        
+        let searchItem1Texts = searchItem1.descendants(matching: .staticText)
+        let searchItem1Name = searchItem1Texts.element(boundBy: 0)
+        XCTAssertEqual(searchItem1Name.label, "#3479")
+        
+        let searchItem2Texts = searchItem2.descendants(matching: .staticText)
+        let searchItem2Name = searchItem2Texts.element(boundBy: 0)
+        XCTAssertEqual(searchItem2Name.label, "#9760")
+        
+        XCTAssertEqual(listItems.count, 8)
+    }
+    
+    func testSerachItemTapToDetailScreen() {
+        scrollViewElements.buttons["#3479, Bored Ape Yacht Club, Price, 67.45 ETH"].tap()
+        
+        let detailScreenTitle = app.navigationBars["Details"]
+        XCTAssert(detailScreenTitle.exists)
+    }
+    
+    func testSearchFieldSelectItem() {
+        let searchField = app.navigationBars.searchFields["NFT name"]
+        searchField.tap()
+        app.collectionViews/*@START_MENU_TOKEN@*/.buttons["#3479"]/*[[".cells.buttons[\"#3479\"]",".buttons[\"#3479\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let button = app.scrollViews.otherElements.buttons["#3479, Bored Ape Yacht Club, Price, 67.45 ETH"]
+        XCTAssert(button.exists)
+        
+        button.tap()
+        
+        let detailScreenTitle = app.navigationBars["Details"]
+        XCTAssert(detailScreenTitle.exists)
+        XCTAssertFalse(button.exists)
+        
+        let arrowBackwardButton = app.navigationBars["Details"]/*@START_MENU_TOKEN@*/.buttons["arrow.backward"]/*[[".otherElements[\"arrow.backward\"].buttons[\"arrow.backward\"]",".buttons[\"arrow.backward\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        arrowBackwardButton.tap()
+        
+        XCTAssert(button.exists)
     }
 
-    //    func testTapOnHomePage() {
-    //
-    //        // Tab bar
-    //        //app.tabBars["Tab Bar"].buttons["Search"].tap()
-    //
-    //
-    ////        let homePageElements = homePageScrollView.otherElements
-    ////        let categoriesHorizontalScrollView = homePageScrollView.scrollViews.otherElements
-    ////        let categoryCellView = categoriesHorizontalScrollView.buttons
-    ////        categoryCellView["Art"]
-    ////            .tap()
-    //
-    ////        let categoriesCount = categoryCellView.count
-    ////        XCTAssertEqual(categoriesCount, 9)
-    //
-    //
-    //
-    //        let app = XCUIApplication()
-    //        let scrollViewsQuery = app.scrollViews
-    //        let elementsQuery = scrollViewsQuery.otherElements
-    //        //elementsQuery.staticTexts["NFTio"].tap()
-    //        //scrollViewsQuery.otherElements.containing(.image, identifier:"app-icon").element.tap()
-    //        //app.tabBars["Tab Bar"].buttons["Home"].tap()
-    //
-    //        elementsQuery.scrollViews.otherElements.buttons["Art"].tap()
-    //
-    //        //XCTAssert
-    //        XCTAssert(elementsQuery.staticTexts["NFTio"].exists)
-    //
-    ////        let categoryNavBar = app.navigationBars["Art"]
-    ////        XCTAssertFalse(categoryCellView.exists)
-    ////        XCTAssert(categoryNavBar.exists)
-    //        //       XCTAssertEqual(app.navigationBars["Art"].staticTexts["Art"].title, "Art")
-    //
-    //
-    //        let artButton = elementsQuery.scrollViews.otherElements.buttons["Art"]
-    //        XCTAssert(artButton.exists)
-    //        XCTAssertNotNil(app.navigationBars["Art"].staticTexts["Art"])
-    //
-    //
-    //    }
+    
+    func testSearchFieldEnterText() {
+        let allListItems = scrollViewElements.children(matching: .button)
+        XCTAssertEqual(allListItems.count, 8)
+        
+        let searchField = app.navigationBars.searchFields["NFT name"]
+        searchField.tap()
+        searchField.typeText("#3479")
+        
+        let listItems = scrollViewElements.children(matching: .button)
+        XCTAssertEqual(listItems.count, 1)
+        
+        let itemTexts = listItems.element.descendants(matching: .staticText)
+        let itemName = itemTexts.element(boundBy: 0)
+        XCTAssertEqual(itemName.label, "#3479")
+    }
 }
