@@ -48,14 +48,14 @@ final class NFTioDetailScreenTests: XCTestCase {
         XCTAssert(productImage.exists)
     }
     
-    func testCollectionNameExistsAndIsCorrect() {
-        let collectionName = texts.element(boundBy: 1)
+    func testCollectionNameExistsAndIsCorrect() throws {
+        let collectionName = try XCTUnwrap(texts.element(boundBy: 1))
         XCTAssert(collectionName.exists)
         XCTAssertEqual(collectionName.label, "Bored Ape Yacht Club")
     }
     
-    func testDescriptionExistsAndIsCorrect() {
-        let description = texts.element(boundBy: 2)
+    func testDescriptionExistsAndIsCorrect() throws {
+        let description = try XCTUnwrap(texts.element(boundBy: 2))
         XCTAssert(description.exists)
         XCTAssertEqual(description.label, "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.")
     }

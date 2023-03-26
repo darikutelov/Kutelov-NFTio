@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var user = User()
     @State var showSplash = true
-    @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = false
+    @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = true
     @ObservedObject var nftViewModel = NFTViewModel()
     @ObservedObject var cartViewModel = CartViewModel()
     
@@ -21,8 +21,6 @@ struct ContentView: View {
             } else {
                 WelcomeScreenView(user: $user)
             }
-            
-            //TODO: - Switch on back animation
 //            LaunchScreen()
 //              .opacity(showSplash ? 1 : 0)
 //              .onAppear {

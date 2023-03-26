@@ -13,12 +13,6 @@ struct NFTDetailView: View {
     
     let nft: NFT
 
-//    private var viewModel: NFTDetailViewViewModel
-//
-//    init(nft: NFT) {
-//        self.viewModel = NFTDetailViewViewModel(nft: nft)
-//    }
-//
     var body: some View {
         GeometryReader { proxy in
             ScrollView {

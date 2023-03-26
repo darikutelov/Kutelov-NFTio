@@ -43,6 +43,24 @@ struct CategoryStore {
         
         return filteredCategories.first
     }
+    
+    func getCategoryByName(name: String) -> Category? {
+        let categoryName = CategoryName(rawValue: name)
+        
+        guard let categoryName = categoryName else {
+            return nil
+        }
+        
+        let categoryIndex = categories.firstIndex { category in
+            category.name == categoryName
+        }
+        
+        guard let categoryIndex = categoryIndex else {
+            return nil
+        }
+        
+        return categories[categoryIndex]
+    }
 }
 
 extension Category {
