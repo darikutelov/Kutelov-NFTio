@@ -21,7 +21,7 @@ struct CartItemCellView: View {
                 .frame(height: Constants.Spacing.xxxlarge)
             VStack(spacing: Constants.Spacing.small) {
                 CartCellTopContentView(
-                    collectionName: shoppingCartItem.nftItem.collection.collectionName
+                    collectionName: shoppingCartItem.nftItem.collection.name
                 )
                 CartCellMainContentView(
                     tokenName: shoppingCartItem.nftItem.tokenName,

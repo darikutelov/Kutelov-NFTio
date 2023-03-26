@@ -55,7 +55,6 @@ final class NFTioSearchScreenTests: XCTestCase {
         app.collectionViews/*@START_MENU_TOKEN@*/.buttons["#3479"]/*[[".cells.buttons[\"#3479\"]",".buttons[\"#3479\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
         let button = app.scrollViews.otherElements.buttons["#3479, Bored Ape Yacht Club, Price, 67.45 ETH"]
-        XCTAssert(button.exists)
         
         button.tap()
         

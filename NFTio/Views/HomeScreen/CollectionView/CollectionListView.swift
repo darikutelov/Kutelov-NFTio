@@ -30,7 +30,7 @@ struct CollectionListView: View {
                         }
                     }
                 }
-                .navigationDestination(for: Collection.self) { collection in
+                .navigationDestination(for: NFTCollection.self) { collection in
                     CollectionView(selectedCollection: collection)
                 }
                 
@@ -46,11 +46,11 @@ struct CollectionListView: View {
     }
 }
 
-extension Collection {
+extension NFTCollection {
     var view: some View {
         HStack {
             RoundedImageView(
-                imageUrlAsString: Constants.Api.collectionBaseUrl + imageUrl,
+                imageUrlAsString: Constants.Api.Images.collectionBaseUrl + (imageUrl ?? ""),
                 roundedCornerSize: .infinity)
             .frame(
                 width: Constants.Spacing.xxxlarge,
@@ -60,7 +60,7 @@ extension Collection {
                 alignment: .leading,
                 spacing: Constants.Spacing.small / 2
             ) {
-                Text(collectionName)
+                Text(name)
                     .font(.callout)
                     .kerning(0.5)
                     .fontWeight(.medium)

@@ -87,6 +87,6 @@ extension Category {
     Category(
       id: category["id"] ?? "",
       name: CategoryName(rawValue: category["name"] ?? "unknown") ?? .unknown,
-      imageUrl: Constants.Api.categoryBaseUrl + (category["imageUrl"] ?? ""))
+      imageUrl: Constants.Api.Images.categoryBaseUrl + (category["imageUrl"] ?? ""))
   }
 }

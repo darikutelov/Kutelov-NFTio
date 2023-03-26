@@ -43,6 +43,6 @@ struct RoundedImageView: View {
 struct SquareRoundedImageView_Previews: PreviewProvider {
     static var previews: some View {
         RoundedImageView(
-            imageUrlAsString: Constants.Api.categoryBaseUrl + "art.jpg")
+            imageUrlAsString: Constants.Api.Images.categoryBaseUrl + "art.jpg")
     }
 }

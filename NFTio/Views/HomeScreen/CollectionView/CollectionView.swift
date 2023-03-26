@@ -11,7 +11,7 @@ struct CollectionView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var viewModel: NFTViewModel
     
-    let selectedCollection: Collection
+    let selectedCollection: NFTCollection
     
     var body: some View {
         ZStack {
@@ -25,7 +25,7 @@ struct CollectionView: View {
                             collection: selectedCollection
                         )
                     }
-                    .navigationTitle("\(selectedCollection.collectionName)")
+                    .navigationTitle("\(selectedCollection.name)")
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationBarBackButtonHidden(true)
                     .toolbar {

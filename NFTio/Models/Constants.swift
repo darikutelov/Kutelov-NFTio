@@ -74,7 +74,11 @@ enum Constants {
     }
     
     enum Api {
-        public static let categoryBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1647330626/nftio/categories/"
-        public static let collectionBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1678552863/nftio/collections/"
+        public static let baseUrl = "https://cryptic-oasis-81288.herokuapp.com/api/v1/"
+        
+        enum Images {
+            public static let categoryBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1647330626/nftio/categories/"
+            public static let collectionBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1678552863/nftio/collections/"
+        }
     }
 }
