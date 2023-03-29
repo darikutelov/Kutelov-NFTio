@@ -16,25 +16,13 @@ final class UserViewModel: ObservableObject {
     @Published var currentUser: User? = nil
     
     init() {
-        setAuthListener()
+       updateUserState()
     }
     
-    private func setAuthListener() {
-        Auth
-            .auth()
-            .addStateDidChangeListener({ auth, user in
-                if let user = user{
-                    self.currentUser = User(
-                        isAuthenticated: true,
-                        username: user.displayName ?? "Buddy",
-                        email: user.email ?? "",
-                        avatarUrl: user.photoURL
-                    )
-                }
-                else {
-                    self.currentUser = nil
-                }
-            })
+    private func updateUserState() {
+        UserManager.shared.updateCurrentUser { [weak self] user in
+            self?.currentUser = user
+        }
     }
 }
 

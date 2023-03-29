@@ -13,13 +13,26 @@ final class UserManager: ObservableObject {
     
     static var shared = UserManager()
     
-//    @Published var currentUser: User? = nil {
-//        didSet {
-//            print("Manager", self.currentUser)
-//        }
-//    }
-    
     private init() {}
+    
+    func updateCurrentUser(completion: @escaping((_ user: User?) -> Void)) {
+        Auth
+            .auth()
+            .addStateDidChangeListener({ auth, user in
+                if let user = user {
+                    let currentUser = User(
+                        isAuthenticated: true,
+                        username: user.displayName ?? "Buddy",
+                        email: user.email ?? "",
+                        avatarUrl: user.photoURL
+                    )
+                    completion(currentUser)
+                }
+                else {
+                    completion(nil)
+                }
+            })
+    }
     
     func registerUser(email: String,
                       password: String,
