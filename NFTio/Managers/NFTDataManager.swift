@@ -73,7 +73,7 @@ let demoNFT = [NFT(
     likes: 29,
     creator: "YugaLabs",
     category: musicCategory,
-    collection: collection1,
+    nftCollection: collection1,
     contractAddress:"0xd4307e0acd12cf46fd6cf93bc264f5d5d1598792",
     price: Price(
         cryptoCurrency: .ethereum,
@@ -90,7 +90,7 @@ let demoNFT = [NFT(
     likes: 37,
     creator: "YugaLabs",
     category: artCategory,
-    collection: collection2,
+    nftCollection: collection2,
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
         cryptoCurrency: .ethereum,
@@ -107,7 +107,7 @@ let demoNFT = [NFT(
     likes: 34,
     creator: "YugaLabs",
     category: musicCategory,
-    collection: collection1,
+    nftCollection: collection1,
     contractAddress:"0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
     price: Price(
         cryptoCurrency: .ethereum,
@@ -124,7 +124,7 @@ let demoNFT = [NFT(
     likes: 34,
     creator: "YugaLabs",
     category: artCategory,
-    collection: collection1,
+    nftCollection: collection1,
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
         cryptoCurrency: .ethereum,
@@ -141,7 +141,7 @@ let demoNFT = [NFT(
     likes: 25,
     creator: "YugaLabs",
     category: artCategory,
-    collection: collection1,
+    nftCollection: collection1,
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
         cryptoCurrency: .ethereum,
@@ -158,7 +158,7 @@ let demoNFT = [NFT(
     likes: 21,
     creator: "YugaLabs",
     category: artCategory,
-    collection: collection1,
+    nftCollection: collection1,
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
         cryptoCurrency: .ethereum,
@@ -175,7 +175,7 @@ let demoNFT = [NFT(
     likes: 21,
     creator: "YugaLabs",
     category: artCategory,
-    collection: collection1,
+    nftCollection: collection1,
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
         cryptoCurrency: .ethereum,
@@ -192,7 +192,7 @@ let demoNFT = [NFT(
     likes: 21,
     creator: "YugaLabs",
     category: artCategory,
-    collection: collection1,
+    nftCollection: collection1,
     contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
     price: Price(
         cryptoCurrency: .ethereum,

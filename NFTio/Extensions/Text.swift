@@ -13,7 +13,7 @@ extension Constants {
             public static let welcome = String(localized: "Welcome", comment: "Welcome message on home screen")
             public static let categoriesLabel = "Categories"
             public static let collectionsLabel = "Collections"
-            public static let volumeLabel = "Collections"
+            public static let volumeLabel = "Price"
             public static let seeAllLabel = "See All"
             public static let nftListLabel = "Trending NFTs"
         }

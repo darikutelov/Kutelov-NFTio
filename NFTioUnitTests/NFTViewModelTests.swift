@@ -58,7 +58,7 @@ final class NFTViewModelTests: XCTestCase {
         let filteredItems = viewModel.filteredNftItems
 
         XCTAssertEqual(filteredItems.count, 7)
-        XCTAssertEqual(filteredItems[0].collection.name, "Bored Ape Yacht Club")
+        XCTAssertEqual(filteredItems[0].nftCollection.name, "Bored Ape Yacht Club")
     }
     
     func testFilteredNFTItemsOnSearchTerm() {

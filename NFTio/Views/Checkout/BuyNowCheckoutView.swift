@@ -39,8 +39,8 @@ struct BuyNowCheckoutView: View {
                         totalAmount: viewModel.totalAmount
                     )
                     Button {
-                        print("checkout")
                         viewModel.cartItems = []
+                        let _ = Log.general.debug("Customer checked out 🎉")
                     } label: {
                         ButtonView(buttonText: Constants.Text.Checkout.checkoutButton)
                     }

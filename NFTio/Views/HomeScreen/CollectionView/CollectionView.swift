@@ -52,7 +52,7 @@ struct CollectionView: View {
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
         CollectionView(
-            selectedCollection: NFTDataManager().nftItems.first!.collection
+            selectedCollection: NFTDataManager().nftItems.first!.nftCollection
         )
         .environmentObject(NFTViewModel())
     }

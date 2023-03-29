@@ -10,16 +10,19 @@ import SwiftUI
 struct ContentView: View {
     @State private var user = User()
     @State var showSplash = true
-    @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = true
     @ObservedObject var nftViewModel = NFTViewModel()
     @ObservedObject var cartViewModel = CartViewModel()
+
+    @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = false
     
     var body: some View {
         ZStack {
             if hasSeenWelcomeScreen {
                 TabNavigationView()
             } else {
-                WelcomeScreenView(user: $user)
+                WelcomeScreenView(
+                    user: $user
+                )
             }
 //            LaunchScreen()
 //              .opacity(showSplash ? 1 : 0)

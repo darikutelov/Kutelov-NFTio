@@ -10,6 +10,7 @@ import SwiftUI
 struct TabNavigationView: View {
     @AppStorage(Constants.Text.TabView.userdefaultsKey) var selectedTab = 0
     @EnvironmentObject var cartViewModel: CartViewModel
+    @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = false
     
     // MARK: - Assignment 1
     var body: some View {
@@ -48,6 +49,7 @@ struct TabNavigationView: View {
         }
         .onAppear {
             selectedTab = 0
+            hasSeenWelcomeScreen = true
             setTabBarUI()
         }
         .edgesIgnoringSafeArea(.all)

@@ -12,6 +12,7 @@ struct NFTioApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            let _ = Log.general.debug("NFTio started 🚀")
         }
     }
 }

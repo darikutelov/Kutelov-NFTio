@@ -25,14 +25,14 @@ final class NFTViewModel: ObservableObject {
         
         if let selectedCollection = selectedCollection {
             return nftItems.filter {
-                $0.collection.id == selectedCollection.id
+                $0.nftCollection.id == selectedCollection.id
             }
         }
         
         if !searchTerm.isEmpty {
             return nftItems.filter {
                 $0.tokenName.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased()) ||
-                $0.collection.name.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased())
+                $0.nftCollection.name.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased())
             }
         }
         

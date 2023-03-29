@@ -16,7 +16,7 @@ struct NFT: Hashable, Identifiable {
     var likes: Int
     let creator: String
     let category: Category
-    var collection: NFTCollection
+    var nftCollection: NFTCollection
     let contractAddress: String
     let price: Price
     var quantity: Int

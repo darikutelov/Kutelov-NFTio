@@ -39,12 +39,6 @@ struct WelcomeScreenView: View {
                     WelcomeBackgroundImageView()
                 )
             }
-            .onDisappear() {
-                UserDefaults.standard.set(
-                    true,
-                    forKey: Constants.Text.LaunchScreen.hasSeenWelcomeScreen
-                )
-            }
         }
     }
 }
@@ -75,6 +69,8 @@ struct HomeBackgroundView: View {
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeScreenView(user: .constant(User()))
+        WelcomeScreenView(
+            user: .constant(User())
+            )
     }
 }

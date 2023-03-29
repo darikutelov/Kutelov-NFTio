@@ -79,6 +79,7 @@ enum Constants {
         enum Images {
             public static let categoryBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1647330626/nftio/categories/"
             public static let collectionBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1678552863/nftio/collections/"
+            public static let nftItemsBaseUrl = "https://res.cloudinary.com/dariku/image/upload/v1679847173/nftio/nftItems/"
         }
     }
 }

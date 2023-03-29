@@ -26,7 +26,7 @@ struct SearchItemCellView: View {
                     CardTitle(text: "\(nftItem.tokenName)")
                 }
                 HStack() {
-                    CardSubheading(text: "\(nftItem.collection.name)")
+                    CardSubheading(text: "\(nftItem.nftCollection.name)")
                 }
             }
             .frame(height: Constants.Spacing.superLarge)
