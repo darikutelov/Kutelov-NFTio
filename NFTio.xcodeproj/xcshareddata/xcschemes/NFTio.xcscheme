@@ -29,6 +29,28 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9C5B5EC429CC988100FD62D7"
+               BuildableName = "NFTioUnitTests.xctest"
+               BlueprintName = "NFTioUnitTests"
+               ReferencedContainer = "container:NFTio.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9CDC76BF29CDA07300BB607D"
+               BuildableName = "NFTioUITests.xctest"
+               BlueprintName = "NFTioUITests"
+               ReferencedContainer = "container:NFTio.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -23,7 +23,7 @@ struct TopInfoSectionView: View {
                     .font(.title)
                     .fontWeight(.black)
                     .foregroundColor(Color(Constants.Colors.primaryText))
-                Text("\(nft.collection.collectionName)")
+                Text("\(nft.collection.name)")
                     .foregroundColor(Color(Constants.Colors.secondary))
                 if let description = nft.description {
                     Text("\(description)")

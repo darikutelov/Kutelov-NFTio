@@ -16,7 +16,7 @@ struct NFT: Hashable, Identifiable {
     var likes: Int
     let creator: String
     let category: Category
-    var collection: Collection
+    var collection: NFTCollection
     let contractAddress: String
     let price: Price
     var quantity: Int
@@ -26,7 +26,7 @@ struct NFT: Hashable, Identifiable {
 
 extension NFT {
     static func == (lhs: NFT, rhs: NFT) -> Bool {
-        lhs.id > rhs.id
+        lhs.id == rhs.id
     }
 }
 

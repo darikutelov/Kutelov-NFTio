@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var user = User()
     @State var showSplash = true
-    @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = false
+    @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = true
     @ObservedObject var nftViewModel = NFTViewModel()
     @ObservedObject var cartViewModel = CartViewModel()
     
@@ -21,15 +21,15 @@ struct ContentView: View {
             } else {
                 WelcomeScreenView(user: $user)
             }
-            LaunchScreen()
-              .opacity(showSplash ? 1 : 0)
-              .onAppear {
-                  DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                  withAnimation() {
-                    self.showSplash = false
-                  }
-                }
-            }
+//            LaunchScreen()
+//              .opacity(showSplash ? 1 : 0)
+//              .onAppear {
+//                  DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+//                  withAnimation() {
+//                    self.showSplash = false
+//                  }
+//                }
+//            }
         }
         .environmentObject(nftViewModel)
         .environmentObject(cartViewModel)

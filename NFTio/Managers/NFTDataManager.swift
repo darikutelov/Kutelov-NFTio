@@ -8,17 +8,17 @@
 import Foundation
 
 final class NFTDataManager {
-    var nftItems = [NFT]()
-    
-    init() {
-        demoNFT.forEach {
-            addNew(nftItem: $0)
-        }
-    }
-    
+    var nftItems = [NFT](demoNFT)
     
     func addNew(nftItem: NFT) {
         self.nftItems.append(nftItem)
+    }
+    
+    func fetchNftItems() async throws -> [NFT] {
+        let seconds = 2.0
+        try await Task.sleep(nanoseconds: UInt64(seconds * Double(NSEC_PER_SEC)))
+    
+        return nftItems
     }
 }
 
@@ -27,9 +27,9 @@ let artCategory = Category(id: "1", name: .art, imageUrl: "art.jpg")
 let musicCategory = Category(id: "2", name: .music, imageUrl: "music.jpg")
 
 //Collection
-var collection1 = Collection(
+var collection1 = NFTCollection(
     id: "2",
-    collectionName: "Bored Ape Yacht Club",
+    name: "Bored Ape Yacht Club",
     description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
     imageUrl: "https://i.seadn.io/gae/lHexKRMpw-aoSyB1WdFBff5yfANLReFxHzt1DOj_sg7mS14yARpuvYcUtsyyx-Nkpk6WTcUPFoG53VnLJezYi8hAs0OxNZwlw6Y-dmI?auto=format&w=3840",
     contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
@@ -41,9 +41,9 @@ var collection1 = Collection(
     owners: 5888
 )
 
-var collection2 = Collection(
+var collection2 = NFTCollection(
     id: "5",
-    collectionName: "Pukenza",
+    name: "Pukenza",
     description: "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
     imageUrl: "azuki.png",
     contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
@@ -184,23 +184,22 @@ let demoNFT = [NFT(
     quantity: 1,
     auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
     bids: [bid2, bid3]
+), NFT(
+    id: "13532",
+    tokenName: "#1353",
+    description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+    imageUrl: "https://i.seadn.io/gae/7YZf35HGBGQjf34S6qlNDQRlvQ02qn0Wnrk-d7JR336wCy--KaltTk-X8PrOLqJa1zY8zW0kT4vzVx0ODxfgj74bTZ6N8ltl0_asK3M?auto=format&w=3840",
+    likes: 21,
+    creator: "YugaLabs",
+    category: artCategory,
+    collection: collection1,
+    contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+    price: Price(
+        cryptoCurrency: .ethereum,
+        priceInCryptoCurrency: 75.1)
+    ,
+    quantity: 1,
+    auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
+    bids: [bid2, bid3]
 )
-               , NFT(
-                id: "13532",
-                tokenName: "#1353",
-                description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
-                imageUrl: "https://i.seadn.io/gae/7YZf35HGBGQjf34S6qlNDQRlvQ02qn0Wnrk-d7JR336wCy--KaltTk-X8PrOLqJa1zY8zW0kT4vzVx0ODxfgj74bTZ6N8ltl0_asK3M?auto=format&w=3840",
-                likes: 21,
-                creator: "YugaLabs",
-                category: artCategory,
-                collection: collection1,
-                contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
-                price: Price(
-                    cryptoCurrency: .ethereum,
-                    priceInCryptoCurrency: 75.1)
-                ,
-                quantity: 1,
-                auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
-                bids: [bid2, bid3]
-               )
 ]

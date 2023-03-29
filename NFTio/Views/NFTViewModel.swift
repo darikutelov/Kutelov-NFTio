@@ -10,11 +10,11 @@ import SwiftUI
 final class NFTViewModel: ObservableObject {
     @Published var nftItems = [NFT](NFTDataManager().nftItems)
     @Published var selectedCategory: Category? = nil
-    @Published var selectedCollection: Collection? = nil
+    @Published var selectedCollection: NFTCollection? = nil
     @Published var searchTerm: String = ""
     
     var categories = Category.categories
-    var collections = Collection.collections
+    var collections = NFTCollection.collections
     
     var filteredNftItems: [NFT] {
         if let selectedCategory = selectedCategory {
@@ -32,7 +32,7 @@ final class NFTViewModel: ObservableObject {
         if !searchTerm.isEmpty {
             return nftItems.filter {
                 $0.tokenName.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased()) ||
-                $0.collection.collectionName.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased())
+                $0.collection.name.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased())
             }
         }
         
@@ -43,7 +43,7 @@ final class NFTViewModel: ObservableObject {
         selectedCategory = category
     }
     
-    func setSelectedCollection(collection: Collection?) {
+    func setSelectedCollection(collection: NFTCollection?) {
         selectedCollection = collection
     }
     
