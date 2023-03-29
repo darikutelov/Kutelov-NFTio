@@ -11,6 +11,7 @@ import Firebase
 struct LoginScreen: View {
     @State var email: String = "dari.k@abv.bg"
     @State var password: String = "Andi1d2k9@"
+    @State var error: String = ""
     
     //TODO: - SwiftUI Form
     //TODO: - Style Input fields with modifier
@@ -27,25 +28,22 @@ struct LoginScreen: View {
             Button(action: { login() }) {
                 Text("Sign in")
             }
+            
+            if error != "" {
+                Title(text: "\(error)")
+            }
         }
         .padding()
     }
     
     func login() {
-          Auth
-            .auth()
-            .signIn(withEmail: email, password: password) { result, error in
-              if error != nil {
-                  print(error?.localizedDescription ?? "")
-              } else {
-                  email = ""
-                  password = ""
-//                  Log.info.debug(result?.user)
-                  if let user = Auth.auth().currentUser {
-                      print(user.email)
-                  }
-              }
-          }
+        UserManager.shared.loginUser(
+            email: email,
+            password: password) { loginError in
+                if let loginError = loginError {
+                    error = loginError.localizedDescription
+                }
+            }
       }
 }
 

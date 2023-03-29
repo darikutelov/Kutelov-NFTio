@@ -8,8 +8,9 @@
 import Foundation
 
 struct User {
-    var isAuthenticated = true
-    var username: String = "Joe"
+    var isAuthenticated = false
+    var username: String = ""
+    var email: String = ""
     var avatarUrl: String?
     var walletAddress: String?
 }
