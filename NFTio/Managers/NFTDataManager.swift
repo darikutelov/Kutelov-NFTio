@@ -56,9 +56,9 @@ var collection2 = NFTCollection(
 )
 
 //Users
-let user1 = User(username: "userOne", avatarUrl: "", walletAddress: "")
-let user2 = User(username: "userTwo", avatarUrl: "", walletAddress: "")
-let user3 = User(username: "userThree", avatarUrl: "", walletAddress: "")
+let user1 = User(username: "userOne", walletAddress: "")
+let user2 = User(username: "userTwo", walletAddress: "")
+let user3 = User(username: "userThree", walletAddress: "")
 
 //Bids
 let bid1 = Bid(id: "", price: Price(cryptoCurrency: .ethereum, priceInCryptoCurrency: 65.49), user: user1, date: Date.now)

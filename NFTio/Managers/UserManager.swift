@@ -8,9 +8,16 @@
 import Foundation
 import Firebase
 
-class UserManager {
-    static let shared = UserManager()
+final class UserManager: ObservableObject {
     let auth = Auth.auth()
+    
+    static var shared = UserManager()
+    
+//    @Published var currentUser: User? = nil {
+//        didSet {
+//            print("Manager", self.currentUser)
+//        }
+//    }
     
     private init() {}
     
@@ -21,14 +28,14 @@ class UserManager {
         auth
             .createUser(withEmail: email,
                         password: password) { authResult, error in
-            
-            guard error == nil else {
-                completion(error)
-                return
+                
+                guard error == nil else {
+                    completion(error)
+                    return
+                }
+                
+                completion(nil)
             }
-            
-            completion(nil)
-        }
     }
     
     func loginUser(email: String,
@@ -38,14 +45,14 @@ class UserManager {
         auth
             .signIn(withEmail: email,
                     password: password) { authResult, error in
-            
-            guard error == nil else {
-                completion(error)
-                return
+                
+                guard error == nil else {
+                    completion(error)
+                    return
+                }
+                
+                completion(nil)
             }
-            
-            completion(nil)
-        }
     }
     
     func logoutUser() {

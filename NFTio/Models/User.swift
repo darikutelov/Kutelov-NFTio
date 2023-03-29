@@ -11,6 +11,6 @@ struct User {
     var isAuthenticated = false
     var username: String = ""
     var email: String = ""
-    var avatarUrl: String?
+    var avatarUrl: URL?
     var walletAddress: String?
 }

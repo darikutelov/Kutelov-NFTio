@@ -12,7 +12,8 @@ struct ContentView: View {
     @State var showSplash = true
     @ObservedObject var nftViewModel = NFTViewModel()
     @ObservedObject var cartViewModel = CartViewModel()
-
+    @ObservedObject var userViewModel = UserViewModel()
+    
     @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = false
     
     var body: some View {
@@ -36,6 +37,7 @@ struct ContentView: View {
         }
         .environmentObject(nftViewModel)
         .environmentObject(cartViewModel)
+        .environmentObject(userViewModel)
     }
 }
 

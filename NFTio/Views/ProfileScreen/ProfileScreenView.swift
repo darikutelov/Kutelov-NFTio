@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct ProfileScreenView: View {
+    @EnvironmentObject var viewModel: UserViewModel
+    
     var body: some View {
-        LoginScreen()
+        ZStack {
+            if viewModel.currentUser != nil {
+                Button {
+                    UserManager.shared.logoutUser()
+                } label: {
+                    ButtonView(buttonText: "Log Out")
+                }
+            } else {
+                LoginScreen()
+            }
+        }
     }
 }
 

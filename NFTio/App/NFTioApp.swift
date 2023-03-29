@@ -10,7 +10,6 @@ import Firebase
 
 @main
 struct NFTioApp: App {
-    
     init() {
         FirebaseApp.configure()
     }

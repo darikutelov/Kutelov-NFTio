@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct LoginScreen: View {
+    @EnvironmentObject var viewModel: UserViewModel
     @State var email: String = "dari.k@abv.bg"
     @State var password: String = "Andi1d2k9@"
     @State var error: String = ""
@@ -16,21 +17,23 @@ struct LoginScreen: View {
     //TODO: - SwiftUI Form
     //TODO: - Style Input fields with modifier
     //TODO: - Input validation and error
-    //TODO: - Firebase Auth
     //TODO: - Store email and passsword in key chain
+    //TODO: - add spinner
     
     
     var body: some View {
-        VStack {
-            Title(text: "Log In")
-            TextField("Username", text: $email)
-            SecureField("Password", text: $password)
-            Button(action: { login() }) {
-                Text("Sign in")
-            }
-            
-            if error != "" {
-                Title(text: "\(error)")
+        ZStack {
+            VStack {
+                Title(text: "Log In")
+                TextField("Username", text: $email)
+                SecureField("Password", text: $password)
+                Button(action: { login() }) {
+                    Text("Sign in")
+                }
+                
+                if error != "" {
+                    Title(text: "\(error)")
+                }
             }
         }
         .padding()
@@ -44,7 +47,7 @@ struct LoginScreen: View {
                     error = loginError.localizedDescription
                 }
             }
-      }
+    }
 }
 
 struct LoginScreen_Previews: PreviewProvider {
