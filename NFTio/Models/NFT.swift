@@ -25,6 +25,13 @@ struct NFT: Hashable, Identifiable {
 }
 
 extension NFT {
+    enum CodingKeys: String, CodingKey {
+            case id = "_id"
+            case tokenName, description, imageUrl, likes, creator, category, nftCollection, contractAddress, price, quantity, auctionExpiryDate, bids
+        }
+}
+
+extension NFT {
     static func == (lhs: NFT, rhs: NFT) -> Bool {
         lhs.id == rhs.id
     }

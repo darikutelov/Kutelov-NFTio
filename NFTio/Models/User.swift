@@ -8,7 +8,6 @@
 import Foundation
 
 struct User {
-    var isAuthenticated = false
     var username: String = ""
     var email: String = ""
     var avatarUrl: URL?

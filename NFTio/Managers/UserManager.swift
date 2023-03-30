@@ -21,14 +21,13 @@ final class UserManager: ObservableObject {
             .addStateDidChangeListener({ auth, user in
                 if let user = user {
                     let currentUser = User(
-                        isAuthenticated: true,
                         username: user.displayName ?? "Buddy",
                         email: user.email ?? "",
                         avatarUrl: user.photoURL
                     )
                     completion(currentUser)
                 }
-                else {
+                else {         
                     completion(nil)
                 }
             })
