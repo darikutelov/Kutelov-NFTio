@@ -8,13 +8,26 @@
 import Foundation
 
 class NFTDataManager: ObservableObject {
-//    static let shared = NFTDataManager()
     
-    @Published var nftItems = [NFT]()
-//    var decoder = JSONDecoder()
-//    var encoder = JSONEncoder()
+    @Published var nftItems = [NFT]() {
+        didSet {
+            saveNftItemsToJSON()
+        }
+    }
+
+    var decoder: JSONDecoder
+    var encoder: JSONEncoder
     
     init() {
+        decoder = JSONDecoder()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        
+        encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        encoder.outputFormatting = .prettyPrinted
+        
         loadNftItemsFromJSON()
     }
     
@@ -25,23 +38,18 @@ class NFTDataManager: ObservableObject {
     func fetchNftItems() async throws -> [NFT] {
         let seconds = 2.0
         try await Task.sleep(nanoseconds: UInt64(seconds * Double(NSEC_PER_SEC)))
-    
+        
         return nftItems
     }
     
     
+    //Assignment 1 & 3
     func loadNftItemsFromJSON() {
-        guard let nftItemsJsonURL = Bundle.main.url(forResource: "nftItems", withExtension: "json") else {
+        guard let nftItemsJsonURL = getNftItemsJSONUrl() else {
             print("JSON file not found!")
-          return
+            return
         }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-
         do {
             let nftItemsJsonData = try Data(contentsOf: nftItemsJsonURL)
             let nftItems = try decoder.decode([NFT].self, from: nftItemsJsonData)
@@ -50,7 +58,40 @@ class NFTDataManager: ObservableObject {
         } catch let error {
             print(error)
         }
-        
+    }
+    
+    private func getNftItemsJSONUrl() -> URL? {
+        let nftItemsJsonUrlFromDocuments = URL(fileURLWithPath: "NftItems",
+                                     relativeTo: FileManager.documentsDirectoryURL)
+                                        .appendingPathExtension("json")
+
+        if FileManager.default.fileExists(atPath: nftItemsJsonUrlFromDocuments.path) {
+            return nftItemsJsonUrlFromDocuments
+        } else {
+            guard let nftItemsJsonUrlFromResources = Bundle.main.url(
+                forResource: "nftItems",
+                withExtension: "json"
+            ) else {
+                return nil
+            }
+            return nftItemsJsonUrlFromResources
+        }
+    }
+    
+    //Assignment 2
+    func saveNftItemsToJSON() {
+        do {
+            let nftItemsData = try encoder.encode(nftItems)
+            let nftItemsURL = URL(
+                fileURLWithPath: "NftItems",
+                relativeTo: FileManager.documentsDirectoryURL
+            )
+                .appendingPathExtension("json")
+
+            try nftItemsData.write(to: nftItemsURL, options: .atomic)
+        } catch let error {
+            print(error)
+        }
     }
 }
 

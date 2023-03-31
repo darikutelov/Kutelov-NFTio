@@ -8,7 +8,7 @@
 import Foundation
 
 /// Enum for names of NFT items' categories
-enum CategoryName: String, CaseIterable, Decodable {
+enum CategoryName: String, CaseIterable, Codable {
     case art = "Art"
     case collectibles = "Colectibles"
     case domainNames = "Domain Names"
@@ -24,7 +24,7 @@ enum CategoryName: String, CaseIterable, Decodable {
 
 
 //TODO: - add category position prop
-struct Category: Hashable, Identifiable, Decodable {
+struct Category: Hashable, Identifiable, Codable {
     let id: String
     let name: CategoryName
     let imageUrl: String

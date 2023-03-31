@@ -8,7 +8,7 @@
 import Foundation
 
 /// Data structure to represent NFT collection
-struct NFTCollection: Hashable, Identifiable, Decodable {
+struct NFTCollection: Hashable, Identifiable, Codable {
     let id: String
     let name: String
     var description: String?
