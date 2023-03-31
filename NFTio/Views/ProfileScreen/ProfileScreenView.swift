@@ -22,6 +22,9 @@ struct ProfileScreenView: View {
                 LoginScreen()
             }
         }
+        .onAppear {
+            NFTDataManager.shared.loadNftItemsFromJSON()
+        }
     }
 }
 

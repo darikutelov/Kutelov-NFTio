@@ -8,7 +8,13 @@
 import Foundation
 
 final class NFTDataManager {
+    static let shared = NFTDataManager()
+    
     var nftItems = [NFT](demoNFT)
+//    var decoder = JSONDecoder()
+//    var encoder = JSONEncoder()
+    
+    private init() {}
     
     func addNew(nftItem: NFT) {
         self.nftItems.append(nftItem)
@@ -19,6 +25,30 @@ final class NFTDataManager {
         try await Task.sleep(nanoseconds: UInt64(seconds * Double(NSEC_PER_SEC)))
     
         return nftItems
+    }
+    
+    
+    func loadNftItemsFromJSON() {
+        guard let nftItemsJsonURL = Bundle.main.url(forResource: "nftItems", withExtension: "json") else {
+            print("JSON file not found!")
+          return
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        //"2023-03-31T05:54:33.227Z"
+        do {
+            let nftItemsJsonData = try Data(contentsOf: nftItemsJsonURL)
+            let nftItems = try decoder.decode([NFT].self, from: nftItemsJsonData)
+            
+            print(nftItems)
+        } catch let error {
+            print(error)
+        }
+        
     }
 }
 
@@ -35,7 +65,6 @@ var collection1 = NFTCollection(
     contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
     numberOfItems: 9998,
     createdAt: "2021-04-01T12:00:00.000Z".getDateFromString(),
-    category: artCategory,
     totalVolume: 890277,
     floorPrice: 68.86,
     owners: 5888
@@ -49,7 +78,6 @@ var collection2 = NFTCollection(
     contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
     numberOfItems: 10000,
     createdAt: "2022-01-01T12:00:00.000Z".getDateFromString(),
-    category: categoryStore.getCategoryByCategoryName(name: .virtualWorlds)!,
     totalVolume: 432888,
     floorPrice: 14.3,
     owners: 4910

@@ -8,7 +8,7 @@
 import Foundation
 
 /// Data structure to represent NFT collection
-struct NFTCollection: Hashable, Identifiable {
+struct NFTCollection: Hashable, Identifiable, Decodable {
     let id: String
     let name: String
     var description: String?
@@ -16,10 +16,15 @@ struct NFTCollection: Hashable, Identifiable {
     let contractAddress: String
     var numberOfItems: Int
     let createdAt: Date
-    let category: Category
     let totalVolume: Int
     var floorPrice: Decimal
     let owners: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name, description, imageUrl, contractAddress, numberOfItems,
+             createdAt, totalVolume, floorPrice, owners
+    }
 }
 
 let categoryStore = CategoryStore()
@@ -34,7 +39,6 @@ extension NFTCollection {
             contractAddress: "0x4344cb95bCb0d9e7296D0DE2ff329Bfc8D0A84fe",
             numberOfItems: 5969,
             createdAt: "2023-02-01T12:00:00.000Z".getDateFromString(),
-            category: categoryStore.getCategoryByCategoryName(name: .memberships)!,
             totalVolume: 313,
             floorPrice: 0.24,
             owners: 3474
@@ -47,7 +51,6 @@ extension NFTCollection {
             contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
             numberOfItems: 9998,
             createdAt: "2021-04-01T12:00:00.000Z".getDateFromString(),
-            category: categoryStore.getCategoryByCategoryName(name: .art)!,
             totalVolume: 890277,
             floorPrice: 68.86,
             owners: 5888
@@ -60,7 +63,6 @@ extension NFTCollection {
             contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
             numberOfItems: 8010,
             createdAt: "2021-12-01T12:00:00.000Z".getDateFromString(),
-            category: categoryStore.getCategoryByCategoryName(name: .art)!,
             totalVolume: 831,
             floorPrice: 0.03,
             owners: 3466
@@ -73,7 +75,6 @@ extension NFTCollection {
             contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
             numberOfItems: 5000,
             createdAt: "2022-11-01T12:00:00.000Z".getDateFromString(),
-            category: categoryStore.getCategoryByCategoryName(name: .virtualWorlds)!,
             totalVolume: 651,
             floorPrice: 0.0298,
             owners: 1006
@@ -86,7 +87,6 @@ extension NFTCollection {
             contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
             numberOfItems: 10000,
             createdAt: "2022-01-01T12:00:00.000Z".getDateFromString(),
-            category: categoryStore.getCategoryByCategoryName(name: .virtualWorlds)!,
             totalVolume: 432888,
             floorPrice: 14.3,
             owners: 4910

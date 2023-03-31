@@ -50,7 +50,7 @@ struct SearchItemCellView: View {
 
 struct SearchItemCellView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchItemCellView(nftItem: NFTDataManager().nftItems.first!)
+        SearchItemCellView(nftItem: NFTDataManager.shared.nftItems.first!)
             //.previewLayout(.sizeThatFits)
     }
         

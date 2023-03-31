@@ -73,7 +73,7 @@ struct NFTDetailView: View {
 
 struct NFTDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NFTDetailView(nft: NFTDataManager().nftItems[0])
+        NFTDetailView(nft: NFTDataManager.shared.nftItems[0])
             .environmentObject(CartViewModel())
     }
 }

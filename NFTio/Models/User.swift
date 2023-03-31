@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User {
+struct User: Decodable {
     var username: String = ""
     var email: String = ""
     var avatarUrl: URL?

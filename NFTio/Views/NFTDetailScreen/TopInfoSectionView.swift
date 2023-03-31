@@ -53,7 +53,7 @@ struct TopInfoSectionView: View {
 struct TopInfoSectionView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
-            TopInfoSectionView(nft: NFTDataManager().nftItems[0], proxy: geometry)
+            TopInfoSectionView(nft: NFTDataManager.shared.nftItems[0], proxy: geometry)
         }
     }
 }
