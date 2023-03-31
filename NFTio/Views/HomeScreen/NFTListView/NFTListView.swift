@@ -42,7 +42,9 @@ extension NFT {
     var view: some View {
         VStack {
             ZStack {
-                RoundedImageView(imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl + imageUrl)
+                RoundedImageView(
+                    imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl + imageUrl
+                )
                     .padding(8.0)
                 VStack {
                     Spacer()

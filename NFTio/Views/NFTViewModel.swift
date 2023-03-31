@@ -8,7 +8,10 @@
 import SwiftUI
 
 final class NFTViewModel: ObservableObject {
-    @Published var nftItems = [NFT](NFTDataManager().nftItems)
+    // MARK: - Properties
+    
+    let nftDataManager = NFTDataManager()
+    @Published var nftItems: [NFT]
     @Published var selectedCategory: Category? = nil
     @Published var selectedCollection: NFTCollection? = nil
     @Published var searchTerm: String = ""
@@ -39,9 +42,11 @@ final class NFTViewModel: ObservableObject {
         return nftItems
     }
     
-//    init() {
-//        nftItems = nftDataManager.nftItems
-//    }
+    // MARK: - Init
+    init() {
+        nftItems = nftDataManager.nftItems
+    }
+    
     
     func setSelectedCategory(category: Category?) {
         selectedCategory = category
@@ -58,5 +63,17 @@ final class NFTViewModel: ObservableObject {
         let nameSet = Set(matchingNames)
         return Array(nameSet)
     }
+    
+    // MARK: - LIKES
+    
+    func updateNftItemLikes(nftItemId: String) {
+        let itemIndex = nftItems.firstIndex(where: {$0.id == nftItemId })
+        
+        //TODO: - check if item already liked and if so reduce likes
+        if let index = itemIndex {
+            nftItems[index].likes += 1
+        }
+        
+        nftDataManager.nftItems = nftItems
+    }
 }
-//

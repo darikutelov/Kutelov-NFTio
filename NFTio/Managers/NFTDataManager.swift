@@ -9,6 +9,8 @@ import Foundation
 
 class NFTDataManager: ObservableObject {
     
+    // MARK: - Properties
+    
     @Published var nftItems = [NFT]() {
         didSet {
             saveNftItemsToJSON()
@@ -18,30 +20,24 @@ class NFTDataManager: ObservableObject {
     var decoder: JSONDecoder
     var encoder: JSONEncoder
     
+    // MARK: - Init
+    
     init() {
         decoder = JSONDecoder()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-        
         encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .formatted(dateFormatter)
-        encoder.outputFormatting = .prettyPrinted
-        
+        setUpCoders()
         loadNftItemsFromJSON()
     }
     
-    func addNew(nftItem: NFT) {
-        self.nftItems.append(nftItem)
+    private func setUpCoders() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        encoder.outputFormatting = .prettyPrinted
     }
     
-    func fetchNftItems() async throws -> [NFT] {
-        let seconds = 2.0
-        try await Task.sleep(nanoseconds: UInt64(seconds * Double(NSEC_PER_SEC)))
-        
-        return nftItems
-    }
-    
+    // MARK: - Fetch and save methods
     
     //Assignment 1 & 3
     func loadNftItemsFromJSON() {
@@ -61,20 +57,22 @@ class NFTDataManager: ObservableObject {
     }
     
     private func getNftItemsJSONUrl() -> URL? {
-        let nftItemsJsonUrlFromDocuments = URL(fileURLWithPath: "NftItems",
-                                     relativeTo: FileManager.documentsDirectoryURL)
-                                        .appendingPathExtension("json")
+        let urlFromDocuments = URL(
+            fileURLWithPath: "NftItems",
+            relativeTo: FileManager.documentsDirectoryURL
+        )
+            .appendingPathExtension("json")
 
-        if FileManager.default.fileExists(atPath: nftItemsJsonUrlFromDocuments.path) {
-            return nftItemsJsonUrlFromDocuments
+        if FileManager.default.fileExists(atPath: urlFromDocuments.path) {
+            return urlFromDocuments
         } else {
-            guard let nftItemsJsonUrlFromResources = Bundle.main.url(
+            guard let urlFromResources = Bundle.main.url(
                 forResource: "nftItems",
                 withExtension: "json"
             ) else {
                 return nil
             }
-            return nftItemsJsonUrlFromResources
+            return urlFromResources
         }
     }
     
@@ -93,9 +91,27 @@ class NFTDataManager: ObservableObject {
             print(error)
         }
     }
+    
+    //Assignment 4
+    func likeNftItem(itemId: String) {
+        
+    }
+    
+    // MARK: - NFT methods
+    
+    func addNew(nftItem: NFT) {
+        self.nftItems.append(nftItem)
+    }
+    
+    func fetchNftItems() async throws -> [NFT] {
+        let seconds = 2.0
+        try await Task.sleep(nanoseconds: UInt64(seconds * Double(NSEC_PER_SEC)))
+        
+        return nftItems
+    }
 }
 
-//Categort
+//Categorty
 let artCategory = Category(id: "1", name: .art, imageUrl: "art.jpg")
 let musicCategory = Category(id: "2", name: .music, imageUrl: "music.jpg")
 
