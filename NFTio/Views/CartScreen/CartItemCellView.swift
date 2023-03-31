@@ -14,7 +14,7 @@ struct CartItemCellView: View {
     var body: some View {
         HStack(alignment:.center) {
             RoundedImageView(
-                imageUrlAsString: shoppingCartItem.nftItem.imageUrl,
+                imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl +  shoppingCartItem.nftItem.imageUrl,
                 roundedCornerSize: .infinity
             )
                 .scaledToFit()

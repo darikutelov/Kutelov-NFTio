@@ -7,14 +7,16 @@
 
 import Foundation
 
-final class NFTDataManager {
-    static let shared = NFTDataManager()
+class NFTDataManager: ObservableObject {
+//    static let shared = NFTDataManager()
     
-    var nftItems = [NFT](demoNFT)
+    @Published var nftItems = [NFT]()
 //    var decoder = JSONDecoder()
 //    var encoder = JSONEncoder()
     
-    private init() {}
+    init() {
+        loadNftItemsFromJSON()
+    }
     
     func addNew(nftItem: NFT) {
         self.nftItems.append(nftItem)
@@ -39,12 +41,12 @@ final class NFTDataManager {
 
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
-        //"2023-03-31T05:54:33.227Z"
+
         do {
             let nftItemsJsonData = try Data(contentsOf: nftItemsJsonURL)
             let nftItems = try decoder.decode([NFT].self, from: nftItemsJsonData)
             
-            print(nftItems)
+            self.nftItems = nftItems
         } catch let error {
             print(error)
         }

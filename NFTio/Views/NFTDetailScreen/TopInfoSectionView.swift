@@ -13,7 +13,7 @@ struct TopInfoSectionView: View {
 
     var body: some View {
         VStack{
-            RoundedImageView(imageUrlAsString: nft.imageUrl)
+            RoundedImageView(imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl +  nft.imageUrl)
                 .scaledToFit()
                 .frame(height: proxy.size.width)
                 .padding()
@@ -53,7 +53,7 @@ struct TopInfoSectionView: View {
 struct TopInfoSectionView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
-            TopInfoSectionView(nft: NFTDataManager.shared.nftItems[0], proxy: geometry)
+            TopInfoSectionView(nft: NFTDataManager().nftItems[0], proxy: geometry)
         }
     }
 }

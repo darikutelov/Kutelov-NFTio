@@ -8,7 +8,7 @@
 import SwiftUI
 
 final class NFTViewModel: ObservableObject {
-    @Published var nftItems = [NFT](NFTDataManager.shared.nftItems)
+    @Published var nftItems = [NFT](NFTDataManager().nftItems)
     @Published var selectedCategory: Category? = nil
     @Published var selectedCollection: NFTCollection? = nil
     @Published var searchTerm: String = ""
@@ -38,6 +38,10 @@ final class NFTViewModel: ObservableObject {
         
         return nftItems
     }
+    
+//    init() {
+//        nftItems = nftDataManager.nftItems
+//    }
     
     func setSelectedCategory(category: Category?) {
         selectedCategory = category
