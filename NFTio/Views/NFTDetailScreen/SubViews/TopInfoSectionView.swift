@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TopInfoSectionView: View {
-    @EnvironmentObject var nftViewModel: NFTViewModel
+    @EnvironmentObject var viewModel: NFTViewModel
     
     let nft: NFT
     let proxy: GeometryProxy
@@ -19,12 +19,11 @@ struct TopInfoSectionView: View {
                 RoundedImageView(imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl +  nft.imageUrl)
                     .scaledToFit()
                 Button {
-                    nftViewModel.updateNftItemLikes(
-                        nftItemId: nft.id
-                    )
+                    viewModel.updateNftItemLikes(nft.id)
                 } label: {
                     LikesIconView(
-                        isLiked: false)
+                        isLiked: viewModel.isNftItemLiked(nft.id)
+                    )
                     .padding(.top, Constants.Spacing.large)
                     .padding(.trailing, Constants.Spacing.large)
                 }

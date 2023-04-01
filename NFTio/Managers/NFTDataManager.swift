@@ -139,9 +139,8 @@ class NFTDataManager: ObservableObject {
     }
     
     //Assignment 4
-    func likeNftItem(itemId: String) {
-        
-    }
+
+
     
     // MARK: - NFT methods
     

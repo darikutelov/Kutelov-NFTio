@@ -20,7 +20,7 @@ struct NFT: Hashable, Identifiable, Codable {
     let contractAddress: String
     let price: Price
     var quantity: Int
-    var auctionExpiryDate: Date
+    var auctionExpiryDate: Date?
     var bids: [Bid]
 }
 

@@ -43,6 +43,7 @@ final class NFTViewModel: ObservableObject {
     }
     
     // MARK: - Init
+    
     init() {
         nftItems = nftDataManager.nftItems
         categories = nftDataManager.categories
@@ -68,14 +69,31 @@ final class NFTViewModel: ObservableObject {
     
     // MARK: - LIKES
     
-    func updateNftItemLikes(nftItemId: String) {
+    // Assgnment 4
+    func updateNftItemLikes(_ nftItemId: String) {
         let itemIndex = nftItems.firstIndex(where: {$0.id == nftItemId })
         
-        //TODO: - check if item already liked and if so reduce likes
         if let index = itemIndex {
-            nftItems[index].likes += 1
+            if isNftItemLiked(nftItemId) {
+                nftItems[index].likes -= 1
+            } else {
+                nftItems[index].likes += 1
+            }
         }
         
+        toggleNftItemLike(itemId: nftItemId)
         nftDataManager.nftItems = nftItems
+    }
+    
+    func isNftItemLiked(_ nftItemId: String) -> Bool {
+        nftDataManager.likedNftItems.contains(nftItemId)
+    }
+    
+    private func toggleNftItemLike(itemId: String) {
+        if nftDataManager.likedNftItems.contains(itemId) {
+            nftDataManager.likedNftItems = nftDataManager.likedNftItems.filter { $0 != itemId }
+        } else {
+            nftDataManager.likedNftItems.append(itemId)
+        }
     }
 }

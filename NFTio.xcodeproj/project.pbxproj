@@ -73,7 +73,6 @@
 		9CD226AC29BCF3D600462C35 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226AB29BCF3D600462C35 /* RoundedImageView.swift */; };
 		9CD226B029BDCC3E00462C35 /* ShopName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226AF29BDCC3E00462C35 /* ShopName.swift */; };
 		9CD226B329BDCCA500462C35 /* NFTDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226B229BDCCA500462C35 /* NFTDetailView.swift */; };
-		9CD226B529BDCDC000462C35 /* NFTDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226B429BDCDC000462C35 /* NFTDetailViewViewModel.swift */; };
 		9CD226B729BE070700462C35 /* TopInfoSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226B629BE070700462C35 /* TopInfoSectionView.swift */; };
 		9CD226B929BE20EC00462C35 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226B829BE20EC00462C35 /* CategoryView.swift */; };
 		9CD226BC29BE31F400462C35 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226BB29BE31F400462C35 /* CollectionView.swift */; };
@@ -183,7 +182,6 @@
 		9CD226AB29BCF3D600462C35 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		9CD226AF29BDCC3E00462C35 /* ShopName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopName.swift; sourceTree = "<group>"; };
 		9CD226B229BDCCA500462C35 /* NFTDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailView.swift; sourceTree = "<group>"; };
-		9CD226B429BDCDC000462C35 /* NFTDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailViewViewModel.swift; sourceTree = "<group>"; };
 		9CD226B629BE070700462C35 /* TopInfoSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopInfoSectionView.swift; sourceTree = "<group>"; };
 		9CD226B829BE20EC00462C35 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		9CD226BB29BE31F400462C35 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
@@ -456,7 +454,6 @@
 			children = (
 				9CD9835329D71C030014B4D0 /* SubViews */,
 				9CD226B229BDCCA500462C35 /* NFTDetailView.swift */,
-				9CD226B429BDCDC000462C35 /* NFTDetailViewViewModel.swift */,
 			);
 			path = NFTDetailScreen;
 			sourceTree = "<group>";
@@ -824,7 +821,6 @@
 				9C37C1C729BCB1FB00125E09 /* SectionHeaderView.swift in Sources */,
 				9C0386F129A7C3AE00EF4BAD /* WelcomeBackgroundImageView.swift in Sources */,
 				9C0B042329B50008000330AB /* TotalCheckoutAmountView.swift in Sources */,
-				9CD226B529BDCDC000462C35 /* NFTDetailViewViewModel.swift in Sources */,
 				9C03870129AB5AEE00EF4BAD /* ButtonView.swift in Sources */,
 				9CFD9B2B29C4602E00D12148 /* CartScreenView.swift in Sources */,
 				9C0C4E9C29B4DDC50018E546 /* CartItemCellView.swift in Sources */,
