@@ -82,4 +82,8 @@ enum Constants {
             public static let nftItemsBaseUrl = "https://res.cloudinary.com/dariku/image/upload/v1679847173/nftio/nftItems/"
         }
     }
+    
+    enum Collections {
+        public static let numberOfCollectionsOnHomePage = 5
+    }
 }

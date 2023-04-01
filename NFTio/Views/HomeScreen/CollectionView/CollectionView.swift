@@ -33,7 +33,7 @@ struct CollectionView: View {
                             Button {
                                 dismiss()
                             } label: {
-                                Image(systemName: "arrow.backward")
+                                Image(systemName: Constants.Text.IconNames.arrowBack)
                                     .foregroundColor(Color(Constants.Colors.primaryText))
                             }
                         }

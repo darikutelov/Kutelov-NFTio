@@ -8,12 +8,33 @@
 import Foundation
 
 class NFTDataManager: ObservableObject {
+    enum DataModel: String, CaseIterable {
+        case nftItems
+        case likedNftItems
+        case categories
+        case nftCollections
+    }
     
     // MARK: - Properties
     
     @Published var nftItems = [NFT]() {
         didSet {
-            saveNftItemsToJSON()
+            saveDataToJSON(.nftItems)
+        }
+    }
+    @Published var likedNftItems = [String](){
+        didSet {
+            saveDataToJSON(.likedNftItems)
+        }
+    }
+    @Published var categories = [Category](){
+        didSet {
+            saveDataToJSON(.categories)
+        }
+    }
+    @Published var nftCollections = [NFTCollection](){
+        didSet {
+            saveDataToJSON(.nftCollections)
         }
     }
 
@@ -26,8 +47,11 @@ class NFTDataManager: ObservableObject {
         decoder = JSONDecoder()
         encoder = JSONEncoder()
         setUpCoders()
-        loadNftItemsFromJSON()
-    }
+        
+        DataModel.allCases.forEach {
+            loadDataFromJSON($0)
+        }
+     }
     
     private func setUpCoders() {
         let dateFormatter = DateFormatter()
@@ -40,25 +64,35 @@ class NFTDataManager: ObservableObject {
     // MARK: - Fetch and save methods
     
     //Assignment 1 & 3
-    func loadNftItemsFromJSON() {
-        guard let nftItemsJsonURL = getNftItemsJSONUrl() else {
-            print("JSON file not found!")
+    func loadDataFromJSON(_ dataModel: DataModel) {
+        guard let jsonFileURL = getJsonDataUrl(
+            fileName: dataModel.rawValue
+        ) else {
+            print(Constants.Text.ErrorMessages.JSONFileNotFound)
             return
         }
         
         do {
-            let nftItemsJsonData = try Data(contentsOf: nftItemsJsonURL)
-            let nftItems = try decoder.decode([NFT].self, from: nftItemsJsonData)
+            let jsonData = try Data(contentsOf: jsonFileURL)
             
-            self.nftItems = nftItems
+            switch dataModel {
+            case .nftItems:
+                self.nftItems = try decoder.decode([NFT].self, from: jsonData)
+            case .likedNftItems:
+                self.likedNftItems = try decoder.decode([String].self, from: jsonData)
+            case .categories:
+                self.categories = try decoder.decode([Category].self, from: jsonData)
+            case .nftCollections:
+                self.nftCollections = try decoder.decode([NFTCollection].self, from: jsonData)
+            }
         } catch let error {
             print(error)
         }
     }
     
-    private func getNftItemsJSONUrl() -> URL? {
+    private func getJsonDataUrl(fileName: String) -> URL? {
         let urlFromDocuments = URL(
-            fileURLWithPath: "NftItems",
+            fileURLWithPath: fileName,
             relativeTo: FileManager.documentsDirectoryURL
         )
             .appendingPathExtension("json")
@@ -67,7 +101,7 @@ class NFTDataManager: ObservableObject {
             return urlFromDocuments
         } else {
             guard let urlFromResources = Bundle.main.url(
-                forResource: "nftItems",
+                forResource: fileName,
                 withExtension: "json"
             ) else {
                 return nil
@@ -77,16 +111,28 @@ class NFTDataManager: ObservableObject {
     }
     
     //Assignment 2
-    func saveNftItemsToJSON() {
+    func saveDataToJSON(_ dataModel: DataModel) {
         do {
-            let nftItemsData = try encoder.encode(nftItems)
-            let nftItemsURL = URL(
-                fileURLWithPath: "NftItems",
+            let jsonFileURL = URL(
+                fileURLWithPath: dataModel.rawValue,
                 relativeTo: FileManager.documentsDirectoryURL
             )
                 .appendingPathExtension("json")
 
-            try nftItemsData.write(to: nftItemsURL, options: .atomic)
+            var jsonData: Data
+            
+            switch dataModel {
+            case .nftItems:
+                jsonData = try encoder.encode(nftItems)
+            case .likedNftItems:
+                jsonData = try encoder.encode(likedNftItems)
+            case .categories:
+                jsonData = try encoder.encode(categories)
+            case .nftCollections:
+                jsonData = try encoder.encode(nftCollections)
+            }
+
+            try jsonData.write(to: jsonFileURL, options: .atomic)
         } catch let error {
             print(error)
         }
@@ -110,183 +156,3 @@ class NFTDataManager: ObservableObject {
         return nftItems
     }
 }
-
-//Categorty
-let artCategory = Category(id: "1", name: .art, imageUrl: "art.jpg")
-let musicCategory = Category(id: "2", name: .music, imageUrl: "music.jpg")
-
-//Collection
-var collection1 = NFTCollection(
-    id: "2",
-    name: "Bored Ape Yacht Club",
-    description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
-    imageUrl: "https://i.seadn.io/gae/lHexKRMpw-aoSyB1WdFBff5yfANLReFxHzt1DOj_sg7mS14yARpuvYcUtsyyx-Nkpk6WTcUPFoG53VnLJezYi8hAs0OxNZwlw6Y-dmI?auto=format&w=3840",
-    contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
-    numberOfItems: 9998,
-    createdAt: "2021-04-01T12:00:00.000Z".getDateFromString(),
-    totalVolume: 890277,
-    floorPrice: 68.86,
-    owners: 5888
-)
-
-var collection2 = NFTCollection(
-    id: "5",
-    name: "Pukenza",
-    description: "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
-    imageUrl: "azuki.png",
-    contractAddress: "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
-    numberOfItems: 10000,
-    createdAt: "2022-01-01T12:00:00.000Z".getDateFromString(),
-    totalVolume: 432888,
-    floorPrice: 14.3,
-    owners: 4910
-)
-
-//Users
-let user1 = User(username: "userOne", walletAddress: "")
-let user2 = User(username: "userTwo", walletAddress: "")
-let user3 = User(username: "userThree", walletAddress: "")
-
-//Bids
-let bid1 = Bid(id: "", price: Price(cryptoCurrency: .ethereum, priceInCryptoCurrency: 65.49), user: user1, date: Date.now)
-let bid2 = Bid(id: "", price: Price(cryptoCurrency: .ethereum, priceInCryptoCurrency: 66.01), user: user2, date: Date.now)
-let bid3 = Bid(id: "", price: Price(cryptoCurrency: .ethereum, priceInCryptoCurrency: 66.03), user: user3, date: Date.now)
-
-let demoNFT = [NFT(
-    id: "3479",
-    tokenName: "#3479",
-    description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
-    imageUrl: "https://i.seadn.io/gae/v4CjskuHJt0F_exzLeoIxlZqctqu6TbzFU1kUV9-dH7zHAPUH8K9P_cZyFFmcAlUc1aT4JjkvRVdwQpwjTR34L8XsNxD5lvh922w?auto=format&w=1000",
-    likes: 29,
-    creator: "YugaLabs",
-    category: musicCategory,
-    nftCollection: collection1,
-    contractAddress:"0xd4307e0acd12cf46fd6cf93bc264f5d5d1598792",
-    price: Price(
-        cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 67.452345)
-    ,
-    quantity: 1,
-    auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
-    bids: [bid1, bid2]
-), NFT(
-    id: "9760",
-    tokenName: "#9760",
-    description: nil,
-    imageUrl: "https://i.seadn.io/gae/JvfjXuTz7Kxgj-FeITNEjzto2kuNr690OLYDWWFSrJ4S30D7GR2-X0EglRPxyoVJKLbaurORsrxGOFeUDXhCsm7MtzwK_K9K3RnNxaQ?auto=format&w=1000",
-    likes: 37,
-    creator: "YugaLabs",
-    category: artCategory,
-    nftCollection: collection2,
-    contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
-    price: Price(
-        cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 67.4012)
-    ,
-    quantity: 1,
-    auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
-    bids: [bid2, bid3]
-), NFT(
-    id: "4165",
-    tokenName: "#4165",
-    description: nil,
-    imageUrl: "https://i.seadn.io/gae/-706iQmTnV6N7aqbCj5MGpHsEvrBknwpBjoVJFjbPogUUar0wjpsLp2wlxIvcGZjAFmZKtcz-2j510MfR9P0H_NeBDJ3xaqrTUPdaxo?auto=format&w=1000",
-    likes: 34,
-    creator: "YugaLabs",
-    category: musicCategory,
-    nftCollection: collection1,
-    contractAddress:"0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
-    price: Price(
-        cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 67.4201)
-    ,
-    quantity: 1,
-    auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
-    bids: [bid1, bid3]
-), NFT(
-    id: "9703",
-    tokenName: "#9703",
-    description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
-    imageUrl: "https://i.seadn.io/gae/0YflX-YXzFapvdTa-waESblOV9AuGqm1iKVEPDxzyekbOhSupCvuNahwKulrVrkQUvW2xN4sw30bnvSHnUcszRIZJzq2P7z19JK-aLU?auto=format&w=3840",
-    likes: 34,
-    creator: "YugaLabs",
-    category: artCategory,
-    nftCollection: collection1,
-    contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
-    price: Price(
-        cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 75.4323)
-    ,
-    quantity: 1,
-    auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
-    bids: [bid1, bid3]
-), NFT(
-    id: "6987",
-    tokenName: "#6987",
-    description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
-    imageUrl: "https://i.seadn.io/gae/MrrzxdlB4u0-7CrC4pKakSuCkhqU834l1qen6HI0MdLZzzGCkt5KdSMrxavl3vOb1uYEabR_wwhGUxtQM0g3xlcU7GgSCpkg-3J4_A?auto=format&w=3840",
-    likes: 25,
-    creator: "YugaLabs",
-    category: artCategory,
-    nftCollection: collection1,
-    contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
-    price: Price(
-        cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 75.4532)
-    ,
-    quantity: 1,
-    auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
-    bids: [bid1, bid2]
-), NFT(
-    id: "1353",
-    tokenName: "#1353",
-    description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
-    imageUrl: "https://i.seadn.io/gae/7YZf35HGBGQjf34S6qlNDQRlvQ02qn0Wnrk-d7JR336wCy--KaltTk-X8PrOLqJa1zY8zW0kT4vzVx0ODxfgj74bTZ6N8ltl0_asK3M?auto=format&w=3840",
-    likes: 21,
-    creator: "YugaLabs",
-    category: artCategory,
-    nftCollection: collection1,
-    contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
-    price: Price(
-        cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 75.1)
-    ,
-    quantity: 1,
-    auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
-    bids: [bid2, bid3]
-), NFT(
-    id: "13531",
-    tokenName: "#1353",
-    description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
-    imageUrl: "https://i.seadn.io/gae/7YZf35HGBGQjf34S6qlNDQRlvQ02qn0Wnrk-d7JR336wCy--KaltTk-X8PrOLqJa1zY8zW0kT4vzVx0ODxfgj74bTZ6N8ltl0_asK3M?auto=format&w=3840",
-    likes: 21,
-    creator: "YugaLabs",
-    category: artCategory,
-    nftCollection: collection1,
-    contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
-    price: Price(
-        cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 75.1)
-    ,
-    quantity: 1,
-    auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
-    bids: [bid2, bid3]
-), NFT(
-    id: "13532",
-    tokenName: "#1353",
-    description: "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
-    imageUrl: "https://i.seadn.io/gae/7YZf35HGBGQjf34S6qlNDQRlvQ02qn0Wnrk-d7JR336wCy--KaltTk-X8PrOLqJa1zY8zW0kT4vzVx0ODxfgj74bTZ6N8ltl0_asK3M?auto=format&w=3840",
-    likes: 21,
-    creator: "YugaLabs",
-    category: artCategory,
-    nftCollection: collection1,
-    contractAddress:"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
-    price: Price(
-        cryptoCurrency: .ethereum,
-        priceInCryptoCurrency: 75.1)
-    ,
-    quantity: 1,
-    auctionExpiryDate: "2023-02-28T12:00:00.000Z".getDateFromString(),
-    bids: [bid2, bid3]
-)
-]

@@ -47,5 +47,43 @@
         },
         "quantity": 1,
         "id": "642083dd03170fba6586d3e6"
+    },
+    {
+        "_id": "6427de03de4d63d803a1de9d",
+        "tokenName": "4593",
+        "auctionExpiryDate": "2024-02-02T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d5303170fba6523fe8f",
+            "name": "Photography",
+            "__v": 0,
+            "imageUrl": "virtual-worlds.jpg",
+            "position": 3
+        },
+        "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+        "creator": "WomenUniteNFT",
+        "description": "Where did the 10K women come from? According to the lore they’ve gathered from all across the globe to unite as part of the WU Kingdom in order to spread love, light, and positivity in the world. We’ve searched and gathered more than 50+ real-life models in order to bring this collection into reality. Each of the 10,000 NFts were equipped with various wardrobes and numerous accessories to ensure they are all uniquely different.",
+        "imageUrl": "women-inite-4593.jpg",
+        "likes": 0,
+        "nftCollection": {
+            "_id": "64268154de4d63d803549df3",
+            "name": "Women Unite - 10k Assemble",
+            "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+            "createdAt": "2023-03-31T06:44:35.864Z",
+            "description": "This is the second collection of Women Unite created by Miss Kaina and the Original Models. This unique collection is part of an entire ecosystem known as the Women Unite Kingdom. The WU Kingdom intends to represent the individuality, allure, and influence of womankind through Fashion, Photography, and NFTs.",
+            "floorPrice": 0.184,
+            "imageUrl": "women-unite.jpg",
+            "numberOfItems": 6815,
+            "owners": 1610,
+            "totalVolume": 1143
+        },
+        "price": {
+            "_id": "6427de03bb5c1b5f6fdda34b",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.5,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "6427de03de4d63d803a1de9d"
     }
 ]

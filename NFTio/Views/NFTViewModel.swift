@@ -16,8 +16,8 @@ final class NFTViewModel: ObservableObject {
     @Published var selectedCollection: NFTCollection? = nil
     @Published var searchTerm: String = ""
     
-    var categories = Category.categories
-    var collections = NFTCollection.collections
+    var categories: [Category]
+    var collections: [NFTCollection]
     
     var filteredNftItems: [NFT] {
         if let selectedCategory = selectedCategory {
@@ -45,6 +45,8 @@ final class NFTViewModel: ObservableObject {
     // MARK: - Init
     init() {
         nftItems = nftDataManager.nftItems
+        categories = nftDataManager.categories
+        collections = Array(nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
     }
     
     

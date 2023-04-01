@@ -18,6 +18,11 @@ extension Constants {
             public static let nftListLabel = "Trending NFTs"
         }
         
+        enum IconNames {
+            public static let arrowBack = "arrow.backward"
+            
+        }
+        
         enum LaunchScreen {
             public static let appIcon = "app-icon"
             public static let headline = "Explore the World of NFTs"
@@ -68,6 +73,10 @@ extension Constants {
             public static let makeOfferButton = "Make Offer"
             public static let offerButtonIcon = "dollarsign.square"
             public static let priceLabel = "Current Price"
+        }
+        
+        enum ErrorMessages {
+            public static let JSONFileNotFound = "JSON file not found!"
         }
     }
 }
