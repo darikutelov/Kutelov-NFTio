@@ -22,7 +22,12 @@ struct HomeScreenView: View {
                             .padding(.bottom, Constants.Spacing.xxlarge)
                         CollectionListView()
                             .padding(.bottom, Constants.Spacing.xxlarge)
-                        NFTListView(nftItems: viewModel.nftItems)
+                        NFTListView(
+                            nftItems: Array(viewModel.nftItems[..<Constants
+                                                                    .NFTItems
+                                                                    .numberOfNftItemsOnHomePage]),
+                            sectionName: Constants.Text.Home.nftListLabel
+                        )
                     }
                     .padding(.horizontal)
                 }

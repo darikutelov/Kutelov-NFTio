@@ -16,6 +16,11 @@ extension Constants {
             public static let volumeLabel = "Price"
             public static let seeAllLabel = "See All"
             public static let nftListLabel = "Trending NFTs"
+            public static let nftItems = "NFT Itmes"
+        }
+        
+        enum NFTItems {
+            public static let nftItems = "NFT Itmes"
         }
         
         enum IconNames {

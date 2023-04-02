@@ -8,6 +8,7 @@
 import SwiftUI
 
 final class NFTViewModel: ObservableObject {
+    
     // MARK: - Properties
     
     let nftDataManager = NFTDataManager()
