@@ -140,10 +140,6 @@ class NFTDataManager: ObservableObject {
         }
     }
     
-    //Assignment 4
-
-
-    
     // MARK: - NFT methods
     
     func addNew(nftItem: NFT) {
