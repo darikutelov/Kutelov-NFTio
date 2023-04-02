@@ -63,14 +63,16 @@ final class UserManager: ObservableObject {
                     return
                 }
                 
+                let _ = Log.general.debug("User logged in")
+                
                 completion(nil)
             }
     }
     
     func logoutUser() {
         do {
-            try auth
-                .signOut()
+            try auth.signOut()
+            let _ = Log.general.debug("User logged out")
         } catch {
             debugPrint(error.localizedDescription)
         }

@@ -35,7 +35,7 @@
 		9C11C00329D045FC00E2C4C7 /* NFTDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C11C00229D045FC00E2C4C7 /* NFTDataManagerTests.swift */; };
 		9C1529B629CED76600CAC0E1 /* NFTioSearchScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1529B529CED76600CAC0E1 /* NFTioSearchScreenTests.swift */; };
 		9C1529B829CED78B00CAC0E1 /* NFTioDetailScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1529B729CED78B00CAC0E1 /* NFTioDetailScreenTests.swift */; };
-		9C1F693629D4115C00690BAE /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F693529D4115C00690BAE /* LoginScreen.swift */; };
+		9C1F693629D4115C00690BAE /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F693529D4115C00690BAE /* AuthScreen.swift */; };
 		9C1F693829D4151C00690BAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C1F693729D4151B00690BAE /* GoogleService-Info.plist */; };
 		9C1F693C29D427DD00690BAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9C1F693B29D427DD00690BAE /* FirebaseAuth */; };
 		9C2EA9AA29A10A99009A831C /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9A929A10A99009A831C /* WelcomeScreenView.swift */; };
@@ -65,6 +65,7 @@
 		9C94667F29B20F7A00129EB1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667E29B20F7A00129EB1 /* String.swift */; };
 		9CA1466329D43CAB00090A4F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1466229D43CAB00090A4F /* UserViewModel.swift */; };
 		9CA1466529D43E1400090A4F /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1466429D43E1400090A4F /* UserManager.swift */; };
+		9CAADE7C29D9DC7D00624A00 /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAADE7B29D9DC7D00624A00 /* PasswordField.swift */; };
 		9CB548CE29BF068B00A67C6D /* Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB548CD29BF068B00A67C6D /* Hashable.swift */; };
 		9CB7A8DA29ABAD71008F56F8 /* LikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7A8D929ABAD71008F56F8 /* LikesView.swift */; };
 		9CB7F37529C705C900ACF69F /* CartItemsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7F37429C705C800ACF69F /* CartItemsListView.swift */; };
@@ -142,7 +143,7 @@
 		9C11C00229D045FC00E2C4C7 /* NFTDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDataManagerTests.swift; sourceTree = "<group>"; };
 		9C1529B529CED76600CAC0E1 /* NFTioSearchScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTioSearchScreenTests.swift; sourceTree = "<group>"; };
 		9C1529B729CED78B00CAC0E1 /* NFTioDetailScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTioDetailScreenTests.swift; sourceTree = "<group>"; };
-		9C1F693529D4115C00690BAE /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		9C1F693529D4115C00690BAE /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
 		9C1F693729D4151B00690BAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C21481629BCB8BC00C565B5 /* Urbanist-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		9C21481729BCB8BC00C565B5 /* Urbanist-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-VariableFont_wght.ttf"; sourceTree = "<group>"; };
@@ -175,6 +176,7 @@
 		9C94667E29B20F7A00129EB1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9CA1466229D43CAB00090A4F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		9CA1466429D43E1400090A4F /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		9CAADE7B29D9DC7D00624A00 /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
 		9CB548CD29BF068B00A67C6D /* Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashable.swift; sourceTree = "<group>"; };
 		9CB7A8D929ABAD71008F56F8 /* LikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesView.swift; sourceTree = "<group>"; };
 		9CB7F37429C705C800ACF69F /* CartItemsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsListView.swift; sourceTree = "<group>"; };
@@ -293,8 +295,9 @@
 		9C1F693429D4113500690BAE /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				9C1F693529D4115C00690BAE /* LoginScreen.swift */,
+				9C1F693529D4115C00690BAE /* AuthScreen.swift */,
 				9CD7F69929D88DEB00F43AED /* InputField.swift */,
+				9CAADE7B29D9DC7D00624A00 /* PasswordField.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -793,6 +796,7 @@
 				9C2EA9AF29A1104E009A831C /* Constants.swift in Sources */,
 				9C86225229B482CB00CF20E8 /* BuyNowCheckoutView.swift in Sources */,
 				9CD226B929BE20EC00462C35 /* CategoryView.swift in Sources */,
+				9CAADE7C29D9DC7D00624A00 /* PasswordField.swift in Sources */,
 				9C94667629B20AD500129EB1 /* NFT.swift in Sources */,
 				9C0B041D29B4ECAE000330AB /* CartCellMainContentView.swift in Sources */,
 				9C0386FF29AB548C00EF4BAD /* NFTViewModel.swift in Sources */,
@@ -816,7 +820,7 @@
 				9CB7A8DA29ABAD71008F56F8 /* LikesView.swift in Sources */,
 				9C86225829B48FEC00CF20E8 /* Decimal.swift in Sources */,
 				9CD226B329BDCCA500462C35 /* NFTDetailView.swift in Sources */,
-				9C1F693629D4115C00690BAE /* LoginScreen.swift in Sources */,
+				9C1F693629D4115C00690BAE /* AuthScreen.swift in Sources */,
 				9C0C4E9E29B4DDE30018E546 /* CheckoutItemListView.swift in Sources */,
 				9C0B042529B50287000330AB /* TotalAmountLabelView.swift in Sources */,
 				9C94667829B20AF800129EB1 /* Category.swift in Sources */,

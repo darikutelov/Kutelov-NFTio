@@ -48,7 +48,7 @@ struct TabNavigationView: View {
                 .tag(4)
         }
         .onAppear {
-            selectedTab = 0
+//            selectedTab = 0
             hasSeenWelcomeScreen = true
             setTabBarUI()
         }

@@ -17,23 +17,23 @@ struct ProfileScreenView: View {
             VStack {
                 Button {
                     UserManager.shared.logoutUser()
+                    isLoginScreenOpen = true
                 } label: {
                     ButtonView(buttonText: "Log Out")
+                        .frame(maxWidth: 300)
                 }
                 .padding()
             }
-            ZStack {
-                if isLoginScreenOpen {
-                    LoginScreen()
-                        .transition(.move(edge: .bottom))
-                        .animation(.spring(), value: isLoginScreenOpen)
-                }
-            }.zIndex(2.0)
+            .fullScreenCover(isPresented: $isLoginScreenOpen) {
+                AuthScreen(isPresented: $isLoginScreenOpen)
+            }
         }
         .edgesIgnoringSafeArea(.all)
         .onAppear {
-            if viewModel.currentUser == nil {
-                isLoginScreenOpen = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                if viewModel.currentUser == nil {
+                    isLoginScreenOpen = viewModel.currentUser == nil
+                }
             }
         }
     }

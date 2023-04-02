@@ -33,6 +33,7 @@ struct ButtonIconView: View {
     var buttonTextColor: String = Constants.Colors.buttonText
     var buttonBackgroundColor: String = Constants.Colors.buttonBackground
     var iconName: String = "heart"
+    var buttonWidth: CGFloat = .infinity
     
     var body: some View {
         HStack(alignment: .center) {
@@ -46,7 +47,7 @@ struct ButtonIconView: View {
         .padding(
             EdgeInsets(top: 16, leading: 20, bottom: 16, trailing: 20)
         )
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: buttonWidth)
         .background(
             RoundedRectangle(cornerRadius: 15.0)
                 .fill(Color("\(buttonBackgroundColor)"))

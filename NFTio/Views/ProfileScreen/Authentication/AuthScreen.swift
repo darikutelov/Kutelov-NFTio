@@ -1,0 +1,165 @@
+//
+//  LoginScreen.swift
+//  NFTio
+//
+//  Created by Dariy Kutelov on 29.03.23.
+//
+
+import SwiftUI
+import Firebase
+
+struct AuthScreen: View {
+    @EnvironmentObject var viewModel: UserViewModel
+    @State var email: String = "test@test.com"
+    @State var password: String = "Test123#"
+    @State var rePassword: String = ""
+    @State var error: String = ""
+    @State var isLogin: Bool = true
+    @State var showPassword = false
+    @Binding var isPresented: Bool
+    
+    //TODO: - Store email and passsword in key chain
+    //TODO: - Add loading state and spinner
+    //TODO: - Back button from register to login
+    //TODO: - Add close button that re-routes to home
+        
+    var body: some View {
+        VStack{
+            Spacer()
+            VStack {
+                VStack {
+                    Text(isLogin ? "Log In" : "Register")
+                        .font(.title)
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .padding(.top, Constants.Spacing.xxlarge)
+                    Spacer()
+                        .frame(maxHeight: Constants.Spacing.xxxlarge)
+                    
+                    TextField("Email", text: $email)
+                        .modifier(InputField(error: error != ""))
+                        .padding(.bottom, Constants.Spacing.standard)
+                    
+                    PasswordField(
+                        error: $error,
+                        password: $password
+                    )
+                    
+                    if (!isLogin) {
+                        PasswordField(
+                            fieldLabel: "Repeate Passord",
+                            error: $error,
+                            password: $rePassword
+                        )
+                        .padding(.top, Constants.Spacing.standard)
+                    }
+
+                    HStack{
+                        if error != "" {
+                            Text("\(error)")
+                                .font(.callout)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(Color(.red))
+                                .frame(maxWidth: 300.0)
+                        }
+                    }.frame(
+                        height: Constants.Spacing.xxlarge
+                    )
+                    
+                    if isLogin {
+                        HStack {
+                            Spacer()
+                            Button {
+                                login()
+                            } label: {
+                                ButtonIconView(
+                                    buttonText: "Sign In",
+                                    buttonTextColor: Constants.Colors.white,
+                                    buttonBackgroundColor: Constants.Colors.primary,
+                                    iconName: "arrow.right.square",
+                                    buttonWidth: 300.0
+                                )
+                            }
+                            Spacer()
+                        }
+                        .padding(.bottom, Constants.Spacing.xsmall)
+                    }
+                    HStack {
+                        Spacer()
+                        Button {
+                            if isLogin == true {
+                                email = ""
+                                password = ""
+                                withAnimation {
+                                    isLogin = false
+                                }
+                            } else {
+                                register()
+                            }
+                                
+                        } label: {
+                            ButtonIconView(
+                                buttonText: "Register",
+                                buttonTextColor: Constants.Colors.white,
+                                buttonBackgroundColor: Constants.Colors.terciary,
+                                iconName: "square.and.pencil",
+                                buttonWidth: 300.0
+                            )
+                        }
+                        Spacer()
+                    }
+                    .padding(.bottom, Constants.Spacing.medium)
+                }
+            }
+            .background {
+                Rectangle()
+                    .fill(
+                        Color(Constants.Colors.secondary)
+                    )
+                    .cornerRadius(Constants.General.roundedRectCornerRadius)
+                    .padding(.bottom, -Constants.Spacing.xxlarge)
+                    .ignoresSafeArea(.all)
+            }
+            
+        }
+        .background(
+            Image(Constants.ImageFileNames.authBackground)
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea(.all)
+        )
+    }
+    
+    private func login() {
+        UserManager.shared.loginUser(
+            email: email,
+            password: password) { loginError in
+                if let loginError = loginError {
+                    error = loginError.localizedDescription
+                }
+                isPresented = false
+            }
+    }
+    
+    private func register() {
+        guard password == rePassword else {
+            error = "Passwords should match!"
+            return
+        }
+        
+        UserManager.shared.registerUser(
+            email: email,
+            password: password) { registerError in
+                if let registerError = registerError {
+                    error = registerError.localizedDescription
+                }
+                isPresented = false
+            }
+    }
+}
+
+struct LoginScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        AuthScreen(isPresented: .constant(true))
+    }
+}
