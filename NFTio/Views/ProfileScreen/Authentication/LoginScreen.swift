@@ -10,8 +10,8 @@ import Firebase
 
 struct LoginScreen: View {
     @EnvironmentObject var viewModel: UserViewModel
-    @State var email: String = "dari.k@abv.bg"
-    @State var password: String = "Andi1d2k9@"
+    @State var email: String = ""
+    @State var password: String = ""
     @State var error: String = ""
     
     //TODO: - SwiftUI Form
@@ -22,21 +22,56 @@ struct LoginScreen: View {
     
     
     var body: some View {
-        ZStack {
+        VStack{
+            Spacer()
             VStack {
-                Title(text: "Log In")
-                TextField("Username", text: $email)
-                SecureField("Password", text: $password)
-                Button(action: { login() }) {
-                    Text("Sign in")
-                }
-                
-                if error != "" {
-                    Title(text: "\(error)")
-                }
+                VStack{
+                    Text("Log In")
+                        .font(.title)
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .padding(.top, Constants.Spacing.large)
+                    Spacer()
+                        .frame(maxHeight: Constants.Spacing.xxxlarge)
+
+                    TextField("Username", text: $email)
+                        .modifier(InputField(error: error != ""))
+                    SecureField("Password", text: $password)
+                        .modifier(InputField(error: error != ""))
+                    if error != "" {
+                        Title(text: "\(error)")
+                    }
+                    Spacer()
+                        .frame(maxHeight: Constants.Spacing.xlarge)
+                    Button(action: {
+                        login()
+                    }) {
+                        ButtonView(
+                            buttonText: "Sign In",
+                            buttonTextColor: Constants.Colors.white,
+                            buttonBackgroundColor: Constants.Colors.primary
+                        )
+                        .padding(.bottom, Constants.Spacing.xxxlarge)
+                    }
+                }.padding()
             }
+            .background {
+                Rectangle()
+                    .fill(
+                        Color(Constants.Colors.secondary)
+                    )
+                    .cornerRadius(Constants.General.roundedRectCornerRadius)
+                    .padding(.bottom, -Constants.Spacing.xxlarge)
+                    .ignoresSafeArea(.all)
+            }
+            
         }
-        .padding()
+        .background(
+            Image(Constants.ImageFileNames.authBackground)
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea(.all)
+        )
     }
     
     func login() {

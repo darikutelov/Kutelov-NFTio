@@ -85,6 +85,8 @@ class NFTDataManager: ObservableObject {
             case .nftCollections:
                 self.nftCollections = try decoder.decode([NFTCollection].self, from: jsonData)
             }
+            
+            let _ = Log.general.debug("🎯 \(dataModel.rawValue) loaded from url: \(jsonFileURL)")
         } catch let error {
             print(error)
         }

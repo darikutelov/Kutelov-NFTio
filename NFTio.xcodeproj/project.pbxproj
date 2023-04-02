@@ -76,6 +76,7 @@
 		9CD226B729BE070700462C35 /* TopInfoSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226B629BE070700462C35 /* TopInfoSectionView.swift */; };
 		9CD226B929BE20EC00462C35 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226B829BE20EC00462C35 /* CategoryView.swift */; };
 		9CD226BC29BE31F400462C35 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD226BB29BE31F400462C35 /* CollectionView.swift */; };
+		9CD7F69A29D88DEB00F43AED /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD7F69929D88DEB00F43AED /* InputField.swift */; };
 		9CD9835529D71C220014B4D0 /* LikesIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD9835429D71C220014B4D0 /* LikesIconView.swift */; };
 		9CDC76C329CDA07300BB607D /* NFTioUITabNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC76C229CDA07300BB607D /* NFTioUITabNavigationTests.swift */; };
 		9CDC76C529CDA07300BB607D /* NFTioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC76C429CDA07300BB607D /* NFTioUITestsLaunchTests.swift */; };
@@ -185,6 +186,7 @@
 		9CD226B629BE070700462C35 /* TopInfoSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopInfoSectionView.swift; sourceTree = "<group>"; };
 		9CD226B829BE20EC00462C35 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		9CD226BB29BE31F400462C35 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		9CD7F69929D88DEB00F43AED /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		9CD9835429D71C220014B4D0 /* LikesIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesIconView.swift; sourceTree = "<group>"; };
 		9CDC76C029CDA07300BB607D /* NFTioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NFTioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CDC76C229CDA07300BB607D /* NFTioUITabNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTioUITabNavigationTests.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				9C1F693529D4115C00690BAE /* LoginScreen.swift */,
+				9CD7F69929D88DEB00F43AED /* InputField.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				9CD226BC29BE31F400462C35 /* CollectionView.swift in Sources */,
 				9C32AA4F29C5AAD0001486DA /* LaunchScreen.swift in Sources */,
 				9C37C1CA29BCB56800125E09 /* CollectionListView.swift in Sources */,
+				9CD7F69A29D88DEB00F43AED /* InputField.swift in Sources */,
 				9C0386EB29A7BE8C00EF4BAD /* DescriptionTextView.swift in Sources */,
 				9C37C1C229BC738500125E09 /* CategoryListView.swift in Sources */,
 				9CBB98E129A20C3F00759204 /* Color.swift in Sources */,

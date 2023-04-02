@@ -85,5 +85,1228 @@
         },
         "quantity": 1,
         "id": "6427de03de4d63d803a1de9d"
+    },
+    {
+        "_id": "642926a7de4d63d8039488b3",
+        "tokenName": "#7723",
+        "auctionExpiryDate": "2024-01-28T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+        "creator": "Yuga Labs",
+        "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+        "imageUrl": "7723.jpg",
+        "likes": 5,
+        "nftCollection": {
+            "_id": "641f335803170fba65571cbf",
+            "name": "Bored Ape Yacht Club",
+            "contractAddress": "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            "createdAt": "2021-04-01T12:00:00.000Z",
+            "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+            "floorPrice": 68.86,
+            "imageUrl": "bayc.jpeg",
+            "numberOfItems": 9998,
+            "owners": 5888,
+            "totalVolume": 890277
+        },
+        "price": {
+            "_id": "642926a7afa13ff4386033bb",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 64.5,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "642926a7de4d63d8039488b3"
+    },
+    {
+        "_id": "64292753de4d63d8039607fa",
+        "tokenName": "#8215",
+        "auctionExpiryDate": "2024-06-28T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+        "creator": "Yuga Labs",
+        "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+        "imageUrl": "8215.jpg",
+        "likes": 0,
+        "nftCollection": {
+            "_id": "641f335803170fba65571cbf",
+            "name": "Bored Ape Yacht Club",
+            "contractAddress": "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            "createdAt": "2021-04-01T12:00:00.000Z",
+            "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+            "floorPrice": 68.86,
+            "imageUrl": "bayc.jpeg",
+            "numberOfItems": 9998,
+            "owners": 5888,
+            "totalVolume": 890277
+        },
+        "price": {
+            "_id": "64292753afa13ff4386033be",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 68,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64292753de4d63d8039607fa"
+    },
+    {
+        "_id": "6429286fde4d63d803988db2",
+        "tokenName": "#262",
+        "auctionExpiryDate": "2024-03-21T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+        "creator": "Yuga Labs",
+        "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+        "imageUrl": "262.jpg",
+        "likes": 15,
+        "nftCollection": {
+            "_id": "641f335803170fba65571cbf",
+            "name": "Bored Ape Yacht Club",
+            "contractAddress": "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            "createdAt": "2021-04-01T12:00:00.000Z",
+            "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+            "floorPrice": 68.86,
+            "imageUrl": "bayc.jpeg",
+            "numberOfItems": 9998,
+            "owners": 5888,
+            "totalVolume": 890277
+        },
+        "price": {
+            "_id": "6429286f8f2732dab88df197",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 68.99,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "6429286fde4d63d803988db2"
+    },
+    {
+        "_id": "642928fcde4d63d80399c374",
+        "tokenName": "#4284",
+        "auctionExpiryDate": "2023-06-12T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+        "creator": "Yuga Labs",
+        "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+        "imageUrl": "4284.jpg",
+        "likes": 41,
+        "nftCollection": {
+            "_id": "641f335803170fba65571cbf",
+            "name": "Bored Ape Yacht Club",
+            "contractAddress": "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            "createdAt": "2021-04-01T12:00:00.000Z",
+            "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+            "floorPrice": 68.86,
+            "imageUrl": "bayc.jpeg",
+            "numberOfItems": 9998,
+            "owners": 5888,
+            "totalVolume": 890277
+        },
+        "price": {
+            "_id": "642928fc8f2732dab88df19a",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 69.5,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "642928fcde4d63d80399c374"
+    },
+    {
+        "_id": "64292b35de4d63d8039eb967",
+        "tokenName": "#6637",
+        "auctionExpiryDate": "2023-07-01T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+        "creator": "Yuga Labs",
+        "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+        "imageUrl": "6637.jpg",
+        "likes": 5,
+        "nftCollection": {
+            "_id": "641f335803170fba65571cbf",
+            "name": "Bored Ape Yacht Club",
+            "contractAddress": "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            "createdAt": "2021-04-01T12:00:00.000Z",
+            "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+            "floorPrice": 68.86,
+            "imageUrl": "bayc.jpeg",
+            "numberOfItems": 9998,
+            "owners": 5888,
+            "totalVolume": 890277
+        },
+        "price": {
+            "_id": "64292b348f2732dab88df1a5",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 71.29,
+            "__v": 0
+        },
+        "quantity": 3,
+        "id": "64292b35de4d63d8039eb967"
+    },
+    {
+        "_id": "64292bd1de4d63d803a01d31",
+        "tokenName": "#6937",
+        "auctionExpiryDate": "2023-05-21T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+        "creator": "Yuga Labs",
+        "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+        "imageUrl": "6937.jpg",
+        "likes": 7,
+        "nftCollection": {
+            "_id": "641f335803170fba65571cbf",
+            "name": "Bored Ape Yacht Club",
+            "contractAddress": "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            "createdAt": "2021-04-01T12:00:00.000Z",
+            "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+            "floorPrice": 68.86,
+            "imageUrl": "bayc.jpeg",
+            "numberOfItems": 9998,
+            "owners": 5888,
+            "totalVolume": 890277
+        },
+        "price": {
+            "_id": "64292bd18f2732dab88df1a8",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 72.69,
+            "__v": 0
+        },
+        "quantity": 3,
+        "id": "64292bd1de4d63d803a01d31"
+    },
+    {
+        "_id": "64292ce1de4d63d803a2813a",
+        "tokenName": "#8556",
+        "auctionExpiryDate": "2023-07-01T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+        "creator": "Yuga Labs",
+        "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+        "imageUrl": "8556.jpg",
+        "likes": 17,
+        "nftCollection": {
+            "_id": "641f335803170fba65571cbf",
+            "name": "Bored Ape Yacht Club",
+            "contractAddress": "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            "createdAt": "2021-04-01T12:00:00.000Z",
+            "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+            "floorPrice": 68.86,
+            "imageUrl": "bayc.jpeg",
+            "numberOfItems": 9998,
+            "owners": 5888,
+            "totalVolume": 890277
+        },
+        "price": {
+            "_id": "64292ce08f2732dab88df1ab",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 77.7,
+            "__v": 0
+        },
+        "quantity": 3,
+        "id": "64292ce1de4d63d803a2813a"
+    },
+    {
+        "_id": "64292d12de4d63d803a2f171",
+        "tokenName": "#5337",
+        "auctionExpiryDate": "2023-08-01T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+        "creator": "Yuga Labs",
+        "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+        "imageUrl": "5337.jpg",
+        "likes": 11,
+        "nftCollection": {
+            "_id": "641f335803170fba65571cbf",
+            "name": "Bored Ape Yacht Club",
+            "contractAddress": "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            "createdAt": "2021-04-01T12:00:00.000Z",
+            "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+            "floorPrice": 68.86,
+            "imageUrl": "bayc.jpeg",
+            "numberOfItems": 9998,
+            "owners": 5888,
+            "totalVolume": 890277
+        },
+        "price": {
+            "_id": "64292d128f2732dab88df1ae",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 74,
+            "__v": 0
+        },
+        "quantity": 3,
+        "id": "64292d12de4d63d803a2f171"
+    },
+    {
+        "_id": "64292d4bde4d63d803a36ed5",
+        "tokenName": "#2906",
+        "auctionExpiryDate": "2023-05-23T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+        "creator": "Yuga Labs",
+        "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain.",
+        "imageUrl": "2906.jpg",
+        "likes": 14,
+        "nftCollection": {
+            "_id": "641f335803170fba65571cbf",
+            "name": "Bored Ape Yacht Club",
+            "contractAddress": "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+            "createdAt": "2021-04-01T12:00:00.000Z",
+            "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+            "floorPrice": 68.86,
+            "imageUrl": "bayc.jpeg",
+            "numberOfItems": 9998,
+            "owners": 5888,
+            "totalVolume": 890277
+        },
+        "price": {
+            "_id": "64292d4b8f2732dab88df1b1",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 72.91,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64292d4bde4d63d803a36ed5"
+    },
+    {
+        "_id": "64293121de4d63d803abf73a",
+        "tokenName": "5845",
+        "auctionExpiryDate": "2023-07-02T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d5303170fba6523fe8f",
+            "name": "Photography",
+            "__v": 0,
+            "imageUrl": "virtual-worlds.jpg",
+            "position": 3
+        },
+        "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+        "creator": "WomenUniteNFT",
+        "description": "Where did the 10K women come from? According to the lore they’ve gathered from all across the globe to unite as part of the WU Kingdom in order to spread love, light, and positivity in the world. We’ve searched and gathered more than 50+ real-life models in order to bring this collection into reality. Each of the 10,000 NFts were equipped with various wardrobes and numerous accessories to ensure they are all uniquely different.",
+        "imageUrl": "5845.jpg",
+        "likes": 1,
+        "nftCollection": {
+            "_id": "64268154de4d63d803549df3",
+            "name": "Women Unite - 10k Assemble",
+            "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+            "createdAt": "2023-03-31T06:44:35.864Z",
+            "description": "This is the second collection of Women Unite created by Miss Kaina and the Original Models. This unique collection is part of an entire ecosystem known as the Women Unite Kingdom. The WU Kingdom intends to represent the individuality, allure, and influence of womankind through Fashion, Photography, and NFTs.",
+            "floorPrice": 0.184,
+            "imageUrl": "women-unite.jpg",
+            "numberOfItems": 6815,
+            "owners": 1610,
+            "totalVolume": 1143
+        },
+        "price": {
+            "_id": "642931218f2732dab88df1bc",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.33,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293121de4d63d803abf73a"
+    },
+    {
+        "_id": "6429314dde4d63d803ac574c",
+        "tokenName": "5308",
+        "auctionExpiryDate": "2023-06-02T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d5303170fba6523fe8f",
+            "name": "Photography",
+            "__v": 0,
+            "imageUrl": "virtual-worlds.jpg",
+            "position": 3
+        },
+        "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+        "creator": "WomenUniteNFT",
+        "description": "Where did the 10K women come from? According to the lore they’ve gathered from all across the globe to unite as part of the WU Kingdom in order to spread love, light, and positivity in the world. We’ve searched and gathered more than 50+ real-life models in order to bring this collection into reality. Each of the 10,000 NFts were equipped with various wardrobes and numerous accessories to ensure they are all uniquely different.",
+        "imageUrl": "5308.jpg",
+        "likes": 11,
+        "nftCollection": {
+            "_id": "64268154de4d63d803549df3",
+            "name": "Women Unite - 10k Assemble",
+            "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+            "createdAt": "2023-03-31T06:44:35.864Z",
+            "description": "This is the second collection of Women Unite created by Miss Kaina and the Original Models. This unique collection is part of an entire ecosystem known as the Women Unite Kingdom. The WU Kingdom intends to represent the individuality, allure, and influence of womankind through Fashion, Photography, and NFTs.",
+            "floorPrice": 0.184,
+            "imageUrl": "women-unite.jpg",
+            "numberOfItems": 6815,
+            "owners": 1610,
+            "totalVolume": 1143
+        },
+        "price": {
+            "_id": "6429314d8f2732dab88df1bf",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.33,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "6429314dde4d63d803ac574c"
+    },
+    {
+        "_id": "64293189de4d63d803ace257",
+        "tokenName": "1519",
+        "auctionExpiryDate": "2023-07-02T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d5303170fba6523fe8f",
+            "name": "Photography",
+            "__v": 0,
+            "imageUrl": "virtual-worlds.jpg",
+            "position": 3
+        },
+        "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+        "creator": "WomenUniteNFT",
+        "description": "Where did the 10K women come from? According to the lore they’ve gathered from all across the globe to unite as part of the WU Kingdom in order to spread love, light, and positivity in the world. We’ve searched and gathered more than 50+ real-life models in order to bring this collection into reality. Each of the 10,000 NFts were equipped with various wardrobes and numerous accessories to ensure they are all uniquely different.",
+        "imageUrl": "1519.jpg",
+        "likes": 9,
+        "nftCollection": {
+            "_id": "64268154de4d63d803549df3",
+            "name": "Women Unite - 10k Assemble",
+            "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+            "createdAt": "2023-03-31T06:44:35.864Z",
+            "description": "This is the second collection of Women Unite created by Miss Kaina and the Original Models. This unique collection is part of an entire ecosystem known as the Women Unite Kingdom. The WU Kingdom intends to represent the individuality, allure, and influence of womankind through Fashion, Photography, and NFTs.",
+            "floorPrice": 0.184,
+            "imageUrl": "women-unite.jpg",
+            "numberOfItems": 6815,
+            "owners": 1610,
+            "totalVolume": 1143
+        },
+        "price": {
+            "_id": "642931898f2732dab88df1c2",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.3113,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293189de4d63d803ace257"
+    },
+    {
+        "_id": "642931b4de4d63d803ad40a6",
+        "tokenName": "1834",
+        "auctionExpiryDate": "2023-06-05T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d5303170fba6523fe8f",
+            "name": "Photography",
+            "__v": 0,
+            "imageUrl": "virtual-worlds.jpg",
+            "position": 3
+        },
+        "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+        "creator": "WomenUniteNFT",
+        "description": "Where did the 10K women come from? According to the lore they’ve gathered from all across the globe to unite as part of the WU Kingdom in order to spread love, light, and positivity in the world. We’ve searched and gathered more than 50+ real-life models in order to bring this collection into reality. Each of the 10,000 NFts were equipped with various wardrobes and numerous accessories to ensure they are all uniquely different.",
+        "imageUrl": "1834.jpg",
+        "likes": 9,
+        "nftCollection": {
+            "_id": "64268154de4d63d803549df3",
+            "name": "Women Unite - 10k Assemble",
+            "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+            "createdAt": "2023-03-31T06:44:35.864Z",
+            "description": "This is the second collection of Women Unite created by Miss Kaina and the Original Models. This unique collection is part of an entire ecosystem known as the Women Unite Kingdom. The WU Kingdom intends to represent the individuality, allure, and influence of womankind through Fashion, Photography, and NFTs.",
+            "floorPrice": 0.184,
+            "imageUrl": "women-unite.jpg",
+            "numberOfItems": 6815,
+            "owners": 1610,
+            "totalVolume": 1143
+        },
+        "price": {
+            "_id": "642931b38f2732dab88df1c5",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.31,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "642931b4de4d63d803ad40a6"
+    },
+    {
+        "_id": "642932b1de4d63d803af76e6",
+        "tokenName": "5149",
+        "auctionExpiryDate": "2023-07-05T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d5303170fba6523fe8f",
+            "name": "Photography",
+            "__v": 0,
+            "imageUrl": "virtual-worlds.jpg",
+            "position": 3
+        },
+        "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+        "creator": "WomenUniteNFT",
+        "description": "Where did the 10K women come from? According to the lore they’ve gathered from all across the globe to unite as part of the WU Kingdom in order to spread love, light, and positivity in the world. We’ve searched and gathered more than 50+ real-life models in order to bring this collection into reality. Each of the 10,000 NFts were equipped with various wardrobes and numerous accessories to ensure they are all uniquely different.",
+        "imageUrl": "5149.jpg",
+        "likes": 5,
+        "nftCollection": {
+            "_id": "64268154de4d63d803549df3",
+            "name": "Women Unite - 10k Assemble",
+            "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+            "createdAt": "2023-03-31T06:44:35.864Z",
+            "description": "This is the second collection of Women Unite created by Miss Kaina and the Original Models. This unique collection is part of an entire ecosystem known as the Women Unite Kingdom. The WU Kingdom intends to represent the individuality, allure, and influence of womankind through Fashion, Photography, and NFTs.",
+            "floorPrice": 0.184,
+            "imageUrl": "women-unite.jpg",
+            "numberOfItems": 6815,
+            "owners": 1610,
+            "totalVolume": 1143
+        },
+        "price": {
+            "_id": "642932b18f2732dab88df1c8",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.491,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "642932b1de4d63d803af76e6"
+    },
+    {
+        "_id": "642932e4de4d63d803afe2d9",
+        "tokenName": "1833",
+        "auctionExpiryDate": "2023-07-07T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d5303170fba6523fe8f",
+            "name": "Photography",
+            "__v": 0,
+            "imageUrl": "virtual-worlds.jpg",
+            "position": 3
+        },
+        "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+        "creator": "WomenUniteNFT",
+        "description": "Where did the 10K women come from? According to the lore they’ve gathered from all across the globe to unite as part of the WU Kingdom in order to spread love, light, and positivity in the world. We’ve searched and gathered more than 50+ real-life models in order to bring this collection into reality. Each of the 10,000 NFts were equipped with various wardrobes and numerous accessories to ensure they are all uniquely different.",
+        "imageUrl": "1833.jpg",
+        "likes": 15,
+        "nftCollection": {
+            "_id": "64268154de4d63d803549df3",
+            "name": "Women Unite - 10k Assemble",
+            "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+            "createdAt": "2023-03-31T06:44:35.864Z",
+            "description": "This is the second collection of Women Unite created by Miss Kaina and the Original Models. This unique collection is part of an entire ecosystem known as the Women Unite Kingdom. The WU Kingdom intends to represent the individuality, allure, and influence of womankind through Fashion, Photography, and NFTs.",
+            "floorPrice": 0.184,
+            "imageUrl": "women-unite.jpg",
+            "numberOfItems": 6815,
+            "owners": 1610,
+            "totalVolume": 1143
+        },
+        "price": {
+            "_id": "642932e48f2732dab88df1cb",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.44,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "642932e4de4d63d803afe2d9"
+    },
+    {
+        "_id": "64293317de4d63d803b05cef",
+        "tokenName": "4501",
+        "auctionExpiryDate": "2023-09-07T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d5303170fba6523fe8f",
+            "name": "Photography",
+            "__v": 0,
+            "imageUrl": "virtual-worlds.jpg",
+            "position": 3
+        },
+        "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+        "creator": "WomenUniteNFT",
+        "description": "Where did the 10K women come from? According to the lore they’ve gathered from all across the globe to unite as part of the WU Kingdom in order to spread love, light, and positivity in the world. We’ve searched and gathered more than 50+ real-life models in order to bring this collection into reality. Each of the 10,000 NFts were equipped with various wardrobes and numerous accessories to ensure they are all uniquely different.",
+        "imageUrl": "4501.jpg",
+        "likes": 25,
+        "nftCollection": {
+            "_id": "64268154de4d63d803549df3",
+            "name": "Women Unite - 10k Assemble",
+            "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+            "createdAt": "2023-03-31T06:44:35.864Z",
+            "description": "This is the second collection of Women Unite created by Miss Kaina and the Original Models. This unique collection is part of an entire ecosystem known as the Women Unite Kingdom. The WU Kingdom intends to represent the individuality, allure, and influence of womankind through Fashion, Photography, and NFTs.",
+            "floorPrice": 0.184,
+            "imageUrl": "women-unite.jpg",
+            "numberOfItems": 6815,
+            "owners": 1610,
+            "totalVolume": 1143
+        },
+        "price": {
+            "_id": "642933178f2732dab88df1ce",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.399,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293317de4d63d803b05cef"
+    },
+    {
+        "_id": "64293345de4d63d803b0c458",
+        "tokenName": "6307",
+        "auctionExpiryDate": "2023-05-27T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d5303170fba6523fe8f",
+            "name": "Photography",
+            "__v": 0,
+            "imageUrl": "virtual-worlds.jpg",
+            "position": 3
+        },
+        "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+        "creator": "WomenUniteNFT",
+        "description": "Where did the 10K women come from? According to the lore they’ve gathered from all across the globe to unite as part of the WU Kingdom in order to spread love, light, and positivity in the world. We’ve searched and gathered more than 50+ real-life models in order to bring this collection into reality. Each of the 10,000 NFts were equipped with various wardrobes and numerous accessories to ensure they are all uniquely different.",
+        "imageUrl": "6307.jpg",
+        "likes": 35,
+        "nftCollection": {
+            "_id": "64268154de4d63d803549df3",
+            "name": "Women Unite - 10k Assemble",
+            "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+            "createdAt": "2023-03-31T06:44:35.864Z",
+            "description": "This is the second collection of Women Unite created by Miss Kaina and the Original Models. This unique collection is part of an entire ecosystem known as the Women Unite Kingdom. The WU Kingdom intends to represent the individuality, allure, and influence of womankind through Fashion, Photography, and NFTs.",
+            "floorPrice": 0.184,
+            "imageUrl": "women-unite.jpg",
+            "numberOfItems": 6815,
+            "owners": 1610,
+            "totalVolume": 1143
+        },
+        "price": {
+            "_id": "642933458f2732dab88df1d1",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.33,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293345de4d63d803b0c458"
+    },
+    {
+        "_id": "64293380de4d63d803b1496a",
+        "tokenName": "1417",
+        "auctionExpiryDate": "2023-09-27T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d5303170fba6523fe8f",
+            "name": "Photography",
+            "__v": 0,
+            "imageUrl": "virtual-worlds.jpg",
+            "position": 3
+        },
+        "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+        "creator": "WomenUniteNFT",
+        "description": "Where did the 10K women come from? According to the lore they’ve gathered from all across the globe to unite as part of the WU Kingdom in order to spread love, light, and positivity in the world. We’ve searched and gathered more than 50+ real-life models in order to bring this collection into reality. Each of the 10,000 NFts were equipped with various wardrobes and numerous accessories to ensure they are all uniquely different.",
+        "imageUrl": "1417.jpg",
+        "likes": 47,
+        "nftCollection": {
+            "_id": "64268154de4d63d803549df3",
+            "name": "Women Unite - 10k Assemble",
+            "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+            "createdAt": "2023-03-31T06:44:35.864Z",
+            "description": "This is the second collection of Women Unite created by Miss Kaina and the Original Models. This unique collection is part of an entire ecosystem known as the Women Unite Kingdom. The WU Kingdom intends to represent the individuality, allure, and influence of womankind through Fashion, Photography, and NFTs.",
+            "floorPrice": 0.184,
+            "imageUrl": "women-unite.jpg",
+            "numberOfItems": 6815,
+            "owners": 1610,
+            "totalVolume": 1143
+        },
+        "price": {
+            "_id": "642933808f2732dab88df1d4",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.331,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293380de4d63d803b1496a"
+    },{
+        "_id": "6429388ade4d63d803bc9465",
+        "tokenName": "#1062",
+        "auctionExpiryDate": "2023-10-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f19e003170fba651c005f",
+            "name": "Art",
+            "__v": 0,
+            "imageUrl": "art.jpg",
+            "position": 1
+        },
+        "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+        "creator": "L3xc",
+        "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Degen Art Club.",
+        "imageUrl": "1062.jpg",
+        "likes": 5,
+        "nftCollection": {
+            "_id": "641f33e903170fba65587b41",
+            "name": "Pukenza",
+            "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+            "createdAt": "2021-12-01T12:00:00.000Z",
+            "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Art Foundry.",
+            "floorPrice": 0.03,
+            "imageUrl": "pukenza.png",
+            "numberOfItems": 8010,
+            "owners": 3466,
+            "totalVolume": 831
+        },
+        "price": {
+            "_id": "642938898f2732dab88df1d7",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.13,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "6429388ade4d63d803bc9465"
+    },
+    {
+        "_id": "642938d1de4d63d803bd31d7",
+        "tokenName": "#6581",
+        "auctionExpiryDate": "2023-10-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f19e003170fba651c005f",
+            "name": "Art",
+            "__v": 0,
+            "imageUrl": "art.jpg",
+            "position": 1
+        },
+        "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+        "creator": "L3xc",
+        "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Degen Art Club.",
+        "imageUrl": "6581.jpg",
+        "likes": 15,
+        "nftCollection": {
+            "_id": "641f33e903170fba65587b41",
+            "name": "Pukenza",
+            "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+            "createdAt": "2021-12-01T12:00:00.000Z",
+            "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Art Foundry.",
+            "floorPrice": 0.03,
+            "imageUrl": "pukenza.png",
+            "numberOfItems": 8010,
+            "owners": 3466,
+            "totalVolume": 831
+        },
+        "price": {
+            "_id": "642938d18f2732dab88df1da",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.04,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "642938d1de4d63d803bd31d7"
+    },
+    {
+        "_id": "642938e8de4d63d803bd6834",
+        "tokenName": "#1078",
+        "auctionExpiryDate": "2023-10-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f19e003170fba651c005f",
+            "name": "Art",
+            "__v": 0,
+            "imageUrl": "art.jpg",
+            "position": 1
+        },
+        "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+        "creator": "L3xc",
+        "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Degen Art Club.",
+        "imageUrl": "1078.jpg",
+        "likes": 25,
+        "nftCollection": {
+            "_id": "641f33e903170fba65587b41",
+            "name": "Pukenza",
+            "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+            "createdAt": "2021-12-01T12:00:00.000Z",
+            "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Art Foundry.",
+            "floorPrice": 0.03,
+            "imageUrl": "pukenza.png",
+            "numberOfItems": 8010,
+            "owners": 3466,
+            "totalVolume": 831
+        },
+        "price": {
+            "_id": "642938e88f2732dab88df1dd",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.04,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "642938e8de4d63d803bd6834"
+    },
+    {
+        "_id": "64293900de4d63d803bd9bc8",
+        "tokenName": "#357",
+        "auctionExpiryDate": "2023-10-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f19e003170fba651c005f",
+            "name": "Art",
+            "__v": 0,
+            "imageUrl": "art.jpg",
+            "position": 1
+        },
+        "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+        "creator": "L3xc",
+        "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Degen Art Club.",
+        "imageUrl": "357.jpg",
+        "likes": 35,
+        "nftCollection": {
+            "_id": "641f33e903170fba65587b41",
+            "name": "Pukenza",
+            "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+            "createdAt": "2021-12-01T12:00:00.000Z",
+            "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Art Foundry.",
+            "floorPrice": 0.03,
+            "imageUrl": "pukenza.png",
+            "numberOfItems": 8010,
+            "owners": 3466,
+            "totalVolume": 831
+        },
+        "price": {
+            "_id": "642939008f2732dab88df1e0",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.04,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293900de4d63d803bd9bc8"
+    },
+    {
+        "_id": "6429391bde4d63d803bdd45e",
+        "tokenName": "#7256",
+        "auctionExpiryDate": "2023-10-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f19e003170fba651c005f",
+            "name": "Art",
+            "__v": 0,
+            "imageUrl": "art.jpg",
+            "position": 1
+        },
+        "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+        "creator": "L3xc",
+        "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Degen Art Club.",
+        "imageUrl": "7256.jpg",
+        "likes": 13,
+        "nftCollection": {
+            "_id": "641f33e903170fba65587b41",
+            "name": "Pukenza",
+            "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+            "createdAt": "2021-12-01T12:00:00.000Z",
+            "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Art Foundry.",
+            "floorPrice": 0.03,
+            "imageUrl": "pukenza.png",
+            "numberOfItems": 8010,
+            "owners": 3466,
+            "totalVolume": 831
+        },
+        "price": {
+            "_id": "6429391a8f2732dab88df1e3",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.05,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "6429391bde4d63d803bdd45e"
+    },
+    {
+        "_id": "64293942de4d63d803be2ce7",
+        "tokenName": "#4415",
+        "auctionExpiryDate": "2023-10-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f19e003170fba651c005f",
+            "name": "Art",
+            "__v": 0,
+            "imageUrl": "art.jpg",
+            "position": 1
+        },
+        "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+        "creator": "L3xc",
+        "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Degen Art Club.",
+        "imageUrl": "4415.jpg",
+        "likes": 32,
+        "nftCollection": {
+            "_id": "641f33e903170fba65587b41",
+            "name": "Pukenza",
+            "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+            "createdAt": "2021-12-01T12:00:00.000Z",
+            "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Art Foundry.",
+            "floorPrice": 0.03,
+            "imageUrl": "pukenza.png",
+            "numberOfItems": 8010,
+            "owners": 3466,
+            "totalVolume": 831
+        },
+        "price": {
+            "_id": "642939428f2732dab88df1e6",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 0.02,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293942de4d63d803be2ce7"
+    },
+    {
+        "_id": "64293c14de4d63d803c431c3",
+        "tokenName": "#2184",
+        "auctionExpiryDate": "2023-06-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+        "creator": "TeamAzuki",
+        "description": "Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.\n\nWe rise together. We build together. We grow together.",
+        "imageUrl": "az2184.jpg",
+        "likes": 12,
+        "nftCollection": {
+            "_id": "641f351b03170fba655b4652",
+            "name": "Azuki",
+            "category": "641f1df103170fba652571d9",
+            "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+            "createdAt": "2022-01-01T12:00:00.000Z",
+            "description": "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
+            "floorPrice": 14.3,
+            "imageUrl": "azuki.png",
+            "numberOfItems": 10000,
+            "owners": 4910,
+            "totalVolume": 432888
+        },
+        "price": {
+            "_id": "64293c148f2732dab88df1ed",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 20,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293c14de4d63d803c431c3"
+    },
+    {
+        "_id": "64293c33de4d63d803c476bd",
+        "tokenName": "#6158",
+        "auctionExpiryDate": "2023-06-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+        "creator": "TeamAzuki",
+        "description": "Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.\n\nWe rise together. We build together. We grow together.",
+        "imageUrl": "az6158.jpg",
+        "likes": 11,
+        "nftCollection": {
+            "_id": "641f351b03170fba655b4652",
+            "name": "Azuki",
+            "category": "641f1df103170fba652571d9",
+            "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+            "createdAt": "2022-01-01T12:00:00.000Z",
+            "description": "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
+            "floorPrice": 14.3,
+            "imageUrl": "azuki.png",
+            "numberOfItems": 10000,
+            "owners": 4910,
+            "totalVolume": 432888
+        },
+        "price": {
+            "_id": "64293c338f2732dab88df1f0",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 16,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293c33de4d63d803c476bd"
+    },
+    {
+        "_id": "64293c4dde4d63d803c4ad79",
+        "tokenName": "#2113",
+        "auctionExpiryDate": "2023-06-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+        "creator": "TeamAzuki",
+        "description": "Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.\n\nWe rise together. We build together. We grow together.",
+        "imageUrl": "az2113.jpg",
+        "likes": 16,
+        "nftCollection": {
+            "_id": "641f351b03170fba655b4652",
+            "name": "Azuki",
+            "category": "641f1df103170fba652571d9",
+            "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+            "createdAt": "2022-01-01T12:00:00.000Z",
+            "description": "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
+            "floorPrice": 14.3,
+            "imageUrl": "azuki.png",
+            "numberOfItems": 10000,
+            "owners": 4910,
+            "totalVolume": 432888
+        },
+        "price": {
+            "_id": "64293c4d8f2732dab88df1f3",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 15.58,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293c4dde4d63d803c4ad79"
+    },
+    {
+        "_id": "64293c6ade4d63d803c4fa8c",
+        "tokenName": "#2831",
+        "auctionExpiryDate": "2023-06-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+        "creator": "TeamAzuki",
+        "description": "Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.\n\nWe rise together. We build together. We grow together.",
+        "imageUrl": "az2831.jpg",
+        "likes": 13,
+        "nftCollection": {
+            "_id": "641f351b03170fba655b4652",
+            "name": "Azuki",
+            "category": "641f1df103170fba652571d9",
+            "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+            "createdAt": "2022-01-01T12:00:00.000Z",
+            "description": "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
+            "floorPrice": 14.3,
+            "imageUrl": "azuki.png",
+            "numberOfItems": 10000,
+            "owners": 4910,
+            "totalVolume": 432888
+        },
+        "price": {
+            "_id": "64293c6a8f2732dab88df1f6",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 15.45,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293c6ade4d63d803c4fa8c"
+    },
+    {
+        "_id": "64293c85de4d63d803c5353a",
+        "tokenName": "#7613",
+        "auctionExpiryDate": "2023-06-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+        "creator": "TeamAzuki",
+        "description": "Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.\n\nWe rise together. We build together. We grow together.",
+        "imageUrl": "az7613.jpg",
+        "likes": 23,
+        "nftCollection": {
+            "_id": "641f351b03170fba655b4652",
+            "name": "Azuki",
+            "category": "641f1df103170fba652571d9",
+            "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+            "createdAt": "2022-01-01T12:00:00.000Z",
+            "description": "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
+            "floorPrice": 14.3,
+            "imageUrl": "azuki.png",
+            "numberOfItems": 10000,
+            "owners": 4910,
+            "totalVolume": 432888
+        },
+        "price": {
+            "_id": "64293c858f2732dab88df1f9",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 15,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293c85de4d63d803c5353a"
+    },
+    {
+        "_id": "64293c9cde4d63d803c56409",
+        "tokenName": "#7541",
+        "auctionExpiryDate": "2023-06-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+        "creator": "TeamAzuki",
+        "description": "Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.\n\nWe rise together. We build together. We grow together.",
+        "imageUrl": "az7541.jpg",
+        "likes": 12,
+        "nftCollection": {
+            "_id": "641f351b03170fba655b4652",
+            "name": "Azuki",
+            "category": "641f1df103170fba652571d9",
+            "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+            "createdAt": "2022-01-01T12:00:00.000Z",
+            "description": "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
+            "floorPrice": 14.3,
+            "imageUrl": "azuki.png",
+            "numberOfItems": 10000,
+            "owners": 4910,
+            "totalVolume": 432888
+        },
+        "price": {
+            "_id": "64293c9b8f2732dab88df1fc",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 15,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293c9cde4d63d803c56409"
+    },
+    {
+        "_id": "64293cc0de4d63d803c5b267",
+        "tokenName": "#6231",
+        "auctionExpiryDate": "2023-06-06T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+        "creator": "TeamAzuki",
+        "description": "Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.\n\nWe rise together. We build together. We grow together.",
+        "imageUrl": "az6231.jpg",
+        "likes": 42,
+        "nftCollection": {
+            "_id": "641f351b03170fba655b4652",
+            "name": "Azuki",
+            "category": "641f1df103170fba652571d9",
+            "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+            "createdAt": "2022-01-01T12:00:00.000Z",
+            "description": "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
+            "floorPrice": 14.3,
+            "imageUrl": "azuki.png",
+            "numberOfItems": 10000,
+            "owners": 4910,
+            "totalVolume": 432888
+        },
+        "price": {
+            "_id": "64293cc08f2732dab88df1ff",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 14.44,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293cc0de4d63d803c5b267"
+    },
+    {
+        "_id": "64293ce1de4d63d803c5f930",
+        "tokenName": "#1882",
+        "auctionExpiryDate": "2023-06-05T12:00:00.000Z",
+        "bids": [],
+        "category": {
+            "_id": "641f1d8c03170fba65247cd3",
+            "name": "PFPs",
+            "__v": 0,
+            "imageUrl": "domain-names.jpg",
+            "position": 2
+        },
+        "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+        "creator": "TeamAzuki",
+        "description": "Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.\n\nWe rise together. We build together. We grow together.",
+        "imageUrl": "az1882.jpg",
+        "likes": 32,
+        "nftCollection": {
+            "_id": "641f351b03170fba655b4652",
+            "name": "Azuki",
+            "category": "641f1df103170fba652571d9",
+            "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+            "createdAt": "2022-01-01T12:00:00.000Z",
+            "description": "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
+            "floorPrice": 14.3,
+            "imageUrl": "azuki.png",
+            "numberOfItems": 10000,
+            "owners": 4910,
+            "totalVolume": 432888
+        },
+        "price": {
+            "_id": "64293ce08f2732dab88df202",
+            "cryptoCurrency": "ETH",
+            "priceInCryptoCurrency": 14.15,
+            "__v": 0
+        },
+        "quantity": 1,
+        "id": "64293ce1de4d63d803c5f930"
     }
 ]
