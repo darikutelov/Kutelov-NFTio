@@ -22,6 +22,6 @@ struct CartCellMainContentView: View {
 
 struct CheckoutCellMainContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CartCellMainContentView(tokenName:"#3479", ethereumPrice: 125.755)
+        CartCellMainContentView(tokenName: "#3479", ethereumPrice: 125.755)
     }
 }

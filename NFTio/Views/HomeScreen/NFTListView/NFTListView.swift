@@ -84,7 +84,6 @@ extension NFT {
     }
 }
 
-
 struct NFTListingView_Previews: PreviewProvider {
     static var previews: some View {
         NFTListView(

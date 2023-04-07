@@ -25,7 +25,6 @@ struct RoundedIconViewFilled: View {
     }
 }
 
-
 struct RoundedIconViewFilled_Previews: PreviewProvider {
     static var previews: some View {
         RoundedIconViewFilled(systemName: "play.fill")

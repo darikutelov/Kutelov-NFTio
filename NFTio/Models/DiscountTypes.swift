@@ -26,7 +26,6 @@ extension Discount {
 struct SeasonalDiscount: Discount {
     var discountType: DiscountType
     var dicountPercentage: Decimal?
-    
     init(seasonName: String, discountPercentage: Decimal) {
         self.discountType = .seasonalDeals(seasonName)
         self.dicountPercentage = discountPercentage
@@ -37,20 +36,17 @@ class PromoCode: Discount {
     var discountType: DiscountType
     var dicountPercentage: Decimal?
     var error: String?
-    
     init(promoCode: String) {
         self.discountType = .promoCode(promoCode)
         self.dicountPercentage = nil
         self.fetchDiscountPercentage()
     }
-    
     func fetchDiscountPercentage() {
         if case let .promoCode(code) = discountType {
             print(code)
             // checks local or remote DB
-            //TODO: - Implement network request
+            // (- Implement network request)(todo)
             let fetchResult: Decimal? = 0.15
-            
             if let discountPercentage = fetchResult {
                 self.dicountPercentage = discountPercentage
             } else {

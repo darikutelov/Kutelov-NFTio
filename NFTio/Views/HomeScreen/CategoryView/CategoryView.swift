@@ -13,7 +13,6 @@ struct CategoryView: View {
     
     let selectedCategory: Category
     
-    
     var body: some View {
         ZStack {
             Color(uiColor: .secondarySystemBackground)

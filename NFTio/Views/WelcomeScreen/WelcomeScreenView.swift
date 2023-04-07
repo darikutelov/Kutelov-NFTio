@@ -15,7 +15,7 @@ struct WelcomeScreenView: View {
         NavigationView {
             ZStack {
                 HomeBackgroundView(isOnboardingScreenOpen: $isOnboardingScreenOpen)
-                VStack() {
+                VStack {
                     Spacer()
                     AppIconView()
                         .frame(

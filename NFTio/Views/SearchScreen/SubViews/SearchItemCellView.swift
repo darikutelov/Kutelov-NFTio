@@ -25,7 +25,7 @@ struct SearchItemCellView: View {
                 HStack(spacing: Constants.Spacing.small) {
                     CardTitle(text: "\(nftItem.tokenName)")
                 }
-                HStack() {
+                HStack {
                     CardSubheading(text: "\(nftItem.nftCollection.name)")
                 }
             }

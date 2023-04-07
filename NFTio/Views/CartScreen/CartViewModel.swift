@@ -17,7 +17,7 @@ final class CartViewModel: ObservableObject {
     )
     
     var cartItemIds: [String] {
-        cartItems.map{ $0.nftItem.id }
+        cartItems.map { $0.nftItem.id }
     }
     
     var totalAmount: Decimal {
@@ -77,17 +77,10 @@ final class CartViewModel: ObservableObject {
         let code = PromoCode(promoCode: promoCode)
         
         guard code.error == nil else {
-            //TODO: - Show toast with the error
             return
         }
         
-        //        guard seasonalDiscount?.dicountPercentage < code.dicountPercentage else {
-        //            //TODO: - Show toast 'You can't apply two discounts and current discount is highter then promo code discount'
-        //            return
-        //        }
-        
         seasonalDiscount = nil
-        
         promoCodeDiscount = code
     }
 }

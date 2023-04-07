@@ -12,25 +12,21 @@ struct DiscountAndDiscountAmountView: View {
     var discount: Discount?
     var discountMessage: String = ""
     var totalAmount: Decimal
-    
     init(discountType: DiscountType, discount: Discount? = nil, totalAmount: Decimal) {
         self.discountType = discountType
         self.totalAmount = totalAmount
-        
         switch discountType {
         case .seasonalDeals(let seasonName):
-            self.discount = discount as! SeasonalDiscount
+            self.discount = discount as? SeasonalDiscount
             discountMessage = "\(seasonName) discount"
         case .promoCode(let code):
-            self.discount = discount as! PromoCode
+            self.discount = discount as? PromoCode
             discountMessage = "Promo Code: \(code) applied"
         }
     }
-    
     var discountAmount: Decimal {
         return discount?.calculateDiscount(totalAmount: totalAmount) ?? 0.0
     }
-    
     var body: some View {
         HStack {
             Text("\(discountMessage)")

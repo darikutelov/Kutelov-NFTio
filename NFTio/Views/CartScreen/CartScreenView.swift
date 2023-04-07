@@ -21,7 +21,7 @@ struct CartScreenView: View {
                 .edgesIgnoringSafeArea(.all)
             NavigationStack {
                 VStack(spacing: 0) {
-                    if viewModel.cartItems.count > 0 {
+                    if !viewModel.cartItems.isEmpty {
                         CartItemsListView()
                         NavigationLink {
                             BuyNowCheckoutView()
@@ -33,8 +33,7 @@ struct CartScreenView: View {
                             Color(uiColor: .secondarySystemBackground)
                             .edgesIgnoringSafeArea(.all)
                         )
-                    }
-                    else {
+                    } else {
                         VStack {
                             Text("No NFT items in cart!")
                         }

@@ -8,6 +8,7 @@
 import Foundation
 
 extension Constants {
+    // swiftlint:disable all
     enum Text {
         enum Home {
             public static let welcome = String(localized: "Welcome", comment: "Welcome message on home screen")
@@ -18,27 +19,22 @@ extension Constants {
             public static let nftListLabel = "Trending NFTs"
             public static let nftItems = "NFT Itmes"
         }
-        
         enum NFTItems {
             public static let nftItems = "NFT Itmes"
         }
-        
         enum IconNames {
             public static let arrowBack = "arrow.backward"
             
         }
-        
         enum LaunchScreen {
             public static let appIcon = "app-icon"
             public static let headline = "Explore the World of NFTs"
             public static let hasSeenWelcomeScreen = "hasSeenWelcomeScreen"
         }
-        
         enum SearchScreen {
             public static let searchLabel = "NFT name"
             public static let priceLabel = "Price"
         }
-        
         enum TabView {
             public static let userdefaultsKey = "HomeScreenCurrentTab"
             public static let homeIcon = "house"
@@ -52,7 +48,6 @@ extension Constants {
             public static let profileIcon = "person"
             public static let profileLabel = "Profile"
         }
-        
         enum Onboarding {
             public static let description = String(localized: "Discover, buy, sell, and trade unique digital assets known as non-fungible tokens (NFTs). Browse through various collections of NFTs and view detailed information about each individual NFT.", comment: "App description on onboarding screen")
             public static let getStartedLabel = String(localized: "Get Started", comment: "Text label of get started button")
@@ -60,7 +55,6 @@ extension Constants {
         enum CustomViews {
             public static let appName = String(localized: "NFTio", comment: "App name")
         }
-        
         enum Checkout {
             public static let screenTitle = "Buy Now"
             public static let checkoutButton = "complete purchase"
@@ -70,7 +64,6 @@ extension Constants {
             public static let promoCodeInvite = "Enter promo code"
             public static let promoCodeAppyButton = "Apply Code"
         }
-        
         enum NFTDetail {
             public static let screenTitle = "Details"
             public static let buyButton = "Buy Now"
@@ -79,9 +72,9 @@ extension Constants {
             public static let offerButtonIcon = "dollarsign.square"
             public static let priceLabel = "Current Price"
         }
-        
         enum ErrorMessages {
             public static let JSONFileNotFound = "JSON file not found!"
         }
     }
+    // swiftlint:enable all
 }

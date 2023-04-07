@@ -17,14 +17,9 @@ struct AuthScreen: View {
     @State var isLogin: Bool = true
     @State var showPassword = false
     @Binding var isPresented: Bool
-    
-    //TODO: - Store email and passsword in key chain
-    //TODO: - Add loading state and spinner
-    //TODO: - Back button from register to login
-    //TODO: - Add close button that re-routes to home
-        
+         
     var body: some View {
-        VStack{
+        VStack {
             Spacer()
             VStack {
                 VStack {
@@ -37,7 +32,7 @@ struct AuthScreen: View {
                         .frame(maxHeight: Constants.Spacing.xxxlarge)
                     
                     TextField("Email", text: $email)
-                        .modifier(InputField(error: error != ""))
+                        .modifier(InputField(error: !error.isEmpty))
                         .padding(.bottom, Constants.Spacing.standard)
                     
                     PasswordField(
@@ -45,7 +40,7 @@ struct AuthScreen: View {
                         password: $password
                     )
                     
-                    if (!isLogin) {
+                    if !isLogin {
                         PasswordField(
                             fieldLabel: "Repeate Passord",
                             error: $error,
@@ -54,8 +49,8 @@ struct AuthScreen: View {
                         .padding(.top, Constants.Spacing.standard)
                     }
 
-                    HStack{
-                        if error != "" {
+                    HStack {
+                        if !error.isEmpty {
                             Text("\(error)")
                                 .font(.callout)
                                 .multilineTextAlignment(.center)

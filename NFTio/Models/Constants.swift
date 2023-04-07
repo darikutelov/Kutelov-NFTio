@@ -20,7 +20,6 @@ enum Constants {
         public static let smallCornerRadius = CGFloat(7.0)
         public static let ethereumRateToUsd = Decimal(1568.73)
     }
-    
     enum Spacing {
         public static let xsmall = CGFloat(4.0)
         public static let small = CGFloat(8.0)
@@ -33,15 +32,12 @@ enum Constants {
         public static let superLarge = CGFloat(92.0)
         public static let minCardSize = CGFloat(350.0)
     }
-    
     enum ImageFileNames {
         public static let onboardingBackground = "onboarding-background"
         public static let appIcon = "app-icon"
         public static let authBackground = "auth-background"
     }
-    
     enum Colors {
-        //public static let primary = "Violet"
         public static let primary = "Raspberry"
         public static let primaryText = "TextColor"
         public static let buttonText = "ButtonText"
@@ -65,7 +61,6 @@ enum Constants {
             Color(red: 1.0, green: 1.0, blue: 1.0, opacity: 0.0)
         ]
     }
-    
     enum Discounts {
         public static let firstTimeShopper: Decimal = 0.03
         public static let abandonedCart: Decimal = 0.05
@@ -73,21 +68,19 @@ enum Constants {
         public static let referal: Decimal = 0.05
         public static let seasonalDeals: Decimal = 0.10
     }
-    
     enum Api {
+        // swiftlint: disable all
         public static let baseUrl = "https://cryptic-oasis-81288.herokuapp.com/api/v1/"
-        
         enum Images {
             public static let categoryBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1647330626/nftio/categories/"
             public static let collectionBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1678552863/nftio/collections/"
             public static let nftItemsBaseUrl = "https://res.cloudinary.com/dariku/image/upload/v1679847173/nftio/nftItems/"
         }
+        // swiftlint: enable all
     }
-    
     enum NFTItems {
         public static let numberOfNftItemsOnHomePage = 8
     }
-    
     enum Collections {
         public static let numberOfCollectionsOnHomePage = 5
     }

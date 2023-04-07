@@ -19,7 +19,6 @@ struct NFTCollection: Hashable, Identifiable, Codable {
     let totalVolume: Int
     var floorPrice: Decimal
     let owners: Int
-    
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case name, description, imageUrl, contractAddress, numberOfItems,

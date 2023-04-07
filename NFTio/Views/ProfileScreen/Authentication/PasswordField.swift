@@ -22,7 +22,7 @@ struct PasswordField: View {
                 } else {
                     SecureField(fieldLabel, text: $password)
                 }
-            }.modifier(InputField(error: error != ""))
+            }.modifier(InputField(error: !error.isEmpty))
             
             HStack {
                 Spacer()
@@ -46,6 +46,7 @@ struct PasswordField: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        PasswordField(error: .constant(""),password: .constant("myPassword"))
+        PasswordField(error: .constant(""),
+                      password: .constant("myPassword"))
     }
 }

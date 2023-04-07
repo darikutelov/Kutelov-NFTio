@@ -13,7 +13,7 @@ struct TotalCheckoutAmountView: View {
     var totalAmount: Decimal
     
     var body: some View {
-        VStack(spacing: Constants.Spacing.small){
+        VStack(spacing: Constants.Spacing.small) {
             HStack {
                 TotalAmountLabelView(text: Constants.Text.Checkout.totalAmount)
                 Spacer()
@@ -28,11 +28,9 @@ struct TotalCheckoutAmountView: View {
                     totalAmount: totalAmount
                 )
             }
-            
-            
+                 
             if let promoCode = promoCode,
-               case let .promoCode(code) = promoCode.discountType
-            {
+               case let .promoCode(code) = promoCode.discountType {
                 DiscountAndDiscountAmountView(
                     discountType: .promoCode(code),
                     discount: promoCode,

@@ -7,8 +7,6 @@
 
 import Foundation
 
-//typealias ShoppingCartItem = (nftItem: NFT, quantity: Int)
-
 final class ShoppingCartDataManager {    
     var shoppingCartItems: [ShoppingCartItem] = []
 }

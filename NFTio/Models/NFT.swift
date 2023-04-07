@@ -27,7 +27,9 @@ struct NFT: Hashable, Identifiable, Codable {
 extension NFT {
     enum CodingKeys: String, CodingKey {
             case id = "_id"
-            case tokenName, description, imageUrl, likes, creator, category, nftCollection, contractAddress, price, quantity, auctionExpiryDate, bids
+            case tokenName, description, imageUrl, likes, creator,
+                 category, nftCollection, contractAddress, price,
+                 quantity, auctionExpiryDate, bids
         }
 }
 

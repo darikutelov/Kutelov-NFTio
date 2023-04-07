@@ -18,7 +18,7 @@ final class UserManager: ObservableObject {
     func updateCurrentUser(completion: @escaping((_ user: User?) -> Void)) {
         Auth
             .auth()
-            .addStateDidChangeListener({ auth, user in
+            .addStateDidChangeListener({ _, user in
                 if let user = user {
                     let currentUser = User(
                         username: user.displayName ?? "Buddy",
@@ -26,8 +26,7 @@ final class UserManager: ObservableObject {
                         avatarUrl: user.photoURL
                     )
                     completion(currentUser)
-                }
-                else {         
+                } else {
                     completion(nil)
                 }
             })
@@ -39,7 +38,7 @@ final class UserManager: ObservableObject {
         
         auth
             .createUser(withEmail: email,
-                        password: password) { authResult, error in
+                        password: password) { _, error in
                 
                 guard error == nil else {
                     completion(error)
@@ -56,14 +55,14 @@ final class UserManager: ObservableObject {
         
         auth
             .signIn(withEmail: email,
-                    password: password) { authResult, error in
+                    password: password) { _, error in
                 
                 guard error == nil else {
                     completion(error)
                     return
                 }
                 
-                let _ = Log.general.debug("User logged in")
+                Log.general.debug("User logged in")
                 
                 completion(nil)
             }
@@ -72,7 +71,7 @@ final class UserManager: ObservableObject {
     func logoutUser() {
         do {
             try auth.signOut()
-            let _ = Log.general.debug("User logged out")
+            Log.general.debug("User logged out")
         } catch {
             debugPrint(error.localizedDescription)
         }

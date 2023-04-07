@@ -55,7 +55,6 @@ struct ButtonIconView: View {
     }
 }
 
-
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ButtonView(

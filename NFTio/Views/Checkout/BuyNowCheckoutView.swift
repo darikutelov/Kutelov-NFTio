@@ -27,7 +27,7 @@ struct BuyNowCheckoutView: View {
                         TextField(Constants.Text.Checkout.promoCodeInvite, text: $promoCode)
                         Spacer()
                         Button {
-                            guard promoCode.count > 0 else { return }
+                            guard !promoCode.isEmpty else { return }
                             viewModel.applyPromoCode(promoCode)
                         } label: {
                             ButtonView(buttonText: Constants.Text.Checkout.promoCodeAppyButton)
@@ -40,7 +40,7 @@ struct BuyNowCheckoutView: View {
                     )
                     Button {
                         viewModel.cartItems = []
-                        let _ = Log.general.debug("Customer checked out 🎉")
+                        Log.general.debug("Customer checked out 🎉")
                     } label: {
                         ButtonView(buttonText: Constants.Text.Checkout.checkoutButton)
                     }

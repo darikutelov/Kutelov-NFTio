@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-
 struct CartItemCellView: View {
     var shoppingCartItem: ShoppingCartItem
     
     var body: some View {
-        HStack(alignment:.center) {
+        HStack(alignment: .center) {
             RoundedImageView(
                 imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl +  shoppingCartItem.nftItem.imageUrl,
                 roundedCornerSize: .infinity

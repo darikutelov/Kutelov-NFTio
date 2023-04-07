@@ -38,7 +38,7 @@ struct NFTDetailView: View {
                             )
                         }
                         Button {
-                            //TODO: - Add a bid
+                            // (- Add a bid)(todo)
                         } label: {
                             ButtonIconView(
                                 buttonText: Constants.Text.NFTDetail.makeOfferButton,
@@ -69,7 +69,6 @@ struct NFTDetailView: View {
         }
     }
 }
-
 
 struct NFTDetailView_Previews: PreviewProvider {
     static var previews: some View {

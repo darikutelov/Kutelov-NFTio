@@ -35,7 +35,7 @@ struct CollectionListView: View {
                 }
                 
             }
-            HStack() {
+            HStack {
                 Spacer()
                 Text(Constants.Text.Home.seeAllLabel)
                     .font(.subheadline)

@@ -16,7 +16,6 @@ struct DescriptionTextView: View {
   }
 }
 
-
 struct DescriptionTextView_Previews: PreviewProvider {
     static var previews: some View {
         DescriptionTextView()

@@ -14,7 +14,7 @@ struct TopInfoSectionView: View {
     let proxy: GeometryProxy
     
     var body: some View {
-        VStack{
+        VStack {
             ZStack(alignment: .top) {
                 RoundedImageView(imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl +  nft.imageUrl)
                     .scaledToFit()
@@ -61,7 +61,6 @@ struct TopInfoSectionView: View {
         }
     }
 }
-
 
 struct TopInfoSectionView_Previews: PreviewProvider {
     static var previews: some View {

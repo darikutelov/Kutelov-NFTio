@@ -7,13 +7,11 @@
 
 import Foundation
 
-
 import SwiftUI
 import Firebase
 
-
 final class UserViewModel: ObservableObject {
-    @Published var currentUser: User? = nil
+    @Published var currentUser: User?
     
     init() {
        updateUserState()
@@ -25,4 +23,3 @@ final class UserViewModel: ObservableObject {
         }
     }
 }
-

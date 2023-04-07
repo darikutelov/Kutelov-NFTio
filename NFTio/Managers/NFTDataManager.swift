@@ -14,25 +14,23 @@ class NFTDataManager: ObservableObject {
         case categories
         case nftCollections
     }
-    
     // MARK: - Properties
-    
     @Published var nftItems = [NFT]() {
         didSet {
             saveDataToJSON(.nftItems)
         }
     }
-    @Published var likedNftItems = [String](){
+    @Published var likedNftItems = [String]() {
         didSet {
             saveDataToJSON(.likedNftItems)
         }
     }
-    @Published var categories = [Category](){
+    @Published var categories = [Category]() {
         didSet {
             saveDataToJSON(.categories)
         }
     }
-    @Published var nftCollections = [NFTCollection](){
+    @Published var nftCollections = [NFTCollection]() {
         didSet {
             saveDataToJSON(.nftCollections)
         }
@@ -40,19 +38,15 @@ class NFTDataManager: ObservableObject {
 
     var decoder: JSONDecoder
     var encoder: JSONEncoder
-    
     // MARK: - Init
-    
     init() {
         decoder = JSONDecoder()
         encoder = JSONEncoder()
         setUpCoders()
-        
         DataModel.allCases.forEach {
             loadDataFromJSON($0)
         }
      }
-    
     private func setUpCoders() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -60,10 +54,7 @@ class NFTDataManager: ObservableObject {
         encoder.dateEncodingStrategy = .formatted(dateFormatter)
         encoder.outputFormatting = .prettyPrinted
     }
-    
     // MARK: - Fetch and save methods
-    
-    //Assignment 1 & 3
     func loadDataFromJSON(_ dataModel: DataModel) {
         guard let jsonFileURL = getJsonDataUrl(
             fileName: dataModel.rawValue
@@ -71,10 +62,8 @@ class NFTDataManager: ObservableObject {
             print(Constants.Text.ErrorMessages.JSONFileNotFound)
             return
         }
-        
         do {
             let jsonData = try Data(contentsOf: jsonFileURL)
-            
             switch dataModel {
             case .nftItems:
                 self.nftItems = try decoder.decode([NFT].self, from: jsonData)
@@ -85,13 +74,11 @@ class NFTDataManager: ObservableObject {
             case .nftCollections:
                 self.nftCollections = try decoder.decode([NFTCollection].self, from: jsonData)
             }
-            
-            let _ = Log.general.debug("🎯 \(dataModel.rawValue) loaded from url: \(jsonFileURL)")
+            Log.general.debug("🎯 \(dataModel.rawValue) loaded from url: \(jsonFileURL)")
         } catch let error {
             print(error)
         }
     }
-    
     private func getJsonDataUrl(fileName: String) -> URL? {
         let urlFromDocuments = URL(
             fileURLWithPath: fileName,
@@ -111,8 +98,6 @@ class NFTDataManager: ObservableObject {
             return urlFromResources
         }
     }
-    
-    //Assignment 2
     func saveDataToJSON(_ dataModel: DataModel) {
         do {
             let jsonFileURL = URL(
@@ -122,7 +107,6 @@ class NFTDataManager: ObservableObject {
                 .appendingPathExtension("json")
 
             var jsonData: Data
-            
             switch dataModel {
             case .nftItems:
                 jsonData = try encoder.encode(nftItems)
@@ -139,17 +123,13 @@ class NFTDataManager: ObservableObject {
             print(error)
         }
     }
-    
     // MARK: - NFT methods
-    
     func addNew(nftItem: NFT) {
         self.nftItems.append(nftItem)
     }
-    
     func fetchNftItems() async throws -> [NFT] {
         let seconds = 2.0
         try await Task.sleep(nanoseconds: UInt64(seconds * Double(NSEC_PER_SEC)))
-        
         return nftItems
     }
 }
