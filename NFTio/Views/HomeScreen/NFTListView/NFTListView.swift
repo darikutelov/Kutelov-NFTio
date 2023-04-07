@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NFTListView: View {
     let nftItems: [NFT]
+    let sectionName: String
     
     let columns = [
         GridItem(.flexible()),
@@ -19,7 +20,7 @@ struct NFTListView: View {
         VStack {
             Section(
                 header: SectionHeaderView(
-                    sectionName: Constants.Text.Home.nftListLabel
+                    sectionName: sectionName
                 )
                 .padding(.bottom, Constants.Spacing.small)
             ) {
@@ -42,7 +43,9 @@ extension NFT {
     var view: some View {
         VStack {
             ZStack {
-                RoundedImageView(imageUrlAsString: imageUrl)
+                RoundedImageView(
+                    imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl + imageUrl
+                )
                     .padding(8.0)
                 VStack {
                     Spacer()
@@ -84,6 +87,9 @@ extension NFT {
 
 struct NFTListingView_Previews: PreviewProvider {
     static var previews: some View {
-        NFTListView(nftItems: NFTViewModel().nftItems)
+        NFTListView(
+            nftItems: NFTViewModel().nftItems,
+            sectionName: Constants.Text.Home.nftListLabel
+        )
     }
 }

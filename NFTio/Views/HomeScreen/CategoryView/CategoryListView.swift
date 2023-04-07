@@ -42,12 +42,14 @@ struct CategoryListView: View {
 extension Category {
     var view: some View {
         VStack(spacing: Constants.Spacing.standard) {
-            RoundedImageView(imageUrlAsString: imageUrl)
+            RoundedImageView(
+                imageUrlAsString: Constants.Api.Images.categoryBaseUrl + imageUrl
+            )
                 .frame(
                     width: Constants.Spacing.superLarge,
                     height: Constants.Spacing.superLarge
                 )
-            Text(name.rawValue.capitalized)
+            Text(name.rawValue)
                 .font(.footnote)
                 .fontWeight(.medium)
                 .frame(maxWidth: Constants.Spacing.superLarge)

@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "641f19e003170fba651c005f",
+    "name": "Art",
+    "imageUrl": "art.jpg",
+    "position": 1
+  },
+  {
+    "_id": "641f1d8c03170fba65247cd3",
+    "name": "PFPs",
+    "imageUrl": "domain-names.jpg",
+    "position": 2
+  },
+  {
+    "_id": "641f1d5303170fba6523fe8f",
+    "name": "Photography",
+    "imageUrl": "virtual-worlds.jpg",
+    "position": 3
+  },
+  {
+    "_id": "641f1d7803170fba65245104",
+    "name": "Colectibles",
+    "imageUrl": "collectibles.jpg",
+    "position": 4
+  },
+  {
+    "_id": "641f1afa03170fba651e93d6",
+    "name": "Music",
+    "imageUrl": "music.jpg",
+    "position": 5
+  },
+  {
+    "_id": "641f1da303170fba6524af99",
+    "name": "Sports",
+    "imageUrl": "sport.jpg",
+    "position": 6
+  },
+  {
+    "_id": "641f1db803170fba6524eed6",
+    "name": "Trading Cards",
+    "imageUrl": "cards.jpg",
+    "position": 7
+  },
+  {
+    "_id": "641f1dd803170fba652539ee",
+    "name": "Memberships",
+    "imageUrl": "utility.jpg",
+    "position": 8
+  },
+  {
+    "_id": "641f1df103170fba652571d9",
+    "name": "Virtual Worlds",
+    "imageUrl": "virtual-worlds.jpg",
+    "position": 9
+  }
+]

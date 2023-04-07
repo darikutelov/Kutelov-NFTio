@@ -8,15 +8,28 @@
 import SwiftUI
 
 struct TopInfoSectionView: View {
+    @EnvironmentObject var viewModel: NFTViewModel
+    
     let nft: NFT
     let proxy: GeometryProxy
-
+    
     var body: some View {
         VStack{
-            RoundedImageView(imageUrlAsString: nft.imageUrl)
-                .scaledToFit()
-                .frame(height: proxy.size.width)
-                .padding()
+            ZStack(alignment: .top) {
+                RoundedImageView(imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl +  nft.imageUrl)
+                    .scaledToFit()
+                Button {
+                    viewModel.updateNftItemLikes(nft.id)
+                } label: {
+                    LikesIconView(
+                        isLiked: viewModel.isNftItemLiked(nft.id)
+                    )
+                    .padding(.top, Constants.Spacing.large)
+                    .padding(.trailing, Constants.Spacing.large)
+                }
+            }
+            .frame(height: proxy.size.width)
+            .padding()
             
             VStack(spacing: Constants.Spacing.small) {
                 Text("\(nft.tokenName)")

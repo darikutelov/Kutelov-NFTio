@@ -21,14 +21,13 @@ final class UserManager: ObservableObject {
             .addStateDidChangeListener({ auth, user in
                 if let user = user {
                     let currentUser = User(
-                        isAuthenticated: true,
                         username: user.displayName ?? "Buddy",
                         email: user.email ?? "",
                         avatarUrl: user.photoURL
                     )
                     completion(currentUser)
                 }
-                else {
+                else {         
                     completion(nil)
                 }
             })
@@ -64,14 +63,16 @@ final class UserManager: ObservableObject {
                     return
                 }
                 
+                let _ = Log.general.debug("User logged in")
+                
                 completion(nil)
             }
     }
     
     func logoutUser() {
         do {
-            try auth
-                .signOut()
+            try auth.signOut()
+            let _ = Log.general.debug("User logged out")
         } catch {
             debugPrint(error.localizedDescription)
         }

@@ -37,6 +37,7 @@ enum Constants {
     enum ImageFileNames {
         public static let onboardingBackground = "onboarding-background"
         public static let appIcon = "app-icon"
+        public static let authBackground = "auth-background"
     }
     
     enum Colors {
@@ -81,5 +82,13 @@ enum Constants {
             public static let collectionBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1678552863/nftio/collections/"
             public static let nftItemsBaseUrl = "https://res.cloudinary.com/dariku/image/upload/v1679847173/nftio/nftItems/"
         }
+    }
+    
+    enum NFTItems {
+        public static let numberOfNftItemsOnHomePage = 8
+    }
+    
+    enum Collections {
+        public static let numberOfCollectionsOnHomePage = 5
     }
 }

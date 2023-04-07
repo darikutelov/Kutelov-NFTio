@@ -16,7 +16,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 }
 
-@main
+@main             
 struct NFTioApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     

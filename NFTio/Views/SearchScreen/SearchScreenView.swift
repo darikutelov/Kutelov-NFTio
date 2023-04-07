@@ -17,13 +17,11 @@ struct SearchScreenView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                // MARK: - Assignment 3
                 LazyVGrid(
                     columns: columns,
                     spacing: Constants.Spacing.standard
                 ) {
                     ForEach(viewModel.filteredNftItems) { nft in
-                        // MARK: - Assignment 2
                         NavigationLink(value: nft) {
                             SearchItemCellView(nftItem: nft)
                         }
@@ -39,7 +37,6 @@ struct SearchScreenView: View {
                     .edgesIgnoringSafeArea(.all)
             )
         }
-        // MARK: - Assignment 5
         .searchable(
             text: $viewModel.searchTerm,
             placement: .navigationBarDrawer(

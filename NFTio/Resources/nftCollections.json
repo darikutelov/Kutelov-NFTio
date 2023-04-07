@@ -1,0 +1,75 @@
+[
+  {
+    "_id": "641f335803170fba65571cbf",
+    "name": "Bored Ape Yacht Club",
+    "contractAddress": "0xea47b64e1bfccb773a0420247c0aa0a3c1d2e5c5",
+    "createdAt": "2021-04-01T12:00:00.000Z",
+    "description": "The Bored Ape Yacht Club is a collection of 10,000 unique Bored Ape NFTs— unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation. Visit www.BoredApeYachtClub.com for more details.",
+    "floorPrice": 68.86,
+    "imageUrl": "bayc.jpeg",
+    "numberOfItems": 9998,
+    "owners": 5888,
+    "totalVolume": 890277
+  },
+  {
+    "_id": "641f351b03170fba655b4652",
+    "name": "Azuki",
+    "category": "641f1df103170fba652571d9",
+    "contractAddress": "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+    "createdAt": "2022-01-01T12:00:00.000Z",
+    "description": "Take the red bean to join the garden. View the collection at azuki.com/gallery.Azuki starts with a collection of 10,000 avatars that give you membership access to The Garden: a corner of the internet where artists, builders, and web3 enthusiasts meet to create a decentralized future. Azuki holders receive access to exclusive drops, experiences, and more. Visit azuki.com for more details.We rise together. We build together. We grow together.",
+    "floorPrice": 14.3,
+    "imageUrl": "azuki.png",
+    "numberOfItems": 10000,
+    "owners": 4910,
+    "totalVolume": 432888
+  },
+  {
+    "_id": "64268154de4d63d803549df3",
+    "name": "Women Unite - 10k Assemble",
+    "contractAddress": "0xBEE7Cb80DFD21a9eAAe714208F361601F68eB746",
+    "createdAt": "2023-03-31T06:44:35.864Z",
+    "description": "This is the second collection of Women Unite created by Miss Kaina and the Original Models. This unique collection is part of an entire ecosystem known as the Women Unite Kingdom. The WU Kingdom intends to represent the individuality, allure, and influence of womankind through Fashion, Photography, and NFTs.",
+    "floorPrice": 0.184,
+    "imageUrl": "women-unite.jpg",
+    "numberOfItems": 6815,
+    "owners": 1610,
+    "totalVolume": 1143
+  },
+  {
+    "_id": "641f33e903170fba65587b41",
+    "name": "Pukenza",
+    "contractAddress": "0x1e38E9Ad28A526512AF9B8689c50D91443B6C3Db",
+    "createdAt": "2021-12-01T12:00:00.000Z",
+    "description": "Pukenza (also known as Rainbow over the Flow Field), inspired by Tyler Hobb's Fidenza, uses similar concepts combined with Doodles' color palette to create aesthetically soothing generative art. Funded by Doodlebank and created by L3xc from Art Foundry.",
+    "floorPrice": 0.03,
+    "imageUrl": "pukenza.png",
+    "numberOfItems": 8010,
+    "owners": 3466,
+    "totalVolume": 831
+  },
+  {
+    "_id": "641f348303170fba6559e784",
+    "name": "ChillTuna",
+    "contractAddress": "0x0735a2961eb2b18b28DaA72b593DFBaA7F9D1929",
+    "createdAt": "2022-11-01T12:00:00.000Z",
+    "description": "Chill Tuna is a collection of 5,000 utility-enabled NFT with a doomsday-saving background. Chill Tuna aims to create a community for web3 adventurers and builders through ongoing storytelling, interactive designs and long-term value.\n\nLet’s party amidst the chaos; let’s toast to the looming darkness; let’s fight even if it’s the end of light. Just remember… Do not go gentle into that dark night, Fighting, fighting against the dying of the light...",
+    "floorPrice": 0.0298,
+    "imageUrl": "chilltuna.png",
+    "numberOfItems": 5000,
+    "owners": 1006,
+    "totalVolume": 651
+  },
+  {
+    "_id": "641f2f6e03170fba654e0a27",
+    "name": "The Real Vision Collective",
+    "contractAddress": "0x4344cb95bCb0d9e7296D0DE2ff329Bfc8D0A84fe",
+    "createdAt": "2023-02-01T12:00:00.000Z",
+    "description": "The Real Vision Collective NFT is your key to the super community of communities. Our goal is to unite Web3 into a single, cohesive community by partnering with some of the biggest and brightest NFT projects around.\n\nIt doesn’t matter whether you’re a true degen, a serious collector, in it for the tech, or just crypto curious — We are building a place for you to learn, grow, hangout and have fun, while driving the Web3 revolution forward.\n\nWelcome to the Real Vision Collective.Let’s build something extraordinary…!",
+    "floorPrice": 0.24,
+    "imageUrl": "real-vision.png",
+    "numberOfItems": 5969,
+    "owners": 3474,
+    "totalVolume": 313
+  }
+]

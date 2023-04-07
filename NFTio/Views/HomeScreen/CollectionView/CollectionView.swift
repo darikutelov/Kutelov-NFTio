@@ -19,7 +19,10 @@ struct CollectionView: View {
             ScrollView {
                 Spacer()
                     .frame(height: Constants.Spacing.xxxlarge)
-                NFTListView(nftItems: viewModel.filteredNftItems)
+                NFTListView(
+                    nftItems: viewModel.filteredNftItems,
+                    sectionName: "\(Constants.Text.NFTItems.nftItems) (\(viewModel.filteredNftItems.count))"
+                )
                     .onAppear {
                         viewModel.setSelectedCollection(
                             collection: selectedCollection
@@ -33,7 +36,7 @@ struct CollectionView: View {
                             Button {
                                 dismiss()
                             } label: {
-                                Image(systemName: "arrow.backward")
+                                Image(systemName: Constants.Text.IconNames.arrowBack)
                                     .foregroundColor(Color(Constants.Colors.primaryText))
                             }
                         }
