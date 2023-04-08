@@ -69,7 +69,6 @@ final class NFTViewModel: ObservableObject {
     
     // MARK: - LIKES
     
-    // Assgnment 4
     func updateNftItemLikes(_ nftItemId: String) {
         let itemIndex = nftItems.firstIndex(where: {$0.id == nftItemId })
         
@@ -95,5 +94,21 @@ final class NFTViewModel: ObservableObject {
         } else {
             nftDataManager.likedNftItems.append(itemId)
         }
+    }
+    
+    // MARK: - API calls
+    
+    public func fetchNftItems() async {
+        
+        do {
+            let requestUrl = RequestUrl(endpoint: .nftItems)
+            let nftItems = try await APIService.shared.fetchData(requestUrl, expecting: NFTItemsResponse.self)
+            
+            print(nftItems)
+            
+        } catch let error {
+            print(error)
+        }
+        
     }
 }

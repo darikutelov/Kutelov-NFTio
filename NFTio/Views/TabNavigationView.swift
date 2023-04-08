@@ -12,7 +12,6 @@ struct TabNavigationView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = false
     
-    // MARK: - Assignment 1
     var body: some View {
         TabView(selection: $selectedTab) {
             HomeScreenView()

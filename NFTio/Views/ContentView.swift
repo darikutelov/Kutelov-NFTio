@@ -39,6 +39,9 @@ struct ContentView: View {
         .environmentObject(nftViewModel)
         .environmentObject(cartViewModel)
         .environmentObject(userViewModel)
+        .task {
+            let nftItems = await nftViewModel.fetchNftItems()
+        }
     }
 }
 
