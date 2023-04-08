@@ -13,8 +13,9 @@ struct SearchScreenView: View {
     let columns = [
         GridItem(.adaptive(minimum: Constants.Spacing.minCardSize))
     ]
-    
+    // TODO: - Cell not updating! Include price in card.
     var body: some View {
+        let _ = Log.general.debug("Search render with \(viewModel.filteredNftItems[0].tokenName)")
         NavigationStack {
             ScrollView {
                 LazyVGrid(
@@ -37,6 +38,9 @@ struct SearchScreenView: View {
                     .edgesIgnoringSafeArea(.all)
             )
         }
+        .refreshable {
+            await viewModel.fetchNftItems()
+         }
         .searchable(
             text: $viewModel.searchTerm,
             placement: .navigationBarDrawer(

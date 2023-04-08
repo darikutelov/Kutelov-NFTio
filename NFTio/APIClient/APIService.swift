@@ -20,6 +20,9 @@ final class APIService {
         case failedToCreateUrl
         case requestFailed
         case responseDecodingFailed
+        case failedToConnectToServer
+        case objectEncodingFailed
+        case invalidResponse
     }
     
     /// Init
@@ -42,11 +45,18 @@ final class APIService {
     
     public func fetchData<T: Codable>(_ requestUrl: RequestUrl,
                                       expecting type: T.Type) async throws -> T {
+        var data: Data
+        var response: URLResponse
+        
         guard let url = requestUrl.url else {
             throw APIServiceError.failedToCreateUrl
         }
         
-        let (data, response) = try await session.data(from: url)
+        do {
+            (data, response) = try await session.data(from: url)
+        } catch {
+            throw APIServiceError.failedToConnectToServer
+        }
         
         guard let httpResponse = response as? HTTPURLResponse,
               (200..<300).contains(httpResponse.statusCode) else {
@@ -58,5 +68,37 @@ final class APIService {
         }
         
         return decodedData
+    }
+    
+    public func saveData<T: Codable>(_ requestUrl: RequestUrl,
+                                     data: T) async throws {
+        var bodyData: Data
+        var response: URLResponse
+        
+        guard let url = requestUrl.url else {
+            throw APIServiceError.failedToCreateUrl
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            bodyData = try encoder.encode(data)
+        } catch {
+            throw APIServiceError.objectEncodingFailed
+        }
+        
+        do {
+            (_, response) = try await session.upload(for: request, from: bodyData)
+        } catch {
+            throw APIServiceError.failedToConnectToServer
+        }
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200
+        else {
+            throw APIServiceError.invalidResponse
+        }
     }
 }
