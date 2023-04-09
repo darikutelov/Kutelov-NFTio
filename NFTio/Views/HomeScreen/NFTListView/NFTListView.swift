@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NFTListView: View {
-    let nftItems: [NFT]
+    @Binding var nftItems: [NFT]
     let sectionName: String
     
     let columns = [
@@ -25,11 +25,11 @@ struct NFTListView: View {
                 .padding(.bottom, Constants.Spacing.small)
             ) {
                 LazyVGrid(columns: columns, spacing: 12) {
-                    ForEach(nftItems) { nft in
+                    ForEach($nftItems) { nft in
                         NavigationLink {
                             NFTDetailView(nft: nft)
                         } label: {
-                            nft.view
+                            NFTCellView(nft: nft)
                         }
                         .isDetailLink(true)
                     }
@@ -39,36 +39,38 @@ struct NFTListView: View {
     }
 }
 
-extension NFT {
-    var view: some View {
+struct NFTCellView: View {
+    @Binding var nft: NFT
+    
+    var body: some View {
         VStack {
             ZStack {
                 RoundedImageView(
-                    imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl + imageUrl
+                    imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl + nft.imageUrl
                 )
-                    .padding(8.0)
+                .padding(8.0)
                 VStack {
                     Spacer()
-                    PriceView(price: price.priceInCryptoCurrency)
+                    PriceView(price: nft.price.priceInCryptoCurrency)
                 }
                 .padding([.bottom], Constants.Spacing.medium)
                 VStack {
-                    if likes > 0 {
-                        LikesView(numberOfLikes: likes)
+                    if nft.likes > 0 {
+                        LikesView(numberOfLikes: nft.likes)
                             .padding([.trailing, .top], Constants.Spacing.medium)
                     }
                     Spacer()
                 }
             }
             
-            NameView(name: tokenName)
+            NameView(name: nft.tokenName)
                 .padding(EdgeInsets(
                     top: Constants.Spacing.small,
                     leading: Constants.Spacing.standard,
                     bottom: 0.0,
                     trailing: Constants.Spacing.standard))
             
-            CreatorNameView(creator: creator)
+            CreatorNameView(creator: nft.creator)
                 .padding(EdgeInsets(
                     top: 0.0,
                     leading: Constants.Spacing.standard,
@@ -87,7 +89,7 @@ extension NFT {
 struct NFTListingView_Previews: PreviewProvider {
     static var previews: some View {
         NFTListView(
-            nftItems: NFTViewModel().nftItems,
+            nftItems: .constant(NFTViewModel().nftItems),
             sectionName: Constants.Text.Home.nftListLabel
         )
     }

@@ -13,22 +13,20 @@ struct SearchScreenView: View {
     let columns = [
         GridItem(.adaptive(minimum: Constants.Spacing.minCardSize))
     ]
-    // TODO: - Cell not updating! Include price in card.
+
     var body: some View {
-        let _ = Log.general.debug("Search render with \(viewModel.filteredNftItems[0].tokenName)")
         NavigationStack {
             ScrollView {
                 LazyVGrid(
                     columns: columns,
                     spacing: Constants.Spacing.standard
                 ) {
-                    ForEach(viewModel.filteredNftItems) { nft in
-                        NavigationLink(value: nft) {
+                    ForEach($viewModel.searchItems, id: \.self) { nft in
+                        NavigationLink {
+                            NFTDetailView(nft: nft)
+                        } label: {
                             SearchItemCellView(nftItem: nft)
                         }
-                    }
-                    .navigationDestination(for: NFT.self) { nft in
-                        NFTDetailView(nft: nft)
                     }
                 }
                 .padding()

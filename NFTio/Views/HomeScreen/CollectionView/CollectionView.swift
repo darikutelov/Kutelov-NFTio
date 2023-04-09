@@ -20,7 +20,7 @@ struct CollectionView: View {
                 Spacer()
                     .frame(height: Constants.Spacing.xxxlarge)
                 NFTListView(
-                    nftItems: viewModel.filteredNftItems,
+                    nftItems: $viewModel.filteredNftItems,
                     sectionName: "\(Constants.Text.NFTItems.nftItems) (\(viewModel.filteredNftItems.count))"
                 )
                     .onAppear {
@@ -40,9 +40,6 @@ struct CollectionView: View {
                                     .foregroundColor(Color(Constants.Colors.primaryText))
                             }
                         }
-                    }
-                    .onDisappear {
-                        viewModel.setSelectedCategory(category: nil)
                     }
                     .padding(.horizontal)
             }

@@ -9,8 +9,9 @@ import SwiftUI
 
 struct TabNavigationView: View {
     @AppStorage(Constants.Text.TabView.userdefaultsKey) var selectedTab = 0
-    @EnvironmentObject var cartViewModel: CartViewModel
     @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = false
+    @EnvironmentObject var cartViewModel: CartViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -39,12 +40,14 @@ struct TabNavigationView: View {
                 }
                 .tag(3)
                 .badge(cartViewModel.cartItems.count)
-            ProfileScreenView()
-                .tabItem {
-                    Image(systemName: Constants.Text.TabView.profileIcon)
-                    Text(Constants.Text.TabView.profileLabel)
-                }
-                .tag(4)
+            if userViewModel.currentUser != nil {
+                ProfileScreenView()
+                    .tabItem {
+                        Image(systemName: Constants.Text.TabView.profileIcon)
+                        Text(Constants.Text.TabView.profileLabel)
+                    }
+                    .tag(4)
+            }
         }
         .onAppear {
 //            selectedTab = 0

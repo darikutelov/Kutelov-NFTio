@@ -14,40 +14,37 @@ struct CategoryView: View {
     let selectedCategory: Category
     
     var body: some View {
-        ZStack {
-            Color(uiColor: .secondarySystemBackground)
-            ScrollView {
-                Spacer()
-                    .frame(height: Constants.Spacing.xxxlarge)
-                NFTListView(
-                    nftItems: viewModel.filteredNftItems,
-                    sectionName: "\(Constants.Text.NFTItems.nftItems) (\(viewModel.filteredNftItems.count))"
-                )
-                .onAppear {
-                    viewModel.setSelectedCategory(
-                        category: selectedCategory
+            ZStack {
+                Color(uiColor: .secondarySystemBackground)
+                ScrollView {
+                    Spacer()
+                        .frame(height: Constants.Spacing.xxxlarge)
+                    NFTListView(
+                        nftItems: $viewModel.filteredNftItems,
+                        sectionName: "\(Constants.Text.NFTItems.nftItems) (\(viewModel.filteredNftItems.count))"
                     )
-                }
-                .navigationTitle("\(selectedCategory.name.rawValue)")
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarBackButtonHidden(true)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            dismiss()
-                        } label: {
-                            Image(systemName: Constants.Text.IconNames.arrowBack)
-                                .foregroundColor(Color(Constants.Colors.primaryText))
+                    .onAppear {
+                        viewModel.setSelectedCategory(
+                            category: selectedCategory
+                        )
+                    }
+                    .navigationTitle("\(selectedCategory.name.rawValue)")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarBackButtonHidden(true)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button {
+                                dismiss()
+                            } label: {
+                                Image(systemName: Constants.Text.IconNames.arrowBack)
+                                    .foregroundColor(Color(Constants.Colors.primaryText))
+                            }
                         }
                     }
-                }
-                .onDisappear {
-                    viewModel.setSelectedCategory(category: nil)
-                }
-                .padding(.horizontal)
-            }.padding(.top, Constants.Spacing.xxlarge)
-        }
-        .edgesIgnoringSafeArea(.all)
+                    .padding(.horizontal)
+                }.padding(.top, Constants.Spacing.xxlarge)
+            }
+            .edgesIgnoringSafeArea(.all)
     }
 }
 

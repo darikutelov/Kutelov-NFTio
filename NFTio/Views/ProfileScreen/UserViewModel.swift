@@ -22,4 +22,8 @@ final class UserViewModel: ObservableObject {
             self?.currentUser = user
         }
     }
+    
+    public func logoutUser() {
+        UserManager.shared.logoutUser()
+    }
 }

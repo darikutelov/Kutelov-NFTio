@@ -10,37 +10,37 @@ import SwiftUI
 final class NFTViewModel: ObservableObject {
     
     // MARK: - Properties
+    /// A manager to load and save data locally
     var nftDataManager = NFTDataManager()
+    /// Store all NFT categories
     var categories: [Category]
+    /// Store all NFT collections
     var collections: [NFTCollection]
+    /// Store all nft items
     @Published var nftItems: [NFT]
-    @Published var selectedCategory: Category?
-    @Published var selectedCollection: NFTCollection?
-    @Published var searchTerm: String = ""
-    @State var isLoading = false
-    
-    var filteredNftItems: [NFT] {
-        if let selectedCategory = selectedCategory {
-            return nftItems.filter {
-                $0.category.id == selectedCategory.id
-            }
+    /// Store selected category and update filteredNftItems upon selection
+    @Published var selectedCategory: Category? {
+        didSet {
+            updateFilteredItems()
         }
-        
-        if let selectedCollection = selectedCollection {
-            return nftItems.filter {
-                $0.nftCollection.id == selectedCollection.id
-            }
-        }
-        
-        if !searchTerm.isEmpty {
-            return nftItems.filter {
-                $0.tokenName.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased()) ||
-                $0.nftCollection.name.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased())
-            }
-        }
-        
-        return nftItems
     }
+    /// Store selected collection and update filteredNftItems upon selection
+    @Published var selectedCollection: NFTCollection? {
+        didSet {
+            updateFilteredItems()
+        }
+    }
+    /// Store search term and update search items upon change
+    @Published var searchTerm: String = "" {
+        didSet {
+            updatedSearchItems()
+        }
+    }
+    @State var isLoading = false
+    /// Store filtered items by search term
+    @Published var searchItems = [NFT]()
+    /// Store filtered items by category or collection
+    @Published var filteredNftItems = [NFT]()
     
     // MARK: - Init
     
@@ -48,6 +48,7 @@ final class NFTViewModel: ObservableObject {
         self.nftItems = self.nftDataManager.nftItems
         self.categories = self.nftDataManager.categories
         self.collections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
+        self.searchItems = self.nftDataManager.nftItems
         
         Task {
             await self.fetchNftItems()
@@ -120,12 +121,39 @@ final class NFTViewModel: ObservableObject {
             
             await MainActor.run {
                 nftItems = data.nftItems
+                searchItems = data.nftItems
             }
             
             nftDataManager.nftItems = data.nftItems
             isLoading = false
         } catch let error {
             print(error)
+        }
+    }
+    
+    // MARK: - Search update
+    
+    private func updatedSearchItems() {
+        searchItems = searchTerm.isEmpty ? nftItems : nftItems.filter {
+            $0.tokenName.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased()) ||
+            $0.nftCollection.name.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased())
+        }
+    }
+    
+    /// Update category and collection filtered items
+    private func updateFilteredItems() {
+        filteredNftItems = self.nftItems
+        
+        if let selectedCategory = selectedCategory {
+            filteredNftItems = nftItems.filter {
+                $0.category.id == selectedCategory.id
+            }
+        }
+        
+        if let selectedCollection = selectedCollection {
+            filteredNftItems = nftItems.filter {
+                $0.nftCollection.id == selectedCollection.id
+            }
         }
     }
 }
