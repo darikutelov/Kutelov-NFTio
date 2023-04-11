@@ -7,6 +7,16 @@
 
 import Foundation
 
+/// API Errors
+enum APIServiceError: Error {
+    case failedToCreateUrl
+    case requestFailed
+    case responseDecodingFailed
+    case failedToConnectToServer(String)
+    case objectEncodingFailed
+    case invalidResponse
+}
+
 /// Primary API Service object to get app's data
 final class APIService {
     static let shared = APIService()
@@ -14,16 +24,6 @@ final class APIService {
     private let sessionConfiguration: URLSessionConfiguration
     private var decoder: JSONDecoder
     private var encoder: JSONEncoder
-    
-    /// API Errors
-    enum APIServiceError: Error {
-        case failedToCreateUrl
-        case requestFailed
-        case responseDecodingFailed
-        case failedToConnectToServer
-        case objectEncodingFailed
-        case invalidResponse
-    }
     
     /// Init
     private init() {
@@ -55,8 +55,12 @@ final class APIService {
         do {
             (data, response) = try await session.data(from: url)
         } catch {
-            throw APIServiceError.failedToConnectToServer
+            Log.error.error("Failed to connect to the server!")
+            throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
         }
+        
+        // Week 09: Assignment 1
+        Log.info.debug("Data downloaded: \(data.description)")
         
         guard let httpResponse = response as? HTTPURLResponse,
               (200..<300).contains(httpResponse.statusCode) else {
@@ -92,7 +96,7 @@ final class APIService {
         do {
             (_, response) = try await session.upload(for: request, from: bodyData)
         } catch {
-            throw APIServiceError.failedToConnectToServer
+            throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
         }
         
         guard let httpResponse = response as? HTTPURLResponse,

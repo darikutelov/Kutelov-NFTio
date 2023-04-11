@@ -31,6 +31,10 @@ final class NFTViewModel: ObservableObject {
     @State var isLoading = false
     /// Store filtered items by search term
     @Published var searchItems = [NFT]()
+    /// Error flag
+    @MainActor @Published var showErrorAlert = false
+    /// Error Message
+    @MainActor @Published var errorMessage = ""
     
     var filteredNftItems: [NFT] {
            if let selectedCategory = selectedCategory {
@@ -123,7 +127,9 @@ final class NFTViewModel: ObservableObject {
         do {
             isLoading = true
             let requestUrl = RequestUrl(endpoint: .nftItems)
-            let data = try await APIService.shared.fetchData(requestUrl, expecting: NFTItemsResponse.self)
+            let data = try await APIService.shared.fetchData(
+                requestUrl, expecting: NFTItemsResponse.self
+            )
             
             await MainActor.run {
                 nftItems = data.nftItems
@@ -132,8 +138,16 @@ final class NFTViewModel: ObservableObject {
             
             nftDataManager.nftItems = data.nftItems
             isLoading = false
-        } catch let error {
-            print(error)
+        } catch APIServiceError.failedToConnectToServer(let message) {
+            Task { @MainActor in
+                showErrorAlert = true
+                errorMessage = message
+                try await Task.sleep(nanoseconds: 2_000_000_000)
+                showErrorAlert = false
+                errorMessage = ""
+            }
+        } catch {
+            print("error")
         }
     }
     
