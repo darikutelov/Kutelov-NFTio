@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct NFTItemsResponse: Codable {
+    let nftItems: [NFT]
+}
+
 /// Data Structure to Represent NFT  item for sale
 struct NFT: Hashable, Identifiable, Codable {
     let id: String

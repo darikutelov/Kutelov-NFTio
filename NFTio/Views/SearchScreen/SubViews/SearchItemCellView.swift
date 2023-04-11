@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchItemCellView: View {
-    let nftItem: NFT
+    @Binding var nftItem: NFT
     
     var body: some View {
         HStack(alignment: .top) {
@@ -51,7 +51,7 @@ struct SearchItemCellView: View {
 
 struct SearchItemCellView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchItemCellView(nftItem: NFTDataManager().nftItems.first!)
+        SearchItemCellView(nftItem: .constant(NFTDataManager().nftItems.first!))
     }
         
 }

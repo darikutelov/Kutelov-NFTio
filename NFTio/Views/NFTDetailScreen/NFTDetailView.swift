@@ -11,7 +11,7 @@ struct NFTDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var cartViewModel: CartViewModel
     
-    let nft: NFT
+    @Binding var nft: NFT
 
     var body: some View {
         GeometryReader { proxy in
@@ -72,7 +72,7 @@ struct NFTDetailView: View {
 
 struct NFTDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NFTDetailView(nft: NFTDataManager().nftItems[0])
+        NFTDetailView(nft: .constant(NFTDataManager().nftItems[0]))
             .environmentObject(CartViewModel())
     }
 }
