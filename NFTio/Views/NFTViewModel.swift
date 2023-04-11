@@ -8,7 +8,6 @@
 import SwiftUI
 
 final class NFTViewModel: ObservableObject {
-    
     // MARK: - Properties
     /// A manager to load and save data locally
     var nftDataManager = NFTDataManager()
@@ -19,17 +18,10 @@ final class NFTViewModel: ObservableObject {
     /// Store all nft items
     @Published var nftItems: [NFT]
     /// Store selected category and update filteredNftItems upon selection
-    @Published var selectedCategory: Category? {
-        didSet {
-            updateFilteredItems()
-        }
-    }
+    @Published var selectedCategory: Category?
     /// Store selected collection and update filteredNftItems upon selection
-    @Published var selectedCollection: NFTCollection? {
-        didSet {
-            updateFilteredItems()
-        }
-    }
+    @Published var selectedCollection: NFTCollection?
+
     /// Store search term and update search items upon change
     @Published var searchTerm: String = "" {
         didSet {
@@ -39,8 +31,22 @@ final class NFTViewModel: ObservableObject {
     @State var isLoading = false
     /// Store filtered items by search term
     @Published var searchItems = [NFT]()
-    /// Store filtered items by category or collection
-    @Published var filteredNftItems = [NFT]()
+    
+    var filteredNftItems: [NFT] {
+           if let selectedCategory = selectedCategory {
+               return nftItems.filter {
+                   $0.category.id == selectedCategory.id
+               }
+           }
+           
+           if let selectedCollection = selectedCollection {
+               return nftItems.filter {
+                   $0.nftCollection.id == selectedCollection.id
+               }
+           }
+           
+           return nftItems
+       }
     
     // MARK: - Init
     
@@ -140,20 +146,14 @@ final class NFTViewModel: ObservableObject {
         }
     }
     
-    /// Update category and collection filtered items
-    private func updateFilteredItems() {
-        filteredNftItems = self.nftItems
+    /// Function to create a binding between an NFT item and same item in the nfItems array by id
+    public func nftItemBinding(id: String) -> Binding<NFT> {
+        let currentIndex = self.nftItems.firstIndex { $0.id == id } ?? 0
         
-        if let selectedCategory = selectedCategory {
-            filteredNftItems = nftItems.filter {
-                $0.category.id == selectedCategory.id
-            }
-        }
-        
-        if let selectedCollection = selectedCollection {
-            filteredNftItems = nftItems.filter {
-                $0.nftCollection.id == selectedCollection.id
-            }
+        return Binding<NFT> {
+            self.nftItems[currentIndex]
+        } set: { newValue in
+            self.nftItems[currentIndex] = newValue
         }
     }
 }

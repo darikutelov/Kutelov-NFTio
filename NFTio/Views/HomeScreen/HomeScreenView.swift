@@ -17,8 +17,7 @@ struct HomeScreenView: View {
         NavigationStack {
             ZStack {
                 Color(uiColor: .secondarySystemBackground)
-                ScrollView(.vertical,
-                           showsIndicators: false) {
+                ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 0) {
                         Spacer()
                             .frame(height: Constants.Spacing.superLarge)
@@ -49,8 +48,10 @@ struct HomeScreenView: View {
                         }
                         
                     } label: {
-                        Image(systemName: userViewModel.currentUser != nil ? "togglepower" : "person")
-                            .foregroundColor(Color(Constants.Colors.primaryText))
+                        Image(
+                            systemName: userViewModel.currentUser != nil ? "togglepower" : "person"
+                        )
+                        .foregroundColor(Color(Constants.Colors.primaryText))
                     }
 
                 }
