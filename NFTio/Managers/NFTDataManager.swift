@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NFTDataManager {
+final class NFTDataManager {
     enum DataModel: String, CaseIterable {
         case nftItems
         case likedNftItems
@@ -144,6 +144,7 @@ class NFTDataManager {
     func addNew(nftItem: NFT) {
         self.nftItems.append(nftItem)
     }
+    
     func fetchNftItems() async throws -> [NFT] {
         let seconds = 2.0
         try await Task.sleep(nanoseconds: UInt64(seconds * Double(NSEC_PER_SEC)))

@@ -12,16 +12,16 @@ final class NFTViewModel: ObservableObject {
     /// A manager to load and save data locally
     var nftDataManager = NFTDataManager()
     /// Store all NFT categories
-    var categories: [Category]
+    @Published var categories: [Category]
     /// Store all NFT collections
-    var collections: [NFTCollection]
+    @Published var nftCollections: [NFTCollection]
     /// Store all nft items
     @Published var nftItems: [NFT]
     /// Store selected category and update filteredNftItems upon selection
     @Published var selectedCategory: Category?
     /// Store selected collection and update filteredNftItems upon selection
     @Published var selectedCollection: NFTCollection?
-
+    
     /// Store search term and update search items upon change
     @Published var searchTerm: String = "" {
         didSet {
@@ -37,27 +37,32 @@ final class NFTViewModel: ObservableObject {
     @MainActor @Published var errorMessage = ""
     
     var filteredNftItems: [NFT] {
-           if let selectedCategory = selectedCategory {
-               return nftItems.filter {
-                   $0.category.id == selectedCategory.id
-               }
-           }
-           
-           if let selectedCollection = selectedCollection {
-               return nftItems.filter {
-                   $0.nftCollection.id == selectedCollection.id
-               }
-           }
-           
-           return nftItems
-       }
+        if let selectedCategory = selectedCategory {
+            return nftItems.filter {
+                $0.category.id == selectedCategory.id
+            }
+        }
+        
+        if let selectedCollection = selectedCollection {
+            return nftItems.filter {
+                $0.nftCollection.id == selectedCollection.id
+            }
+        }
+        
+        return nftItems
+    }
     
     // MARK: - Init
     
     init() {
         self.nftItems = self.nftDataManager.nftItems
         self.categories = self.nftDataManager.categories
-        self.collections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
+        
+        if nftDataManager.nftCollections.count >= Constants.Collections.numberOfCollectionsOnHomePage {
+            self.nftCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
+        } else {
+            self.nftCollections = [NFTCollection]()
+        }
         self.searchItems = self.nftDataManager.nftItems
         
         Task {
@@ -155,20 +160,30 @@ final class NFTViewModel: ObservableObject {
     
     // Assignment 3
     private func fetchCollections() async {
-            do {
-                let requestUrl = RequestUrl(endpoint: .collections)
-                let data = try await APIService.shared.fetchData(
-                    requestUrl, expecting: NFTCollectionsResponse.self
-                )
-                print(data)
-            } catch let error {
-                switch error {
-                case APIServiceError.responseDecodingFailed(let message):
-                    print(message)
-                default:
-                    print(error)
-                }
+        isLoading = true
+        defer {
+            isLoading = false
+        }
+        do {
+            let requestUrl = RequestUrl(endpoint: .collections)
+            let data = try await APIService.shared.fetchData(
+                requestUrl, expecting: NFTCollectionsResponse.self
+            )
+            
+            await MainActor.run {
+                nftCollections = data.nftCollections
             }
+            
+            nftDataManager.nftCollections = data.nftCollections
+            
+        } catch let error {
+            switch error {
+            case APIServiceError.responseDecodingFailed(let message):
+                print(message)
+            default:
+                print(error)
+            }
+        }
     }
     
     // MARK: - Search update
