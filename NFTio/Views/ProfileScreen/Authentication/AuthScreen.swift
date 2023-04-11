@@ -20,6 +20,7 @@ struct AuthScreen: View {
          
     var body: some View {
         VStack {
+            CloseButtonView(isPresented: $isPresented)
             Spacer()
             VStack {
                 VStack {
@@ -89,6 +90,9 @@ struct AuthScreen: View {
                                     isLogin = false
                                 }
                             } else {
+                                guard !email.isEmpty, !password.isEmpty, !rePassword.isEmpty else {
+                                    return
+                                }
                                 register()
                             }
                                 
@@ -104,6 +108,26 @@ struct AuthScreen: View {
                         Spacer()
                     }
                     .padding(.bottom, Constants.Spacing.medium)
+                    if !isLogin {
+                        HStack {
+                            Spacer()
+                            Button {
+                                withAnimation {
+                                    isLogin = true
+                                }
+                            } label: {
+                                ButtonIconView(
+                                    buttonText: "Back To Login",
+                                    buttonTextColor: Constants.Colors.white,
+                                    buttonBackgroundColor: Constants.Colors.charcoal,
+                                    iconName: "arrow.left.square",
+                                    buttonWidth: 300.0
+                                )
+                            }
+                            Spacer()
+                        }
+                        .padding(.bottom, Constants.Spacing.xsmall)
+                    }
                 }
             }
             .background {
@@ -123,6 +147,7 @@ struct AuthScreen: View {
                 .scaledToFill()
                 .ignoresSafeArea(.all)
         )
+
     }
     
     private func login() {
@@ -156,5 +181,24 @@ struct AuthScreen: View {
 struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
         AuthScreen(isPresented: .constant(true))
+    }
+}
+
+struct CloseButtonView: View {
+    @Binding var isPresented: Bool
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            Button {
+                isPresented = false
+            } label: {
+                Image(systemName: "xmark.circle.fill")
+                    .foregroundColor(Color(Constants.Colors.secondary))
+                    .font(.title)
+                    .padding(.trailing, Constants.Spacing.large)
+            }
+            
+        }
     }
 }

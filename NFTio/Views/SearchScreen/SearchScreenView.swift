@@ -13,7 +13,7 @@ struct SearchScreenView: View {
     let columns = [
         GridItem(.adaptive(minimum: Constants.Spacing.minCardSize))
     ]
-    
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -21,13 +21,12 @@ struct SearchScreenView: View {
                     columns: columns,
                     spacing: Constants.Spacing.standard
                 ) {
-                    ForEach(viewModel.filteredNftItems) { nft in
-                        NavigationLink(value: nft) {
+                    ForEach($viewModel.searchItems, id: \.self) { nft in
+                        NavigationLink {
+                            NFTDetailView(nft: nft)
+                        } label: {
                             SearchItemCellView(nftItem: nft)
                         }
-                    }
-                    .navigationDestination(for: NFT.self) { nft in
-                        NFTDetailView(nft: nft)
                     }
                 }
                 .padding()
@@ -37,6 +36,9 @@ struct SearchScreenView: View {
                     .edgesIgnoringSafeArea(.all)
             )
         }
+        .refreshable {
+            await viewModel.fetchNftItems()
+         }
         .searchable(
             text: $viewModel.searchTerm,
             placement: .navigationBarDrawer(

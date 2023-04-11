@@ -71,6 +71,7 @@ enum Constants {
     enum Api {
         // swiftlint: disable all
         public static let baseUrl = "https://cryptic-oasis-81288.herokuapp.com/api/v1/"
+        //public static let baseUrl = "http://localhost:8000/api/v1/"
         enum Images {
             public static let categoryBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1647330626/nftio/categories/"
             public static let collectionBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1678552863/nftio/collections/"

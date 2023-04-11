@@ -17,7 +17,7 @@ struct ShopName: View {
                 .fontWeight(.semibold)
                 .kerning(0.15)
             Spacer()
-        }.padding(.vertical, Constants.Spacing.xxlarge)
+        }.padding(.vertical, Constants.Spacing.xlarge)
     }
 }
 
