@@ -61,7 +61,9 @@ final class NFTViewModel: ObservableObject {
         self.searchItems = self.nftDataManager.nftItems
         
         Task {
-            await self.fetchNftItems()
+            await fetchNftItems()
+            // Week09 #3
+            await fetchCollections()
         }
     }
     
@@ -149,6 +151,24 @@ final class NFTViewModel: ObservableObject {
         } catch {
             print("error")
         }
+    }
+    
+    // Assignment 3
+    private func fetchCollections() async {
+            do {
+                let requestUrl = RequestUrl(endpoint: .collections)
+                let data = try await APIService.shared.fetchData(
+                    requestUrl, expecting: NFTCollectionsResponse.self
+                )
+                print(data)
+            } catch let error {
+                switch error {
+                case APIServiceError.responseDecodingFailed(let message):
+                    print(message)
+                default:
+                    print(error)
+                }
+            }
     }
     
     // MARK: - Search update

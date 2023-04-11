@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct NFTCollectionsResponse: Codable {
+    let nftCollections: [NFTCollection]
+}
+
 /// Data structure to represent NFT collection
 struct NFTCollection: Hashable, Identifiable, Codable {
     let id: String

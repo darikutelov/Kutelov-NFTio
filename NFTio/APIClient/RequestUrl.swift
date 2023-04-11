@@ -20,25 +20,30 @@ final class RequestUrl {
     
     /// Constructed url for API request in string format
     private var urlString: String {
-        var string = Constants.Api.baseUrl + endpoint.rawValue
+        var stringUrl = Constants.Api.baseUrl + endpoint.rawValue
+        
+        // Asignment 3
+        if endpoint.rawValue == "collections" {
+            stringUrl = Constants.Api.baseUnsecureUrl + endpoint.rawValue
+        }
         
         if !pathComponents.isEmpty {
             pathComponents.forEach {
-                string += "/\($0)"
+                stringUrl += "/\($0)"
             }
         }
         
         if !queryParameters.isEmpty {
-            string += "?"
+            stringUrl += "?"
             let queryParamsString = queryParameters.compactMap({
                 guard let value = $0.value else { return nil }
                 return "\($0.name)=\(value)"
             }).joined(separator: "&")
             
-            string += queryParamsString
+            stringUrl += queryParamsString
         }
         
-        return string
+        return stringUrl
     }
     
     /// API url

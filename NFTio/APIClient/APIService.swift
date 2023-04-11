@@ -11,7 +11,7 @@ import Foundation
 enum APIServiceError: Error {
     case failedToCreateUrl
     case requestFailed
-    case responseDecodingFailed
+    case responseDecodingFailed(String)
     case failedToConnectToServer(String)
     case objectEncodingFailed
     case invalidResponse
@@ -68,7 +68,7 @@ final class APIService {
         }
         
         guard let decodedData = try? decoder.decode(type.self, from: data) else {
-            throw APIServiceError.responseDecodingFailed
+            throw APIServiceError.responseDecodingFailed("Error in decoding data!")
         }
         
         return decodedData
