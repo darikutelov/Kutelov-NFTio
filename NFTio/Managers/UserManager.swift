@@ -12,6 +12,7 @@ final class UserManager: ObservableObject {
     let auth = Auth.auth()
     
     static var shared = UserManager()
+    static var authToken: String?
     
     private init() {}
     
@@ -20,11 +21,16 @@ final class UserManager: ObservableObject {
             .auth()
             .addStateDidChangeListener({ _, user in
                 if let user = user {
-                    let currentUser = User(
-                        username: user.displayName ?? "Buddy",
+                    var currentUser = User(
+                        username: user.displayName ?? "Anonymous",
                         email: user.email ?? "",
                         avatarUrl: user.photoURL
                     )
+                    
+                    if let authToken = Self.authToken {
+                        currentUser.authToken = authToken
+                    }
+                    
                     completion(currentUser)
                 } else {
                     completion(nil)
@@ -38,11 +44,38 @@ final class UserManager: ObservableObject {
         
         auth
             .createUser(withEmail: email,
-                        password: password) { _, error in
+                        password: password) { authResult, error in
                 
                 guard error == nil else {
                     completion(error)
                     return
+                }
+                
+                if let currentUser = authResult?.user {
+                    let user = User(
+                        uid: currentUser.uid,
+                        email: email,
+                        password: password
+                    )
+                    
+                    Task {
+                        do {
+                            let requestUrl = RequestUrl(endpoint: .users, pathComponents: ["register"])
+                            let savedUser = try await APIService.shared.saveData(
+                                requestUrl,
+                                bodyData: user,
+                                authToken: nil
+                            )
+                            
+                            if let user = savedUser,
+                               let token = user.authToken
+                            {
+                                Self.authToken = token
+                            }
+                        } catch {
+                            print(error)
+                        }
+                    }
                 }
                 
                 completion(nil)
@@ -55,7 +88,7 @@ final class UserManager: ObservableObject {
         
         auth
             .signIn(withEmail: email,
-                    password: password) { _, error in
+                    password: password) { authResult, error in
                 
                 guard error == nil else {
                     completion(error)
@@ -63,6 +96,29 @@ final class UserManager: ObservableObject {
                 }
                 
                 Log.general.debug("User logged in")
+                
+                if let currentUser = authResult?.user {
+                    let user = User(
+                        uid: currentUser.uid,
+                        email: email,
+                        password: password
+                    )
+                    
+                    Task {
+                        do {
+                            let requestUrl = RequestUrl(endpoint: .users, pathComponents: ["login"])
+                            let savedUser = try await APIService.shared.saveData(
+                                requestUrl,
+                                bodyData: user,
+                                authToken: nil
+                            )
+                            
+                            print(String(describing: savedUser))
+                        } catch {
+                            print(error)
+                        }
+                    }
+                }
                 
                 completion(nil)
             }

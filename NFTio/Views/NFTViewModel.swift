@@ -109,7 +109,7 @@ final class NFTViewModel: ObservableObject {
                 pathComponents: [nftItemId]
             )
             do {
-                try await APIService.shared.saveData(requestUrl, data: nftItems[index])
+                let _ = try await APIService.shared.saveData(requestUrl, bodyData: nftItems[index], authToken: nil)
             } catch let error {
                 print(error)
             }

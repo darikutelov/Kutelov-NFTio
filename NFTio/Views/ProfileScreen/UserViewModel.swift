@@ -14,6 +14,8 @@ final class UserViewModel: ObservableObject {
     @Published var currentUser: User?
     
     init() {
+        // Called only once!!!!
+        // on app start if user and no token, get token from the server!!!
        updateUserState()
     }
     

@@ -10,8 +10,8 @@ import Firebase
 
 struct AuthScreen: View {
     @EnvironmentObject var viewModel: UserViewModel
-    @State var email: String = "test@test.com"
-    @State var password: String = "Test123#"
+    @State var email: String = "test42@test.com"
+    @State var password: String = "Test123!"
     @State var rePassword: String = ""
     @State var error: String = ""
     @State var isLogin: Bool = true
