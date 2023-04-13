@@ -10,16 +10,17 @@ import Foundation
 /// API Errors
 enum APIServiceError: Error {
     case failedToCreateUrl
-    case requestFailed
+    case requestFailed(String)
     case responseDecodingFailed(String)
     case failedToConnectToServer(String)
     case objectEncodingFailed
-    case invalidResponse
+    case invalidResponse(String)
 }
 
 /// Primary API Service object to get app's data
 final class APIService {
-    static let shared = APIService()
+    public static let shared = APIService()
+    public static var authToken: String?
     private let session: URLSession
     private let sessionConfiguration: URLSessionConfiguration
     private var decoder: JSONDecoder
@@ -55,7 +56,6 @@ final class APIService {
         do {
             (data, response) = try await session.data(from: url)
         } catch {
-            Log.error.error("Failed to connect to the server!")
             throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
         }
         
@@ -64,7 +64,7 @@ final class APIService {
         
         guard let httpResponse = response as? HTTPURLResponse,
               (200..<300).contains(httpResponse.statusCode) else {
-            throw APIServiceError.requestFailed
+            throw APIServiceError.requestFailed("Bad request")
         }
         
         guard let decodedData = try? decoder.decode(type.self, from: data) else {
@@ -75,8 +75,7 @@ final class APIService {
     }
     
     public func saveData<T: Codable>(_ requestUrl: RequestUrl,
-                                     bodyData: T,
-                                     authToken: String?) async throws -> T? {
+                                     bodyData: T) async throws -> T? {
         var encodedBodyData: Data
         var response: URLResponse
         var data: Data
@@ -91,7 +90,9 @@ final class APIService {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         /// Attach auth token for the server
-        if let token = authToken {
+        if let token = Self.authToken,
+           !url.pathComponents.contains("login"),
+           !url.pathComponents.contains("register") {
             request.setValue(token, forHTTPHeaderField: "x-access-token")
         }
         
@@ -105,10 +106,13 @@ final class APIService {
             throw APIServiceError.failedToConnectToServer("Failed to send data to the server!")
         }
         
-        guard let httpResponse = response as? HTTPURLResponse,
-              (200..<300).contains(httpResponse.statusCode)
-        else {
-            throw APIServiceError.invalidResponse
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw APIServiceError.invalidResponse("No proper response from the server")
+        }
+        
+        guard (200..<300).contains(httpResponse.statusCode) else {
+            let serverErrorMessage = String(data: data, encoding: .utf8)
+            throw APIServiceError.invalidResponse(serverErrorMessage ?? "Bad Request")
         }
         
         /// Decode data returned from the server
@@ -119,6 +123,7 @@ final class APIService {
         /// If post type is User (register, login) get auth token from the cookie and attach it to the user instance
         if let token = getAuthToken(),
            var user = decodedData as? User {
+            Self.authToken = token
             user.authToken = token
             
             return user as? T

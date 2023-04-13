@@ -13,18 +13,22 @@ struct AuthScreen: View {
     @State var email: String = "test42@mail.com"
     @State var password: String = "Test123!"
     @State var rePassword: String = ""
-    @State var error: String = ""
     @State var isLogin: Bool = true
     @State var showPassword = false
     @Binding var isPresented: Bool
-         
+    
     var body: some View {
         VStack {
             CloseButtonView(isPresented: $isPresented)
             Spacer()
+            if userViewModel.isLoading {
+                ProgressView()
+            }
             VStack {
                 VStack {
-                    Text(isLogin ? "Log In" : "Register")
+                    Text(isLogin ?
+                            Constants.Text.Auth.signIn :
+                            Constants.Text.Auth.register)
                         .font(.title)
                         .fontWeight(.medium)
                         .foregroundColor(.white)
@@ -32,33 +36,35 @@ struct AuthScreen: View {
                     Spacer()
                         .frame(maxHeight: Constants.Spacing.xxxlarge)
                     
-                    TextField("Email", text: $email)
-                        .modifier(InputField(error: !error.isEmpty))
+                    TextField(Constants.Text.Auth.emailFieldLabel,
+                              text: $email)
+                        .modifier(InputField(error: !userViewModel.errorMessage.isEmpty))
                         .padding(.bottom, Constants.Spacing.standard)
                     
                     if !isLogin {
-                        TextField("Username", text: $username)
-                            .modifier(InputField(error: !error.isEmpty))
+                        TextField(Constants.Text.Auth.usernameFieldLabel,
+                                  text: $username)
+                            .modifier(InputField(error: !userViewModel.errorMessage.isEmpty))
                             .padding(.bottom, Constants.Spacing.standard)
                     }
                     
                     PasswordField(
-                        error: $error,
+                        error: $userViewModel.errorMessage,
                         password: $password
                     )
                     
                     if !isLogin {
                         PasswordField(
-                            fieldLabel: "Repeate Passord",
-                            error: $error,
+                            fieldLabel: Constants.Text.Auth.rePasswordFieldLabel,
+                            error: $userViewModel.errorMessage,
                             password: $rePassword
                         )
                         .padding(.top, Constants.Spacing.standard)
                     }
-
+                    
                     HStack {
-                        if !error.isEmpty {
-                            Text("\(error)")
+                        if !userViewModel.errorMessage.isEmpty {
+                            Text("\(userViewModel.errorMessage)")
                                 .font(.callout)
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(Color(.red))
@@ -72,13 +78,16 @@ struct AuthScreen: View {
                         HStack {
                             Spacer()
                             Button {
+                                userViewModel.errorMessage = ""
                                 login()
                             } label: {
                                 ButtonIconView(
-                                    buttonText: "Sign In",
+                                    buttonText: userViewModel.isLoading ?
+                                        Constants.Text.General.loading :
+                                        Constants.Text.Auth.signIn,
                                     buttonTextColor: Constants.Colors.white,
                                     buttonBackgroundColor: Constants.Colors.primary,
-                                    iconName: "arrow.right.square",
+                                    iconName: Constants.Text.Auth.signInIcon,
                                     buttonWidth: 300.0
                                 )
                             }
@@ -89,6 +98,7 @@ struct AuthScreen: View {
                     HStack {
                         Spacer()
                         Button {
+                            userViewModel.errorMessage = ""
                             if isLogin == true {
                                 email = ""
                                 password = ""
@@ -101,13 +111,15 @@ struct AuthScreen: View {
                                 }
                                 register()
                             }
-                                
+                            
                         } label: {
                             ButtonIconView(
-                                buttonText: "Register",
+                                buttonText: userViewModel.isLoading ?
+                                    Constants.Text.General.loading :
+                                    Constants.Text.Auth.register,
                                 buttonTextColor: Constants.Colors.white,
                                 buttonBackgroundColor: Constants.Colors.terciary,
-                                iconName: "square.and.pencil",
+                                iconName: Constants.Text.Auth.registerIcon,
                                 buttonWidth: 300.0
                             )
                         }
@@ -118,15 +130,20 @@ struct AuthScreen: View {
                         HStack {
                             Spacer()
                             Button {
+                                email = ""
+                                username = ""
+                                password = ""
+                                rePassword = ""
                                 withAnimation {
+                                    userViewModel.errorMessage = ""
                                     isLogin = true
                                 }
                             } label: {
                                 ButtonIconView(
-                                    buttonText: "Back To Login",
+                                    buttonText: Constants.Text.Auth.backToSignIn,
                                     buttonTextColor: Constants.Colors.white,
                                     buttonBackgroundColor: Constants.Colors.charcoal,
-                                    iconName: "arrow.left.square",
+                                    iconName: Constants.Text.Auth.backToSignInIcon,
                                     buttonWidth: 300.0
                                 )
                             }
@@ -153,7 +170,7 @@ struct AuthScreen: View {
                 .scaledToFill()
                 .ignoresSafeArea(.all)
         )
-
+        
     }
     
     private func login() {
@@ -169,17 +186,13 @@ struct AuthScreen: View {
         }
     }
     
-    private func register() {
-        guard password == rePassword else {
-            error = "Passwords should match!"
-            return
-        }
-        
+    private func register() {        
         Task {@MainActor in
             await userViewModel.registerUser(
-                username: username, 
+                username: username,
                 email: email,
-                password: password
+                password: password,
+                rePassword: rePassword
             )
             
             if userViewModel.user != nil {
@@ -204,7 +217,7 @@ struct CloseButtonView: View {
             Button {
                 isPresented = false
             } label: {
-                Image(systemName: "xmark.circle.fill")
+                Image(systemName: Constants.Text.Auth.closeIcon)
                     .foregroundColor(Color(Constants.Colors.secondary))
                     .font(.title)
                     .padding(.trailing, Constants.Spacing.large)

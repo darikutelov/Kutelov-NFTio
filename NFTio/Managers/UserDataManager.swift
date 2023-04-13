@@ -22,8 +22,7 @@ final class UserDataManager {
             )
             let savedUser = try await APIService.shared.saveData(
                 requestUrl,
-                bodyData: userCredentials,
-                authToken: nil
+                bodyData: userCredentials
             )
             
             if var user = savedUser,
@@ -56,8 +55,7 @@ final class UserDataManager {
             )
             let savedUser = try await APIService.shared.saveData(
                 requestUrl,
-                bodyData: userCredentials,
-                authToken: nil
+                bodyData: userCredentials
             )
             
             if var user = savedUser,

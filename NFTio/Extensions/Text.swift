@@ -10,6 +10,9 @@ import Foundation
 extension Constants {
     // swiftlint:disable all
     enum Text {
+        enum General {
+            public static let loading = "Loading ..."
+        }
         enum Home {
             public static let welcome = String(localized: "Welcome", comment: "Welcome message on home screen")
             public static let categoriesLabel = "Categories"
@@ -74,6 +77,22 @@ extension Constants {
         }
         enum ErrorMessages {
             public static let JSONFileNotFound = "JSON file not found!"
+        }
+        
+        enum Auth {
+            public static let signIn = "Sign In"
+            public static let signInIcon = "arrow.right.square"
+            public static let register = "Register"
+            public static let registerIcon = "square.and.pencil"
+            public static let backToSignIn = "Back To Sign In"
+            public static let backToSignInIcon = "arrow.left.square"
+            public static let closeIcon = "xmark.circle.fill"
+            public static let emailFieldLabel = "Email"
+            public static let usernameFieldLabel = "Username"
+            public static let passwordFieldLabel = "Password"
+            public static let rePasswordFieldLabel = "Repeat Password"
+            public static let visiblePasswordIcon = "eye.slash"
+            public static let notVisiblePasswordIcon = "eye"
         }
     }
     // swiftlint:enable all
