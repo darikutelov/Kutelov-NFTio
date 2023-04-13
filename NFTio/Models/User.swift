@@ -8,7 +8,6 @@
 import Foundation
 
 struct User: Codable {
-    var uid: String = ""
     var username: String = ""
     var email: String = ""
     var password: String? = ""

@@ -42,7 +42,7 @@ struct TabNavigationView: View {
                     }
                     .tag(3)
                     .badge(cartViewModel.cartItems.count)
-                if userViewModel.currentUser != nil {
+                if userViewModel.user != nil {
                     ProfileScreenView()
                         .tabItem {
                             Image(systemName: Constants.Text.TabView.profileIcon)

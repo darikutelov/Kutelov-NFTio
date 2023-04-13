@@ -41,7 +41,7 @@ struct HomeScreenView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        if userViewModel.currentUser != nil {
+                        if userViewModel.user != nil {
                             userViewModel.logoutUser()
                         } else {
                             isLoginScreenOpen = true
@@ -49,7 +49,7 @@ struct HomeScreenView: View {
                         
                     } label: {
                         Image(
-                            systemName: userViewModel.currentUser != nil ? "togglepower" : "person"
+                            systemName: userViewModel.user != nil ? "togglepower" : "person"
                         )
                         .foregroundColor(Color(Constants.Colors.primaryText))
                     }

@@ -20,6 +20,7 @@
 		9C04CAA429E13C6500C13792 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C04CAA329E13C6500C13792 /* Endpoint.swift */; };
 		9C04CAA629E13E4300C13792 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C04CAA529E13E4300C13792 /* APIService.swift */; };
 		9C04CAA829E1457F00C13792 /* RequestUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C04CAA729E1457F00C13792 /* RequestUrl.swift */; };
+		9C0AC40729E7EEF300CFDA75 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0AC40629E7EEF300CFDA75 /* UserDataManager.swift */; };
 		9C0B041D29B4ECAE000330AB /* CartCellMainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B041C29B4ECAE000330AB /* CartCellMainContentView.swift */; };
 		9C0B041F29B4ECC9000330AB /* CartCellBottomContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B041E29B4ECC9000330AB /* CartCellBottomContentView.swift */; };
 		9C0B042329B50008000330AB /* TotalCheckoutAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B042229B50008000330AB /* TotalCheckoutAmountView.swift */; };
@@ -40,7 +41,6 @@
 		9C1529B829CED78B00CAC0E1 /* NFTioDetailScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1529B729CED78B00CAC0E1 /* NFTioDetailScreenTests.swift */; };
 		9C1F693629D4115C00690BAE /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F693529D4115C00690BAE /* AuthScreen.swift */; };
 		9C1F693829D4151C00690BAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C1F693729D4151B00690BAE /* GoogleService-Info.plist */; };
-		9C1F693C29D427DD00690BAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9C1F693B29D427DD00690BAE /* FirebaseAuth */; };
 		9C2EA9AA29A10A99009A831C /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9A929A10A99009A831C /* WelcomeScreenView.swift */; };
 		9C2EA9AF29A1104E009A831C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9AE29A1104E009A831C /* Constants.swift */; };
 		9C2EA9B129A113E9009A831C /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9B029A113E9009A831C /* OnboardingScreenView.swift */; };
@@ -68,7 +68,6 @@
 		9C94667D29B20BB000129EB1 /* NFTDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667C29B20BB000129EB1 /* NFTDataManager.swift */; };
 		9C94667F29B20F7A00129EB1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667E29B20F7A00129EB1 /* String.swift */; };
 		9CA1466329D43CAB00090A4F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1466229D43CAB00090A4F /* UserViewModel.swift */; };
-		9CA1466529D43E1400090A4F /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1466429D43E1400090A4F /* UserManager.swift */; };
 		9CAADE7C29D9DC7D00624A00 /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAADE7B29D9DC7D00624A00 /* PasswordField.swift */; };
 		9CB548CE29BF068B00A67C6D /* Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB548CD29BF068B00A67C6D /* Hashable.swift */; };
 		9CB7A8DA29ABAD71008F56F8 /* LikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7A8D929ABAD71008F56F8 /* LikesView.swift */; };
@@ -132,6 +131,7 @@
 		9C04CAA329E13C6500C13792 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		9C04CAA529E13E4300C13792 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		9C04CAA729E1457F00C13792 /* RequestUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUrl.swift; sourceTree = "<group>"; };
+		9C0AC40629E7EEF300CFDA75 /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		9C0B041C29B4ECAE000330AB /* CartCellMainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellMainContentView.swift; sourceTree = "<group>"; };
 		9C0B041E29B4ECC9000330AB /* CartCellBottomContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellBottomContentView.swift; sourceTree = "<group>"; };
 		9C0B042229B50008000330AB /* TotalCheckoutAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCheckoutAmountView.swift; sourceTree = "<group>"; };
@@ -183,7 +183,6 @@
 		9C94667C29B20BB000129EB1 /* NFTDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDataManager.swift; sourceTree = "<group>"; };
 		9C94667E29B20F7A00129EB1 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9CA1466229D43CAB00090A4F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		9CA1466429D43E1400090A4F /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		9CAADE7B29D9DC7D00624A00 /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
 		9CB548CD29BF068B00A67C6D /* Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashable.swift; sourceTree = "<group>"; };
 		9CB7A8D929ABAD71008F56F8 /* LikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesView.swift; sourceTree = "<group>"; };
@@ -236,7 +235,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C1F693C29D427DD00690BAE /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +433,7 @@
 			children = (
 				9C94667C29B20BB000129EB1 /* NFTDataManager.swift */,
 				9C0C4E9929B4D6470018E546 /* ShoppingCartDataManager.swift */,
-				9CA1466429D43E1400090A4F /* UserManager.swift */,
+				9C0AC40629E7EEF300CFDA75 /* UserDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -672,7 +670,6 @@
 			);
 			name = NFTio;
 			packageProductDependencies = (
-				9C1F693B29D427DD00690BAE /* FirebaseAuth */,
 			);
 			productName = NFTio;
 			productReference = 9CF42D01299FC92600CAA856 /* NFTio.app */;
@@ -711,7 +708,6 @@
 			);
 			mainGroup = 9CF42CF8299FC92600CAA856;
 			packageReferences = (
-				9C1F693929D415E600690BAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 9CF42D02299FC92600CAA856 /* Products */;
 			projectDirPath = "";
@@ -836,6 +832,7 @@
 				9C86225629B483A300CF20E8 /* DiscountTypes.swift in Sources */,
 				9C0386E929A7BD9500EF4BAD /* WelcomeTextView.swift in Sources */,
 				9CFD9B2529C4550B00D12148 /* TabNavigationView.swift in Sources */,
+				9C0AC40729E7EEF300CFDA75 /* UserDataManager.swift in Sources */,
 				9C0386ED29A7BF3B00EF4BAD /* RoundedIconViewFilled.swift in Sources */,
 				9CFD9B3329C487FC00D12148 /* CartViewModel.swift in Sources */,
 				9C2EA9AA29A10A99009A831C /* WelcomeScreenView.swift in Sources */,
@@ -862,7 +859,6 @@
 				9C0E478B29ABB64100DEB975 /* PriceView.swift in Sources */,
 				9C94667A29B20B4600129EB1 /* NFTCollection.swift in Sources */,
 				9CD226AC29BCF3D600462C35 /* RoundedImageView.swift in Sources */,
-				9CA1466529D43E1400090A4F /* UserManager.swift in Sources */,
 				9C0E478F29ABB73600DEB975 /* CreatorNameView.swift in Sources */,
 				9CB7A8DA29ABAD71008F56F8 /* LikesView.swift in Sources */,
 				9C86225829B48FEC00CF20E8 /* Decimal.swift in Sources */,
@@ -1192,25 +1188,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9C1F693929D415E600690BAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9C1F693B29D427DD00690BAE /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9C1F693929D415E600690BAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9CF42CF9299FC92600CAA856 /* Project object */;
 }

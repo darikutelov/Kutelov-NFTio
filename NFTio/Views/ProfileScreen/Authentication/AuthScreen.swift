@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-import Firebase
 
 struct AuthScreen: View {
-    @EnvironmentObject var viewModel: UserViewModel
-    @State var email: String = "test42@test.com"
+    @EnvironmentObject var userViewModel: UserViewModel
+    @State var username: String = ""
+    @State var email: String = "test42@mail.com"
     @State var password: String = "Test123!"
     @State var rePassword: String = ""
     @State var error: String = ""
@@ -35,6 +35,12 @@ struct AuthScreen: View {
                     TextField("Email", text: $email)
                         .modifier(InputField(error: !error.isEmpty))
                         .padding(.bottom, Constants.Spacing.standard)
+                    
+                    if !isLogin {
+                        TextField("Username", text: $username)
+                            .modifier(InputField(error: !error.isEmpty))
+                            .padding(.bottom, Constants.Spacing.standard)
+                    }
                     
                     PasswordField(
                         error: $error,
@@ -151,14 +157,16 @@ struct AuthScreen: View {
     }
     
     private func login() {
-        UserManager.shared.loginUser(
-            email: email,
-            password: password) { loginError in
-                if let loginError = loginError {
-                    error = loginError.localizedDescription
-                }
+        Task {@MainActor in
+            await userViewModel.loginUser(
+                email: email,
+                password: password
+            )
+            
+            if userViewModel.user != nil {
                 isPresented = false
             }
+        }
     }
     
     private func register() {
@@ -167,14 +175,17 @@ struct AuthScreen: View {
             return
         }
         
-        UserManager.shared.registerUser(
-            email: email,
-            password: password) { registerError in
-                if let registerError = registerError {
-                    error = registerError.localizedDescription
-                }
+        Task {@MainActor in
+            await userViewModel.registerUser(
+                username: username, 
+                email: email,
+                password: password
+            )
+            
+            if userViewModel.user != nil {
                 isPresented = false
             }
+        }
     }
 }
 

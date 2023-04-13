@@ -8,24 +8,46 @@
 import Foundation
 
 import SwiftUI
-import Firebase
 
 final class UserViewModel: ObservableObject {
-    @Published var currentUser: User?
+    @Published var user: User? {
+        didSet {
+            print(String(describing: user))
+        }
+    }
+    private let userDataManager = UserDataManager()
+    @State var isLoading = false
+    /// Error flag
+    @MainActor @Published var showErrorAlert = false
+    /// Error Message
+    @MainActor @Published var errorMessage = ""
     
-    init() {
-        // Called only once!!!!
-        // on app start if user and no token, get token from the server!!!
-       updateUserState()
+    public func loginUser(email: String, password: String) async {
+        do {
+            user = try await userDataManager.loginUser(
+                email: email,
+                password: password
+            )
+        } catch let error {
+            print(error)
+        }
     }
     
-    private func updateUserState() {
-        UserManager.shared.updateCurrentUser { [weak self] user in
-            self?.currentUser = user
+    public func registerUser(username: String,
+                             email: String,
+                             password: String) async {
+        do {
+            user = try await userDataManager.registerUser(
+                username: username,
+                email: email,
+                password: password
+            )
+        } catch let error {
+            print(error)
         }
     }
     
     public func logoutUser() {
-        UserManager.shared.logoutUser()
+        user = nil
     }
 }
