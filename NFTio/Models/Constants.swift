@@ -80,6 +80,7 @@ enum Constants {
         }
         // swiftlint: enable all
         public static let authTokenCookieName = "AuthToken"
+        public static let currentUser = "currentUser"
     }
     enum NFTItems {
         public static let numberOfNftItemsOnHomePage = 8

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import SwiftUI
 
 final class UserViewModel: ObservableObject {
@@ -15,6 +14,12 @@ final class UserViewModel: ObservableObject {
     @State var isLoading = false
     /// Error Message
     @MainActor @Published var errorMessage = ""
+    
+    init() {
+        if let currentUser = userDataManager.getUserFromLocalStorage() {
+            self.user = currentUser
+        }
+    }
     
     @MainActor public func loginUser(email: String, password: String) async {
         isLoading = true
@@ -83,5 +88,6 @@ final class UserViewModel: ObservableObject {
     
     public func logoutUser() {
         user = nil
+        userDataManager.logoutUser()
     }
 }
