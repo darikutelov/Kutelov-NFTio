@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeScreenView: View {
     @EnvironmentObject var nftViewModel: NFTViewModel
     @EnvironmentObject var userViewModel: UserViewModel
-    @State var homePageNftItems = [NFT]()
     @State var isLoginScreenOpen = false
     
     var body: some View {
@@ -26,7 +25,6 @@ struct HomeScreenView: View {
                         CollectionListView()
                             .padding(.bottom, Constants.Spacing.xxlarge)
                         NFTListView(
-                            nftItems: $homePageNftItems,
                             sectionName: Constants.Text.Home.nftListLabel
                         )
                     }
@@ -56,11 +54,6 @@ struct HomeScreenView: View {
 
                 }
             }
-        }
-        .onAppear {
-            homePageNftItems = Array(nftViewModel
-                .nftItems
-                .prefix(Constants.NFTItems.numberOfNftItemsOnHomePage))
         }
         .fullScreenCover(isPresented: $isLoginScreenOpen) {
             AuthScreen(isPresented: $isLoginScreenOpen)

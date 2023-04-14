@@ -16,68 +16,71 @@ final class NFTViewModel: ObservableObject {
     /// Store all NFT collections
     @Published var nftCollections: [NFTCollection]
     /// Store all nft items
-    @Published var nftItems: [NFT]
+    private var nftItems: [NFT]
     /// Store selected category and update filteredNftItems upon selection
-    @Published var selectedCategory: Category?
+    @Published var selectedCategory: Category? {
+        didSet {
+            updateFilteredItems()
+        }
+    }
     /// Store selected collection and update filteredNftItems upon selection
-    @Published var selectedCollection: NFTCollection?
-    
+    @Published var selectedCollection: NFTCollection? {
+        didSet {
+            updateFilteredItems()
+        }
+    }
     /// Store search term and update search items upon change
     @Published var searchTerm: String = "" {
         didSet {
-            updatedSearchItems()
+            updateFilteredItems()
+        }
+    }
+    /// Store selected collection and update filteredNftItems upon selection
+    var isTrendingItems = true {
+        didSet {
+            updateFilteredItems()
         }
     }
     @State var isLoading = false
     /// Store filtered items by search term
-    @Published var searchItems = [NFT]()
+    @Published var filteredItems = [NFT]()
     /// Error flag
     @MainActor @Published var showErrorAlert = false
     /// Error Message
     @MainActor @Published var errorMessage = ""
-    
-    var filteredNftItems: [NFT] {
-        if let selectedCategory = selectedCategory {
-            return nftItems.filter {
-                $0.category.id == selectedCategory.id
-            }
-        }
-        
-        if let selectedCollection = selectedCollection {
-            return nftItems.filter {
-                $0.nftCollection.id == selectedCollection.id
-            }
-        }
-        
-        return nftItems
-    }
     
     // MARK: - Init
     
     init() {
         self.nftItems = self.nftDataManager.nftItems
         self.categories = self.nftDataManager.categories
+        self.filteredItems = self.nftItems
         
         if nftDataManager.nftCollections.count >= Constants.Collections.numberOfCollectionsOnHomePage {
             self.nftCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
         } else {
             self.nftCollections = [NFTCollection]()
         }
-        self.searchItems = self.nftDataManager.nftItems
         
         Task {
             await fetchNftItems()
             // Week09 #3
             await fetchCollections()
         }
+        
+        updateFilteredItems()
     }
     
     func setSelectedCategory(category: Category?) {
         selectedCategory = category
     }
-    
+
     func setSelectedCollection(collection: NFTCollection?) {
         selectedCollection = collection
+    }
+
+    func toggleIsTrendingItems(state: Bool) {
+        isTrendingItems = state
     }
     
     func nftNameCointaining() -> [String] {
@@ -142,7 +145,7 @@ final class NFTViewModel: ObservableObject {
             
             await MainActor.run {
                 nftItems = data.nftItems
-                searchItems = data.nftItems
+                filteredItems = data.nftItems
             }
             
             nftDataManager.nftItems = data.nftItems
@@ -190,10 +193,27 @@ final class NFTViewModel: ObservableObject {
     
     // MARK: - Search update
     
-    private func updatedSearchItems() {
-        searchItems = searchTerm.isEmpty ? nftItems : nftItems.filter {
+    private func updateFilteredItems() {
+        filteredItems = searchTerm.isEmpty ? nftItems : nftItems.filter {
             $0.tokenName.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased()) ||
             $0.nftCollection.name.lowercased().localizedCaseInsensitiveContains(searchTerm.lowercased())
+        }
+        
+        if let selectedCategory = selectedCategory {
+            filteredItems = nftItems.filter {
+                $0.category.id == selectedCategory.id
+            }
+        }
+        
+        if let selectedCollection = selectedCollection {
+            filteredItems = nftItems.filter {
+                $0.nftCollection.id == selectedCollection.id
+            }
+        }
+        
+        if isTrendingItems {
+            print(isTrendingItems)
+            filteredItems = Array(nftItems[0..<Constants.NFTItems.numberOfNftItemsOnHomePage])
         }
     }
     

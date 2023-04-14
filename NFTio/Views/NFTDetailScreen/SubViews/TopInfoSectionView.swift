@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TopInfoSectionView: View {
     @EnvironmentObject var viewModel: NFTViewModel
+    @State var isItemLiked: Bool = false
     
     let nft: NFT
     let proxy: GeometryProxy
@@ -20,9 +21,10 @@ struct TopInfoSectionView: View {
                     .scaledToFit()
                 Button {
                     viewModel.updateNftItemLikes(nft.id)
+                    isItemLiked.toggle()
                 } label: {
                     LikesIconView(
-                        isLiked: viewModel.isNftItemLiked(nft.id)
+                        isLiked: isItemLiked
                     )
                     .padding(.top, Constants.Spacing.large)
                     .padding(.trailing, Constants.Spacing.large)
@@ -58,6 +60,9 @@ struct TopInfoSectionView: View {
             }
             .padding()
             Divider()
+        }
+        .onAppear {
+            isItemLiked = viewModel.isNftItemLiked(nft.id)
         }
     }
 }

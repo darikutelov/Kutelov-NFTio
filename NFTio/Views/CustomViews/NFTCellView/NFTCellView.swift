@@ -1,14 +1,14 @@
 //
-//  NFTCellView.swift
+//  NFTCellViewBinded.swift
 //  NFTio
 //
-//  Created by Dariy Kutelov on 11.04.23.
+//  Created by Dariy Kutelov on 14.04.23.
 //
 
 import SwiftUI
 
 struct NFTCellView: View {
-    var nft: NFT
+    @Binding var nft: NFT
     
     var body: some View {
         VStack {
@@ -54,8 +54,8 @@ struct NFTCellView: View {
     }
 }
 
-struct NFTCellView_Previews: PreviewProvider {
+struct NFTCellViewBinded_Previews: PreviewProvider {
     static var previews: some View {
-        NFTCellView(nft: NFTViewModel().nftItems.first!)
+        NFTCellView(nft: .constant(NFTDataManager().nftItems[0]))
     }
 }

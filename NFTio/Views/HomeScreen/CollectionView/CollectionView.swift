@@ -26,15 +26,15 @@ struct CollectionView: View {
                     .frame(height: Constants.Spacing.xxxlarge)
                 Section(
                     header: SectionHeaderView(
-                        sectionName: "\(Constants.Text.NFTItems.nftItems) (\(nftViewModel.filteredNftItems.count))"
+                        sectionName: "\(Constants.Text.NFTItems.nftItems) (\(nftViewModel.filteredItems.count))"
                     )
                     .padding(.bottom, Constants.Spacing.small)
                 ) {
                     LazyVGrid(
                         columns: columns,
                         spacing: Constants.Spacing.standard) {
-                            ForEach(nftViewModel.filteredNftItems) { nftItem in
-                            NavigationLink(value: nftItem) {
+                            ForEach($nftViewModel.filteredItems) { nftItem in
+                                NavigationLink(value: nftItem.wrappedValue) {
                                 NFTCellView(
                                     nft: nftItem
                                 )
@@ -43,7 +43,7 @@ struct CollectionView: View {
                     }
                     .navigationDestination(for: NFT.self) { nftItem in
                         NFTDetailView(
-                            nft: nftViewModel.nftItemBinding(id: nftItem.id)
+                            nft: nftItem
                         )
                     }
                 }

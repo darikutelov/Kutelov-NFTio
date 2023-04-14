@@ -94,6 +94,7 @@ final class UserDataManager {
         let decoder = JSONDecoder()
         if let user = currerntUser,
            let decodedUser = try? decoder.decode(User.self, from: user) {
+            APIService.authToken = decodedUser.authToken
             return decodedUser
         }
         

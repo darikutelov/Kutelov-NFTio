@@ -18,6 +18,8 @@ final class UserViewModel: ObservableObject {
     init() {
         if let currentUser = userDataManager.getUserFromLocalStorage() {
             self.user = currentUser
+            
+            // (Fetch user by id and update local storage and view model) (todo)
         }
     }
     

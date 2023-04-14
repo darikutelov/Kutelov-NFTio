@@ -24,8 +24,9 @@ struct CategoryListView: View {
                         spacing: Constants.Spacing.medium
                     ) {
                         ForEach(viewModel.categories) {category in
-                            NavigationLink(value: category) {
-                                category.view
+                            NavigationLink(value: category
+                            ) {
+                                CategoryCellView(category: category)
                             }
                         }
                     }
@@ -42,17 +43,19 @@ struct CategoryListView: View {
     }
 }
 
-extension Category {
-    var view: some View {
+struct CategoryCellView: View {
+    let category: Category
+    
+    var body: some View {
         VStack(spacing: Constants.Spacing.standard) {
             RoundedImageView(
-                imageUrlAsString: Constants.Api.Images.categoryBaseUrl + imageUrl
+                imageUrlAsString: Constants.Api.Images.categoryBaseUrl + category.imageUrl
             )
                 .frame(
                     width: Constants.Spacing.superLarge,
                     height: Constants.Spacing.superLarge
                 )
-            Text(name.rawValue)
+            Text(category.name.rawValue)
                 .font(.footnote)
                 .fontWeight(.medium)
                 .frame(maxWidth: Constants.Spacing.superLarge)
