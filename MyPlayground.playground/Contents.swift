@@ -22,8 +22,6 @@ func fetchData<T: Codable>(url requestUrl: URL,
             return
         }
         
-        print(String(describing: cookies))
-        
         cookies.forEach {
             print("Cookie name: \($0.name), Cookie value: \($0.value)")
         }
@@ -52,7 +50,7 @@ func request(from requestUrl: URL) -> URLRequest? {
     return request
 }
 
-if let url = URL(string: "https://www.kodeco.com/home") {
+if let url = URL(string: "https://www.kodeco.com") {
     fetchData(url: url, expecting: String.self) { result in
         switch result {
         case .success(let responseModel):
