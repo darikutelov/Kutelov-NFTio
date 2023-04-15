@@ -35,12 +35,6 @@ final class NFTViewModel: ObservableObject {
             updateFilteredItems()
         }
     }
-    /// Store selected collection and update filteredNftItems upon selection
-    var isTrendingItems = true {
-        didSet {
-            updateFilteredItems()
-        }
-    }
     @State var isLoading = false
     /// Store filtered items by search term
     @Published var filteredItems = [NFT]()
@@ -77,10 +71,6 @@ final class NFTViewModel: ObservableObject {
 
     func setSelectedCollection(collection: NFTCollection?) {
         selectedCollection = collection
-    }
-
-    func toggleIsTrendingItems(state: Bool) {
-        isTrendingItems = state
     }
     
     func nftNameCointaining() -> [String] {
@@ -209,11 +199,6 @@ final class NFTViewModel: ObservableObject {
             filteredItems = nftItems.filter {
                 $0.nftCollection.id == selectedCollection.id
             }
-        }
-        
-        if isTrendingItems {
-            print(isTrendingItems)
-            filteredItems = Array(nftItems[0..<Constants.NFTItems.numberOfNftItemsOnHomePage])
         }
     }
     

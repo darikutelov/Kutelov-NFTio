@@ -40,11 +40,11 @@ struct CategoryView: View {
                                 }
                             }
                         }
-                        .navigationDestination(for: NFT.self) { nftItem in
-                            NFTDetailView(
-                                nft: nftItem
-                            )
-                        }
+                    }
+                    .navigationDestination(for: NFT.self) { nftItem in
+                        NFTDetailView(
+                            nft: nftItem
+                        )
                     }
                     .navigationTitle("\(selectedCategory.name.rawValue)")
                     .navigationBarTitleDisplayMode(.inline)

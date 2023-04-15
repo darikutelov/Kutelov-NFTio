@@ -30,11 +30,12 @@ struct CategoryListView: View {
                             }
                         }
                     }
-                    .navigationDestination(for: Category.self) { category in
-                        CategoryView(
-                            selectedCategory: category
-                        )
-                    }
+                   
+                }
+                .navigationDestination(for: Category.self) { category in
+                    CategoryView(
+                        selectedCategory: category
+                    )
                 }
                 .scrollIndicators(.hidden)
                 .navigationBarBackButtonHidden(true)

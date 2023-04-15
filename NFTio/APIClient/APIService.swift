@@ -25,11 +25,12 @@ final class APIService {
     private let sessionConfiguration: URLSessionConfiguration
     private var decoder: JSONDecoder
     private var encoder: JSONEncoder
-    
+    private var cookieStorage: HTTPCookieStorage?
     /// Init
     private init() {
         self.sessionConfiguration = URLSessionConfiguration.default
         self.session = URLSession(configuration: sessionConfiguration)
+        self.cookieStorage = session.configuration.httpCookieStorage
         decoder = JSONDecoder()
         encoder = JSONEncoder()
         
@@ -119,7 +120,7 @@ final class APIService {
         guard let decodedData = try? decoder.decode(T.self, from: data) else {
             throw APIServiceError.responseDecodingFailed("Error in decoding data!")
         }
-
+        
         /// If post type is User (register, login) get auth token from the cookie and attach it to the user instance
         if let token = getAuthToken(),
            var user = decodedData as? User {

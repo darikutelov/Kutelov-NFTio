@@ -43,12 +43,6 @@ struct NFTListView: View {
                 }
             }
         }
-//        .onDisappear {
-//            nftViewModel.isTrendingItems = false
-//        }
-        .onAppear {
-            nftViewModel.isTrendingItems = true
-        }
     }
 }
 

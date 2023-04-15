@@ -24,9 +24,9 @@ struct HomeScreenView: View {
                             .padding(.bottom, Constants.Spacing.xxlarge)
                         CollectionListView()
                             .padding(.bottom, Constants.Spacing.xxlarge)
-                        NFTListView(
-                            sectionName: Constants.Text.Home.nftListLabel
-                        )
+//                        NFTListView(
+//                            sectionName: Constants.Text.Home.nftListLabel
+//                        )
                     }
                     .padding(.horizontal)
                 }
