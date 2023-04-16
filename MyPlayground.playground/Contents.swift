@@ -16,8 +16,11 @@ func fetchData<T: Codable>(url requestUrl: URL,
         return
     }
     
-    let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+    let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
         
+        guard error == nil else { return }
+        
+        // Week 09 #4
         guard let cookies = HTTPCookieStorage.shared.cookies else {
             return
         }
@@ -60,6 +63,3 @@ if let url = URL(string: "https://www.kodeco.com") {
         }
     }
 }
-
-
-

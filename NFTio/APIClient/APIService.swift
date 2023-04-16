@@ -45,6 +45,7 @@ final class APIService {
         encoder.outputFormatting = .prettyPrinted
     }
     
+    ///  Universal function to fech any data type for the project needs
     public func fetchData<T: Codable>(_ requestUrl: RequestUrl,
                                       expecting type: T.Type) async throws -> T {
         var data: Data
@@ -60,7 +61,7 @@ final class APIService {
             throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
         }
         
-        // Week 09: Assignment 1
+        // Week09 #1
         Log.info.debug("Data downloaded: \(data.description)")
         
         guard let httpResponse = response as? HTTPURLResponse,
@@ -75,6 +76,7 @@ final class APIService {
         return decodedData
     }
     
+    ///  Universal function to post any data type for the project needs
     public func saveData<T: Codable>(_ requestUrl: RequestUrl,
                                      bodyData: T) async throws -> T? {
         var encodedBodyData: Data

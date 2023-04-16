@@ -67,6 +67,7 @@ final class UserViewModel: ObservableObject {
         }
     }
     
+    // Week09 #2
     @MainActor private func handleError(_ error: Error) {
         if let networkError = error as? APIServiceError {
             switch networkError {

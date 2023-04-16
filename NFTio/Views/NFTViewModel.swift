@@ -142,6 +142,7 @@ final class NFTViewModel: ObservableObject {
             isLoading = false
         } catch APIServiceError.failedToConnectToServer(let message) {
             Task { @MainActor in
+                // Week09 #2
                 showErrorAlert = true
                 errorMessage = message
                 try await Task.sleep(nanoseconds: 2_000_000_000)
