@@ -85,7 +85,9 @@ final class NFTViewModel: ObservableObject {
     
     func updateNftItemLikes(_ nftItemId: String) {
         let itemIndex = nftItems.firstIndex(where: {$0.id == nftItemId })
-        guard let index = itemIndex else { return }
+        guard let index = itemIndex else {
+            return
+        }
         
         if isNftItemLiked(nftItemId) {
             nftItems[index].likes -= 1
@@ -104,9 +106,14 @@ final class NFTViewModel: ObservableObject {
             do {
                 let _ = try await APIService.shared.saveData(
                     requestUrl,
-                    bodyData: nftItems[index])
+                    bodyData: nftItems[index]
+                )
             } catch let error {
                 print(error)
+                
+                await MainActor.run {
+                    errorMessage = "Error! You may try to like an item without being signed in"
+                }
             }
         }
     }

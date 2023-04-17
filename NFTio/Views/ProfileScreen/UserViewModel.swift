@@ -16,6 +16,7 @@ final class UserViewModel: ObservableObject {
     @MainActor @Published var errorMessage = ""
     
     init() {
+        print(user)
         if let currentUser = userDataManager.getUserFromLocalStorage() {
             self.user = currentUser
             

@@ -118,20 +118,20 @@ final class APIService {
             throw APIServiceError.invalidResponse(serverErrorMessage ?? "Bad Request")
         }
         
-        /// Decode data returned from the server
+        // Decode data returned from the server
         guard let decodedData = try? decoder.decode(T.self, from: data) else {
             throw APIServiceError.responseDecodingFailed("Error in decoding data!")
         }
         
-        /// If post type is User (register, login) get auth token from the cookie and attach it to the user instance
+        // If post type is User (register, login) get auth token from the cookie and attach it to the user instance
         if let token = getAuthToken(),
            var user = decodedData as? User {
             Self.authToken = token
             user.authToken = token
-            
+
             return user as? T
         }
-        
+
         return decodedData
     }
     

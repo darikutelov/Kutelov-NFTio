@@ -9,10 +9,12 @@ import SwiftUI
 
 struct TopInfoSectionView: View {
     @EnvironmentObject var viewModel: NFTViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
     @State var isItemLiked: Bool = false
     
     let nft: NFT
     let proxy: GeometryProxy
+    @State var showAuthAlert = false
     
     var body: some View {
         VStack {
@@ -20,8 +22,12 @@ struct TopInfoSectionView: View {
                 RoundedImageView(imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl +  nft.imageUrl)
                     .scaledToFit()
                 Button {
-                    viewModel.updateNftItemLikes(nft.id)
-                    isItemLiked.toggle()
+                    if userViewModel.user == nil {
+                     showAuthAlert = true
+                    } else {
+                        viewModel.updateNftItemLikes(nft.id)
+                        isItemLiked.toggle()
+                    }
                 } label: {
                     LikesIconView(
                         isLiked: isItemLiked
@@ -64,6 +70,14 @@ struct TopInfoSectionView: View {
         .onAppear {
             isItemLiked = viewModel.isNftItemLiked(nft.id)
         }
+        .alert("You need to sing in to like an item",
+               isPresented: $showAuthAlert) {
+          Button(role: .cancel) {
+              showAuthAlert = false
+          } label: {
+            Text("Dismiss")
+          }
+        }
     }
 }
 
@@ -72,5 +86,7 @@ struct TopInfoSectionView_Previews: PreviewProvider {
         GeometryReader { geometry in
             TopInfoSectionView(nft: NFTDataManager().nftItems[0], proxy: geometry)
         }
+        .environmentObject(NFTViewModel())
+        .environmentObject(UserViewModel())
     }
 }
