@@ -74,6 +74,10 @@ extension Constants {
             public static let makeOfferButton = "Make Offer"
             public static let offerButtonIcon = "dollarsign.square"
             public static let priceLabel = "Current Price"
+            public static let timeLeftLabel = "Time left"
+            public static let expiredAuctionMessage = "This auction has expired. Wait for a new one!"
+            public static let auctionEndsOnLabel = "Auction ends on"
+            
         }
         enum ErrorMessages {
             public static let JSONFileNotFound = "JSON file not found!"
