@@ -22,7 +22,9 @@ struct NFTDetailView: View {
                         nft: nft,
                         proxy: proxy
                     )
-                    Divider()
+                    if nft.auctionExpiryDate != nil {
+                        TimerSectionView(auctionExpiryDate: nft.auctionExpiryDate!)
+                    }
                     HStack {
                         Button {
                             cartViewModel.addItemToCart(nft: nft)
