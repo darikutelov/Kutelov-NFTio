@@ -37,7 +37,7 @@ struct TimerSectionView: View {
             
             if !isAuctionExpired {
                 Text(Constants.Text.NFTDetail.timeLeftLabel.uppercased())
-                    .foregroundColor(Color(Constants.Colors.charcoal))
+                    .foregroundColor(Color(Constants.Colors.primaryText))
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
                     .padding(.bottom)
@@ -78,6 +78,7 @@ struct TimeUnitView: View {
             Text(timeUnit.getTimeUnitValue(totalRemainingSeconds: timeLeftInSeconds))
                 .font(.title2)
                 .fontWeight(.semibold)
+                .foregroundColor(Color(Constants.Colors.primaryText))
                 .padding(.top)
             HStack {
                 Text(timeUnit.rawValue.capitalized)
@@ -103,7 +104,7 @@ struct TimeUnitView: View {
         .background(
             RoundedRectangle(cornerRadius: Constants.Spacing.small)
                 .fill(Color(Constants.Colors.charcoal))
-                .opacity(0.5)
+                .opacity(0.15)
         )
     }
 }
