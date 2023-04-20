@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeScreenView: View {
     @EnvironmentObject var nftViewModel: NFTViewModel
     @EnvironmentObject var userViewModel: UserViewModel
-    @State var homePageNftItems = [NFT]()
     @State var isLoginScreenOpen = false
     
     var body: some View {
@@ -25,10 +24,9 @@ struct HomeScreenView: View {
                             .padding(.bottom, Constants.Spacing.xxlarge)
                         CollectionListView()
                             .padding(.bottom, Constants.Spacing.xxlarge)
-                        NFTListView(
-                            nftItems: $homePageNftItems,
-                            sectionName: Constants.Text.Home.nftListLabel
-                        )
+//                        NFTListView(
+//                            sectionName: Constants.Text.Home.nftListLabel
+//                        )
                     }
                     .padding(.horizontal)
                 }
@@ -41,7 +39,7 @@ struct HomeScreenView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        if userViewModel.currentUser != nil {
+                        if userViewModel.user != nil {
                             userViewModel.logoutUser()
                         } else {
                             isLoginScreenOpen = true
@@ -49,18 +47,13 @@ struct HomeScreenView: View {
                         
                     } label: {
                         Image(
-                            systemName: userViewModel.currentUser != nil ? "togglepower" : "person"
+                            systemName: userViewModel.user != nil ? "togglepower" : "person"
                         )
                         .foregroundColor(Color(Constants.Colors.primaryText))
                     }
 
                 }
             }
-        }
-        .onAppear {
-            homePageNftItems = Array(nftViewModel
-                .nftItems
-                .prefix(Constants.NFTItems.numberOfNftItemsOnHomePage))
         }
         .fullScreenCover(isPresented: $isLoginScreenOpen) {
             AuthScreen(isPresented: $isLoginScreenOpen)

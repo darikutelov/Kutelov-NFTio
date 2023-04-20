@@ -17,7 +17,7 @@ struct ContentView: View {
     @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = false
     
     var body: some View {
-        let _ = Log.general.debug("Current User: \(userViewModel.currentUser != nil ? userViewModel.currentUser!.email : "None")")
+        // let _ = Log.general.debug("Current User: \(userViewModel.user != nil ? String(describing: userViewModel.user) : "None")")
         ZStack {
             if hasSeenWelcomeScreen {
                 TabNavigationView()

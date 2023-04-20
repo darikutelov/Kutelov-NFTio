@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NFTListView: View {
-    @Binding var nftItems: [NFT]
+    @EnvironmentObject var nftViewModel: NFTViewModel
     let sectionName: String
     
     let columns = [
@@ -28,14 +28,18 @@ struct NFTListView: View {
                     columns: columns,
                     spacing: Constants.Spacing.standard
                 ) {
-                    ForEach($nftItems) { nft in
-                        NavigationLink {
-                            NFTDetailView(nft: nft)
-                        } label: {
-                            NFTCellView(nft: nft.wrappedValue)
+                    ForEach($nftViewModel.filteredItems) { nftItem in
+                        NavigationLink(value: nftItem.wrappedValue) {
+                            NFTCellView(
+                                nft: nftItem
+                            )
                         }
-                        .isDetailLink(true)
                     }
+                }
+                .navigationDestination(for: NFT.self) { nftItem in
+                    NFTDetailView(
+                        nft: nftItem
+                    )
                 }
             }
         }
@@ -45,8 +49,8 @@ struct NFTListView: View {
 struct NFTListingView_Previews: PreviewProvider {
     static var previews: some View {
         NFTListView(
-            nftItems: .constant(NFTViewModel().nftItems),
             sectionName: Constants.Text.Home.nftListLabel
         )
+        .environmentObject(NFTViewModel())
     }
 }

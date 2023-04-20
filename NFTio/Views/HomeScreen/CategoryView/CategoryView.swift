@@ -10,6 +10,7 @@ import SwiftUI
 struct CategoryView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var nftViewModel: NFTViewModel
+    
     let selectedCategory: Category
     let columns = [
         GridItem(.flexible()),
@@ -18,60 +19,62 @@ struct CategoryView: View {
     
     var body: some View {
         ZStack {
-                ScrollView {
-                    Spacer()
-                        .frame(height: Constants.Spacing.xxxlarge)
-                    Section(
-                        header: SectionHeaderView(
-                            sectionName: "\(Constants.Text.NFTItems.nftItems) (\(nftViewModel.filteredNftItems.count))"
-                        )
-                        .padding(.bottom, Constants.Spacing.small)
+            Color(uiColor: .secondarySystemBackground)
+            ScrollView {
+                Spacer()
+                    .frame(height: Constants.Spacing.xxxlarge)
+                Section(
+                    header: SectionHeaderView(
+                        sectionName: "\(Constants.Text.NFTItems.nftItems) (\(nftViewModel.filteredItems.count))"
+                    )
+                    .padding(.bottom, Constants.Spacing.small)
+                ) {
+                    LazyVGrid(
+                        columns: columns,
+                        spacing: Constants.Spacing.standard
                     ) {
-                        LazyVGrid(
-                            columns: columns,
-                            spacing: Constants.Spacing.standard
-                        ) {
-                            ForEach(nftViewModel.filteredNftItems) { nftItem in
-                                NavigationLink(value: nftItem) {
-                                    NFTCellView(
-                                        nft: nftItem
-                                    )
-                                }
+                        ForEach($nftViewModel.filteredItems) { nftItem in
+                            NavigationLink(value: nftItem.wrappedValue) {
+                                NFTCellView(
+                                    nft: nftItem
+                                )
                             }
                         }
-                        .navigationDestination(for: NFT.self) { nftItem in
-                            NFTDetailView(
-                                nft: nftViewModel.nftItemBinding(id: nftItem.id)
-                            )
-                        }
                     }
-                    .navigationTitle("\(selectedCategory.name.rawValue)")
-                    .navigationBarTitleDisplayMode(.inline)
-//                    .navigationBarBackButtonHidden(true)
-//                    .toolbar {
-//                        ToolbarItem(
-//                            placement: .navigationBarLeading
-//                        ) {
-//                            Button {
-//                                dismiss()
-//                            } label: {
-//                                Image(systemName: Constants.Text.IconNames.arrowBack)
-//                                    .foregroundColor(Color(Constants.Colors.primaryText))
-//                            }
-//                        }
-//                    }
-                    .padding(.horizontal)
-                }.padding(.top, Constants.Spacing.xxlarge)
-            .onAppear {
-                nftViewModel.setSelectedCategory(
-                    category: selectedCategory
-                )
+                }
+                .navigationDestination(for: NFT.self) { nftItem in
+                    NFTDetailView(
+                        nft: nftItem
+                    )
+                }
+                .navigationTitle("\(selectedCategory.name.rawValue)")
+                .navigationBarTitleDisplayMode(.inline)
+                //                    .navigationBarBackButtonHidden(true)
+                //                    .toolbar {
+                //                        ToolbarItem(
+                //                            placement: .navigationBarLeading
+                //                        ) {
+                //                            Button {
+                //                                dismiss()
+                //                            } label: {
+                //                                Image(systemName: Constants.Text.IconNames.arrowBack)
+                //                                    .foregroundColor(Color(Constants.Colors.primaryText))
+                //                            }
+                //                        }
+                //                    }
+                .padding(.horizontal)
             }
-            .onDisappear {
-                nftViewModel.setSelectedCategory(category: nil)
-            }
-            .edgesIgnoringSafeArea(.all)
+            .padding(.top, Constants.Spacing.xxlarge)
         }
+        .onAppear {
+            nftViewModel.setSelectedCategory(
+                category: selectedCategory
+            )
+        }
+        .onDisappear {
+            nftViewModel.setSelectedCategory(category: nil)
+        }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

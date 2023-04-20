@@ -71,13 +71,16 @@ enum Constants {
     enum Api {
         // swiftlint: disable all
         public static let baseUrl = "https://cryptic-oasis-81288.herokuapp.com/api/v1/"
-        //public static let baseUrl = "http://localhost:8000/api/v1/"
+        public static let baseUnsecureUrl = "http://cryptic-oasis-81288.herokuapp.com/api/v1/"
+        // public static let baseUrl = "http://localhost:8000/api/v1/"
         enum Images {
             public static let categoryBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1647330626/nftio/categories/"
             public static let collectionBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1678552863/nftio/collections/"
             public static let nftItemsBaseUrl = "https://res.cloudinary.com/dariku/image/upload/v1679847173/nftio/nftItems/"
         }
         // swiftlint: enable all
+        public static let authTokenCookieName = "AuthToken"
+        public static let currentUser = "currentUser"
     }
     enum NFTItems {
         public static let numberOfNftItemsOnHomePage = 8

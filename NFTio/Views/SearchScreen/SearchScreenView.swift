@@ -21,9 +21,9 @@ struct SearchScreenView: View {
                     columns: columns,
                     spacing: Constants.Spacing.standard
                 ) {
-                    ForEach($viewModel.searchItems, id: \.self) { nft in
+                    ForEach($viewModel.filteredItems, id: \.self) { nft in
                         NavigationLink {
-                            NFTDetailView(nft: nft)
+                            NFTDetailView(nft: nft.wrappedValue)
                         } label: {
                             SearchItemCellView(nftItem: nft)
                         }

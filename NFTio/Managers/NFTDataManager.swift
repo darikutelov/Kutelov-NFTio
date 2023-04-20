@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NFTDataManager {
+final class NFTDataManager {
     enum DataModel: String, CaseIterable {
         case nftItems
         case likedNftItems
@@ -86,8 +86,6 @@ class NFTDataManager {
             case .nftCollections:
                 self.nftCollections = try decoder.decode([NFTCollection].self, from: jsonData)
             }
-            
-            Log.general.debug("🎯 \(dataModel.rawValue) loaded from url: \(jsonFileURL)")
         } catch let error {
             print(error)
         }
@@ -144,6 +142,7 @@ class NFTDataManager {
     func addNew(nftItem: NFT) {
         self.nftItems.append(nftItem)
     }
+    
     func fetchNftItems() async throws -> [NFT] {
         let seconds = 2.0
         try await Task.sleep(nanoseconds: UInt64(seconds * Double(NSEC_PER_SEC)))

@@ -30,10 +30,10 @@ struct PasswordField: View {
                     showPassword.toggle()
                 } label: {
                     if showPassword {
-                        Image(systemName: "eye.slash")
+                        Image(systemName: Constants.Text.Auth.visiblePasswordIcon)
                             .foregroundColor(Color(Constants.Colors.secondary))
                     } else {
-                        Image(systemName: "eye")
+                        Image(systemName: Constants.Text.Auth.notVisiblePasswordIcon)
                             
                             .foregroundColor(Color(Constants.Colors.secondary))
                     }

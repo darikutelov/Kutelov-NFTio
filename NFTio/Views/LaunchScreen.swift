@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// MARK: - Assignment 4
 struct LaunchScreen: View {
     @State var scaleRatio: CGFloat = 1
     @State var backgroundColor: String = Constants.Colors.terciary

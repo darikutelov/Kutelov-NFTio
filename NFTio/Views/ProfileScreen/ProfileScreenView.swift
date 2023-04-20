@@ -16,7 +16,7 @@ struct ProfileScreenView: View {
             Color(uiColor: .secondarySystemBackground)
             VStack {
                 Button {
-                    UserManager.shared.logoutUser()
+                    viewModel.logoutUser()
                     isLoginScreenOpen = true
                 } label: {
                     ButtonView(buttonText: "Log Out")
@@ -29,13 +29,6 @@ struct ProfileScreenView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                if viewModel.currentUser == nil {
-                    isLoginScreenOpen = viewModel.currentUser == nil
-                }
-            }
-        }
     }
 }
 

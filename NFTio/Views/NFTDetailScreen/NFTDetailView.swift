@@ -10,25 +10,28 @@ import SwiftUI
 struct NFTDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var cartViewModel: CartViewModel
+    @AppStorage(Constants.Text.TabView.userdefaultsKey) var selectedTab = 0
     
-    @Binding var nft: NFT
+    var nft: NFT
 
     var body: some View {
         GeometryReader { proxy in
-            ScrollView {
+            ScrollView(.vertical, showsIndicators: false) {
                 VStack {
                     TopInfoSectionView(
                         nft: nft,
                         proxy: proxy
                     )
-                    Divider()
+                    if nft.auctionExpiryDate != nil {
+                        TimerSectionView(auctionExpiryDate: nft.auctionExpiryDate!)
+                    }
+                    MediumInfoSectionView(
+                        nft: nft
+                    )
                     HStack {
                         Button {
                             cartViewModel.addItemToCart(nft: nft)
-                            UserDefaults.standard.set(
-                                3,
-                                forKey: Constants.Text.TabView.userdefaultsKey
-                            )
+                            selectedTab = 3
                         } label: {
                             ButtonIconView(
                                 buttonText: Constants.Text.NFTDetail.buyButton,
@@ -72,7 +75,7 @@ struct NFTDetailView: View {
 
 struct NFTDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NFTDetailView(nft: .constant(NFTDataManager().nftItems[0]))
+        NFTDetailView(nft: NFTDataManager().nftItems[0])
             .environmentObject(CartViewModel())
     }
 }
