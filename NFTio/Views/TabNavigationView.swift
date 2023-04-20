@@ -55,7 +55,7 @@ struct TabNavigationView: View {
     //            selectedTab = 0
                 hasSeenWelcomeScreen = true
                 setTabBarUI()
-            } // Week09 #2
+            }
             .alert(isPresented: $nftViewModel.showErrorAlert) {
                 Alert(
                     title: Text("Error!"),

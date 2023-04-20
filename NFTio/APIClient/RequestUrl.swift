@@ -22,11 +22,6 @@ final class RequestUrl {
     private var urlString: String {
         var stringUrl = Constants.Api.baseUrl + endpoint.rawValue
         
-        // Asignment 3
-        if endpoint.rawValue == "collections" {
-            stringUrl = Constants.Api.baseUnsecureUrl + endpoint.rawValue
-        }
-        
         if !pathComponents.isEmpty {
             pathComponents.forEach {
                 stringUrl += "/\($0)"

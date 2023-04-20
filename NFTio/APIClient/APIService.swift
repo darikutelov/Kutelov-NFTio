@@ -19,6 +19,9 @@ enum APIServiceError: Error {
 
 /// Primary API Service object to get app's data
 final class APIService {
+    
+    // MARK: - Properties
+    
     public static let shared = APIService()
     public static var authToken: String?
     private let session: URLSession
@@ -26,17 +29,19 @@ final class APIService {
     private var decoder: JSONDecoder
     private var encoder: JSONEncoder
     private var cookieStorage: HTTPCookieStorage?
-    /// Init
+    
+    // MARK: - Init
+    
     private init() {
         self.sessionConfiguration = URLSessionConfiguration.default
         self.session = URLSession(configuration: sessionConfiguration)
         self.cookieStorage = session.configuration.httpCookieStorage
         decoder = JSONDecoder()
         encoder = JSONEncoder()
-        
         setUpCoders()
     }
     
+    /// Sets date format to coders
     private func setUpCoders() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -60,9 +65,6 @@ final class APIService {
         } catch {
             throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
         }
-        
-        // Week09 #1
-        Log.info.debug("Data downloaded: \(data.description)")
         
         guard let httpResponse = response as? HTTPURLResponse,
               (200..<300).contains(httpResponse.statusCode) else {

@@ -25,6 +25,9 @@ struct NFTDetailView: View {
                     if nft.auctionExpiryDate != nil {
                         TimerSectionView(auctionExpiryDate: nft.auctionExpiryDate!)
                     }
+                    MediumInfoSectionView(
+                        nft: nft
+                    )
                     HStack {
                         Button {
                             cartViewModel.addItemToCart(nft: nft)

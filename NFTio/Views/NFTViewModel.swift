@@ -58,7 +58,6 @@ final class NFTViewModel: ObservableObject {
         
         Task {
             await fetchNftItems()
-            // Week09 #3
             await fetchCollections()
         }
         
@@ -149,7 +148,6 @@ final class NFTViewModel: ObservableObject {
             isLoading = false
         } catch APIServiceError.failedToConnectToServer(let message) {
             Task { @MainActor in
-                // Week09 #2
                 showErrorAlert = true
                 errorMessage = message
                 try await Task.sleep(nanoseconds: 2_000_000_000)
@@ -161,12 +159,12 @@ final class NFTViewModel: ObservableObject {
         }
     }
     
-    // Assignment 3
     private func fetchCollections() async {
         isLoading = true
         defer {
             isLoading = false
         }
+        
         do {
             let requestUrl = RequestUrl(endpoint: .collections)
             let data = try await APIService.shared.fetchData(
