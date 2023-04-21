@@ -13,7 +13,7 @@ struct NFTDetailView: View {
     @AppStorage(Constants.Text.TabView.userdefaultsKey) var selectedTab = 0
     
     var nft: NFT
-
+    
     var body: some View {
         GeometryReader { proxy in
             ScrollView(.vertical, showsIndicators: false) {

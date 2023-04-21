@@ -43,6 +43,9 @@ final class NFTViewModel: ObservableObject {
     /// Error Message
     @MainActor @Published var errorMessage = ""
     
+    /// Selected NFT Item in detail view
+    @Published var selectedNFTItem: NFT?
+    
     // MARK: - Init
     
     init() {

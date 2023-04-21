@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C016BCD29F266CD00A91E5A /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C016BCC29F266CD00A91E5A /* CustomSegmentedControl.swift */; };
+		9C016BD029F2760200A91E5A /* SegmentedControlItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C016BCF29F2760200A91E5A /* SegmentedControlItemContainer.swift */; };
 		9C0386E929A7BD9500EF4BAD /* WelcomeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386E829A7BD9500EF4BAD /* WelcomeTextView.swift */; };
 		9C0386EB29A7BE8C00EF4BAD /* DescriptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386EA29A7BE8C00EF4BAD /* DescriptionTextView.swift */; };
 		9C0386ED29A7BF3B00EF4BAD /* RoundedIconViewFilled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0386EC29A7BF3B00EF4BAD /* RoundedIconViewFilled.swift */; };
@@ -121,6 +123,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C016BCC29F266CD00A91E5A /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		9C016BCF29F2760200A91E5A /* SegmentedControlItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlItemContainer.swift; sourceTree = "<group>"; };
 		9C0386E829A7BD9500EF4BAD /* WelcomeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTextView.swift; sourceTree = "<group>"; };
 		9C0386EA29A7BE8C00EF4BAD /* DescriptionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTextView.swift; sourceTree = "<group>"; };
 		9C0386EC29A7BF3B00EF4BAD /* RoundedIconViewFilled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedIconViewFilled.swift; sourceTree = "<group>"; };
@@ -249,6 +253,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C016BCE29F266D600A91E5A /* CustomSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				9C016BCC29F266CD00A91E5A /* CustomSegmentedControl.swift */,
+				9C016BCF29F2760200A91E5A /* SegmentedControlItemContainer.swift */,
+			);
+			path = CustomSegmentedControl;
+			sourceTree = "<group>";
+		};
 		9C0386E529A7BCEF00EF4BAD /* WelcomeScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +294,7 @@
 				9C0C4E9F29B4E19E0018E546 /* TextViews.swift */,
 				9CD226AF29BDCC3E00462C35 /* ShopName.swift */,
 				9C9B99C929E9A88700237A7C /* NFTCellView */,
+				9C016BCE29F266D600A91E5A /* CustomSegmentedControl */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -823,6 +837,7 @@
 				9C76414B29D3298E0072E05E /* Log.swift in Sources */,
 				9CFD9B3629C4952500D12148 /* SearchItemCellView.swift in Sources */,
 				9C0386FD29AB52B600EF4BAD /* NFTListView.swift in Sources */,
+				9C016BD029F2760200A91E5A /* SegmentedControlItemContainer.swift in Sources */,
 				9C04CAA629E13E4300C13792 /* APIService.swift in Sources */,
 				9C0C4EA029B4E19E0018E546 /* TextViews.swift in Sources */,
 				9CF42D07299FC92600CAA856 /* ContentView.swift in Sources */,
@@ -877,6 +892,7 @@
 				9C37C1C229BC738500125E09 /* CategoryListView.swift in Sources */,
 				9C93C3A529F0440E00B7062A /* MediumInfoSectionView.swift in Sources */,
 				9CBB98E129A20C3F00759204 /* Color.swift in Sources */,
+				9C016BCD29F266CD00A91E5A /* CustomSegmentedControl.swift in Sources */,
 				9C0E478B29ABB64100DEB975 /* PriceView.swift in Sources */,
 				9C94667A29B20B4600129EB1 /* NFTCollection.swift in Sources */,
 				9CD226AC29BCF3D600462C35 /* RoundedImageView.swift in Sources */,
