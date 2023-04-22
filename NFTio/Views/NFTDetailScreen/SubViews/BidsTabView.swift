@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct BidsTabView: View {
+    @EnvironmentObject var nftViewModel: NFTViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
+
+    @State var price: Decimal = 0
+    @State var bidCurrency: CryptoCurrency = CryptoCurrency.ethereum
+    
     var body: some View {
         VStack {
-            Text("Bids")
+            if let nft = nftViewModel.selectedNFT {
+                if !nft.bids.isEmpty {
+                    Text("\(nft.bids.count)")
+                } else {
+                    Text("Be the first to place a bid for this item!")
+                }
+            }
+            
+
         }
     }
         
@@ -19,5 +33,7 @@ struct BidsTabView: View {
 struct BidsTabView_Previews: PreviewProvider {
     static var previews: some View {
         BidsTabView()
+            .environmentObject(NFTViewModel())
+            .environmentObject(UserViewModel())
     }
 }

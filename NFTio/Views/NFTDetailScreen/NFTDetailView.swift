@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NFTDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var nftViewModel: NFTViewModel
     @EnvironmentObject var cartViewModel: CartViewModel
     @AppStorage(Constants.Text.TabView.userdefaultsKey) var selectedTab = 0
     
@@ -68,7 +69,9 @@ struct NFTDetailView: View {
                     }
                 }
             }
-          
+        }
+        .onAppear {
+            nftViewModel.selectedNFT = nft
         }
     }
 }
@@ -76,6 +79,7 @@ struct NFTDetailView: View {
 struct NFTDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NFTDetailView(nft: NFTDataManager().nftItems[0])
+            .environmentObject(NFTViewModel())
             .environmentObject(CartViewModel())
     }
 }
