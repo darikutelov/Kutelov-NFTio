@@ -72,7 +72,7 @@ struct NFTDetailView: View {
             }
         }
         .sheet(isPresented: $showAddBid, content: {
-            AddBidView()
+            AddBidView(showAddBid: $showAddBid)
                 .presentationDetents(
                     [.medium, .large]
                 )

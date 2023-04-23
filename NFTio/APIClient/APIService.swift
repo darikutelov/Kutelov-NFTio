@@ -71,12 +71,12 @@ final class APIService {
             throw APIServiceError.requestFailed("Bad request")
         }
         
-        do {
-            try decoder.decode(type.self, from: data)
-        } catch let error {
-            print(error)
-        }
-        
+//        do {
+//            let buffer = try decoder.decode(type.self, from: data)
+//        } catch let error {
+//            print(error)
+//        }
+       
         guard let decodedData = try? decoder.decode(type.self, from: data) else {
             throw APIServiceError.responseDecodingFailed("Error in decoding data!")
         }

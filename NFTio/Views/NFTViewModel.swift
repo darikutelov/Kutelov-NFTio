@@ -69,7 +69,7 @@ final class NFTViewModel: ObservableObject {
     func setSelectedCategory(category: Category?) {
         selectedCategory = category
     }
-
+    
     func setSelectedCollection(collection: NFTCollection?) {
         selectedCollection = collection
     }
@@ -224,39 +224,36 @@ final class NFTViewModel: ObservableObject {
 
 // MARK: - NFT Item bids
 extension NFTViewModel {
-    func addNftItemBid(_ bid: Bid) {
+    func addNftItemBid(_ bid: Bid) async throws {
         guard let selectedNFT = selectedNFT else { return }
         
         let itemIndex = nftItems.firstIndex(where: {$0.id == selectedNFT.id })
         
         guard let index = itemIndex else { return }
         
-        Task {
-            let requestUrl = RequestUrl(
-                endpoint: .nftItems,
-                pathComponents: [selectedNFT.id, "bids"]
+        let requestUrl = RequestUrl(
+            endpoint: .nftItems,
+            pathComponents: [selectedNFT.id, "bids"]
+        )
+        
+        do {
+            let _ = try await APIService.shared.saveData(
+                requestUrl,
+                bodyData: bid
             )
-            do {
-                let _ = try await APIService.shared.saveData(
-                    requestUrl,
-                    bodyData: bid
-                )
-                
-                await MainActor.run {
-                    // updates nft items
-                    nftItems[index].bids.append(bid)
-                    // updates filtered items
-                    updateFilteredItems()
-                    // update data to local storage
-                    nftDataManager.nftItems = nftItems
-                }
-            } catch let error {
-                print(error)
-                
-                await MainActor.run {
-                    errorMessage = "Error creating a bid!"
-                }
+            
+            await MainActor.run {
+                // updates nft items
+                nftItems[index].bids.append(bid)
+                // updates filtered items
+                self.selectedNFT = nftItems[index]
+                updateFilteredItems()
+                // update data to local storage
+                nftDataManager.nftItems = nftItems
             }
+            
+        } catch let error {
+            throw error
         }
     }
 }
