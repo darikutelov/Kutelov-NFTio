@@ -37,7 +37,10 @@ struct ButtonIconView: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            Image(systemName: iconName)
+            if !iconName.isEmpty {
+                Image(systemName: iconName)
+            }
+            
             Text(buttonText.capitalized)
                 .fontWeight(.semibold)
         }

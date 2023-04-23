@@ -9,10 +9,12 @@ import SwiftUI
 
 struct NFTDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var nftViewModel: NFTViewModel
     @EnvironmentObject var cartViewModel: CartViewModel
     @AppStorage(Constants.Text.TabView.userdefaultsKey) var selectedTab = 0
     
     var nft: NFT
+    @State var showAddBid = false
     
     var body: some View {
         GeometryReader { proxy in
@@ -31,6 +33,7 @@ struct NFTDetailView: View {
                     HStack {
                         Button {
                             cartViewModel.addItemToCart(nft: nft)
+                            dismiss()
                             selectedTab = 3
                         } label: {
                             ButtonIconView(
@@ -41,7 +44,7 @@ struct NFTDetailView: View {
                             )
                         }
                         Button {
-                            // (- Add a bid)(todo)
+                            showAddBid = true
                         } label: {
                             ButtonIconView(
                                 buttonText: Constants.Text.NFTDetail.makeOfferButton,
@@ -50,7 +53,6 @@ struct NFTDetailView: View {
                                 iconName: Constants.Text.NFTDetail.offerButtonIcon
                             )
                         }
-
                     }
                     .padding()
                 }
@@ -68,7 +70,15 @@ struct NFTDetailView: View {
                     }
                 }
             }
-          
+        }
+        .sheet(isPresented: $showAddBid, content: {
+            AddBidView(showAddBid: $showAddBid)
+                .presentationDetents(
+                    [.medium, .large]
+                )
+        })
+        .onAppear {
+            nftViewModel.selectedNFT = nft
         }
     }
 }
@@ -76,6 +86,7 @@ struct NFTDetailView: View {
 struct NFTDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NFTDetailView(nft: NFTDataManager().nftItems[0])
+            .environmentObject(NFTViewModel())
             .environmentObject(CartViewModel())
     }
 }

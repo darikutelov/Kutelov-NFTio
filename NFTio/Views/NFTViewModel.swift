@@ -43,8 +43,7 @@ final class NFTViewModel: ObservableObject {
     /// Error Message
     @MainActor @Published var errorMessage = ""
     
-    /// Selected NFT Item in detail view
-    @Published var selectedNFTItem: NFT?
+    @Published var selectedNFT: NFT?
     
     // MARK: - Init
     
@@ -70,7 +69,7 @@ final class NFTViewModel: ObservableObject {
     func setSelectedCategory(category: Category?) {
         selectedCategory = category
     }
-
+    
     func setSelectedCollection(collection: NFTCollection?) {
         selectedCollection = collection
     }
@@ -219,6 +218,44 @@ final class NFTViewModel: ObservableObject {
             self.nftItems[currentIndex]
         } set: { newValue in
             self.nftItems[currentIndex] = newValue
+        }
+    }
+}
+
+// MARK: - NFT Item bids
+
+extension NFTViewModel {
+    func addNftItemBid(_ bid: Bid) async throws {
+        guard let selectedNFT = selectedNFT else { return }
+        
+        let itemIndex = nftItems.firstIndex(where: {$0.id == selectedNFT.id })
+        
+        guard let index = itemIndex else { return }
+        
+        let requestUrl = RequestUrl(
+            endpoint: .nftItems,
+            pathComponents: [selectedNFT.id, "bids"]
+        )
+        
+        do {
+            let _ = try await APIService.shared.saveData(
+                requestUrl,
+                bodyData: bid
+            )
+            
+            await MainActor.run {
+                // updates nft items
+                nftItems[index].bids.append(bid)
+                // update selectedNFT to update view
+                self.selectedNFT = nftItems[index]
+                // updates filtered items
+                updateFilteredItems()
+                // persist changes to local storage
+                nftDataManager.nftItems = nftItems
+            }
+            
+        } catch let error {
+            throw error
         }
     }
 }

@@ -41,6 +41,7 @@ struct TimerSectionView: View {
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
                     .padding(.bottom)
+                
                 HStack(spacing: Constants.Spacing.standard) {
                     ForEach(TimeUnit.allCases, id: \.self.rawValue) {
                         TimeUnitView(
@@ -66,6 +67,7 @@ struct TimerSectionView: View {
         }
         .padding(.bottom)
         Divider()
+            .padding(.horizontal)
     }
 }
 

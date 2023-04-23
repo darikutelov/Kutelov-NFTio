@@ -50,11 +50,11 @@ struct Price: Codable {
 }
 
 /// Data structure for a bit in NFT auction
-struct Bid: Codable {
-    let id: String
+struct Bid: Codable, Identifiable {
+    let id: String?
     let price: Price
     let user: User
-    let date: Date
+    let date: Date?
 }
 
 /// Enum for allowed crypto currencies

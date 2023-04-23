@@ -54,8 +54,6 @@ final class NFTDetailViewModel: ObservableObject {
                         self.nft = updatedNFT
                     }
                 }
-                
-                
             } catch let error {
                 print(error)
                 errorMessage = "Error!"
