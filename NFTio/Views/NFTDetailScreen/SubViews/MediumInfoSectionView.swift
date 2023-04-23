@@ -13,7 +13,7 @@ struct MediumInfoSectionView: View {
         case bids
     }
     
-    @State private var selectedTab = Tab.bids
+    @State private var selectedTab = Tab.details
     let nft: NFT
     
     var body: some View {

@@ -57,6 +57,7 @@ struct TopInfoSectionView: View {
             }
             .padding()
             Divider()
+                .padding(.horizontal)
             HStack {
                 Text(Constants.Text.NFTDetail.priceLabel)
                     .font(.subheadline)
@@ -66,6 +67,7 @@ struct TopInfoSectionView: View {
             }
             .padding()
             Divider()
+                .padding(.horizontal)
         }
         .onAppear {
             isItemLiked = viewModel.isNftItemLiked(nft.id)

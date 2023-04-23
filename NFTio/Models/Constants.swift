@@ -87,4 +87,8 @@ enum Constants {
     enum Collections {
         public static let numberOfCollectionsOnHomePage = 5
     }
+    
+    enum ExchangeRates {
+        public static let usdToEth: Decimal = 1865.46
+    }
 }

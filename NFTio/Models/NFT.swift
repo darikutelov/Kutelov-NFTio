@@ -50,7 +50,7 @@ struct Price: Codable {
 }
 
 /// Data structure for a bit in NFT auction
-struct Bid: Codable {
+struct Bid: Codable, Identifiable {
     let id: String?
     let price: Price
     let user: User

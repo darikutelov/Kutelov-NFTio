@@ -23,7 +23,7 @@ where SelectionValue: Hashable, Content: View {
             .contentShape(Rectangle())
             .foregroundColor(isSelected ?
                 .white :
-                Color(Constants.Colors.secondary))
+                Color(Constants.Colors.primaryText))
             .background(isSelected ? background : nil)
             .onTapGesture {
                 select()

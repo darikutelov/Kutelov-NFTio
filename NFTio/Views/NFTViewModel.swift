@@ -223,6 +223,7 @@ final class NFTViewModel: ObservableObject {
 }
 
 // MARK: - NFT Item bids
+
 extension NFTViewModel {
     func addNftItemBid(_ bid: Bid) async throws {
         guard let selectedNFT = selectedNFT else { return }
@@ -245,10 +246,11 @@ extension NFTViewModel {
             await MainActor.run {
                 // updates nft items
                 nftItems[index].bids.append(bid)
-                // updates filtered items
+                // update selectedNFT to update view
                 self.selectedNFT = nftItems[index]
+                // updates filtered items
                 updateFilteredItems()
-                // update data to local storage
+                // persist changes to local storage
                 nftDataManager.nftItems = nftItems
             }
             

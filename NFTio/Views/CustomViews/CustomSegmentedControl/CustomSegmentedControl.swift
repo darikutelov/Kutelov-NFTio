@@ -26,7 +26,9 @@ public struct CustomSegmentedControl<SelectionValue, Content>: View where Select
         .clipShape(RoundedRectangle(cornerRadius: 4))
         .padding(1)
         .background(
-            RoundedRectangle(cornerRadius: 5).fill(.gray).opacity(0.5)
+            RoundedRectangle(cornerRadius: 5)
+                .fill(Color(Constants.Colors.charcoal))
+                .opacity(0.15)
         )
         .frame(idealHeight: 16)
         .environment(\.selectedSegmentTag, $selection)
