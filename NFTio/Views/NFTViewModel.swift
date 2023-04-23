@@ -224,17 +224,17 @@ final class NFTViewModel: ObservableObject {
 
 // MARK: - NFT Item bids
 extension NFTViewModel {
-    func addNftItemBid(nftItemId: String, bid: Bid) {
-        let itemIndex = nftItems.firstIndex(where: {$0.id == nftItemId })
+    func addNftItemBid(_ bid: Bid) {
+        guard let selectedNFT = selectedNFT else { return }
         
-        guard let index = itemIndex else {
-            return
-        }
+        let itemIndex = nftItems.firstIndex(where: {$0.id == selectedNFT.id })
+        
+        guard let index = itemIndex else { return }
         
         Task {
             let requestUrl = RequestUrl(
                 endpoint: .nftItems,
-                pathComponents: [nftItemId, "bids"]
+                pathComponents: [selectedNFT.id, "bids"]
             )
             do {
                 let _ = try await APIService.shared.saveData(
@@ -254,7 +254,7 @@ extension NFTViewModel {
                 print(error)
                 
                 await MainActor.run {
-                    errorMessage = "Error! You may try to like an item without being signed in"
+                    errorMessage = "Error creating a bid!"
                 }
             }
         }
