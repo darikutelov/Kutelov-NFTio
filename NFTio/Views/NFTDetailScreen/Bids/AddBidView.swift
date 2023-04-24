@@ -86,8 +86,7 @@ struct AddBidView: View {
     }
     
     private func addBid() {
-        guard let user = userViewModel.user,
-              let userId = user.id else {
+        guard let user = userViewModel.user else {
             errorMessage = "You need to sign in to place a bid"
             showError = true
             return

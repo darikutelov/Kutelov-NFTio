@@ -47,7 +47,9 @@ struct HomeScreenView: View {
                         
                     } label: {
                         Image(
-                            systemName: userViewModel.user != nil ? "togglepower" : "person"
+                            systemName: userViewModel.user != nil ?
+                                Constants.Text.IconNames.togglePower :
+                                Constants.Text.IconNames.person
                         )
                         .foregroundColor(Color(Constants.Colors.primaryText))
                     }

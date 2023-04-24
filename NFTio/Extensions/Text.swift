@@ -27,6 +27,8 @@ extension Constants {
         }
         enum IconNames {
             public static let arrowBack = "arrow.backward"
+            public static let person = "person"
+            public static let togglePower = "togglepower"
             
         }
         enum LaunchScreen {
@@ -97,6 +99,12 @@ extension Constants {
             public static let rePasswordFieldLabel = "Repeat Password"
             public static let visiblePasswordIcon = "eye.slash"
             public static let notVisiblePasswordIcon = "eye"
+        }
+        
+        enum AddNFT {
+            public static let title = "Add Your NFT for Sale"
+            public static let buttonLabel = "Add NFT"
+            public static let buttonIcon = "square.and.arrow.down"
         }
     }
     // swiftlint:enable all

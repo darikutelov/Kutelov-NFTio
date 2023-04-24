@@ -32,6 +32,8 @@ struct TabsView: View {
                     BidsTabView()
                         .transition(.slide)
                 }
+                
+                // TODO: - More from this collection
             }
             padding(.vertical)
         }

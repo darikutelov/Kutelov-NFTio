@@ -10,7 +10,14 @@ import SwiftUI
 struct DetailsTabView: View {
     var body: some View {
         VStack {
-            Text("Details")
+            Text("More about the collection")
+            Text("Creator")
+            Text("Current owner")
+            Text("Contract address")
+            Text("Token Id")
+            Text("Blockchain")
+            Text("Created")
+            Text("Price history")
         }
     }
 }

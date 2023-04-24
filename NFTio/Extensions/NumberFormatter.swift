@@ -26,6 +26,7 @@ extension NumberFormatter {
     }
 }
 
+// Currency formatter with thousands separator
 extension Formatter {
     static let withSeparator: NumberFormatter = {
         let formatter = NumberFormatter()
