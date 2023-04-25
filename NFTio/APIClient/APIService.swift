@@ -63,6 +63,14 @@ final class APIService {
         do {
             (data, response) = try await session.data(from: url)
         } catch {
+//            if let error = error as? URLError {
+//                switch error.code {
+//                case .notConnectedToInternet:
+//                    print("my no internet connection")
+//                default:
+//                    print("general error")
+//                }
+//            }
             throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
         }
         

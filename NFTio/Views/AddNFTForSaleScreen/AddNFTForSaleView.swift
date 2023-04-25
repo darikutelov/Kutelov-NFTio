@@ -15,16 +15,14 @@ struct AddNFTForSaleView: View {
         NavigationStack {
             ZStack {
                 Color(uiColor: .secondarySystemBackground)
-                ScrollView(.vertical, showsIndicators: false) {
+                VStack {
                     Spacer()
                         .frame(height: Constants.Spacing.xxxlarge)
                     Text(Constants.Text.AddNFT.title.uppercased())
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(Constants.Colors.secondary))
-                        .padding(.bottom, Constants.Spacing.standard)
                     NFTFormView()
-                    Spacer()
                 }
             }
             .edgesIgnoringSafeArea(.all)

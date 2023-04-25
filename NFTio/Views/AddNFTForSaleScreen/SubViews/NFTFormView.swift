@@ -9,6 +9,9 @@ import SwiftUI
 import Combine
 
 struct NFTFormView: View {
+    @EnvironmentObject var nftViewModel: NFTViewModel
+    @StateObject var addNFTviewModel = AddNFTViewModel()
+    
     // Form Fields
     @State var name: String = ""
     @State var price: String = ""
@@ -16,90 +19,94 @@ struct NFTFormView: View {
     @State var quantity: String = ""
     @State var description: String = ""
     @State var contractAddress: String = ""
+    @State var collection: NFTCollection = NFTDataManager().nftCollections[0]
+    @State var category: CategoryName = CategoryName.art
+    
     // Other props
     @State var errorMessage = ""
     @State var showError = false
     @State var isSavingData = false
     
     var body: some View {
-        VStack {
-            Text("Image")
-            // Name
-            TextField("", text: $name, prompt: Text("Name")
-                .foregroundColor(Color(Constants.Colors.secondary)))
-            .modifier(StandardInputField(error: !errorMessage.isEmpty))
-            .padding(.bottom, Constants.Spacing.small)
-            
-            // Price
-            TextField("",
-                      text: $price,
-                      prompt: Text("Price")
-                .foregroundColor(Color(Constants.Colors.secondary)))
-            .keyboardType(.numbersAndPunctuation)
-            .onReceive(Just(price)) { newValue in
-                let filtered = newValue.filter { "0123456789.".contains($0) }
-                if filtered != newValue {
-                    self.price = filtered
+        Form {
+            Section {
+                HStack {
+                    Spacer()
+                    EditableUploadImageView(viewModel: addNFTviewModel)
+                    Spacer()
                 }
             }
-            .modifier(StandardInputField(error: !errorMessage.isEmpty))
-            .padding(.bottom, Constants.Spacing.small)
-            
-            // Currency
-            Picker("Currency", selection: $bidCurrency) {
-                ForEach(CryptoCurrency.allCases, id: \.self) {
-                    Text($0.rawValue)
+            .listRowBackground(Color.clear)
+            #if !os(macOS)
+            .padding([.top], 10)
+            #endif
+            Section(header: Text("NFT name, price and quantity")) {
+                TextField("",
+                          text: $name,
+                          prompt: Text("Name")
+                    .foregroundColor(Color(Constants.Colors.primaryText)))
+                TextField("",
+                          text: $price,
+                          prompt: Text("Price")
+                    .foregroundColor(Color(Constants.Colors.primaryText)))
+                .keyboardType(.numbersAndPunctuation)
+                .onReceive(Just(price)) { newValue in
+                    let filtered = newValue.filter { "0123456789.".contains($0) }
+                    if filtered != newValue {
+                        self.price = filtered
+                    }
+                }
+                
+                // Currency
+                Picker("Currency", selection: $bidCurrency) {
+                    ForEach(CryptoCurrency.allCases, id: \.self) {
+                        Text($0.rawValue)
+                    }
+                }
+                
+                // Quantity
+                TextField("",
+                          text: $quantity,
+                          prompt: Text("Quantity")
+                    .foregroundColor(Color(Constants.Colors.primaryText)))
+                .keyboardType(.numbersAndPunctuation)
+                .onReceive(Just(price)) { newValue in
+                    let filtered = newValue.filter { "0123456789".contains($0) }
+                    if filtered != newValue {
+                        self.price = filtered
+                    }
                 }
             }
-            .frame(maxWidth: 400.0, minHeight: 50.0)
-            .background(
-                RoundedRectangle(
-                    cornerRadius: Constants.General.standardCornerRadius)
-                .fill(Color(.white).opacity(0.9))
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: Constants.General.standardCornerRadius)
-                    .stroke(Color(Constants.Colors.secondary), lineWidth: 1.0)
-            )
-            .padding(.bottom, Constants.Spacing.small)
             
-            // Quantity
-            TextField("",
-                      text: $quantity,
-                      prompt: Text("Quantity")
-                .foregroundColor(Color(Constants.Colors.secondary)))
-            .keyboardType(.numbersAndPunctuation)
-            .onReceive(Just(price)) { newValue in
-                let filtered = newValue.filter { "0123456789".contains($0) }
-                if filtered != newValue {
-                    self.price = filtered
+            Section(header: Text("NFT collection and category")) {
+                Picker("Collection", selection: $collection) {
+                    ForEach(nftViewModel.nftCollections, id: \.self) {
+                        Text($0.name).tag($0.id)
+                    }
+                }
+                Picker("Category", selection: $category) {
+                    ForEach(CategoryName.allCases, id: \.self) {
+                        Text($0.rawValue)
+                    }
                 }
             }
-            .modifier(StandardInputField(error: !errorMessage.isEmpty))
-            .padding(.bottom, Constants.Spacing.small)
             
-            Text("Collection")
-            Text("Category")
-            
-            // Description
-            TextField("",
-                      text: $description,
-                      prompt: Text("Description")
-                        .foregroundColor(Color(Constants.Colors.secondary)),
-                      axis: .vertical
-            )
-            .lineLimit(3)
-            .modifier(StandardInputField(error: !errorMessage.isEmpty))
-            .padding(.bottom, Constants.Spacing.small)
-            
-            // Contract address
-            TextField("",
-                      text: $contractAddress,
-                      prompt: Text("Contract address")
-                        .foregroundColor(Color(Constants.Colors.secondary)))
-            .modifier(StandardInputField(error: !errorMessage.isEmpty))
-            .padding(.bottom, Constants.Spacing.small)
-            
+            Section(header: Text("NFT description and contract addresss")) {
+                // Description
+                TextField("",
+                          text: $description,
+                          prompt: Text("Description")
+                    .foregroundColor(Color(Constants.Colors.primaryText)),
+                          axis: .vertical
+                )
+                .lineLimit(3)
+                
+                // Contract address
+                TextField("",
+                          text: $contractAddress,
+                          prompt: Text("Contract address")
+                    .foregroundColor(Color(Constants.Colors.primaryText)))
+            }
             Button {
                 print("Add Nft")
             } label: {
@@ -114,12 +121,13 @@ struct NFTFormView: View {
             }
             .disabled(isSavingData)
         }
-        .padding()
+        .frame(maxWidth: 400)
     }
 }
 
 struct NFTFormView_Previews: PreviewProvider {
     static var previews: some View {
         NFTFormView()
+            .environmentObject(NFTViewModel())
     }
 }
