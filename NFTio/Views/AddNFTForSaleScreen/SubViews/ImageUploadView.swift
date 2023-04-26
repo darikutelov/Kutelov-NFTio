@@ -25,7 +25,7 @@ struct ImageUploadView: View {
         case .loading:
             ProgressView()
         case .empty:
-            Image(systemName: "person.fill")
+            Image(systemName: "photo")
                 .font(.system(size: 40))
                 .foregroundColor(.white)
         case .failure:
@@ -47,7 +47,7 @@ struct CircularUploadImageView: View {
                     cornerRadius: Constants.General.roundedRectCornerRadius
                 )
             )
-            .frame(maxWidth: 400, maxHeight: 400)
+            .frame(width: 300, height: 400)
             .background {
                 RoundedRectangle(
                     cornerRadius: Constants.General.roundedRectCornerRadius

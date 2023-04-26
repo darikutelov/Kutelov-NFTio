@@ -63,27 +63,29 @@ final class APIService {
         do {
             (data, response) = try await session.data(from: url)
         } catch {
-//            if let error = error as? URLError {
-//                switch error.code {
-//                case .notConnectedToInternet:
-//                    print("my no internet connection")
-//                default:
-//                    print("general error")
-//                }
-//            }
-            throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
+            if let error = error as? URLError {
+                switch error.code {
+                // Error is triggered if there is no internet connection when the request is made
+                case .notConnectedToInternet:
+                    print("No internet connection")
+                    throw APIServiceError.failedToConnectToServer("No internet connection. The data that you see may be outdated.")
+                // Error is triggered when the server is down
+                case .cannotConnectToHost:
+                    print("host")
+                    throw APIServiceError.failedToConnectToServer("Can not connect to the host!")
+                default:
+                    print("Failed to connect to the server")
+                    throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
+                }
+            }
+            
+            throw APIServiceError.failedToConnectToServer("Connection Error!")
         }
         
         guard let httpResponse = response as? HTTPURLResponse,
               (200..<300).contains(httpResponse.statusCode) else {
             throw APIServiceError.requestFailed("Bad request")
         }
-        
-//        do {
-//            let buffer = try decoder.decode(type.self, from: data)
-//        } catch let error {
-//            print(error)
-//        }
        
         guard let decodedData = try? decoder.decode(type.self, from: data) else {
             throw APIServiceError.responseDecodingFailed("Error in decoding data!")
@@ -122,6 +124,22 @@ final class APIService {
             (data, response) = try await session.data(for: request)
             
         } catch {
+            if let error = error as? URLError {
+                switch error.code {
+                // Error is triggered if there is no internet connection when the request is made
+                case .notConnectedToInternet:
+                    print("No internet connection")
+                    throw APIServiceError.failedToConnectToServer("No internet connection. The data that you see may be outdated.")
+                // Error is triggered when the server is down
+                case .cannotConnectToHost:
+                    print("host")
+                    throw APIServiceError.failedToConnectToServer("Can not connect to the host!")
+                default:
+                    print("Failed to connect to the server")
+                    throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
+                }
+            }
+            
             throw APIServiceError.failedToConnectToServer("Failed to send data to the server!")
         }
         

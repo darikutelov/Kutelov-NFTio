@@ -152,7 +152,7 @@ final class NFTViewModel: ObservableObject {
             Task { @MainActor in
                 showErrorAlert = true
                 errorMessage = message
-                try await Task.sleep(nanoseconds: 2_000_000_000)
+                try await Task.sleep(nanoseconds: 3_000_000_000)
                 showErrorAlert = false
                 errorMessage = ""
             }

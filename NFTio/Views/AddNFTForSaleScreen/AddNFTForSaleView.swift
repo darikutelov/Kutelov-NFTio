@@ -18,8 +18,8 @@ struct AddNFTForSaleView: View {
                 VStack {
                     Spacer()
                         .frame(height: Constants.Spacing.xxxlarge)
-                    Text(Constants.Text.AddNFT.title.uppercased())
-                        .font(.title3)
+                    Text(Constants.Text.AddNFT.title)
+                        .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(Constants.Colors.secondary))
                     NFTFormView()

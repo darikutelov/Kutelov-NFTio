@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct NFTioApp: App {
+    @StateObject var networkMonitor = NetworkMonitor()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-            let _ = Log.general.debug("NFTio started 🚀")
+                .environmentObject(networkMonitor)
         }
     }
 }
