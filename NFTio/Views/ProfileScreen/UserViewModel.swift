@@ -9,16 +9,21 @@ import Foundation
 import SwiftUI
 
 final class UserViewModel: ObservableObject {
-    @Published var user: User?
+    @MainActor @Published var user: User?
+    
     private let userDataManager = UserDataManager()
-    @State var isLoading = false
-    /// Error Message
+    
+    @MainActor @State var isLoading = false
+
     @MainActor @Published var errorMessage = ""
     
     init() {
-        if let currentUser = userDataManager.getUserFromLocalStorage() {
-            self.user = currentUser
-            // (Fetch user by id and update local storage and view model) (todo)
+        Task {
+            await MainActor.run {
+                if let currentUser = userDataManager.getUserFromLocalStorage() {
+                    self.user = currentUser
+                }
+            }
         }
     }
     
@@ -29,7 +34,6 @@ final class UserViewModel: ObservableObject {
         }
         
         do {
-            
             user = try await userDataManager.loginUser(
                 email: email,
                 password: password
@@ -87,8 +91,8 @@ final class UserViewModel: ObservableObject {
         }
     }
     
-    public func logoutUser() {
-        user = nil
-        userDataManager.logoutUser()
+    @MainActor public func logoutUser() {
+         user = nil
+         userDataManager.logoutUser()
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ErrorNotificationView: View {
+    @EnvironmentObject var nftViewModel: NFTViewModel
+    
     let errorMessage: String
     
     var body: some View {

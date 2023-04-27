@@ -40,7 +40,7 @@ final class AddNFTViewModel: ObservableObject {
     
     @Published private(set) var imageState: ImageUploadView.ImageState = .empty
     
-    @Published var imageSelection: PhotosPickerItem? = nil {
+    @Published var imageSelection: PhotosPickerItem? {
         didSet {
             if let imageSelection {
                 let progress = loadTransferable(from: imageSelection)

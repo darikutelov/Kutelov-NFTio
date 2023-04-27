@@ -24,7 +24,7 @@ struct CollectionListView: View {
                     alignment: .leading,
                     spacing: Constants.Spacing.small
                 ) {
-                    ForEach($viewModel.nftCollections.wrappedValue) {collection in
+                    ForEach($viewModel.nftCollections.wrappedValue ?? [NFTCollection]()) {collection in
                         NavigationLink(value: collection) {
                             collection.view
                         }

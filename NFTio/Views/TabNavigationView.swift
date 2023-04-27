@@ -57,27 +57,34 @@ struct TabNavigationView: View {
                 }
             }
             .onAppear {
-    //            selectedTab = 0
+                //            selectedTab = 0
                 hasSeenWelcomeScreen = true
                 setTabBarUI()
                 if !networkMonitor.isConnected {
                     showNetworkAlert = true
                 }
             }
-            .alert(isPresented: $nftViewModel.showErrorAlert) {
-                Alert(
-                    title: Text("Error!"),
-                    message: Text($nftViewModel.errorMessage.wrappedValue)
-                )
-            }
             .onChange(of: networkMonitor.isConnected) { connection in
-                showNetworkAlert = connection == false
+                print("Connection 321123", connection)
+                if connection {
+                    print(connection)
+//                    Task {
+//                        try? await Task.sleep(nanoseconds: 10_000_000_000)
+//                        await nftViewModel.fetchNftItems()
+//                        await nftViewModel.fetchCollections()
+//                    }
+                } else {
+                    showNetworkAlert = true
+                }
             }
             .sheet(isPresented: $showNetworkAlert) {
                 NoNetworkNotificationView(
                     showNetworkAlert: $showNetworkAlert,
-                    errorMessage: "No internet connection. The data that you see may be outdated."
+                    errorMessage: "No internet connection. The data that you see may be not full and outdated!"
                 )
+            }
+            .popover(isPresented: $nftViewModel.showErrorAlert) {
+                ErrorNotificationView(errorMessage: nftViewModel.errorMessage)
             }
         }
         .edgesIgnoringSafeArea(.all)

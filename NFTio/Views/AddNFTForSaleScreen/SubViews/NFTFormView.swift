@@ -80,7 +80,7 @@ struct NFTFormView: View {
             
             Section(header: Text("NFT collection and category")) {
                 Picker("Collection", selection: $collection) {
-                    ForEach(nftViewModel.nftCollections, id: \.self) {
+                    ForEach(nftViewModel.nftCollections ?? [NFTCollection](), id: \.self) {
                         Text($0.name).tag($0.id)
                     }
                 }

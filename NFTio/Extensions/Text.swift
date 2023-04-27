@@ -14,7 +14,7 @@ extension Constants {
             public static let loading = "Loading ..."
         }
         enum Home {
-            public static let welcome = String(localized: "Welcome", comment: "Welcome message on home screen")
+            public static let welcome = String(localized: "Welcome!", comment: "Welcome message on home screen")
             public static let categoriesLabel = "Categories"
             public static let collectionsLabel = "Collections"
             public static let volumeLabel = "Price"

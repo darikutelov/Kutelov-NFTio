@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class CartViewModel: ObservableObject {
     @Published var cartItems: [ShoppingCartItem] = ShoppingCartDataManager().shoppingCartItems
     @Published var promoCodeDiscount: PromoCode?

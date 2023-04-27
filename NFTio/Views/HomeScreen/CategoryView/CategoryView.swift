@@ -19,7 +19,7 @@ struct CategoryView: View {
     
     var body: some View {
         ZStack {
-            Color(uiColor: .secondarySystemBackground)
+            Color(uiColor: .secondarySystemBackground)            
             ScrollView {
                 Spacer()
                     .frame(height: Constants.Spacing.xxxlarge)
@@ -49,19 +49,19 @@ struct CategoryView: View {
                 }
                 .navigationTitle("\(selectedCategory.name.rawValue)")
                 .navigationBarTitleDisplayMode(.inline)
-                //                    .navigationBarBackButtonHidden(true)
-                //                    .toolbar {
-                //                        ToolbarItem(
-                //                            placement: .navigationBarLeading
-                //                        ) {
-                //                            Button {
-                //                                dismiss()
-                //                            } label: {
-                //                                Image(systemName: Constants.Text.IconNames.arrowBack)
-                //                                    .foregroundColor(Color(Constants.Colors.primaryText))
-                //                            }
-                //                        }
-                //                    }
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
+                    ToolbarItem(
+                        placement: .navigationBarLeading
+                    ) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: Constants.Text.IconNames.arrowBack)
+                                .foregroundColor(Color(Constants.Colors.primaryText))
+                        }
+                    }
+                }
                 .padding(.horizontal)
             }
             .padding(.top, Constants.Spacing.xxlarge)

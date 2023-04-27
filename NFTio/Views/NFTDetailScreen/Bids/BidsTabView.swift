@@ -37,7 +37,7 @@ struct BidsTabView: View {
 struct BidsTabView_Previews: PreviewProvider {
     static var previews: some View {
         BidsTabView()
-            .environmentObject(NFTViewModel())
-            .environmentObject(UserViewModel())
+//            .environmentObject(.constant(NFTViewModel()))
+//            .environmentObject(await UserViewModel())
     }
 }

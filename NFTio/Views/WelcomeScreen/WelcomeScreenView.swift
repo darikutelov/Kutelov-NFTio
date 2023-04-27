@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct WelcomeScreenView: View {
-    @Binding var user: User
     @State private var isOnboardingScreenOpen = false
     
     var body: some View {
@@ -23,8 +22,7 @@ struct WelcomeScreenView: View {
                             height: Constants.General.appIconSize
                         )
                         .padding(.top, Constants.Spacing.xlarge)
-                    WelcomeTextView(text: "\(Constants.Text.Home.welcome), \(user.username)!")
-                        .padding(Constants.Spacing.xlarge)
+                    WelcomeTextView(text: "\(Constants.Text.Home.welcome)")
                     Spacer()
                     NavigationLink(
                         destination: TabNavigationView().navigationBarBackButtonHidden(true)
@@ -69,8 +67,6 @@ struct HomeBackgroundView: View {
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeScreenView(
-            user: .constant(User())
-            )
+        WelcomeScreenView()
     }
 }
