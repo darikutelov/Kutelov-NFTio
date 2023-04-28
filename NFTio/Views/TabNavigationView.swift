@@ -65,24 +65,16 @@ struct TabNavigationView: View {
                 }
             }
             .onChange(of: networkMonitor.isConnected) { connection in
-                print("Connection 321123", connection)
-                if connection {
-                    print(connection)
-//                    Task {
-//                        try? await Task.sleep(nanoseconds: 10_000_000_000)
-//                        await nftViewModel.fetchNftItems()
-//                        await nftViewModel.fetchCollections()
-//                    }
-                } else {
-                    showNetworkAlert = true
-                }
+                showNetworkAlert = connection == false
             }
+            // Error notification from NWPathMonitor
             .sheet(isPresented: $showNetworkAlert) {
                 NoNetworkNotificationView(
                     showNetworkAlert: $showNetworkAlert,
                     errorMessage: "No internet connection. The data that you see may be not full and outdated!"
                 )
             }
+            // Errors notification from APIService
             .popover(isPresented: $nftViewModel.showErrorAlert) {
                 ErrorNotificationView(errorMessage: nftViewModel.errorMessage)
             }

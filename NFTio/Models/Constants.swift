@@ -56,6 +56,10 @@ enum Constants {
             Color.init(hex: "73F90A"),
             Color.init(hex: "EFDB22")
         ]
+        public static let placeholderGradientColors = [
+             Color("CambridgeBlue"),
+             Color("CambridgeBlue").opacity(0.7)
+        ]
         public static let buttonBackgroundGradientColors = [
             Color(red: 1.0, green: 1.0, blue: 1.0, opacity: 0.4),
             Color(red: 1.0, green: 1.0, blue: 1.0, opacity: 0.0)
@@ -71,7 +75,7 @@ enum Constants {
     enum Api {
         // swiftlint: disable all
         public static let baseUrl = "https://cryptic-oasis-81288.herokuapp.com/api/v1/"
-        // public static let baseUrl = "http://localhost:8000/api/v1/"
+        //public static let baseUrl = "http://localhost:8000/api/v1/"
         enum Images {
             public static let categoryBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1647330626/nftio/categories/"
             public static let collectionBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1678552863/nftio/collections/"

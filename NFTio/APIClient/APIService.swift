@@ -65,11 +65,11 @@ final class APIService {
         } catch {
             if let error = error as? URLError {
                 switch error.code {
-                // Error is triggered if there is no internet connection when the request is made
+                    // Error is triggered if there is no internet connection when the request is made
                 case .notConnectedToInternet:
                     print("No internet connection")
                     throw APIServiceError.failedToConnectToServer("No internet connection. The data that you see may be outdated.")
-                // Error is triggered when the server is down
+                    // Error is triggered when the server is down
                 case .cannotConnectToHost:
                     print("host")
                     throw APIServiceError.failedToConnectToServer("Can not connect to the host!")
@@ -86,7 +86,7 @@ final class APIService {
               (200..<300).contains(httpResponse.statusCode) else {
             throw APIServiceError.requestFailed("Bad request")
         }
-       
+        
         guard let decodedData = try? decoder.decode(type.self, from: data) else {
             throw APIServiceError.responseDecodingFailed("Error in decoding data!")
         }
@@ -123,23 +123,11 @@ final class APIService {
             request.httpBody = encodedBodyData
             (data, response) = try await session.data(for: request)
             
-        } catch {
-            if let error = error as? URLError {
-                switch error.code {
-                // Error is triggered if there is no internet connection when the request is made
-                case .notConnectedToInternet:
-                    print("No internet connection")
-                    throw APIServiceError.failedToConnectToServer("No internet connection. The data that you see may be outdated.")
-                // Error is triggered when the server is down
-                case .cannotConnectToHost:
-                    print("host")
-                    throw APIServiceError.failedToConnectToServer("Can not connect to the host!")
-                default:
-                    print("Failed to connect to the server")
-                    throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
-                }
-            }
+        } catch let error {
+            // Handles URLError errors: no connection and server is down
+            try handleServerError(error)
             
+            // Fallback for non URLErrors
             throw APIServiceError.failedToConnectToServer("Failed to send data to the server!")
         }
         
@@ -162,10 +150,10 @@ final class APIService {
            var user = decodedData as? User {
             Self.authToken = token
             user.authToken = token
-
+            
             return user as? T
         }
-
+        
         return decodedData
     }
     
@@ -180,4 +168,65 @@ final class APIService {
         
         return authCookie.value
     }
+    
+    // Handles URLError errors: no connection and server is down
+    private func handleServerError(_ error: Error) throws {
+        if let error = error as? URLError {
+            switch error.code {
+                // Error is triggered if there is no internet connection when the request is made
+            case .notConnectedToInternet:
+                print("No internet connection")
+                throw APIServiceError.failedToConnectToServer("No internet connection. The data that you see may be outdated.")
+                // Error is triggered when the server is down
+            case .cannotConnectToHost:
+                print("host")
+                throw APIServiceError.failedToConnectToServer("Can not connect to the host!")
+            default:
+                print("Failed to connect to the server")
+                throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
+            }
+        }
+    }
+}
+
+extension APIService {
+    func uploadImage(imageData: Data, requestUrl: RequestUrl) async throws {
+        var response: URLResponse
+        
+        guard let url = requestUrl.url else {
+            throw APIServiceError.failedToCreateUrl
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let boundary = UUID().uuidString
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        let body = NSMutableData()
+        
+        body.append("--\(boundary)\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"nft\"; filename=\"\(UUID().uuidString).jpg\"\r\n".data(using: .utf8)!)
+        body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
+        body.append(imageData)
+        body.append("\r\n".data(using: .utf8)!)
+        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        
+        request.httpBody = body as Data
+        
+        do {
+            (_, response) = try await session.data(for: request)
+        } catch let error {
+            try handleServerError(error)
+            
+            throw APIServiceError.failedToConnectToServer("Failed to upload image!")
+        }
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200..<300).contains(httpResponse.statusCode) else {
+            throw APIServiceError.requestFailed("Bad request")
+        }
+        
+    }
+    
 }

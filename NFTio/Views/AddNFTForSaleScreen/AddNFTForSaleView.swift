@@ -22,6 +22,7 @@ struct AddNFTForSaleView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(Constants.Colors.secondary))
+                        .padding(.bottom, 0)
                     NFTFormView()
                 }
             }

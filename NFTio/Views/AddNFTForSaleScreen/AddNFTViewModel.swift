@@ -30,6 +30,11 @@ final class AddNFTViewModel: ObservableObject {
                     throw TransferError.importFailed
                 }
                 let image = Image(uiImage: uiImage)
+                
+                let requestUrl = RequestUrl(endpoint: .nftItems, pathComponents: ["images"])
+                Task {
+                    let _ = try await APIService.shared.uploadImage(imageData: data, requestUrl: requestUrl)
+                }
                 return UploadImage(image: image)
             #else
                 throw TransferError.importFailed
@@ -59,8 +64,8 @@ final class AddNFTViewModel: ObservableObject {
                     return
                 }
                 switch result {
-                case .success(let profileImage?):
-                    self.imageState = .success(profileImage.image)
+                case .success(let nftImage?):
+                    self.imageState = .success(nftImage.image)
                 case .success(nil):
                     self.imageState = .empty
                 case .failure(let error):

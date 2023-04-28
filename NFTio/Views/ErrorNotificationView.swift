@@ -47,17 +47,17 @@ struct NoNetworkNotificationView: View {
                 .padding(.all, Constants.Spacing.xxlarge)
                 .multilineTextAlignment(.center)
         }
-        .task {
-            do {
-                try await Task.sleep(nanoseconds: 3_000_000_000)
-                
-                await MainActor.run {
-                    showNetworkAlert = false
-                }
-            } catch let error {
-                print(error)
-            }
-        }
+//        .task {
+//            do {
+//                try await Task.sleep(nanoseconds: 3_000_000_000)
+//
+//                await MainActor.run {
+//                    showNetworkAlert = false
+//                }
+//            } catch let error {
+//                print(error)
+//            }
+//        }
     }
 }
 

@@ -22,21 +22,22 @@ struct ImageUploadView: View {
         switch imageState {
         case .success(let image):
             image.resizable()
+                .frame(width: 300, height: 300)
         case .loading:
             ProgressView()
         case .empty:
             Image(systemName: "photo")
-                .font(.system(size: 40))
+                .font(.system(size: 80))
                 .foregroundColor(.white)
         case .failure:
             Image(systemName: "exclamationmark.triangle.fill")
-                .font(.system(size: 40))
+                .font(.system(size: 80))
                 .foregroundColor(.white)
         }
     }
 }
 
-struct CircularUploadImageView: View {
+struct SquareUploadImageView: View {
     let imageState: ImageUploadView.ImageState
     
     var body: some View {
@@ -47,16 +48,16 @@ struct CircularUploadImageView: View {
                     cornerRadius: Constants.General.roundedRectCornerRadius
                 )
             )
-            .frame(width: 300, height: 400)
+            .frame(width: 300, height: 300)
             .background {
                 RoundedRectangle(
                     cornerRadius: Constants.General.roundedRectCornerRadius
                 )
                 .fill(
                     LinearGradient(
-                        colors: [.yellow, .orange],
-                        startPoint: .top,
-                        endPoint: .bottom
+                        colors: Constants.Colors.placeholderGradientColors,
+                        startPoint: .leading,
+                        endPoint: .trailing
                     )
                 )
                 .aspectRatio(1.0, contentMode: .fit)
@@ -68,18 +69,23 @@ struct EditableUploadImageView: View {
     @ObservedObject var viewModel: AddNFTViewModel
     
     var body: some View {
-        CircularUploadImageView(imageState: viewModel.imageState)
-            .overlay(alignment: .bottomTrailing) {
-                PhotosPicker(selection: $viewModel.imageSelection,
-                             matching: .images,
-                             photoLibrary: .shared()) {
-                    Image(systemName: "pencil.circle.fill")
-                        .symbolRenderingMode(.multicolor)
-                        .font(.system(size: 30))
-                        .foregroundColor(.accentColor)
+        HStack {
+            Spacer()
+            SquareUploadImageView(imageState: viewModel.imageState)
+                .overlay(alignment: .bottomTrailing) {
+                    PhotosPicker(selection: $viewModel.imageSelection,
+                                 matching: .images,
+                                 photoLibrary: .shared()) {
+                        Image(systemName: "pencil.circle.fill")
+                            .symbolRenderingMode(.multicolor)
+                            .font(.system(size: 40))
+                            .foregroundColor(Color(Constants.Colors.secondary))
+                    }
+                                 .buttonStyle(.borderless)
+                                 .padding()
                 }
-                .buttonStyle(.borderless)
-            }
+            Spacer()
+        }
     }
 }
 

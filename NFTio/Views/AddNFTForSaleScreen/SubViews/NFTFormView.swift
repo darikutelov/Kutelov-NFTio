@@ -29,17 +29,13 @@ struct NFTFormView: View {
     
     var body: some View {
         Form {
-            Section {
-                HStack {
-                    Spacer()
-                    EditableUploadImageView(viewModel: addNFTviewModel)
-                    Spacer()
-                }
+            Section(header: Text("NFT image")) {
+                EditableUploadImageView(
+                    viewModel: addNFTviewModel
+                )
+                .listRowBackground(Color.clear)
             }
-            .listRowBackground(Color.clear)
-            #if !os(macOS)
-            .padding([.top], 10)
-            #endif
+            
             Section(header: Text("NFT name, price and quantity")) {
                 TextField("",
                           text: $name,
@@ -127,7 +123,7 @@ struct NFTFormView: View {
 
 struct NFTFormView_Previews: PreviewProvider {
     static var previews: some View {
-        NFTFormView()
-            .environmentObject(NFTViewModel())
-    }
+            NFTFormView()
+                .environmentObject(NFTViewModel())
+        }
 }
