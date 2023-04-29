@@ -104,7 +104,7 @@ final class NFTViewModel: ObservableObject {
                 pathComponents: [nftItemId]
             )
             do {
-                let _ = try await APIService.shared.saveData(
+                let _ = try await APIService.shared.postData(
                     requestUrl,
                     bodyData: bodyData
                 )
@@ -227,7 +227,7 @@ extension NFTViewModel {
         )
         
         do {
-            let _ = try await APIService.shared.saveData(
+            let _ = try await APIService.shared.postData(
                 requestUrl,
                 bodyData: bid
             )

@@ -23,7 +23,7 @@ final class UserDataManager {
                 endpoint: .users,
                 pathComponents: ["login"]
             )
-            let savedUser = try await APIService.shared.saveData(
+            let savedUser = try await APIService.shared.postData(
                 requestUrl,
                 bodyData: userCredentials
             )
@@ -57,7 +57,7 @@ final class UserDataManager {
                 endpoint: .users,
                 pathComponents: ["register"]
             )
-            let savedUser = try await APIService.shared.saveData(
+            let savedUser = try await APIService.shared.postData(
                 requestUrl,
                 bodyData: userCredentials
             )

@@ -62,23 +62,8 @@ final class APIService {
         
         do {
             (data, response) = try await session.data(from: url)
-        } catch {
-            if let error = error as? URLError {
-                switch error.code {
-                    // Error is triggered if there is no internet connection when the request is made
-                case .notConnectedToInternet:
-                    print("No internet connection")
-                    throw APIServiceError.failedToConnectToServer("No internet connection. The data that you see may be outdated.")
-                    // Error is triggered when the server is down
-                case .cannotConnectToHost:
-                    print("host")
-                    throw APIServiceError.failedToConnectToServer("Can not connect to the host!")
-                default:
-                    print("Failed to connect to the server")
-                    throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
-                }
-            }
-            
+        } catch let error {
+            try handleServerError(error)
             throw APIServiceError.failedToConnectToServer("Connection Error!")
         }
         
@@ -95,7 +80,7 @@ final class APIService {
     }
     
     ///  Universal function to post any data type for the project needs
-    public func saveData<T: Codable>(_ requestUrl: RequestUrl,
+    public func postData<T: Codable>(_ requestUrl: RequestUrl,
                                      bodyData: T) async throws -> T? {
         var encodedBodyData: Data
         var response: URLResponse
@@ -122,8 +107,8 @@ final class APIService {
             encodedBodyData = try encoder.encode(bodyData)
             request.httpBody = encodedBodyData
             (data, response) = try await session.data(for: request)
-            
         } catch let error {
+            print(error)
             // Handles URLError errors: no connection and server is down
             try handleServerError(error)
             
@@ -190,8 +175,9 @@ final class APIService {
 }
 
 extension APIService {
-    func uploadImage(imageData: Data, requestUrl: RequestUrl) async throws {
+    func uploadImage(imageData: Data, requestUrl: RequestUrl) async throws -> String? {
         var response: URLResponse
+        var data: Data
         
         guard let url = requestUrl.url else {
             throw APIServiceError.failedToCreateUrl
@@ -215,7 +201,7 @@ extension APIService {
         request.httpBody = body as Data
         
         do {
-            (_, response) = try await session.data(for: request)
+            (data, response) = try await session.data(for: request)
         } catch let error {
             try handleServerError(error)
             
@@ -227,6 +213,14 @@ extension APIService {
             throw APIServiceError.requestFailed("Bad request")
         }
         
+        struct FileName: Codable {
+            let fileName: String
+        }
+        
+        guard let decodedData = try? decoder.decode(FileName.self, from: data) else {
+            throw APIServiceError.responseDecodingFailed("Error in decoding data!")
+        }
+  
+        return decodedData.fileName
     }
-    
 }

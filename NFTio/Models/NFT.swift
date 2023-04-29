@@ -16,7 +16,7 @@ struct NFT: Hashable, Identifiable, Codable {
     let id: String
     let tokenName: String
     let description: String?
-    let imageUrl: String
+    var imageUrl: String
     var likes: Int
     let creator: String
     let category: Category

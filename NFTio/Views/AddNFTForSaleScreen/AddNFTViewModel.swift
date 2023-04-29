@@ -16,6 +16,7 @@ final class AddNFTViewModel: ObservableObject {
     
     struct UploadImage: Transferable {
         let image: Image
+        static var imageFileName: String?
         
         static var transferRepresentation: some TransferRepresentation {
             DataRepresentation(importedContentType: .image) { data in
@@ -33,7 +34,11 @@ final class AddNFTViewModel: ObservableObject {
                 
                 let requestUrl = RequestUrl(endpoint: .nftItems, pathComponents: ["images"])
                 Task {
-                    let _ = try await APIService.shared.uploadImage(imageData: data, requestUrl: requestUrl)
+                    if let uploadedImageFileName = try await APIService
+                        .shared
+                        .uploadImage(imageData: data, requestUrl: requestUrl) {
+                        Self.imageFileName = uploadedImageFileName
+                    }
                 }
                 return UploadImage(image: image)
             #else
@@ -42,6 +47,8 @@ final class AddNFTViewModel: ObservableObject {
             }
         }
     }
+    
+    // MARK: - Properties
     
     @Published private(set) var imageState: ImageUploadView.ImageState = .empty
     
@@ -72,6 +79,34 @@ final class AddNFTViewModel: ObservableObject {
                     self.imageState = .failure(error)
                 }
             }
+        }
+    }
+    
+    public func resetImage() {
+        imageState = .empty
+    }
+}
+
+extension AddNFTViewModel {
+    public func postNFT(nft: NFT) async throws {
+        
+        var currentNFT = nft
+        
+        guard let imageUrl = UploadImage.imageFileName else {
+            return
+        }
+    
+        currentNFT.imageUrl = imageUrl
+        
+        let requestUrl = RequestUrl(endpoint: .nftItems)
+        
+        do {
+            let _ = try await APIService.shared.postData(
+                requestUrl,
+                bodyData: currentNFT
+            )
+        } catch let error {
+            throw error
         }
     }
 }
