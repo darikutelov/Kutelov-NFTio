@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CartScreenView: View {
     @EnvironmentObject var viewModel: CartViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
+    @State var isLoginScreenOpen = false
     
     var body: some View {
         ZStack(
@@ -26,7 +28,7 @@ struct CartScreenView: View {
                         NavigationLink {
                             BuyNowCheckoutView()
                         } label: {
-                            ButtonView(buttonText: "Checkout")
+                            ButtonView(buttonText: Constants.Text.Cart.checkoutButtonLabel)
                         }
                         .padding()
                         .background(
@@ -35,15 +37,44 @@ struct CartScreenView: View {
                         )
                     } else {
                         VStack {
-                            Text("No NFT items in cart!")
+                            Text(Constants.Text.Cart.emptyMessage)
                         }
                         .padding()
                     }
                 }
-                .navigationTitle("Your Cart")
-                .navigationBarTitleDisplayMode(.large)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Spacer()
+                            Text(Constants.Text.Cart.title)
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color(Constants.Colors.secondary))
+                            Spacer()
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            if userViewModel.user != nil {
+                                userViewModel.logoutUser()
+                            } else {
+                                isLoginScreenOpen = true
+                            }
+                            
+                        } label: {
+                            Image(
+                                systemName: userViewModel.user != nil ?
+                                Constants.Text.IconNames.togglePower :
+                                    Constants.Text.IconNames.person
+                            )
+                            .foregroundColor(Color(Constants.Colors.primaryText))
+                        }
+                    }
+                }
             }
-
+            .fullScreenCover(isPresented: $isLoginScreenOpen) {
+                AuthScreen(isPresented: $isLoginScreenOpen)
+            }
         }
     }
 }
@@ -53,5 +84,6 @@ struct CartScreenView_Previews: PreviewProvider {
     static var previews: some View {
         CartScreenView()
             .environmentObject(CartViewModel())
+            .environmentObject(UserViewModel())
     }
 }

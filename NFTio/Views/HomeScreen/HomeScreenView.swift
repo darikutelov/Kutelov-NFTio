@@ -19,14 +19,14 @@ struct HomeScreenView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 0) {
                         Spacer()
-                            .frame(height: Constants.Spacing.superLarge)
+                            .frame(height: Constants.Spacing.xxxlarge)
                         CategoryListView()
                             .padding(.bottom, Constants.Spacing.xxlarge)
                         CollectionListView()
                             .padding(.bottom, Constants.Spacing.xxlarge)
-//                        NFTListView(
-//                            sectionName: Constants.Text.Home.nftListLabel
-//                        )
+                        NFTListView(
+                            sectionName: Constants.Text.Home.nftListLabel
+                        )
                     }
                     .padding(.horizontal)
                 }
@@ -44,7 +44,6 @@ struct HomeScreenView: View {
                         } else {
                             isLoginScreenOpen = true
                         }
-                        
                     } label: {
                         Image(
                             systemName: userViewModel.user != nil ?

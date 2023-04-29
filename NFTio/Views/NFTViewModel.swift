@@ -15,7 +15,12 @@ final class NFTViewModel: ObservableObject {
     /// Store all NFT categories
     @Published var categories: [Category]
     /// Store all NFT collections
-    @Published var nftCollections: [NFTCollection]?
+    @Published var nftCollections: [NFTCollection]? {
+        didSet {
+            homePageCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
+        }
+    }
+    @Published var homePageCollections: [NFTCollection]?
     /// Store all nft items
     private var nftItems: [NFT]
     /// Store selected category and update filteredNftItems upon selection
@@ -38,6 +43,10 @@ final class NFTViewModel: ObservableObject {
     }
     /// Store filtered items by search term
     @Published var filteredItems = [NFT]()
+    
+    /// Store filtered items by search term
+    @Published var popularItems = [NFT]()
+    
     /// Error flag
     @Published var showErrorAlert = false
     /// Error Message
@@ -51,8 +60,10 @@ final class NFTViewModel: ObservableObject {
         self.nftItems = self.nftDataManager.nftItems
         self.categories = self.nftDataManager.categories
         self.filteredItems = self.nftItems
+        self.popularItems = [filteredItems[7], filteredItems[9], filteredItems[10], filteredItems[12]]
+  
         if nftDataManager.nftCollections.count >= Constants.Collections.numberOfCollectionsOnHomePage {
-            self.nftCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
+            self.homePageCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
         } else {
             self.nftCollections = [NFTCollection]()
         }

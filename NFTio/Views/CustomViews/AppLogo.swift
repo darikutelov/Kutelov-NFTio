@@ -23,7 +23,6 @@ struct AppLogo: View {
                         lineWidth: Constants.General.strokeWidth
                     )
                 )
-            
             Text(Constants.Text.CustomViews.appName)
                 .font(.title)
                 .foregroundColor(.white)

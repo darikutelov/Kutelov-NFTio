@@ -19,7 +19,7 @@ extension Constants {
             public static let collectionsLabel = "Collections"
             public static let volumeLabel = "Price"
             public static let seeAllLabel = "See All"
-            public static let nftListLabel = "Trending NFTs"
+            public static let nftListLabel = "Popular NFTs"
             public static let nftItems = "NFT Itmes"
         }
         enum NFTItems {
@@ -102,9 +102,15 @@ extension Constants {
         }
         
         enum AddNFT {
-            public static let title = "Add Your NFT for Sale"
+            public static let title = "Add NFT for Sale"
             public static let buttonLabel = "Add NFT"
             public static let buttonIcon = "square.and.arrow.down"
+        }
+        
+        enum Cart {
+            public static let title = "Your Cart"
+            public static let emptyMessage = "No NFT items in cart!"
+            public static let checkoutButtonLabel = "Checkout"
         }
     }
     // swiftlint:enable all
