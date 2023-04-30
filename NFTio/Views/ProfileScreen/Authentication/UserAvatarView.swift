@@ -54,7 +54,7 @@ struct CircularProfileImage: View {
 }
 
 struct UserAvatarView: View {
-    @ObservedObject var viewModel: UserViewModel
+    @EnvironmentObject var viewModel: UserViewModel
     
     var body: some View {
         CircularProfileImage(imageState: viewModel.imageState)

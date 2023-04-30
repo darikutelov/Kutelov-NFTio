@@ -32,6 +32,7 @@ extension Constants {
             public static let togglePower = "togglepower"
             public static let pencilIcon = "pencil.circle.fill"
             public static let squarePencilIcon = "square.and.pencil"
+            public static let dolarSignSquare = "dollarsign.square"
         }
         enum LaunchScreen {
             public static let appIcon = "app-icon"
@@ -110,6 +111,8 @@ extension Constants {
             public static let visiblePasswordIcon = "eye.slash"
             public static let notVisiblePasswordIcon = "eye"
             public static let title = "Your Profile"
+            public static let editTitle = "Edit Your Profile"
+            public static let editButtonLabel = "Update"
         }
         
         enum AddNFT {

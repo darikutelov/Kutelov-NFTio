@@ -15,7 +15,7 @@ final class UserViewModel: ObservableObject {
     private let userDataManager = UserDataManager()
     
     @MainActor @State var isLoading = false
-
+    
     @MainActor @Published var errorMessage = ""
     
     @MainActor @Published private(set) var imageState: ImageState = .empty
@@ -164,10 +164,14 @@ extension UserViewModel {
                 let requestUrl = RequestUrl(endpoint: .users, pathComponents: ["images"])
                 
                 Task {
-                    if let uploadedImageFileName = try await APIService
-                        .shared
-                        .uploadImage(imageData: data, requestUrl: requestUrl) {
-                        profileImageFileName = uploadedImageFileName
+                    do {
+                        if let uploadedImageFileName = try await APIService
+                            .shared
+                            .uploadImage(imageData: data, requestUrl: requestUrl) {
+                            profileImageFileName = uploadedImageFileName
+                        }
+                    } catch let error {
+                        print(error)
                     }
                 }
                 

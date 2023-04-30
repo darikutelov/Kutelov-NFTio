@@ -50,7 +50,7 @@ struct ProfileScreenView: View {
                             
                         }
                         
-                        HStack {
+                        HStack(spacing: 12.0) {
                             NavigationLink {
                                 EditProfileView()
                             } label: {
@@ -64,14 +64,25 @@ struct ProfileScreenView: View {
                             Spacer()
                             
                             NavigationLink {
-                                EditProfileView()
+                                MyNFTsView()
                             } label: {
                                 LinkButton(
                                     text: "My NFTs",
                                     bgColor: Constants.Colors.primary,
-                                    iconName: Constants.Text.IconNames.squarePencilIcon
+                                    iconName: Constants.Text.IconNames.dolarSignSquare
                                 )
                             }
+                            
+//                            Button {
+//                                viewModel.logoutUser()
+//                                selectedTab = 0
+//                            } label: {
+//                                LinkButton(
+//                                    text: Constants.Text.Auth.logout,
+//                                    bgColor: Constants.Colors.charcoal,
+//                                    iconName: Constants.Text.IconNames.dolarSignSquare
+//                                )
+//                            }
                         }
                         
                         Button {
@@ -79,7 +90,7 @@ struct ProfileScreenView: View {
                             selectedTab = 0
                         } label: {
                             ButtonView(buttonText: Constants.Text.Auth.logout)
-                                
+
                         }
                     }
                     .frame(maxWidth: 350)
@@ -145,13 +156,13 @@ struct LinkButton: View {
                 .symbolRenderingMode(.multicolor)
                 .font(.system(size: Constants.Spacing.xlarge))
                 .foregroundColor(.white)
-                .padding(.bottom, Constants.Spacing.xsmall)
+                .padding(.bottom, Constants.Spacing.small)
             Text(text)
-                .font(.title2)
+                .font(.title3)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
         }
-        .frame(minWidth: 150, minHeight: 150)
+        .frame(minWidth: 140, minHeight: 100)
         .background {
             RoundedRectangle(cornerRadius: Constants.General.roundedRectCornerRadius)
                 .fill(
@@ -164,7 +175,7 @@ struct LinkButton: View {
                         endPoint: .bottom
                     )
                 )
-                .aspectRatio(1.0, contentMode: .fit)
+//                .aspectRatio(1.0, contentMode: .fit)
         }
         .padding()
     }
