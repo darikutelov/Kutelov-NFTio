@@ -64,16 +64,20 @@ final class APIService {
             (data, response) = try await session.data(from: url)
         } catch let error {
             try handleServerError(error)
-            throw APIServiceError.failedToConnectToServer("Connection Error!")
+            throw APIServiceError.failedToConnectToServer(
+                Constants.Text.ErrorMessages.BadConnection
+            )
         }
         
         guard let httpResponse = response as? HTTPURLResponse,
               (200..<300).contains(httpResponse.statusCode) else {
-            throw APIServiceError.requestFailed("Bad request")
+            throw APIServiceError.requestFailed(Constants.Text.ErrorMessages.badRequest)
         }
         
         guard let decodedData = try? decoder.decode(type.self, from: data) else {
-            throw APIServiceError.responseDecodingFailed("Error in decoding data!")
+            throw APIServiceError.responseDecodingFailed(
+                Constants.Text.ErrorMessages.decodingError
+            )
         }
         
         return decodedData
@@ -113,21 +117,29 @@ final class APIService {
             try handleServerError(error)
             
             // Fallback for non URLErrors
-            throw APIServiceError.failedToConnectToServer("Failed to send data to the server!")
+            throw APIServiceError.failedToConnectToServer(
+                Constants.Text.ErrorMessages.BadConnection
+            )
         }
         
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw APIServiceError.invalidResponse("No proper response from the server")
+            throw APIServiceError.invalidResponse(
+                Constants.Text.ErrorMessages.responseError
+            )
         }
         
         guard (200..<300).contains(httpResponse.statusCode) else {
             let serverErrorMessage = String(data: data, encoding: .utf8)
-            throw APIServiceError.invalidResponse(serverErrorMessage ?? "Bad Request")
+            throw APIServiceError.invalidResponse(
+                serverErrorMessage ?? Constants.Text.ErrorMessages.badRequest
+            )
         }
         
         // Decode data returned from the server
         guard let decodedData = try? decoder.decode(T.self, from: data) else {
-            throw APIServiceError.responseDecodingFailed("Error in decoding data!")
+            throw APIServiceError.responseDecodingFailed(
+                Constants.Text.ErrorMessages.decodingError
+            )
         }
         
         // If post type is User (register, login) get auth token from the cookie and attach it to the user instance
@@ -158,17 +170,23 @@ final class APIService {
     private func handleServerError(_ error: Error) throws {
         if let error = error as? URLError {
             switch error.code {
-                // Error is triggered if there is no internet connection when the request is made
+            // Error is triggered if there is no internet connection when the request is made
             case .notConnectedToInternet:
-                print("No internet connection")
-                throw APIServiceError.failedToConnectToServer("No internet connection. The data that you see may be outdated.")
-                // Error is triggered when the server is down
+                print(Constants.Text.ErrorMessages.noInternetConnection)
+                throw APIServiceError.failedToConnectToServer(
+                    Constants.Text.ErrorMessages.noInternetConnection
+                )
+            // Error is triggered when the server is down
             case .cannotConnectToHost:
-                print("host")
-                throw APIServiceError.failedToConnectToServer("Can not connect to the host!")
+                print(Constants.Text.ErrorMessages.noConnectionWithHost)
+                throw APIServiceError.failedToConnectToServer(
+                    Constants.Text.ErrorMessages.noConnectionWithHost
+                )
             default:
-                print("Failed to connect to the server")
-                throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
+                print(Constants.Text.ErrorMessages.BadConnection)
+                throw APIServiceError.failedToConnectToServer(
+                    Constants.Text.ErrorMessages.BadConnection
+                )
             }
         }
     }
@@ -205,12 +223,14 @@ extension APIService {
         } catch let error {
             try handleServerError(error)
             
-            throw APIServiceError.failedToConnectToServer("Failed to upload image!")
+            throw APIServiceError.failedToConnectToServer(
+                Constants.Text.ErrorMessages.imageUploadFailed
+            )
         }
         
         guard let httpResponse = response as? HTTPURLResponse,
               (200..<300).contains(httpResponse.statusCode) else {
-            throw APIServiceError.requestFailed("Bad request")
+            throw APIServiceError.requestFailed(Constants.Text.ErrorMessages.badRequest)
         }
         
         struct FileName: Codable {
@@ -218,7 +238,9 @@ extension APIService {
         }
         
         guard let decodedData = try? decoder.decode(FileName.self, from: data) else {
-            throw APIServiceError.responseDecodingFailed("Error in decoding data!")
+            throw APIServiceError.responseDecodingFailed(
+                Constants.Text.ErrorMessages.decodingError
+            )
         }
   
         return decodedData.fileName

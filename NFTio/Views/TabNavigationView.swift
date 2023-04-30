@@ -71,7 +71,7 @@ struct TabNavigationView: View {
             .sheet(isPresented: $showNetworkAlert) {
                 NoNetworkNotificationView(
                     showNetworkAlert: $showNetworkAlert,
-                    errorMessage: "No internet connection. The data that you see may be not full and outdated!"
+                    errorMessage: Constants.Text.ErrorMessages.noInternetConnection
                 )
             }
             // Errors notification from APIService

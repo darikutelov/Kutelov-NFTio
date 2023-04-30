@@ -83,6 +83,13 @@ extension Constants {
         }
         enum ErrorMessages {
             public static let JSONFileNotFound = "JSON file not found!"
+            public static let noInternetConnection = "No internet connection. The data that you see may be not full and outdated!"
+            public static let noConnectionWithHost = "Can not connect to the host!"
+            public static let BadConnection = "Failed to connect to the server!"
+            public static let responseError = "No proper response from the server"
+            public static let decodingError = "Error in decoding data!"
+            public static let badRequest = "Bad request"
+            public static let imageUploadFailed = "Failed to upload image!"
         }
         
         enum Auth {
