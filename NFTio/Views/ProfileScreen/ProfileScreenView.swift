@@ -18,49 +18,80 @@ struct ProfileScreenView: View {
             ) {
                 Color(uiColor: .secondarySystemBackground)
                     .edgesIgnoringSafeArea(.all)
-                VStack(spacing: 0) {
-                    if let userAvatar = viewModel.user?.avatarUrl {
-                        RoundedImageView(
-                            imageUrlAsString: Constants.Api.Images.userBaseUrl +   userAvatar
-                        )
-                        .scaledToFill()
-                        .clipShape(Circle())
-                        .frame(width: Constants.Spacing.megaLarge,
-                               height: Constants.Spacing.megaLarge)
-                        .padding(.bottom)
-                    } else {
-                        AvatarPlaceHolder(username: viewModel.user?.username)
+                ScrollView {
+                    VStack(spacing: 0) {
+                        if let userAvatar = viewModel.user?.avatarUrl {
+                            RoundedImageView(
+                                imageUrlAsString: Constants.Api.Images.userBaseUrl +   userAvatar
+                            )
+                            .scaledToFill()
+                            .clipShape(Circle())
+                            .frame(width: Constants.Spacing.megaLarge,
+                                   height: Constants.Spacing.megaLarge)
+                            .padding(.bottom)
+                        } else {
+                            AvatarPlaceHolder(username: viewModel.user?.username)
+                        }
+                        
+                        if let user = viewModel.user {
+                            VStack {
+                                ForEach(Array(user.createInfoFieldsArray().enumerated()), id: \.1.id) { index, infoField in
+                                    InfoFieldCell(label: infoField.label, text: infoField.text)
+                                    if index < 3 {
+                                        Divider()
+                                    }
+                                }
+                            }
+                            .padding(.all, Constants.Spacing.standard)
+                            .background {
+                                RoundedRectangle(cornerRadius: Constants.General.roundedRectCornerRadius)
+                                    .fill(.white)
+                            }
+                            
+                        }
+                        
+                        HStack {
+                            NavigationLink {
+                                EditProfileView()
+                            } label: {
+                                LinkButton(
+                                    text: "Edit",
+                                    bgColor: Constants.Colors.darkYellow,
+                                    iconName: Constants.Text.IconNames.squarePencilIcon
+                                )
+                            }
+                            
+                            Spacer()
+                            
+                            NavigationLink {
+                                EditProfileView()
+                            } label: {
+                                LinkButton(
+                                    text: "My NFTs",
+                                    bgColor: Constants.Colors.primary,
+                                    iconName: Constants.Text.IconNames.squarePencilIcon
+                                )
+                            }
+                        }
+                        
+                        Button {
+                            viewModel.logoutUser()
+                            selectedTab = 0
+                        } label: {
+                            ButtonView(buttonText: Constants.Text.Auth.logout)
+                                
+                        }
                     }
-                    
-                    Text("Username")
-
-                    Text("Email")
-
-                    Text("Wallet")
-
-                    Text("Wallet Address")
-                    
-                    HStack {
-                        Text("Edit")
-                        Text("My NFTs")
-                    }
-                    
-                    Button {
-                        viewModel.logoutUser()
-                        selectedTab = 0
-                    } label: {
-                        ButtonView(buttonText: Constants.Text.Auth.logout)
-                            .frame(maxWidth: Constants.Spacing.maxWidth)
-                    }
+                    .frame(maxWidth: 350)
                 }
-                .padding(.horizontal)
+                .scrollIndicators(.hidden)
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     HStack {
                         Spacer()
                         Text(Constants.Text.Auth.title)
-                            .font(.title2)
+                            .font(.title)
                             .fontWeight(.semibold)
                             .foregroundColor(Color(Constants.Colors.secondary))
                         Spacer()
@@ -100,5 +131,41 @@ struct AvatarPlaceHolder: View {
                 )
             }
             .padding(.bottom)
+    }
+}
+
+struct LinkButton: View {
+    let text: String
+    let bgColor: String
+    let iconName: String
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            Image(systemName: iconName)
+                .symbolRenderingMode(.multicolor)
+                .font(.system(size: Constants.Spacing.xlarge))
+                .foregroundColor(.white)
+                .padding(.bottom, Constants.Spacing.xsmall)
+            Text(text)
+                .font(.title2)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+        }
+        .frame(minWidth: 150, minHeight: 150)
+        .background {
+            RoundedRectangle(cornerRadius: Constants.General.roundedRectCornerRadius)
+                .fill(
+                    LinearGradient(
+                        colors: [
+                            Color(bgColor),
+                            Color(bgColor).opacity(0.8)
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
+                .aspectRatio(1.0, contentMode: .fit)
+        }
+        .padding()
     }
 }

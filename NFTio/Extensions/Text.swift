@@ -31,6 +31,7 @@ extension Constants {
             public static let personFilled = "person.fill"
             public static let togglePower = "togglepower"
             public static let pencilIcon = "pencil.circle.fill"
+            public static let squarePencilIcon = "square.and.pencil"
         }
         enum LaunchScreen {
             public static let appIcon = "app-icon"
