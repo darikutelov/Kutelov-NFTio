@@ -12,23 +12,57 @@ struct ProfileScreenView: View {
     @State private var isLoginScreenOpen = false
     
     var body: some View {
-        ZStack {
-            Color(uiColor: .secondarySystemBackground)
-            VStack {
-                Button {
-                    viewModel.logoutUser()
-                    isLoginScreenOpen = true
-                } label: {
-                    ButtonView(buttonText: "Log Out")
-                        .frame(maxWidth: 300)
+        NavigationStack {
+            ZStack {
+                Color(uiColor: .secondarySystemBackground)
+                VStack {
+                    Spacer()
+                        .frame(height: Constants.Spacing.superLarge)
+                    Form {
+                        Section {
+                            HStack {
+                                Spacer()
+                                UserAvatarView(viewModel: viewModel)
+                                Spacer()
+                            }
+                        }
+                        .listRowBackground(Color.clear)
+                        #if !os(macOS)
+                        .padding([.top], 10)
+                        #endif
+                        
+                        
+                        
+                        Button {
+                            viewModel.logoutUser()
+                            isLoginScreenOpen = true
+                        } label: {
+                            ButtonView(buttonText: Constants.Text.Auth.logout)
+                                .frame(maxWidth: Constants.Spacing.maxWidth)
+                        }
+                        .padding()
+                        .listRowBackground(Color.clear)
+                    }
+                    .background(Color.clear)
                 }
-                .padding()
+                .fullScreenCover(isPresented: $isLoginScreenOpen) {
+                    AuthScreen(isPresented: $isLoginScreenOpen)
+                }
             }
-            .fullScreenCover(isPresented: $isLoginScreenOpen) {
-                AuthScreen(isPresented: $isLoginScreenOpen)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Spacer()
+                        Text(Constants.Text.Auth.title)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(Constants.Colors.secondary))
+                        Spacer()
+                    }
+                }
             }
+            .edgesIgnoringSafeArea(.all)
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 

@@ -96,6 +96,7 @@ extension Constants {
             public static let signIn = "Sign In"
             public static let signInIcon = "arrow.right.square"
             public static let register = "Register"
+            public static let logout = "Sign Out"
             public static let registerIcon = "square.and.pencil"
             public static let backToSignIn = "Back To Sign In"
             public static let backToSignInIcon = "arrow.left.square"
@@ -106,6 +107,7 @@ extension Constants {
             public static let rePasswordFieldLabel = "Repeat Password"
             public static let visiblePasswordIcon = "eye.slash"
             public static let notVisiblePasswordIcon = "eye"
+            public static let title = "Your Profile"
         }
         
         enum AddNFT {

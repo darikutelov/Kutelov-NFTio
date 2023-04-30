@@ -121,6 +121,7 @@ struct NFTFormView: View {
                         )
                     }
                     .disabled(isSavingData)
+                    .listRowBackground(Color.clear)
                 }
                 .frame(maxWidth: 400)
                 .alert(isPresented: $showError) {
