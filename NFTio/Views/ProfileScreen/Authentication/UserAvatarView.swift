@@ -18,7 +18,7 @@ struct ProfileImage: View {
         case .loading:
             ProgressView()
         case .empty:
-            Image(systemName: "person.fill")
+            Image(systemName: Constants.Text.IconNames.personFilled)
                 .font(.system(size: Constants.Spacing.xxxlarge))
                 .foregroundColor(.white)
         case .failure:
@@ -62,7 +62,7 @@ struct UserAvatarView: View {
                 PhotosPicker(selection: $viewModel.imageSelection,
                              matching: .images,
                              photoLibrary: .shared()) {
-                    Image(systemName: "pencil.circle.fill")
+                    Image(systemName: Constants.Text.IconNames.pencilIcon)
                         .symbolRenderingMode(.multicolor)
                         .font(.system(size: 30))
                         .foregroundColor(Color(Constants.Colors.darkYellow))

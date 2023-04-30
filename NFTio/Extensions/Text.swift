@@ -28,8 +28,9 @@ extension Constants {
         enum IconNames {
             public static let arrowBack = "arrow.backward"
             public static let person = "person"
+            public static let personFilled = "person.fill"
             public static let togglePower = "togglepower"
-            
+            public static let pencilIcon = "pencil.circle.fill"
         }
         enum LaunchScreen {
             public static let appIcon = "app-icon"

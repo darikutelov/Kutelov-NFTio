@@ -76,7 +76,7 @@ struct EditableUploadImageView: View {
                     PhotosPicker(selection: $viewModel.imageSelection,
                                  matching: .images,
                                  photoLibrary: .shared()) {
-                        Image(systemName: "pencil.circle.fill")
+                        Image(systemName: Constants.Text.IconNames.pencilIcon)
                             .symbolRenderingMode(.multicolor)
                             .font(.system(size: 40))
                             .foregroundColor(Color(Constants.Colors.secondary))

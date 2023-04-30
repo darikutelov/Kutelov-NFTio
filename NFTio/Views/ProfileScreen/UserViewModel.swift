@@ -20,7 +20,7 @@ final class UserViewModel: ObservableObject {
     
     @MainActor @Published private(set) var imageState: ImageState = .empty
     
-    @MainActor @Published var imageSelection: PhotosPickerItem? = nil {
+    @MainActor @Published var imageSelection: PhotosPickerItem? {
         didSet {
             if let imageSelection {
                 let progress = loadTransferable(from: imageSelection)
@@ -109,6 +109,23 @@ final class UserViewModel: ObservableObject {
          user = nil
          userDataManager.logoutUser()
     }
+    
+    @MainActor public func updateUser() async throws {
+        guard var currentUser = self.user else { return }
+        
+        if let avatarImageUrl = ProfileImage.profileImageFileName {
+            currentUser.avatarUrl = avatarImageUrl
+        }
+        
+        Task {
+            do {
+                try await userDataManager.updateUser(user: currentUser)
+                
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 // MARK: - User Avatar
@@ -127,6 +144,7 @@ extension UserViewModel {
     
     struct ProfileImage: Transferable {
         let image: Image
+        static var profileImageFileName: String?
         
         static var transferRepresentation: some TransferRepresentation {
             DataRepresentation(importedContentType: .image) { data in
@@ -141,6 +159,18 @@ extension UserViewModel {
                     throw TransferError.importFailed
                 }
                 let image = Image(uiImage: uiImage)
+                
+                // Upload Image to server
+                let requestUrl = RequestUrl(endpoint: .users, pathComponents: ["images"])
+                
+                Task {
+                    if let uploadedImageFileName = try await APIService
+                        .shared
+                        .uploadImage(imageData: data, requestUrl: requestUrl) {
+                        profileImageFileName = uploadedImageFileName
+                    }
+                }
+                
                 return ProfileImage(image: image)
             #else
                 throw TransferError.importFailed

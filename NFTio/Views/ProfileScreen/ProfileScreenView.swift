@@ -9,45 +9,51 @@ import SwiftUI
 
 struct ProfileScreenView: View {
     @EnvironmentObject var viewModel: UserViewModel
-    @State private var isLoginScreenOpen = false
+    @AppStorage(Constants.Text.TabView.userdefaultsKey) var selectedTab = 0
     
     var body: some View {
         NavigationStack {
-            ZStack {
+            ZStack(
+                alignment: Alignment(horizontal: .center, vertical: .top)
+            ) {
                 Color(uiColor: .secondarySystemBackground)
-                VStack {
-                    Spacer()
-                        .frame(height: Constants.Spacing.superLarge)
-                    Form {
-                        Section {
-                            HStack {
-                                Spacer()
-                                UserAvatarView(viewModel: viewModel)
-                                Spacer()
-                            }
-                        }
-                        .listRowBackground(Color.clear)
-                        #if !os(macOS)
-                        .padding([.top], 10)
-                        #endif
-                        
-                        
-                        
-                        Button {
-                            viewModel.logoutUser()
-                            isLoginScreenOpen = true
-                        } label: {
-                            ButtonView(buttonText: Constants.Text.Auth.logout)
-                                .frame(maxWidth: Constants.Spacing.maxWidth)
-                        }
-                        .padding()
-                        .listRowBackground(Color.clear)
+                    .edgesIgnoringSafeArea(.all)
+                VStack(spacing: 0) {
+                    if let userAvatar = viewModel.user?.avatarUrl {
+                        RoundedImageView(
+                            imageUrlAsString: Constants.Api.Images.userBaseUrl +   userAvatar
+                        )
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .frame(width: Constants.Spacing.megaLarge,
+                               height: Constants.Spacing.megaLarge)
+                        .padding(.bottom)
+                    } else {
+                        AvatarPlaceHolder(username: viewModel.user?.username)
                     }
-                    .background(Color.clear)
+                    
+                    Text("Username")
+
+                    Text("Email")
+
+                    Text("Wallet")
+
+                    Text("Wallet Address")
+                    
+                    HStack {
+                        Text("Edit")
+                        Text("My NFTs")
+                    }
+                    
+                    Button {
+                        viewModel.logoutUser()
+                        selectedTab = 0
+                    } label: {
+                        ButtonView(buttonText: Constants.Text.Auth.logout)
+                            .frame(maxWidth: Constants.Spacing.maxWidth)
+                    }
                 }
-                .fullScreenCover(isPresented: $isLoginScreenOpen) {
-                    AuthScreen(isPresented: $isLoginScreenOpen)
-                }
+                .padding(.horizontal)
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -61,7 +67,6 @@ struct ProfileScreenView: View {
                     }
                 }
             }
-            .edgesIgnoringSafeArea(.all)
         }
     }
 }
@@ -70,5 +75,30 @@ struct ProfileScreenView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileScreenView()
             .environmentObject(UserViewModel())
+    }
+}
+
+struct AvatarPlaceHolder: View {
+    let username: String?
+    
+    var body: some View {
+        Image(systemName: Constants.Text.IconNames.personFilled)
+            .font(.system(size: Constants.Spacing.xxxlarge))
+            .foregroundColor(.white)
+            .frame(width: Constants.Spacing.megaLarge,
+                   height: Constants.Spacing.megaLarge)
+            .background {
+                Circle().fill(
+                    LinearGradient(
+                        colors: [
+                            Color(Constants.Colors.secondary),
+                            Color(Constants.Colors.charcoal).opacity(0.7)
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
+            }
+            .padding(.bottom)
     }
 }

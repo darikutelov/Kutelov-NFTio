@@ -7,13 +7,22 @@
 
 import Foundation
 
+enum Wallet: String, CaseIterable, Codable {
+    case metamask = "Metamask"
+    case coinbase = "Coinbase Wallet"
+    case safepal = "SafePal"
+    case exodus = "Exodus"
+    case unknown = "Unknown"
+}
+
 struct User: Codable {
     var id: String?
     var username: String = ""
     var email: String = ""
     var password: String? = ""
-    var avatarUrl: URL?
+    var avatarUrl: String?
     var walletAddress: String?
+    var wallet: Wallet?
     var authToken: String?
 }
 

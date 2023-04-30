@@ -135,6 +135,12 @@ final class APIService {
             )
         }
         
+//        do {
+//            try decoder.decode(T.self, from: data)
+//        } catch let error {
+//            print(error)
+//        }
+        
         // Decode data returned from the server
         guard let decodedData = try? decoder.decode(T.self, from: data) else {
             throw APIServiceError.responseDecodingFailed(
