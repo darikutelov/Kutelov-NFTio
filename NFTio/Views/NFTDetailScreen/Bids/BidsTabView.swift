@@ -15,7 +15,11 @@ struct BidsTabView: View {
         let bids =  nftViewModel.selectedNFT?.bids.sorted { $0.price.priceInCryptoCurrency > $1.price.priceInCryptoCurrency} ?? []
         
         VStack {
-            if !bids.isEmpty {
+            if nftViewModel.selectedNFT?.auctionExpiryDate == nil {
+                Text("Currently there is no auction for this item! You can buy it now on the current price.")
+                    .font(.subheadline)
+                    .foregroundColor(Color(Constants.Colors.primaryText))
+            } else if !bids.isEmpty {
                 ForEach(bids) { bid in
                     BidCellView(bid: bid)
                     if bid.id != bids.last?.id {

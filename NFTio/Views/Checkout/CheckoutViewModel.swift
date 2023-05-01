@@ -8,6 +8,7 @@
 import Foundation
 
 final class CheckoutViewModel: ObservableObject {
-    var cartViewModel: CartViewModel? = nil
+    var cartViewModel: CartViewModel?
+    let paymentMetods = ["My Wallet", "Bank Card"]
         
 }

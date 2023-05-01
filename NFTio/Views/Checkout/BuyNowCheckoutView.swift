@@ -9,9 +9,11 @@ import SwiftUI
 
 struct BuyNowCheckoutView: View {
     @EnvironmentObject var viewModel: CartViewModel
+    @Environment(\.dismiss) private var dismiss
+    
     @StateObject var checkoutViewModel = CheckoutViewModel()
     @State var promoCode: String = ""
-    @Environment(\.dismiss) private var dismiss
+    @State private var selectedPaymentMethod = "Wallet"
     
     var body: some View {
         ZStack {
@@ -43,7 +45,12 @@ struct BuyNowCheckoutView: View {
                         totalAmount: viewModel.totalAmount
                     )
                     
-                    // TODO: - Add payment
+                    Picker("Payment Method", selection: $selectedPaymentMethod) {
+                        ForEach(checkoutViewModel.paymentMetods, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
                     
                     Button {
                         viewModel.cartItems = []

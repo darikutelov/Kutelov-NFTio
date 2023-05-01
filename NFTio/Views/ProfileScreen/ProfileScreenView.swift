@@ -34,7 +34,7 @@ struct ProfileScreenView: View {
                         }
                         
                         if let user = viewModel.user {
-                            VStack {
+                            VStack(alignment: .leading) {
                                 ForEach(Array(
                                     user.createInfoFieldsArray().enumerated()),
                                         id: \.1.id) { index, infoField in
@@ -49,10 +49,9 @@ struct ProfileScreenView: View {
                                 RoundedRectangle(cornerRadius: Constants.General.roundedRectCornerRadius)
                                     .fill(.white)
                             }
-                            
                         }
                         
-                        HStack(spacing: 12.0) {
+                        HStack(spacing: 4.0) {
                             NavigationLink {
                                 EditProfileView()
                             } label: {
@@ -62,8 +61,6 @@ struct ProfileScreenView: View {
                                     iconName: Constants.Text.IconNames.squarePencilIcon
                                 )
                             }
-                            
-                            Spacer()
                             
                             NavigationLink {
                                 MyNFTsView()
@@ -75,6 +72,7 @@ struct ProfileScreenView: View {
                                 )
                             }
                         }
+                        .padding(.vertical)
                         
                         Button {
                             viewModel.logoutUser()

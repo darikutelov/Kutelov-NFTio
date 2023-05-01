@@ -43,6 +43,26 @@ extension NFT {
     }
 }
 
+extension NFT {
+    struct InfoField: Identifiable {
+        let id = UUID()
+        let label: String
+        let text: String
+    }
+    
+    func createInfoFieldsArray() -> [InfoField] {
+        return [
+            InfoField(label: "Blockchain", text: self.price.cryptoCurrency.rawValue),
+            InfoField(label: "Creator", text: self.creator),
+            InfoField(label: "Likes", text: "\(self.likes)"),
+            InfoField(label: "Quantity", text: "\(self.quantity)"),
+            InfoField(label: "Category", text: self.category.name.rawValue),
+            InfoField(label: "Collection", text: self.nftCollection.name),
+            InfoField(label: "Contract address", text: self.contractAddress)
+        ]
+    }
+}
+
 /// Data structure for price of NFT itme
 struct Price: Codable {
     let cryptoCurrency: CryptoCurrency

@@ -60,6 +60,7 @@
 		9C50C3CB29FEC72900DB9FD2 /* MyNFTsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C50C3CA29FEC72900DB9FD2 /* MyNFTsView.swift */; };
 		9C50C3CD29FFABF600DB9FD2 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C50C3CC29FFABF600DB9FD2 /* Order.swift */; };
 		9C50C3CF29FFB2BC00DB9FD2 /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C50C3CE29FFB2BC00DB9FD2 /* CheckoutViewModel.swift */; };
+		9C50C3D129FFC6AB00DB9FD2 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C50C3D029FFC6AB00DB9FD2 /* Transition.swift */; };
 		9C5B5EC829CC988100FD62D7 /* CategoryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B5EC729CC988100FD62D7 /* CategoryStoreTests.swift */; };
 		9C5B5ECF29CC99C800FD62D7 /* CartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B5ECE29CC99C800FD62D7 /* CartViewModelTests.swift */; };
 		9C60D6CE29D5E24A007AF4B4 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60D6CD29D5E24A007AF4B4 /* FileManager.swift */; };
@@ -75,7 +76,6 @@
 		9C93C3A129EFEFC600B7062A /* TimerSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93C3A029EFEFC600B7062A /* TimerSectionView.swift */; };
 		9C93C3A329F027B600B7062A /* TimeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93C3A229F027B600B7062A /* TimeUnit.swift */; };
 		9C93C3A529F0440E00B7062A /* MediumInfoSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93C3A429F0440E00B7062A /* MediumInfoSectionView.swift */; };
-		9C93C3A729F0470000B7062A /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93C3A629F0470000B7062A /* TabsView.swift */; };
 		9C93C3A929F0487400B7062A /* DetailsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93C3A829F0487400B7062A /* DetailsTabView.swift */; };
 		9C93C3AB29F0489600B7062A /* BidsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93C3AA29F0489600B7062A /* BidsTabView.swift */; };
 		9C94667629B20AD500129EB1 /* NFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C94667529B20AD500129EB1 /* NFT.swift */; };
@@ -194,6 +194,7 @@
 		9C50C3CA29FEC72900DB9FD2 /* MyNFTsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNFTsView.swift; sourceTree = "<group>"; };
 		9C50C3CC29FFABF600DB9FD2 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		9C50C3CE29FFB2BC00DB9FD2 /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
+		9C50C3D029FFC6AB00DB9FD2 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		9C5B5EC529CC988100FD62D7 /* NFTioUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NFTioUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5B5EC729CC988100FD62D7 /* CategoryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStoreTests.swift; sourceTree = "<group>"; };
 		9C5B5ECE29CC99C800FD62D7 /* CartViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
@@ -210,7 +211,6 @@
 		9C93C3A029EFEFC600B7062A /* TimerSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSectionView.swift; sourceTree = "<group>"; };
 		9C93C3A229F027B600B7062A /* TimeUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUnit.swift; sourceTree = "<group>"; };
 		9C93C3A429F0440E00B7062A /* MediumInfoSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumInfoSectionView.swift; sourceTree = "<group>"; };
-		9C93C3A629F0470000B7062A /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		9C93C3A829F0487400B7062A /* DetailsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTabView.swift; sourceTree = "<group>"; };
 		9C93C3AA29F0489600B7062A /* BidsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidsTabView.swift; sourceTree = "<group>"; };
 		9C94667529B20AD500129EB1 /* NFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFT.swift; sourceTree = "<group>"; };
@@ -559,6 +559,7 @@
 				9C0C4EA429B4E5B50018E546 /* NumberFormatter.swift */,
 				9CB548CD29BF068B00A67C6D /* Hashable.swift */,
 				9C60D6CD29D5E24A007AF4B4 /* FileManager.swift */,
+				9C50C3D029FFC6AB00DB9FD2 /* Transition.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -588,7 +589,6 @@
 				9CD9835429D71C220014B4D0 /* LikesIconView.swift */,
 				9C93C3A029EFEFC600B7062A /* TimerSectionView.swift */,
 				9C93C3A429F0440E00B7062A /* MediumInfoSectionView.swift */,
-				9C93C3A629F0470000B7062A /* TabsView.swift */,
 				9C93C3A829F0487400B7062A /* DetailsTabView.swift */,
 			);
 			path = SubViews;
@@ -935,6 +935,7 @@
 				9C630C3929F838250054DDE3 /* ErrorNotificationView.swift in Sources */,
 				9C0E478D29ABB6E100DEB975 /* NameView.swift in Sources */,
 				9C94667D29B20BB000129EB1 /* NFTDataManager.swift in Sources */,
+				9C50C3D129FFC6AB00DB9FD2 /* Transition.swift in Sources */,
 				9C2EA9B129A113E9009A831C /* OnboardingScreenView.swift in Sources */,
 				9CE1F8F229FE80A6006ABC2A /* EditProfileView.swift in Sources */,
 				9C0B042729B5225A000330AB /* DiscountAndDiscountAmountView.swift in Sources */,
@@ -951,7 +952,6 @@
 				9C0C4E9A29B4D6470018E546 /* ShoppingCartDataManager.swift in Sources */,
 				9C0386F529A7C54200EF4BAD /* Text.swift in Sources */,
 				9C86225629B483A300CF20E8 /* DiscountTypes.swift in Sources */,
-				9C93C3A729F0470000B7062A /* TabsView.swift in Sources */,
 				9C0386E929A7BD9500EF4BAD /* WelcomeTextView.swift in Sources */,
 				9CFD9B2529C4550B00D12148 /* TabNavigationView.swift in Sources */,
 				9C0AC40729E7EEF300CFDA75 /* UserDataManager.swift in Sources */,
