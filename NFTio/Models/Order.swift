@@ -18,3 +18,8 @@ struct Order {
     let created: Date
     var items: [OrderItems]
 }
+
+struct CheckoutIntentResponse: Codable {
+    let clientSecret: String?
+    let amount: Decimal?
+}

@@ -93,7 +93,7 @@ final class APIService {
         guard let url = requestUrl.url else {
             throw APIServiceError.failedToCreateUrl
         }
-        
+
         /// Create post request
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
