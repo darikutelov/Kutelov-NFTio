@@ -88,6 +88,7 @@ struct EditProfileView: View {
             }
             .frame(maxWidth: 400)
             .background(Color.clear)
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(

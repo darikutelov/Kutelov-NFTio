@@ -58,6 +58,8 @@
 		9C4E9FA729D823CC0061F3E7 /* likedNftItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E9FA629D823CC0061F3E7 /* likedNftItems.json */; };
 		9C4E9FA929D8243B0061F3E7 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E9FA829D8243A0061F3E7 /* categories.json */; };
 		9C50C3CB29FEC72900DB9FD2 /* MyNFTsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C50C3CA29FEC72900DB9FD2 /* MyNFTsView.swift */; };
+		9C50C3CD29FFABF600DB9FD2 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C50C3CC29FFABF600DB9FD2 /* Order.swift */; };
+		9C50C3CF29FFB2BC00DB9FD2 /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C50C3CE29FFB2BC00DB9FD2 /* CheckoutViewModel.swift */; };
 		9C5B5EC829CC988100FD62D7 /* CategoryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B5EC729CC988100FD62D7 /* CategoryStoreTests.swift */; };
 		9C5B5ECF29CC99C800FD62D7 /* CartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B5ECE29CC99C800FD62D7 /* CartViewModelTests.swift */; };
 		9C60D6CE29D5E24A007AF4B4 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60D6CD29D5E24A007AF4B4 /* FileManager.swift */; };
@@ -190,6 +192,8 @@
 		9C4E9FA629D823CC0061F3E7 /* likedNftItems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = likedNftItems.json; sourceTree = "<group>"; };
 		9C4E9FA829D8243A0061F3E7 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		9C50C3CA29FEC72900DB9FD2 /* MyNFTsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNFTsView.swift; sourceTree = "<group>"; };
+		9C50C3CC29FFABF600DB9FD2 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		9C50C3CE29FFB2BC00DB9FD2 /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
 		9C5B5EC529CC988100FD62D7 /* NFTioUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NFTioUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5B5EC729CC988100FD62D7 /* CategoryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStoreTests.swift; sourceTree = "<group>"; };
 		9C5B5ECE29CC99C800FD62D7 /* CartViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
@@ -509,6 +513,7 @@
 				9C0C4EA129B4E4510018E546 /* SubViews */,
 				9C86225129B482CB00CF20E8 /* BuyNowCheckoutView.swift */,
 				9C0C4E9D29B4DDE30018E546 /* CheckoutItemListView.swift */,
+				9C50C3CE29FFB2BC00DB9FD2 /* CheckoutViewModel.swift */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -671,6 +676,7 @@
 				9C86225529B483A300CF20E8 /* DiscountTypes.swift */,
 				9C32AA5029C60BB8001486DA /* ShoppingCartItem.swift */,
 				9C93C3A229F027B600B7062A /* TimeUnit.swift */,
+				9C50C3CC29FFABF600DB9FD2 /* Order.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -974,6 +980,7 @@
 				9C37C1C229BC738500125E09 /* CategoryListView.swift in Sources */,
 				9C93C3A529F0440E00B7062A /* MediumInfoSectionView.swift in Sources */,
 				9CBB98E129A20C3F00759204 /* Color.swift in Sources */,
+				9C50C3CD29FFABF600DB9FD2 /* Order.swift in Sources */,
 				9C016BCD29F266CD00A91E5A /* CustomSegmentedControl.swift in Sources */,
 				9C0E478B29ABB64100DEB975 /* PriceView.swift in Sources */,
 				9C94667A29B20B4600129EB1 /* NFTCollection.swift in Sources */,
@@ -987,6 +994,7 @@
 				9CB5D1E129F8255600BC1B34 /* NetworkMonitor.swift in Sources */,
 				9C4A674229F57E88000B5A03 /* BidCellView.swift in Sources */,
 				9C86225829B48FEC00CF20E8 /* Decimal.swift in Sources */,
+				9C50C3CF29FFB2BC00DB9FD2 /* CheckoutViewModel.swift in Sources */,
 				9CD226B329BDCCA500462C35 /* NFTDetailView.swift in Sources */,
 				9C1F693629D4115C00690BAE /* AuthScreen.swift in Sources */,
 				9C0C4E9E29B4DDE30018E546 /* CheckoutItemListView.swift in Sources */,

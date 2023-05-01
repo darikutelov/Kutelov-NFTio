@@ -52,6 +52,7 @@ struct CartScreenView: View {
                                 .foregroundColor(Color(Constants.Colors.secondary))
                             Spacer()
                         }
+                        .padding(.trailing, -Constants.Spacing.xlarge)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {

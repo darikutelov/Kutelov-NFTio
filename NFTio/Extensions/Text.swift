@@ -64,7 +64,7 @@ extension Constants {
             public static let appName = String(localized: "NFTio", comment: "App name")
         }
         enum Checkout {
-            public static let screenTitle = "Buy Now"
+            public static let screenTitle = "Checkout"
             public static let checkoutButton = "complete purchase"
             public static let totalAmount = "total amount"
             public static let amountToPay = "amount to pay"

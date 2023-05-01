@@ -28,7 +28,7 @@ struct ProfileScreenView: View {
                             .clipShape(Circle())
                             .frame(width: Constants.Spacing.megaLarge,
                                    height: Constants.Spacing.megaLarge)
-                            .padding(.bottom)
+                            .padding(.vertical, Constants.Spacing.xlarge)
                         } else {
                             AvatarPlaceHolder(username: viewModel.user?.username)
                         }
@@ -88,6 +88,7 @@ struct ProfileScreenView: View {
                 }
                 .scrollIndicators(.hidden)
             }
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     HStack {
