@@ -115,6 +115,7 @@ final class UserViewModel: ObservableObject {
         
         if let avatarImageUrl = ProfileImage.profileImageFileName {
             currentUser.avatarUrl = avatarImageUrl
+            user?.avatarUrl = avatarImageUrl
         }
         
         Task {

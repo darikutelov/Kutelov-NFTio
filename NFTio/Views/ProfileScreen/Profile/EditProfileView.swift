@@ -59,6 +59,14 @@ struct EditProfileView: View {
                               prompt: Text("Wallet Address")
                         .foregroundColor(Color(Constants.Colors.primaryText)))
                 }
+               
+                if !errorMessage.isEmpty {
+                    Section(header: Text("Error")) {
+                       Text(errorMessage)
+                            .foregroundColor(.red)
+                    }
+                    .listRowBackground(Color.clear)
+                }
                 
                 Button {
                     errorMessage = ""
@@ -123,13 +131,24 @@ struct EditProfileView: View {
         }
     }
     
-    private func saveUser() async {        
-        return
-//        do {
-//            try await viewModel.updateUser()
-//        } catch let error {
-//            errorMessage = error.localizedDescription
-//        }
+    private func saveUser() async {
+        isSaving = true
+        defer {
+            isSaving = false
+        }
+        
+        do {
+            viewModel.user?.username = username
+            viewModel.user?.email = email
+            viewModel.user?.wallet = wallet
+            viewModel.user?.walletAddress = walletAddress
+            
+            try await viewModel.updateUser()
+            
+            dismiss()
+        } catch let error {
+            errorMessage = error.localizedDescription
+        }
     }
 }
 

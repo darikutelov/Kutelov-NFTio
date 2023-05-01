@@ -35,7 +35,9 @@ struct ProfileScreenView: View {
                         
                         if let user = viewModel.user {
                             VStack {
-                                ForEach(Array(user.createInfoFieldsArray().enumerated()), id: \.1.id) { index, infoField in
+                                ForEach(Array(
+                                    user.createInfoFieldsArray().enumerated()),
+                                        id: \.1.id) { index, infoField in
                                     InfoFieldCell(label: infoField.label, text: infoField.text)
                                     if index < 3 {
                                         Divider()
@@ -72,17 +74,6 @@ struct ProfileScreenView: View {
                                     iconName: Constants.Text.IconNames.dolarSignSquare
                                 )
                             }
-                            
-//                            Button {
-//                                viewModel.logoutUser()
-//                                selectedTab = 0
-//                            } label: {
-//                                LinkButton(
-//                                    text: Constants.Text.Auth.logout,
-//                                    bgColor: Constants.Colors.charcoal,
-//                                    iconName: Constants.Text.IconNames.dolarSignSquare
-//                                )
-//                            }
                         }
                         
                         Button {
