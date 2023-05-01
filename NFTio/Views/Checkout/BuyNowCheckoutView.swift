@@ -9,11 +9,18 @@ import SwiftUI
 
 struct BuyNowCheckoutView: View {
     @EnvironmentObject var viewModel: CartViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
     @Environment(\.dismiss) private var dismiss
     
     @StateObject var checkoutViewModel = CheckoutViewModel()
     @State var promoCode: String = ""
     @State private var selectedPaymentMethod = "Wallet"
+    @State private var selectedTab = Tab.wallet
+    
+    enum Tab {
+        case wallet
+        case bankCard
+    }
     
     var body: some View {
         ZStack {
@@ -45,12 +52,30 @@ struct BuyNowCheckoutView: View {
                         totalAmount: viewModel.totalAmount
                     )
                     
-                    Picker("Payment Method", selection: $selectedPaymentMethod) {
-                        ForEach(checkoutViewModel.paymentMetods, id: \.self) {
-                            Text($0)
+                    CustomSegmentedControl(selection: $selectedTab) {
+                        Text("My Wallet")
+                            .segmentedControlItemTag(Tab.wallet)
+                        Text("Bank Card")
+                            .segmentedControlItemTag(Tab.bankCard)
+                    }
+                    .padding(.vertical)
+                    
+                    VStack(alignment: .leading) {
+                        switch selectedTab {
+                        case .wallet:
+                            VStack {
+                                if let myWallet = userViewModel.user?.wallet {
+                                    Text("Pay by your \(myWallet.rawValue) wallet.")
+                                } else {
+                                    Text("You do not have a wallet.")
+                                }
+                            }.transition(.slide)
+                        case .bankCard:
+                            BidsTabView()
+                                .transition(.backslide)
                         }
                     }
-                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.vertical)
                     
                     Button {
                         viewModel.cartItems = []
@@ -97,5 +122,6 @@ struct ByNowCheckoutView_Previews: PreviewProvider {
     static var previews: some View {
         BuyNowCheckoutView()
             .environmentObject(CartViewModel())
+            .environmentObject(UserViewModel())
     }
 }

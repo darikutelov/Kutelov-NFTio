@@ -17,7 +17,10 @@ final class NFTViewModel: ObservableObject {
     /// Store all NFT collections
     @Published var nftCollections: [NFTCollection]? {
         didSet {
-            homePageCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
+            if self.nftDataManager.nftCollections.count >= Constants.Collections.numberOfCollectionsOnHomePage {
+                homePageCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
+                
+            }
         }
     }
     @Published var homePageCollections: [NFTCollection]?
@@ -60,8 +63,11 @@ final class NFTViewModel: ObservableObject {
         self.nftItems = self.nftDataManager.nftItems
         self.categories = self.nftDataManager.categories
         self.filteredItems = self.nftItems
-        self.popularItems = [filteredItems[7], filteredItems[9], filteredItems[10], filteredItems[12]]
-  
+        
+        if filteredItems.count > 15 {
+            self.popularItems = [filteredItems[7], filteredItems[9], filteredItems[10], filteredItems[12]]
+        }
+        
         if nftDataManager.nftCollections.count >= Constants.Collections.numberOfCollectionsOnHomePage {
             self.homePageCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
         } else {
@@ -150,6 +156,11 @@ final class NFTViewModel: ObservableObject {
             filteredItems = data.nftItems
             
             nftDataManager.nftItems = data.nftItems
+            
+            if filteredItems.count > 15 {
+                self.popularItems = [filteredItems[7], filteredItems[9], filteredItems[10], filteredItems[12]]
+            }
+            
         } catch APIServiceError.failedToConnectToServer(let message) {
             setError(message: message)
         } catch let error {
@@ -167,7 +178,7 @@ final class NFTViewModel: ObservableObject {
             
             nftCollections = data.nftCollections
             nftDataManager.nftCollections = data.nftCollections
-            
+            homePageCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
         } catch let error {
             switch error {
             case APIServiceError.responseDecodingFailed(let message):

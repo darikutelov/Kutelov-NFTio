@@ -18,6 +18,7 @@ struct NFTFormView: View {
     @State var price: String = "0.1315"
     @State var bidCurrency: CryptoCurrency = CryptoCurrency.ethereum
     @State var quantity: String = "1"
+    // swiftlint:disable:next line_length
     @State var description: String = "WonderPals is a collection of 10,000 delightfully cute pals. Our vision is to bring more joy to the world through community, creativity, and fun art"
     @State var contractAddress: String = "0x3Acce66cD37518A6d77d9ea3039E00B3A2955460"
     @State var collection: NFTCollection = NFTDataManager().nftCollections[2]
