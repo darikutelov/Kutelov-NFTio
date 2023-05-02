@@ -70,6 +70,7 @@
 		9C5A1A0F2A00F948000D6427 /* ApplePayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5A1A0E2A00F948000D6427 /* ApplePayModel.swift */; };
 		9C5A1A112A00FC92000D6427 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5A1A102A00FC92000D6427 /* PaymentButton.swift */; };
 		9C5A1A132A00FDBB000D6427 /* LabelledDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5A1A122A00FDBB000D6427 /* LabelledDivider.swift */; };
+		9C5A1A152A012B0E000D6427 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5A1A142A012B0E000D6427 /* NotificationView.swift */; };
 		9C5B5EC829CC988100FD62D7 /* CategoryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B5EC729CC988100FD62D7 /* CategoryStoreTests.swift */; };
 		9C5B5ECF29CC99C800FD62D7 /* CartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B5ECE29CC99C800FD62D7 /* CartViewModelTests.swift */; };
 		9C60D6CE29D5E24A007AF4B4 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60D6CD29D5E24A007AF4B4 /* FileManager.swift */; };
@@ -208,6 +209,7 @@
 		9C5A1A0E2A00F948000D6427 /* ApplePayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayModel.swift; sourceTree = "<group>"; };
 		9C5A1A102A00FC92000D6427 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		9C5A1A122A00FDBB000D6427 /* LabelledDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelledDivider.swift; sourceTree = "<group>"; };
+		9C5A1A142A012B0E000D6427 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		9C5B5EC529CC988100FD62D7 /* NFTioUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NFTioUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5B5EC729CC988100FD62D7 /* CategoryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStoreTests.swift; sourceTree = "<group>"; };
 		9C5B5ECE29CC99C800FD62D7 /* CartViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
@@ -598,6 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				9CD226AB29BCF3D600462C35 /* RoundedImageView.swift */,
+				9C5A1A142A012B0E000D6427 /* NotificationView.swift */,
 			);
 			path = ImageViews;
 			sourceTree = "<group>";
@@ -973,6 +976,7 @@
 				9C94667D29B20BB000129EB1 /* NFTDataManager.swift in Sources */,
 				9C50C3D129FFC6AB00DB9FD2 /* Transition.swift in Sources */,
 				9C2EA9B129A113E9009A831C /* OnboardingScreenView.swift in Sources */,
+				9C5A1A152A012B0E000D6427 /* NotificationView.swift in Sources */,
 				9CE1F8F229FE80A6006ABC2A /* EditProfileView.swift in Sources */,
 				9C0B042729B5225A000330AB /* DiscountAndDiscountAmountView.swift in Sources */,
 				9CFD9B2829C45FA200D12148 /* SearchScreenView.swift in Sources */,

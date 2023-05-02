@@ -15,6 +15,8 @@ struct BuyNowCheckoutView: View {
     
     @StateObject var checkoutViewModel = CheckoutViewModel()
     @StateObject var applePayModel = ApplePayModel()
+    let paymentGatewayController = PaymentGatewayController()
+    
     @State private var promoCode: String = ""
     @State private var selectedPaymentMethod = "Wallet"
     @State private var selectedTab = Tab.wallet
@@ -22,7 +24,8 @@ struct BuyNowCheckoutView: View {
     @State private var showError = false
     @State private var errorMessage = ""
     @State private var paymentMethodParams: STPPaymentMethodParams?
-    let paymentGatewayController = PaymentGatewayController()
+    @State private var showSuccess = false
+    @State private var orderPaymentMethod: String = "0"
     
     enum Tab {
         case wallet
@@ -61,6 +64,7 @@ struct BuyNowCheckoutView: View {
                         totalAmount: viewModel.totalAmount
                     )
                     
+                    // Payment options tabs
                     CustomSegmentedControl(selection: $selectedTab) {
                         Text("My Wallet")
                             .segmentedControlItemTag(Tab.wallet)
@@ -88,6 +92,7 @@ struct BuyNowCheckoutView: View {
                                     .padding()
                             }
                             
+                            // Stripe payment by card
                             VStack(alignment: .leading) {
                                 STPPaymentCardTextField
                                     .Representable
@@ -104,19 +109,6 @@ struct BuyNowCheckoutView: View {
                                     )
                                 }
                                 .padding()
-                                
-                                if let paymentStatus = applePayModel.paymentStatus {
-                                    switch paymentStatus {
-                                    case .success:
-                                        Text("success")
-                                    case .error:
-                                        Text("error")
-                                    case .userCancellation:
-                                        Text("cancelled")
-                                    @unknown default:
-                                        Text("Unknown error")
-                                    }
-                                }
                             }
                         }
                     }
@@ -135,6 +127,7 @@ struct BuyNowCheckoutView: View {
                                 let paymentIntentParams = STPPaymentIntentParams(clientSecret: clientSecret)
                                 paymentIntentParams.paymentMethodParams = paymentMethodParams
                                 
+                                // Payment by bank card with stripe
                                 paymentGatewayController.submitPayment(
                                     intent: paymentIntentParams) { status, _, _ in
                                         switch status {
@@ -147,10 +140,13 @@ struct BuyNowCheckoutView: View {
                                             errorMessage = "Payment cancelled"
                                             isSaving = false
                                         case .succeeded:
+                                            self.orderPaymentMethod = "1"
+                                            saveOrder()
                                             print("payment succeeded")
-                                            isSaving = false
                                         }
                                     }
+                            } else {
+                                saveOrder()
                             }
                         }
                         // viewModel.cartItems = []
@@ -194,6 +190,25 @@ struct BuyNowCheckoutView: View {
                 .padding(.leading, -Constants.Spacing.xxlarge)
             }
         }
+        .onChange(of: applePayModel.paymentStatus, perform: { newValue in
+            // Handle apple payment result
+            if let paymentStatus = applePayModel.paymentStatus {
+                switch paymentStatus {
+                case .success:
+                    orderPaymentMethod = "2"
+                    saveOrder()
+                case .error:
+                    showError = true
+                    errorMessage = "Payment error!"
+                case .userCancellation:
+                    showError = true
+                    errorMessage = "Payment was cancelled!"
+                @unknown default:
+                    showError = true
+                    errorMessage = "Payment error!"
+                }
+            }
+        })
         .onAppear {
             checkoutViewModel.cartViewModel = viewModel
             checkoutViewModel.supportsApplePay = StripeAPI.deviceSupportsApplePay()
@@ -218,6 +233,24 @@ struct BuyNowCheckoutView: View {
             showError = true
             errorMessage = error.localizedDescription
             isSaving = false
+        }
+    }
+    
+    private func saveOrder() {
+        
+        Task {
+            do {
+                
+                
+                isSaving = false
+                NotificationView(alertIsVisible: $showSuccess,
+                                 title: "Success",
+                                 iconName: "checkmark.circle.fill",
+                                 message: "Your purchase is completed!")
+                
+            } catch let error {
+                print(error.localizedDescription)
+            }
         }
     }
 }
