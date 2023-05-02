@@ -9,7 +9,7 @@ import Foundation
 
 final class CheckoutViewModel: ObservableObject {
     var cartViewModel: CartViewModel?
-    let paymentMetods = ["My Wallet", "Bank Card"]
+
     var paymentIntentClientSecret: String?
     
     func createPaymentIntent(_ amount: Decimal) async throws {

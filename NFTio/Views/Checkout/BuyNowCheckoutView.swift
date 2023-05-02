@@ -29,7 +29,6 @@ struct BuyNowCheckoutView: View {
     }
     
     var body: some View {
-        let _ = print(userViewModel.user)
         ZStack {
             Color(uiColor: .secondarySystemBackground)
                 .edgesIgnoringSafeArea(.all)
@@ -43,7 +42,9 @@ struct BuyNowCheckoutView: View {
                         .frame(height: Constants.Spacing.xlarge)
                     HStack {
                         TextField(Constants.Text.Checkout.promoCodeInvite, text: $promoCode)
+                        
                         Spacer()
+                        
                         Button {
                             guard !promoCode.isEmpty else { return }
                             viewModel.applyPromoCode(promoCode)
@@ -78,11 +79,27 @@ struct BuyNowCheckoutView: View {
                                 }
                             }.transition(.slide)
                         case .bankCard:
+                            if let amount = viewModel.totalAmountAfterDiscount,
+                               let usdAmount = amount * Constants.ExchangeRates.usdToEth,
+                               let formattedAmount =  Formatter.withSeparator.string(from: usdAmount as NSNumber) {
+                                Text("Your card will be charged \(formattedAmount).")
+                                    .font(.subheadline)
+                                    .padding()
+                            }
+                            
                             VStack(alignment: .leading) {
                                 STPPaymentCardTextField
                                     .Representable
                                     .init(paymentMethodParams: $paymentMethodParams)
                             }
+                            .padding()
+                            
+                            LabelledDivider(label: "or")
+                            
+                            PaymentButton() {
+//                                               applePayModel.pay(clientSecret: backendModel.paymentIntentParams?.clientSecret)
+                                           }
+                                           .padding()
                         }
                     }
                     .padding(.vertical)

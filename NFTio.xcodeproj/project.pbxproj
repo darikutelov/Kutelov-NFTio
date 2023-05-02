@@ -67,6 +67,9 @@
 		9C50C3DA29FFF6A700DB9FD2 /* StripePayments in Frameworks */ = {isa = PBXBuildFile; productRef = 9C50C3D929FFF6A700DB9FD2 /* StripePayments */; };
 		9C50C3DC29FFF6A700DB9FD2 /* StripePaymentsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9C50C3DB29FFF6A700DB9FD2 /* StripePaymentsUI */; };
 		9C50C3DE2A000F2D00DB9FD2 /* PaymentGatewayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C50C3DD2A000F2D00DB9FD2 /* PaymentGatewayController.swift */; };
+		9C5A1A0F2A00F948000D6427 /* ApplePayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5A1A0E2A00F948000D6427 /* ApplePayModel.swift */; };
+		9C5A1A112A00FC92000D6427 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5A1A102A00FC92000D6427 /* PaymentButton.swift */; };
+		9C5A1A132A00FDBB000D6427 /* LabelledDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5A1A122A00FDBB000D6427 /* LabelledDivider.swift */; };
 		9C5B5EC829CC988100FD62D7 /* CategoryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B5EC729CC988100FD62D7 /* CategoryStoreTests.swift */; };
 		9C5B5ECF29CC99C800FD62D7 /* CartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B5ECE29CC99C800FD62D7 /* CartViewModelTests.swift */; };
 		9C60D6CE29D5E24A007AF4B4 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C60D6CD29D5E24A007AF4B4 /* FileManager.swift */; };
@@ -202,6 +205,9 @@
 		9C50C3CE29FFB2BC00DB9FD2 /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
 		9C50C3D029FFC6AB00DB9FD2 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		9C50C3DD2A000F2D00DB9FD2 /* PaymentGatewayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentGatewayController.swift; sourceTree = "<group>"; };
+		9C5A1A0E2A00F948000D6427 /* ApplePayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayModel.swift; sourceTree = "<group>"; };
+		9C5A1A102A00FC92000D6427 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
+		9C5A1A122A00FDBB000D6427 /* LabelledDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelledDivider.swift; sourceTree = "<group>"; };
 		9C5B5EC529CC988100FD62D7 /* NFTioUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NFTioUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5B5EC729CC988100FD62D7 /* CategoryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStoreTests.swift; sourceTree = "<group>"; };
 		9C5B5ECE29CC99C800FD62D7 /* CartViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
@@ -337,6 +343,7 @@
 				9C9B99C929E9A88700237A7C /* NFTCellView */,
 				9C016BCE29F266D600A91E5A /* CustomSegmentedControl */,
 				9CE1F8F329FE9C10006ABC2A /* InfoFieldCell.swift */,
+				9C5A1A122A00FDBB000D6427 /* LabelledDivider.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -369,6 +376,7 @@
 				9C0B042229B50008000330AB /* TotalCheckoutAmountView.swift */,
 				9C0B042429B50287000330AB /* TotalAmountLabelView.swift */,
 				9C0B042629B5225A000330AB /* DiscountAndDiscountAmountView.swift */,
+				9C5A1A102A00FC92000D6427 /* PaymentButton.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -490,6 +498,16 @@
 			path = MyNFTs;
 			sourceTree = "<group>";
 		};
+		9C5A1A0D2A00F92E000D6427 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9C50C3DD2A000F2D00DB9FD2 /* PaymentGatewayController.swift */,
+				9C50C3CE29FFB2BC00DB9FD2 /* CheckoutViewModel.swift */,
+				9C5A1A0E2A00F948000D6427 /* ApplePayModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9C5B5EC629CC988100FD62D7 /* NFTioUnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,8 +543,7 @@
 				9C0C4EA129B4E4510018E546 /* SubViews */,
 				9C86225129B482CB00CF20E8 /* BuyNowCheckoutView.swift */,
 				9C0C4E9D29B4DDE30018E546 /* CheckoutItemListView.swift */,
-				9C50C3CE29FFB2BC00DB9FD2 /* CheckoutViewModel.swift */,
-				9C50C3DD2A000F2D00DB9FD2 /* PaymentGatewayController.swift */,
+				9C5A1A0D2A00F92E000D6427 /* Models */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -968,6 +985,7 @@
 				9C658D7529F6A56200F35182 /* PickerModifier.swift in Sources */,
 				9CBB98E529A2229E00759204 /* GetStartedButtonView.swift in Sources */,
 				9CB548CE29BF068B00A67C6D /* Hashable.swift in Sources */,
+				9C5A1A0F2A00F948000D6427 /* ApplePayModel.swift in Sources */,
 				9C0C4E9A29B4D6470018E546 /* ShoppingCartDataManager.swift in Sources */,
 				9C0386F529A7C54200EF4BAD /* Text.swift in Sources */,
 				9C86225629B483A300CF20E8 /* DiscountTypes.swift in Sources */,
@@ -976,6 +994,7 @@
 				9CFD9B2529C4550B00D12148 /* TabNavigationView.swift in Sources */,
 				9C0AC40729E7EEF300CFDA75 /* UserDataManager.swift in Sources */,
 				9C0386ED29A7BF3B00EF4BAD /* RoundedIconViewFilled.swift in Sources */,
+				9C5A1A112A00FC92000D6427 /* PaymentButton.swift in Sources */,
 				9CFD9B3329C487FC00D12148 /* CartViewModel.swift in Sources */,
 				9C2EA9AA29A10A99009A831C /* WelcomeScreenView.swift in Sources */,
 				9C2EA9AF29A1104E009A831C /* Constants.swift in Sources */,
@@ -1018,6 +1037,7 @@
 				9CD226B329BDCCA500462C35 /* NFTDetailView.swift in Sources */,
 				9C1F693629D4115C00690BAE /* AuthScreen.swift in Sources */,
 				9C0C4E9E29B4DDE30018E546 /* CheckoutItemListView.swift in Sources */,
+				9C5A1A132A00FDBB000D6427 /* LabelledDivider.swift in Sources */,
 				9C0B042529B50287000330AB /* TotalAmountLabelView.swift in Sources */,
 				9C94667829B20AF800129EB1 /* Category.swift in Sources */,
 				9C9B99C829E9A5B800237A7C /* NFTCellView.swift in Sources */,
