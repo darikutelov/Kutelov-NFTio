@@ -28,4 +28,13 @@ final class CheckoutViewModel: ObservableObject {
             throw error
         }
     }
+    
+    func saveOrder(userId: String) async throws {
+        // create Order instance
+        let order = Order(userId: String, created: <#T##Date#>, items:)
+        
+        // call APIClient to make post request
+        
+        // update User instance
+    }
 }
