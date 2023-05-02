@@ -117,7 +117,7 @@ final class UserViewModel: ObservableObject {
             currentUser.avatarUrl = avatarImageUrl
             user?.avatarUrl = avatarImageUrl
         }
-        
+        print(currentUser)
         Task {
             do {
                 try await userDataManager.updateUser(user: currentUser)

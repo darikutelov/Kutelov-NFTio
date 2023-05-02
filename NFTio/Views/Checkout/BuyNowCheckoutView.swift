@@ -29,6 +29,7 @@ struct BuyNowCheckoutView: View {
     }
     
     var body: some View {
+        let _ = print(userViewModel.user)
         ZStack {
             Color(uiColor: .secondarySystemBackground)
                 .edgesIgnoringSafeArea(.all)
@@ -102,7 +103,7 @@ struct BuyNowCheckoutView: View {
                                 paymentIntentParams.paymentMethodParams = paymentMethodParams
                                 
                                 paymentGatewayController.submitPayment(
-                                    intent: paymentIntentParams) { status, intent, error in
+                                    intent: paymentIntentParams) { status, _ , _ in
                                         switch status {
                                         case .failed:
                                             showError = true

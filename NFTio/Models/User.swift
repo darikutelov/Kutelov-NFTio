@@ -44,6 +44,6 @@ struct User: Codable {
 extension User {
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case username, email, password, avatarUrl, walletAddress, authToken
+        case username, email, password, avatarUrl, walletAddress, authToken, wallet
     }
 }
