@@ -112,7 +112,6 @@ final class APIService {
             request.httpBody = encodedBodyData
             (data, response) = try await session.data(for: request)
         } catch let error {
-            print(error)
             // Handles URLError errors: no connection and server is down
             try handleServerError(error)
             
@@ -135,11 +134,11 @@ final class APIService {
             )
         }
         
-//        do {
-//            try decoder.decode(T.self, from: data)
-//        } catch let error {
-//            print(error)
-//        }
+        do {
+            try decoder.decode(T.self, from: data)
+        } catch let error {
+            print(error)
+        }
         
         // Decode data returned from the server
         guard let decodedData = try? decoder.decode(T.self, from: data) else {

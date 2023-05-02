@@ -173,6 +173,7 @@ struct NFTFormView: View {
                       nftCollection: collection,
                       contractAddress: contractAddress,
                       price: Price(
+                        id: nil,
                         cryptoCurrency: bidCurrency,
                         priceInCryptoCurrency: nftPrice
                       ),

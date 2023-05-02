@@ -164,6 +164,13 @@ struct BuyNowCheckoutView: View {
                             dismissButton: .default(Text("OK")))
                        }
                        .padding()
+            
+            if showSuccess {
+                NotificationView(alertIsVisible: $showSuccess,
+                                 title: "Success",
+                                 iconName: "checkmark.circle.fill",
+                                 message: "Your purchase is completed!")
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
@@ -192,21 +199,29 @@ struct BuyNowCheckoutView: View {
         }
         .onChange(of: applePayModel.paymentStatus, perform: { newValue in
             // Handle apple payment result
-            if let paymentStatus = applePayModel.paymentStatus {
-                switch paymentStatus {
-                case .success:
-                    orderPaymentMethod = "2"
-                    saveOrder()
-                case .error:
-                    showError = true
-                    errorMessage = "Payment error!"
-                case .userCancellation:
-                    showError = true
-                    errorMessage = "Payment was cancelled!"
-                @unknown default:
-                    showError = true
-                    errorMessage = "Payment error!"
-                }
+            //            if let paymentStatus = applePayModel.paymentStatus {
+            switch newValue {
+            case .success:
+                orderPaymentMethod = "2"
+                saveOrder()
+            case .error:
+                showError = true
+                errorMessage = "Payment error!"
+            case .userCancellation:
+                showError = true
+                errorMessage = "Payment was cancelled!"
+            case .none:
+                showError = true
+                errorMessage = "Payment error!"
+            @unknown default:
+                showError = true
+                errorMessage = "Payment error!"
+            }
+            //            }
+        })
+        .onChange(of: showSuccess, perform: { [showSuccess] newValue in
+            if showSuccess && !newValue {
+                dismiss()
             }
         })
         .onAppear {
@@ -237,17 +252,18 @@ struct BuyNowCheckoutView: View {
     }
     
     private func saveOrder() {
-        
         Task {
             do {
+                guard let userId = userViewModel.user?.id else { return }
                 
-                
+                try await checkoutViewModel.saveOrder(
+                    userId: userId,
+                    paymentMethod: orderPaymentMethod,
+                    cartItems: viewModel.cartItems
+                )
                 isSaving = false
-                NotificationView(alertIsVisible: $showSuccess,
-                                 title: "Success",
-                                 iconName: "checkmark.circle.fill",
-                                 message: "Your purchase is completed!")
-                
+                showSuccess = true
+                viewModel.cartItems = []
             } catch let error {
                 print(error.localizedDescription)
             }

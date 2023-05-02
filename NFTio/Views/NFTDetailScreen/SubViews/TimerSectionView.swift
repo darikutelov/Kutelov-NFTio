@@ -28,7 +28,7 @@ struct TimerSectionView: View {
         VStack {
             Text(isAuctionExpired ?
                  Constants.Text.NFTDetail.expiredAuctionMessage:
-                    Constants.Text.NFTDetail.auctionEndsOnLabel + "\(formattedExpiryDate)")
+                    Constants.Text.NFTDetail.auctionEndsOnLabel + " \(formattedExpiryDate)")
             .font(.subheadline)
             .fontWeight(.light)
             .multilineTextAlignment(.center)

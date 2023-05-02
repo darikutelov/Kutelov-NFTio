@@ -7,19 +7,25 @@
 
 import Foundation
 
-struct OrderItems: Codable {
+struct OrderItem: Codable {
     let itemId: String
-    let itemPriceId: Price
-    var quantity: Int
+    let price: String?
+    var quantity: UInt
+    
+    enum CodingKeys: String, CodingKey {
+            case itemId = "_id"
+            case price
+            case quantity
+        }
 }
 
 struct Order: Codable {
     let id: String?
     let userId: String
-    let created: Date
+    let created: Date?
     var paymentMethod: String
-    var items: [OrderItems]
-    var status: String
+    var items: [OrderItem]
+    var status: String?
 }
 
 extension Order {

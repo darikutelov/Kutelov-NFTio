@@ -105,8 +105,10 @@ struct AddBidView: View {
         }
         
         let bid = Bid(id: nil,
-                      price: Price(cryptoCurrency: bidCurrency,
-                                   priceInCryptoCurrency: price),
+                      price: Price(
+                        id: nil,
+                        cryptoCurrency: bidCurrency,
+                        priceInCryptoCurrency: price),
                       user: user,
                       date: nil)
 

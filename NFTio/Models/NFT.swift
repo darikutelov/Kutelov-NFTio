@@ -65,8 +65,14 @@ extension NFT {
 
 /// Data structure for price of NFT itme
 struct Price: Codable {
+    let id: String?
     let cryptoCurrency: CryptoCurrency
     let priceInCryptoCurrency: Decimal
+    
+    enum CodingKeys: String, CodingKey {
+            case id = "_id"
+            case cryptoCurrency, priceInCryptoCurrency
+        }
 }
 
 /// Data structure for a bit in NFT auction

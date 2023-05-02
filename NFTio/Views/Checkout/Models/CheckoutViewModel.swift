@@ -29,11 +29,43 @@ final class CheckoutViewModel: ObservableObject {
         }
     }
     
-    func saveOrder(userId: String) async throws {
-        // create Order instance
-        let order = Order(userId: String, created: <#T##Date#>, items:)
+    func saveOrder(userId: String, paymentMethod: String, cartItems: [ShoppingCartItem]) async throws {
+        // Convert CartItem to OrderItem
+        var orderItems: [OrderItem] = []
+
+        cartItems.forEach { cartItem in
+            let orderItem = OrderItem(
+                itemId: cartItem.nftItem.id,
+                price: cartItem.nftItem.price.id ?? "",
+                quantity: cartItem.quantity)
+            
+            orderItems.append(orderItem)
+        }
+        
+        guard !orderItems.isEmpty else { return }
+        
+        // Create Order instance
+        let order = Order(
+            id: nil,
+            userId: userId,
+            created: nil,
+            paymentMethod: paymentMethod,
+            items: orderItems,
+            status: nil)
         
         // call APIClient to make post request
+        let requestUrl = RequestUrl(endpoint: .orders, pathComponents: [userId])
+        
+        do {
+            let savedOrder = try await APIService.shared.postData(
+                requestUrl,
+                bodyData: order
+            )
+            
+            print(savedOrder)
+        } catch let error {
+            throw error
+        }
         
         // update User instance
     }
