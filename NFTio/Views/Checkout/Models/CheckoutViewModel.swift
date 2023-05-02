@@ -11,6 +11,7 @@ final class CheckoutViewModel: ObservableObject {
     var cartViewModel: CartViewModel?
 
     var paymentIntentClientSecret: String?
+    var supportsApplePay: Bool = false
     
     func createPaymentIntent(_ amount: Decimal) async throws {
         let requestUrl = RequestUrl(endpoint: .orders, pathComponents: ["pay", "create-payment-intent"])

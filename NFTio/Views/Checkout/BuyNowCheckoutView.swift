@@ -14,6 +14,7 @@ struct BuyNowCheckoutView: View {
     @Environment(\.dismiss) private var dismiss
     
     @StateObject var checkoutViewModel = CheckoutViewModel()
+    @StateObject var applePayModel = ApplePayModel()
     @State private var promoCode: String = ""
     @State private var selectedPaymentMethod = "Wallet"
     @State private var selectedTab = Tab.wallet
@@ -81,7 +82,7 @@ struct BuyNowCheckoutView: View {
                         case .bankCard:
                             if let amount = viewModel.totalAmountAfterDiscount,
                                let usdAmount = amount * Constants.ExchangeRates.usdToEth,
-                               let formattedAmount =  Formatter.withSeparator.string(from: usdAmount as NSNumber) {
+                               let formattedAmount = Formatter.withSeparator.string(from: usdAmount as NSNumber) {
                                 Text("Your card will be charged \(formattedAmount).")
                                     .font(.subheadline)
                                     .padding()
@@ -94,12 +95,29 @@ struct BuyNowCheckoutView: View {
                             }
                             .padding()
                             
-                            LabelledDivider(label: "or")
-                            
-                            PaymentButton() {
-//                                               applePayModel.pay(clientSecret: backendModel.paymentIntentParams?.clientSecret)
-                                           }
-                                           .padding()
+                            if checkoutViewModel.supportsApplePay {
+                                LabelledDivider(label: "or")
+                                
+                                PaymentButton {
+                                    applePayModel.pay(
+                                        clientSecret: checkoutViewModel.paymentIntentClientSecret
+                                    )
+                                }
+                                .padding()
+                                
+                                if let paymentStatus = applePayModel.paymentStatus {
+                                    switch paymentStatus {
+                                    case .success:
+                                        Text("success")
+                                    case .error:
+                                        Text("error")
+                                    case .userCancellation:
+                                        Text("cancelled")
+                                    @unknown default:
+                                        Text("Unknown error")
+                                    }
+                                }
+                            }
                         }
                     }
                     .padding(.vertical)
@@ -108,8 +126,6 @@ struct BuyNowCheckoutView: View {
                         errorMessage = ""
                         Task {
                             if selectedTab == .bankCard {
-                                await startCheckout()
-                                
                                 guard let clientSecret = checkoutViewModel.paymentIntentClientSecret else {
                                     showError = true
                                     errorMessage = "Something went wrong!"
@@ -120,16 +136,19 @@ struct BuyNowCheckoutView: View {
                                 paymentIntentParams.paymentMethodParams = paymentMethodParams
                                 
                                 paymentGatewayController.submitPayment(
-                                    intent: paymentIntentParams) { status, _ , _ in
+                                    intent: paymentIntentParams) { status, _, _ in
                                         switch status {
                                         case .failed:
                                             showError = true
                                             errorMessage = "Payment failed"
+                                            isSaving = false
                                         case .canceled:
                                             showError = true
                                             errorMessage = "Payment cancelled"
+                                            isSaving = false
                                         case .succeeded:
                                             print("payment succeeded")
+                                            isSaving = false
                                         }
                                     }
                             }
@@ -177,6 +196,11 @@ struct BuyNowCheckoutView: View {
         }
         .onAppear {
             checkoutViewModel.cartViewModel = viewModel
+            checkoutViewModel.supportsApplePay = StripeAPI.deviceSupportsApplePay()
+            applePayModel.totalAmount = viewModel.totalAmountAfterDiscount
+        }
+        .task {
+            await startCheckout()
         }
     }
     
