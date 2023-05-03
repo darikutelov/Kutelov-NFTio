@@ -18,10 +18,10 @@ class ApplePayModel: NSObject, ObservableObject, STPApplePayContextDelegate {
     
     func pay(clientSecret: String?) {
         self.clientSecret = clientSecret
-        
+
         let paymentRequest = StripeAPI
             .paymentRequest(
-                withMerchantIdentifier: "kutelov.com.nftio.accept-apple-payment",
+                withMerchantIdentifier: "merchant.com.kutelov.nftio",
                 country: "US",
                 currency: "USD")
 
@@ -30,17 +30,14 @@ class ApplePayModel: NSObject, ObservableObject, STPApplePayContextDelegate {
         
         guard let amount = totalAmount else { return }
         
-        let usdAmount = amount * Constants.ExchangeRates.usdToEth
-        guard let formattedAmount = Formatter.withSeparator.string(from: usdAmount as NSNumber) else {
-            return
-            
-        }
-
+        let usdAmount = (amount * Constants.ExchangeRates.usdToEth).rounded(2, .bankers)
+ 
         paymentRequest.paymentSummaryItems = [
-            PKPaymentSummaryItem(label: "NFTio", amount: NSDecimalNumber(string: formattedAmount))
+            PKPaymentSummaryItem(label: "NFTio", amount: usdAmount as NSDecimalNumber)
         ]
 
         let applePayContext = STPApplePayContext(paymentRequest: paymentRequest, delegate: self)
+        
         applePayContext?.presentApplePay()
     }
 

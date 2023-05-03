@@ -242,6 +242,7 @@
 		9CB7F37429C705C800ACF69F /* CartItemsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsListView.swift; sourceTree = "<group>"; };
 		9CBB98E029A20C3F00759204 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9CBB98E429A2229E00759204 /* GetStartedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedButtonView.swift; sourceTree = "<group>"; };
+		9CBD4FC82A027065006A5E71 /* NFTio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NFTio.entitlements; sourceTree = "<group>"; };
 		9CD226AB29BCF3D600462C35 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		9CD226AF29BDCC3E00462C35 /* ShopName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopName.swift; sourceTree = "<group>"; };
 		9CD226B229BDCCA500462C35 /* NFTDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTDetailView.swift; sourceTree = "<group>"; };
@@ -679,6 +680,7 @@
 		9CF42D03299FC92600CAA856 /* NFTio */ = {
 			isa = PBXGroup;
 			children = (
+				9CBD4FC82A027065006A5E71 /* NFTio.entitlements */,
 				9C04CAA229E13C3700C13792 /* APIClient */,
 				9CDF21AD29D5994500DA8D74 /* Resources */,
 				9C2EA9AB29A10C19009A831C /* App */,
@@ -1271,6 +1273,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NFTio/NFTio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NFTio/App/Preview Content\"";
@@ -1302,6 +1305,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NFTio/NFTio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NFTio/App/Preview Content\"";

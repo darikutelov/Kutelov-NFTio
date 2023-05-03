@@ -16,18 +16,18 @@ struct MyNFTsView: View {
     ]
     
     var body: some View {
-        ScrollView() {
+        ScrollView {
             LazyVGrid(
                 columns: columns,
                 spacing: Constants.Spacing.standard
             ) {
                 ForEach(viewModel.myNftItems) { nftItem in
-                    //NavigationLink(value: nftItem) {
-                    RoundedImageView(
-                        imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl + nftItem.imageUrl
-                    )
-                    .padding(8.0)
-                    //}
+                    // NavigationLink(value: nftItem) {
+                        RoundedImageView(
+                            imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl + nftItem.imageUrl
+                        )
+                        .padding(8.0)
+                    // }
                 }
             }
         }
