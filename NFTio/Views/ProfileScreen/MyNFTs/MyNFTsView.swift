@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyNFTsView: View {
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var viewModel: UserViewModel
     
     let columns = [
@@ -22,13 +23,42 @@ struct MyNFTsView: View {
                 spacing: Constants.Spacing.standard
             ) {
                 ForEach(viewModel.myNftItems) { nftItem in
-                    // NavigationLink(value: nftItem) {
+                    NavigationLink {
+                        MyNFTDetailView(myNftItem: nftItem)
+                    } label: {
                         RoundedImageView(
                             imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl + nftItem.imageUrl
                         )
-                        .padding(8.0)
-                    // }
+                        .scaledToFit()
+                        .padding(Constants.Spacing.small)
+                    }
                 }
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(
+                placement: .navigationBarLeading
+            ) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: Constants.Text.IconNames.arrowBack)
+                        .foregroundColor(Color(Constants.Colors.primaryText))
+                }
+                
+            }
+            ToolbarItem(placement: .principal) {
+                HStack {
+                    Spacer()
+                    Text(Constants.Text.Auth.myNFTItemsTitle)
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(Constants.Colors.secondary))
+                    Spacer()
+                }
+                .padding(.leading, -Constants.Spacing.xxlarge)
             }
         }
     }

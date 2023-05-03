@@ -113,6 +113,7 @@ extension Constants {
             public static let title = "Your Profile"
             public static let editTitle = "Edit Your Profile"
             public static let editButtonLabel = "Update"
+            public static let myNFTItemsTitle = "My NFT Items"
         }
         
         enum AddNFT {
