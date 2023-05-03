@@ -99,6 +99,7 @@ final class UserDataManager {
             throw error
         }
     }
+    
     // MARK: - Persist user data to local storage
     
     private func saveUserToLocalStorage(_ user: User) {

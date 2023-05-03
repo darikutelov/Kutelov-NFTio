@@ -337,6 +337,7 @@
 				9C658D7329F6A52D00F35182 /* Modifiers */,
 				9CD226AA29BCF3C500462C35 /* ImageViews */,
 				9C2EA9B229A14162009A831C /* AppLogo.swift */,
+				9C5A1A142A012B0E000D6427 /* NotificationView.swift */,
 				9C0386EC29A7BF3B00EF4BAD /* RoundedIconViewFilled.swift */,
 				9C0386F229A7C4A700EF4BAD /* RoundedIconViewFilledWhite.swift */,
 				9C03870029AB5AEE00EF4BAD /* ButtonView.swift */,
@@ -600,7 +601,6 @@
 			isa = PBXGroup;
 			children = (
 				9CD226AB29BCF3D600462C35 /* RoundedImageView.swift */,
-				9C5A1A142A012B0E000D6427 /* NotificationView.swift */,
 			);
 			path = ImageViews;
 			sourceTree = "<group>";

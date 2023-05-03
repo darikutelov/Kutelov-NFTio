@@ -91,3 +91,9 @@ enum CryptoCurrency: String, CaseIterable, Codable {
     case ash = "ASH"
     case cube = "CUBE"
 }
+
+// Data model to fetch only my NFT items in user model
+struct MyINFItem: Codable, Identifiable {
+    let id: String
+    let imageUrl: String
+}

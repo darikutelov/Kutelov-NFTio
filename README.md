@@ -24,3 +24,16 @@
 - [ ] Credit cart payment with third party service (Stripe)
 - [ ] User profile with history of orders
 - [ ] Users can add NFT item for sales
+
+## NFT Detail view
+
+## Buy Options
+
+- all NFT can be added to the cart via "Buy Now" button
+- If there is an active auction for the NFT, the user can add one bid per item via the button "Make Offer". If user tries to add a second bid, error alert will inform him that he can make only one bid.
+
+## Payment Options
+
+- User can pay with his crypto wallet (charged on the server)
+- User can pay with credit cart via Stripe (to test enter card number: 4242 4242 4242 4242, exp. date: 07/24, CVC: 123, ZIP 454555). The payment is registered in a test merchant account in Stripe. You will see it in the demo video.
+- User can pay with Apple Pay (subject to credentials)

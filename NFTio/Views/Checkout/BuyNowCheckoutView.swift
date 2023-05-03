@@ -149,7 +149,6 @@ struct BuyNowCheckoutView: View {
                                 saveOrder()
                             }
                         }
-                        // viewModel.cartItems = []
                         Log.general.debug("Customer checked out 🎉")
                     } label: {
                         ButtonView(buttonText: isSaving ? "Saving" : Constants.Text.Checkout.checkoutButton)
@@ -166,10 +165,14 @@ struct BuyNowCheckoutView: View {
                        .padding()
             
             if showSuccess {
-                NotificationView(alertIsVisible: $showSuccess,
-                                 title: "Success",
-                                 iconName: "checkmark.circle.fill",
-                                 message: "Your purchase is completed!")
+                ZStack {
+                    Color(.white).opacity(0.75).edgesIgnoringSafeArea(.all)
+                    NotificationView(alertIsVisible: $showSuccess,
+                                     title: "Success",
+                                     iconName: "checkmark.circle.fill",
+                                     message: "Your purchase is completed!")
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -227,6 +230,7 @@ struct BuyNowCheckoutView: View {
         .onAppear {
             checkoutViewModel.cartViewModel = viewModel
             checkoutViewModel.supportsApplePay = StripeAPI.deviceSupportsApplePay()
+            checkoutViewModel.userViewModel = userViewModel
             applePayModel.totalAmount = viewModel.totalAmountAfterDiscount
         }
         .task {
@@ -262,7 +266,9 @@ struct BuyNowCheckoutView: View {
                     cartItems: viewModel.cartItems
                 )
                 isSaving = false
-                showSuccess = true
+                withAnimation {
+                    showSuccess = true
+                }
                 viewModel.cartItems = []
             } catch let error {
                 print(error.localizedDescription)

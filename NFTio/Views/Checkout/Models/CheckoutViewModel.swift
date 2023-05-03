@@ -9,6 +9,7 @@ import Foundation
 
 final class CheckoutViewModel: ObservableObject {
     var cartViewModel: CartViewModel?
+    var userViewModel: UserViewModel?
 
     var paymentIntentClientSecret: String?
     var supportsApplePay: Bool = false
@@ -57,16 +58,14 @@ final class CheckoutViewModel: ObservableObject {
         let requestUrl = RequestUrl(endpoint: .orders, pathComponents: [userId])
         
         do {
-            let savedOrder = try await APIService.shared.postData(
+            let _ = try await APIService.shared.postData(
                 requestUrl,
                 bodyData: order
             )
             
-            print(savedOrder)
+            try await userViewModel?.fetchMyNftItems()
         } catch let error {
             throw error
         }
-        
-        // update User instance
     }
 }

@@ -18,6 +18,8 @@ final class UserViewModel: ObservableObject {
     
     @MainActor @Published var errorMessage = ""
     
+    @MainActor @Published var myNftItems: [MyINFItem] = []
+    
     @MainActor @Published private(set) var imageState: ImageState = .empty
     
     @MainActor @Published var imageSelection: PhotosPickerItem? {
@@ -36,6 +38,14 @@ final class UserViewModel: ObservableObject {
             await MainActor.run {
                 if let currentUser = userDataManager.getUserFromLocalStorage() {
                     self.user = currentUser
+                }
+            }
+            
+            do {
+                try await fetchMyNftItems()
+            } catch let error {
+                await MainActor.run {
+                    errorMessage = error.localizedDescription
                 }
             }
         }
@@ -125,6 +135,20 @@ final class UserViewModel: ObservableObject {
             } catch let error {
                 print(error.localizedDescription)
             }
+        }
+    }
+    
+    @MainActor public func fetchMyNftItems() async throws {
+        guard let user = user,
+              let userId = user.id else { return }
+        
+        let requestUrl = RequestUrl(endpoint: .users, pathComponents: [userId, "nftItems"])
+        
+        do {
+            let fetchedNftItems = try await APIService.shared.fetchData(requestUrl, expecting: [MyINFItem].self)
+            self.myNftItems = fetchedNftItems
+        } catch let error {
+            throw error
         }
     }
 }
