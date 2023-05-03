@@ -57,6 +57,8 @@ final class NFTViewModel: ObservableObject {
     
     @Published var selectedNFT: NFT?
     
+    @Published var featuredNFT: NFT?
+    
     // MARK: - Init
     
     init() {
@@ -64,8 +66,8 @@ final class NFTViewModel: ObservableObject {
         self.categories = self.nftDataManager.categories
         self.filteredItems = self.nftItems
         
-        if filteredItems.count > 15 {
-            self.popularItems = [filteredItems[7], filteredItems[9], filteredItems[10], filteredItems[12]]
+        if !nftItems.isEmpty {
+            self.featuredNFT = nftItems[0]
         }
         
         if nftDataManager.nftCollections.count >= Constants.Collections.numberOfCollectionsOnHomePage {

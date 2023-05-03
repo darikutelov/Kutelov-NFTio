@@ -21,6 +21,9 @@ extension Constants {
             public static let seeAllLabel = "See All"
             public static let nftListLabel = "Popular NFTs"
             public static let nftItems = "NFT Itmes"
+            public static let featuredAuction = "Featured NFT Auction"
+            public static let listedPrice = "Listed Price"
+            public static let bestBidPrice = "Best bid"
         }
         enum NFTItems {
             public static let nftItems = "NFT Itmes"

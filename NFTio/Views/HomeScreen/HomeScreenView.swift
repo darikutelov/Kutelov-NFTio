@@ -23,10 +23,23 @@ struct HomeScreenView: View {
                         CategoryListView()
                             .padding(.bottom, Constants.Spacing.xxlarge)
                         CollectionListView()
-                            .padding(.bottom, Constants.Spacing.xxlarge)
-                        NFTListView(
-                            sectionName: Constants.Text.Home.nftListLabel
-                        )
+                        
+                        NavigationLink {
+                            CollectionFullListView()
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text(Constants.Text.Home.seeAllLabel)
+                                    .font(.subheadline)
+                                    .fontWeight(.medium)
+                                    .foregroundColor(Color(Constants.Colors.primary))
+                            }
+                        }
+                        .padding(.bottom, Constants.Spacing.xxlarge)
+                        
+                        AuctionView()
+                        Spacer()
+                            .frame(height: Constants.Spacing.superLarge)
                     }
                     .padding(.horizontal)
                 }

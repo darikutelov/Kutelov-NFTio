@@ -93,7 +93,7 @@ enum Constants {
         public static let numberOfNftItemsOnHomePage = 8
     }
     enum Collections {
-        public static let numberOfCollectionsOnHomePage = 5
+        public static let numberOfCollectionsOnHomePage = 4
     }
     
     enum ExchangeRates {
