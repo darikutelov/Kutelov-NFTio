@@ -44,6 +44,7 @@ struct HomeScreenView: View {
                     .padding(.horizontal)
                 }
                 .padding(.top, Constants.Spacing.xxlarge)
+                .frame(maxWidth: 700)
             }
             .edgesIgnoringSafeArea(.all)
             .toolbar {

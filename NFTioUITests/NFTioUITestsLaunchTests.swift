@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Stripe
 
 final class NFTioUITestsLaunchTests: XCTestCase {
 

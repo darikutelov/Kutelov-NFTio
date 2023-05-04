@@ -21,7 +21,7 @@ struct AuctionView: View {
                 if let featuredNFT = nftViewModel.featuredNFT,
                    let auctionExpiryDate = nftViewModel.featuredNFT?.auctionExpiryDate,
                    let sortedBids = featuredNFT.bids.sorted(by: {
-                       $0.price.priceInCryptoCurrency > $1.price.priceInCryptoCurrency
+                       $0.price.priceInCryptoCurrency < $1.price.priceInCryptoCurrency
                    }),
                    let bestBidPrice = sortedBids[0].price.priceInCryptoCurrency {
                     RoundedImageView(imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl + featuredNFT.imageUrl)
@@ -34,7 +34,7 @@ struct AuctionView: View {
                             Text(Constants.Text.Home.listedPrice)
                                 .font(.subheadline)
                                 .foregroundColor(Color(Constants.Colors.primaryText)).opacity(0.7)
-                            Text("\(featuredNFT.price.priceInCryptoCurrency.rounded(3, .bankers)) \(CryptoCurrency.ethereum.rawValue)" as String)
+                            Text("\(featuredNFT.price.priceInCryptoCurrency.rounded(2, .bankers)) \(CryptoCurrency.ethereum.rawValue)" as String)
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color(Constants.Colors.secondary))
                         }
@@ -44,7 +44,7 @@ struct AuctionView: View {
                             Text(Constants.Text.Home.bestBidPrice)
                                 .font(.subheadline)
                                 .foregroundColor(Color(Constants.Colors.primaryText)).opacity(0.7)
-                            Text("\(bestBidPrice.rounded(3, .bankers)) \(CryptoCurrency.ethereum.rawValue)" as String)
+                            Text("\(bestBidPrice.rounded(2, .bankers)) \(CryptoCurrency.ethereum.rawValue)" as String)
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color(Constants.Colors.primary))
                         }

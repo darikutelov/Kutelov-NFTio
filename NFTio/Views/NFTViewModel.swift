@@ -159,8 +159,8 @@ final class NFTViewModel: ObservableObject {
             
             nftDataManager.nftItems = data.nftItems
             
-            if filteredItems.count > 15 {
-                self.popularItems = [filteredItems[7], filteredItems[9], filteredItems[10], filteredItems[12]]
+            if !filteredItems.isEmpty {
+                self.featuredNFT = nftItems[0]
             }
             
         } catch APIServiceError.failedToConnectToServer(let message) {
@@ -262,6 +262,7 @@ extension NFTViewModel {
             self.selectedNFT = nftItems[index]
             // updates filtered items
             updateFilteredItems()
+            featuredNFT = nftItems[0]
             // persist changes to local storage
             nftDataManager.nftItems = nftItems
         } catch let error {

@@ -114,6 +114,12 @@ struct BuyNowCheckoutView: View {
                     }
                     .padding(.vertical)
                     Button {
+                        guard userViewModel.user != nil else {
+                            showError = true
+                            errorMessage = "You need to sign in to be able to place and order!"
+                            return
+                        }
+                        
                         isSaving = true
                         errorMessage = ""
                         Task {

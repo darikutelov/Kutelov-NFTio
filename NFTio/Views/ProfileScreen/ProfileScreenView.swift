@@ -47,7 +47,7 @@ struct ProfileScreenView: View {
                             .padding(.all, Constants.Spacing.standard)
                             .background {
                                 RoundedRectangle(cornerRadius: Constants.General.roundedRectCornerRadius)
-                                    .fill(.white)
+                                    .fill(Color(Constants.Colors.cardBackground))
                             }
                         }
                         

@@ -6,9 +6,9 @@
 //
 
 import XCTest
-
 @testable import NFTio
 
+@MainActor
 final class CartViewModelTests: XCTestCase {
     var viewModel: CartViewModel!
     var cartItem1: ShoppingCartItem!
@@ -17,8 +17,8 @@ final class CartViewModelTests: XCTestCase {
     override func setUpWithError() throws {
         viewModel = CartViewModel()
         viewModel.cartItems = []
-        cartItem1 = ShoppingCartDataManager().shoppingCartItems[0]
-        cartItem2 = ShoppingCartDataManager().shoppingCartItems[1]
+        cartItem1 = ShoppingCartItem(nftItem: NFTDataManager().nftItems[0], quantity: 1)
+        cartItem2 = ShoppingCartItem(nftItem: NFTDataManager().nftItems[1], quantity: 1)
     }
 
     override func tearDownWithError() throws {
@@ -73,11 +73,11 @@ final class CartViewModelTests: XCTestCase {
         
         viewModel.addItemToCart(nft: cartItem1.nftItem)
         var totalAmount = viewModel.totalAmount.rounded(2, .bankers)
-        XCTAssertEqual(totalAmount, 67.45)
+        XCTAssertEqual(totalAmount, 20)
         
         viewModel.addItemToCart(nft: cartItem2.nftItem)
         totalAmount = viewModel.totalAmount.rounded(2, .bankers)
-        XCTAssertEqual(totalAmount, 134.85)
+        XCTAssertEqual(totalAmount, 20.18)
     
     }
     
@@ -101,7 +101,7 @@ final class CartViewModelTests: XCTestCase {
         
         let roundedAmount = ((NSDecimalNumber(decimal: totalAmountAfterDiscount).doubleValue * 100).rounded())/100
         
-        XCTAssertEqual(roundedAmount, 128.11)
+        XCTAssertEqual(roundedAmount, 19.17)
     }
     
     func testTotalAmountAfterApplyingPromoCode() throws {
@@ -115,6 +115,6 @@ final class CartViewModelTests: XCTestCase {
         
         let roundedAmount = ((NSDecimalNumber(decimal: totalAmountAfterDiscount).doubleValue * 100).rounded())/100
         
-        XCTAssertEqual(roundedAmount, 114.63)
+        XCTAssertEqual(roundedAmount, 17.15)
     }
 }
