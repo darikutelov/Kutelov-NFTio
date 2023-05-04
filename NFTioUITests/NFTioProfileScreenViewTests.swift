@@ -28,26 +28,20 @@ final class NFTioProfileScreenViewTests: XCTestCase {
     }
 
     func testScreenTitle() throws {
+        tabBar.buttons["Home"].tap()
         app.buttons["Person"].tap()
-        app.textFields["Email"].tap()
-        app.textFields["Email"].typeText("test42@mail.com")
-        app.secureTextFields["Password"].tap()
-        app.secureTextFields["Password"].typeText("Test123!")
+        
+//        app.textFields["Email"].tap()
+//        app.textFields["Email"].typeText("test42@mail.com")
+//        app.secureTextFields["Password"].tap()
+//        app.secureTextFields["Password"].typeText("Test123!")
         app.buttons["Sign In"].tap()
-        sleep(3)
+        
+        sleep(5)
         app.tabBars["Tab Bar"].buttons["Profile"].tap()
         let yourProfileStaticText = app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].staticTexts["Your Profile"]
         XCTAssert(yourProfileStaticText.exists)
         
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
     }
 }

@@ -4,26 +4,36 @@
 
 - NFTio is a full featured iOS SwiftUI mobile app designed for users to discover, buy, sell, and trade unique digital assets known as non-fungible tokens (NFTs). The app is designed with an easy-to-use interface, allowing users to browse through various collections of NFTs and view detailed information about each individual NFT.
 
-## Must Have Features
+## Splash screen
 
-- [ ] NFT catalog items displayed in a list.
-- [ ] Shopping catalog data fetched from an API [like OpenSea](https://docs.opensea.io/reference/api-overview) and saved in the app.
-- [ ] Users can choose an item and open a detailed view to see more information about it.
-- [ ] Users can choose an item from the list and add it to the shopping cart.
-- [ ] Remove item(s) from the shopping cart.
-- [ ] Upon checkout, the total amount to pay will be calculated.
-- [ ] Users can like/ dislike items.
+- the app has a splash screen with animation (https://github.com/darikutelov/Kutelov-NFTio/blob/master/NFTio/Views/LaunchScreen.swift)
 
-## Nice to Have Features
+## Backend, image storage and remote DB
 
-- [ ] Search NFT catalog items by name.
-- [ ] Filter NFT catalog items by category, artist or collection.
-- [ ] Sort NFT catalog items by price and date.
-- [ ] Users can add/ remove items from a wishlist.
-- [ ] User authetication with third party service (Google Firebase)
-- [ ] Credit cart payment with third party service (Stripe)
-- [ ] User profile with history of orders
-- [ ] Users can add NFT item for sales
+- The app is fetching and sending data to a custom NodeJS server hosted on Heroku: https://cryptic-oasis-81288.herokuapp.com/api/v1/
+- The nft, category, collection and user images are stored in cloud service call Cloudinary.com. The uploading is handled by the backend server. The app is fetching the images directly from claoudinary.
+- All data are saved to a cloud database at mongodb.com
+
+## Data flow
+
+### NFT items and NFT collections
+
+- are stored locally in app documents folder in JSON format
+- fetched on app launch from the remote server and fresh data are saved in the app documents folder
+
+## User authentication
+
+- Users register and login with email and password to the backend server
+- Upon successful log in the server sends back a JWT token to the app via a cookie for further autentication.
+- The JWT token is stored in the UserDefaults local storage of the app with the user instance to be persisted accross app re-launches
+- the APIClient service attaches the JWT token to each further request to the backend server in the request headers as "x-access-token"
+- the backend server verifies the token and then allows access to paths protected for authenticated users (mainly to post data other the login and register)
+
+## NFT Search view
+
+- search view displays a list of all NFT items on sale
+- you can look for an NFT Item by typing its name in the search box
+- you can pull down the screen to refresh the nft items list
 
 ## NFT Detail view
 
