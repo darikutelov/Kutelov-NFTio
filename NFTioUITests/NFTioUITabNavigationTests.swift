@@ -10,10 +10,12 @@ final class NFTioUITabNavigationTests: XCTestCase {
     var app: XCUIApplication!
     var homePageScrollView: XCUIElementQuery!
     var tabBar: XCUIElement!
+    
     override func setUpWithError() throws {
         app = XCUIApplication()
         app.launch()
         tabBar = app.tabBars["Tab Bar"]
+        sleep(4)
     }
 
     override func tearDownWithError() throws {
@@ -22,9 +24,9 @@ final class NFTioUITabNavigationTests: XCTestCase {
 
     func testTapOnHomeTabBar() {
         tabBar.buttons["Home"].tap()
-        let appLogoText = app.scrollViews.otherElements.staticTexts["NFTio"]
-        XCTAssert(appLogoText.exists)
-        XCTAssertEqual(appLogoText.label, "NFTio")
+        let collectionName = app.scrollViews.otherElements.staticTexts["Azuki"]
+        XCTAssert(collectionName.exists)
+        XCTAssertEqual(collectionName.label, "Azuki")
     }
     func testTabOnSearchTabBar() {
         tabBar.buttons["Search"].tap()
@@ -35,24 +37,17 @@ final class NFTioUITabNavigationTests: XCTestCase {
     }
     func testTapAddNFTForSaleTabBar() {
         tabBar.buttons["Add"].tap()
-        let pageText = app.staticTexts.element
-        XCTAssert(pageText.exists)
-        XCTAssertEqual(pageText.label, "Add NFT for Sale!")
+        let pageTitle = app.staticTexts["Add NFT for Sale"]
+        XCTAssert(pageTitle.exists)
+        XCTAssertEqual(pageTitle.label, "Add NFT for Sale")
     }
     // swiftlint:disable line_length
     func testTapOnCartTabBar() {
         tabBar.buttons["Cart"].tap()
-        let cartScreenTitle = app
-        /*@START_MENU_TOKEN@*/.navigationBars["Your Cart"]/*[[".otherElements[\"2\"].navigationBars[\"Your Cart\"]",".navigationBars[\"Your Cart\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-            .staticTexts["Your Cart"]
-        XCTAssert(cartScreenTitle.exists)
-        XCTAssertEqual(cartScreenTitle.label, "Your Cart")
+        let app = XCUIApplication()
+        let cartPageTitle = app/*@START_MENU_TOKEN@*/.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"]/*[[".otherElements[\"2\"].navigationBars[\"_TtGC7SwiftUI32NavigationStackHosting\"]",".navigationBars[\"_TtGC7SwiftUI32NavigationStackHosting\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.staticTexts["Your Cart"]
+        XCTAssert(cartPageTitle.exists)
+        XCTAssertEqual(cartPageTitle.label, "Your Cart")
         // swiftlint:enable line_length
-    }
-    func testTapOnProfileTabBar() {
-        tabBar.buttons["Profile"].tap()
-        let pageText = app.staticTexts.element
-        XCTAssert(pageText.exists)
-        XCTAssertEqual(pageText.label, "Profile!")
     }
 }

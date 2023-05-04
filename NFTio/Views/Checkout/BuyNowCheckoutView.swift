@@ -201,6 +201,7 @@ struct BuyNowCheckoutView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(Constants.Colors.secondary))
+                        .accessibilityIdentifier(Constants.Text.Checkout.screenTitle)
                     Spacer()
                 }
                 .padding(.leading, -Constants.Spacing.xxlarge)

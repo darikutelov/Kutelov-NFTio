@@ -32,6 +32,12 @@
 - all NFT can be added to the cart via "Buy Now" button
 - If there is an active auction for the NFT, the user can add one bid per item via the button "Make Offer". If user tries to add a second bid, error alert will inform him that he can make only one bid.
 
+## Cart view
+
+- items are added to the cart with "Buy Now" Button from NFT detailed view
+- swipe left a cart item to delete it
+- swipe righ a cart item to increase or decrease its quanity
+
 ## Payment Options
 
 - User can pay with his crypto wallet (charged on the server)

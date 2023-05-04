@@ -30,6 +30,7 @@ struct AddNFTForSaleView: View {
                             .font(.title2)
                             .fontWeight(.semibold)
                             .foregroundColor(Color(Constants.Colors.secondary))
+                            .accessibilityIdentifier(Constants.Text.AddNFT.title)
                         Spacer()
                     }
                     .padding(.trailing, -Constants.Spacing.xlarge)

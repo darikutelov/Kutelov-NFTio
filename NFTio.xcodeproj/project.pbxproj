@@ -47,6 +47,10 @@
 		9C2EA9AF29A1104E009A831C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9AE29A1104E009A831C /* Constants.swift */; };
 		9C2EA9B129A113E9009A831C /* OnboardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9B029A113E9009A831C /* OnboardingScreenView.swift */; };
 		9C2EA9B329A14162009A831C /* AppLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2EA9B229A14162009A831C /* AppLogo.swift */; };
+		9C3036982A04054900051BD4 /* NFTioHomeScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3036972A04054900051BD4 /* NFTioHomeScreenTests.swift */; };
+		9C30369A2A0408A300051BD4 /* BuyNowCheckoutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3036992A0408A300051BD4 /* BuyNowCheckoutViewTests.swift */; };
+		9C30369C2A040FA600051BD4 /* NFTioAuthViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C30369B2A040FA600051BD4 /* NFTioAuthViewTests.swift */; };
+		9C30369E2A04158C00051BD4 /* NFTioProfileScreenViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C30369D2A04158C00051BD4 /* NFTioProfileScreenViewTests.swift */; };
 		9C32AA4F29C5AAD0001486DA /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C32AA4E29C5AAD0001486DA /* LaunchScreen.swift */; };
 		9C32AA5129C60BB8001486DA /* ShoppingCartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C32AA5029C60BB8001486DA /* ShoppingCartItem.swift */; };
 		9C37C1C229BC738500125E09 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C37C1C129BC738500125E09 /* CategoryListView.swift */; };
@@ -204,6 +208,10 @@
 		9C2EA9AE29A1104E009A831C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9C2EA9B029A113E9009A831C /* OnboardingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenView.swift; sourceTree = "<group>"; };
 		9C2EA9B229A14162009A831C /* AppLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogo.swift; sourceTree = "<group>"; };
+		9C3036972A04054900051BD4 /* NFTioHomeScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTioHomeScreenTests.swift; sourceTree = "<group>"; };
+		9C3036992A0408A300051BD4 /* BuyNowCheckoutViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyNowCheckoutViewTests.swift; sourceTree = "<group>"; };
+		9C30369B2A040FA600051BD4 /* NFTioAuthViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTioAuthViewTests.swift; sourceTree = "<group>"; };
+		9C30369D2A04158C00051BD4 /* NFTioProfileScreenViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTioProfileScreenViewTests.swift; sourceTree = "<group>"; };
 		9C32AA4E29C5AAD0001486DA /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		9C32AA5029C60BB8001486DA /* ShoppingCartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartItem.swift; sourceTree = "<group>"; };
 		9C37C1C129BC738500125E09 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
@@ -668,10 +676,14 @@
 		9CDC76C129CDA07300BB607D /* NFTioUITests */ = {
 			isa = PBXGroup;
 			children = (
+				9C30369D2A04158C00051BD4 /* NFTioProfileScreenViewTests.swift */,
+				9C30369B2A040FA600051BD4 /* NFTioAuthViewTests.swift */,
+				9C3036972A04054900051BD4 /* NFTioHomeScreenTests.swift */,
 				9C1529B729CED78B00CAC0E1 /* NFTioDetailScreenTests.swift */,
 				9C1529B529CED76600CAC0E1 /* NFTioSearchScreenTests.swift */,
 				9CDC76C229CDA07300BB607D /* NFTioUITabNavigationTests.swift */,
 				9CDC76C429CDA07300BB607D /* NFTioUITestsLaunchTests.swift */,
+				9C3036992A0408A300051BD4 /* BuyNowCheckoutViewTests.swift */,
 			);
 			path = NFTioUITests;
 			sourceTree = "<group>";
@@ -994,10 +1006,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C30369C2A040FA600051BD4 /* NFTioAuthViewTests.swift in Sources */,
+				9C30369E2A04158C00051BD4 /* NFTioProfileScreenViewTests.swift in Sources */,
+				9C30369A2A0408A300051BD4 /* BuyNowCheckoutViewTests.swift in Sources */,
 				9CDC76C329CDA07300BB607D /* NFTioUITabNavigationTests.swift in Sources */,
 				9C1529B829CED78B00CAC0E1 /* NFTioDetailScreenTests.swift in Sources */,
 				9C1529B629CED76600CAC0E1 /* NFTioSearchScreenTests.swift in Sources */,
 				9CDC76C529CDA07300BB607D /* NFTioUITestsLaunchTests.swift in Sources */,
+				9C3036982A04054900051BD4 /* NFTioHomeScreenTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

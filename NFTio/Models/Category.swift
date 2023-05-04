@@ -31,31 +31,3 @@ struct Category: Hashable, Identifiable, Codable {
         case name, imageUrl
     }
 }
-
-//struct CategoryStore {
-//    let categories = NFTDataManager().categories
-//    
-//    func getCategoryByCategoryName(name: CategoryName) -> Category? {
-//        let filteredCategories = categories.filter {
-//            $0.name == name
-//        }
-//        guard !filteredCategories.isEmpty else {
-//            return nil
-//        }
-//        return filteredCategories.first
-//    }
-//    
-//    func getCategoryByName(name: String) -> Category? {
-//        let categoryName = CategoryName(rawValue: name)
-//        guard let categoryName = categoryName else {
-//            return nil
-//        }
-//        let categoryIndex = categories.firstIndex { category in
-//            category.name == categoryName
-//        }
-//        guard let categoryIndex = categoryIndex else {
-//            return nil
-//        }
-//        return categories[categoryIndex]
-//    }
-//}

@@ -66,7 +66,7 @@ struct HomeScreenView: View {
                         )
                         .foregroundColor(Color(Constants.Colors.primaryText))
                     }
-
+                    .accessibilityIdentifier("Person")
                 }
             }
         }
