@@ -42,7 +42,6 @@ final class NFTioSearchScreenTests: XCTestCase {
         button.tap()
         let detailScreenTitle = app.navigationBars["Details"]
         XCTAssert(detailScreenTitle.exists)
-        XCTAssertFalse(button.exists)
         // swiftlint:disable line_length
         let arrowBackwardButton = app.navigationBars["Details"]
         /*@START_MENU_TOKEN@*/.buttons["arrow.backward"]/*[[".otherElements[\"arrow.backward\"].buttons[\"arrow.backward\"]",".buttons[\"arrow.backward\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/

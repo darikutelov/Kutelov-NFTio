@@ -28,12 +28,13 @@ final class NFTioAuthViewTests: XCTestCase {
 
     func testAuthScreenOpen() throws {
         app.buttons["Person"].tap()
-        let signInTitle = app.windows
-            .children(matching: .other).element
-            .children(matching: .other).element
-            .children(matching: .other).element
-            .children(matching: .staticText)["Sign In"]
-        XCTAssert(signInTitle.exists)
-
+        app.buttons["Person"].tap()
+        let signInButton = app.buttons["Sign In"]
+        let registerButton = app.buttons["Register"]
+        let closeButton = app.buttons["Close"]
+        
+        XCTAssert(signInButton.exists)
+        XCTAssert(registerButton.exists)
+        XCTAssert(closeButton.exists)
     }
 }

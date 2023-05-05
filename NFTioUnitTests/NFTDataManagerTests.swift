@@ -18,17 +18,4 @@ final class NFTDataManagerTests: XCTestCase {
     func testDemoDataOnInit() {
         XCTAssertEqual(dataManager.nftItems.count, 42)
     }
-    
-//    func testAddNFTItem() {
-//        XCTAssertEqual(dataManager.nftItems.count, 8)
-//
-//        let nftItem = demoNFT[0]
-//        dataManager.addNew(nftItem: nftItem)
-//        XCTAssertEqual(dataManager.nftItems.count, 9)
-//    }
-//
-//    func testFetchNFTItems() async throws {
-//        let nftItems = try await dataManager.fetchNftItems()
-//        XCTAssertEqual(nftItems.count, 8)
-//    }
 }

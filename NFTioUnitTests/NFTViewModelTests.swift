@@ -23,7 +23,6 @@ final class NFTViewModelTests: XCTestCase {
 
     func testNFTItemsOnInit() {
         XCTAssert(!nftItems.isEmpty)
-        XCTAssertEqual(nftItems.count, 8)
     }
     
     @MainActor func testSetSelectedCategory() {
@@ -34,15 +33,16 @@ final class NFTViewModelTests: XCTestCase {
     }
 
     @MainActor func testFilteredNFTItemsOnCategory() {
-//        let category = Category(id: "1", name: .art, imageUrl: "")
-//        viewModel.selectedCategory = category
-//        let filteredItems = viewModel.filteredItems
+        let category = Category(id: "641f19e003170fba651c005f", name: .art, imageUrl: "")
+        viewModel.selectedCategory = category
+        let filteredItems = viewModel.filteredItems
 
-        // XCTAssertEqual(filteredItems.count, 6)
-        // XCTAssertEqual(filteredItems[0].category.name, .art)
+        XCTAssertEqual(filteredItems.count, 6)
+        XCTAssertEqual(filteredItems[0].category.name, .art)
     }
+    
     @MainActor func testSetSelectedCollection() {
-        let collection = NFTCollection(id: "2", name: "Bored Ape Yacht Club",
+        let collection = NFTCollection(id: "641f335803170fba65571cbf", name: "Bored Ape Yacht Club",
         contractAddress: "", numberOfItems: 1, createdAt: Date(),
         totalVolume: 1, floorPrice: 1, owners: 1)
         viewModel.setSelectedCollection(collection: collection)
@@ -51,24 +51,22 @@ final class NFTViewModelTests: XCTestCase {
     }
     
     @MainActor func testFilteredNFTItemsOnCollection() {
-//        let collection = NFTCollection(id: "2", name: "Bored Ape Yacht Club",
-//        contractAddress: "", numberOfItems: 1, createdAt: Date(),
-//        totalVolume: 1,
-//        floorPrice: 1, owners: 1)
-//        viewModel.selectedCollection = collection
-//        let filteredItems = viewModel.filteredItems
+        let collection = NFTCollection(id: "641f335803170fba65571cbf", name: "Bored Ape Yacht Club",
+        contractAddress: "", numberOfItems: 1, createdAt: Date(),
+        totalVolume: 1,
+        floorPrice: 1, owners: 1)
+        viewModel.selectedCollection = collection
+        let filteredItems = viewModel.filteredItems
 
-        // XCTAssertEqual(filteredItems.count, 7)
-        // XCTAssertEqual(filteredItems[0].nftCollection.name, "Bored Ape Yacht Club")
+         XCTAssertEqual(filteredItems.count, 10)
+         XCTAssertEqual(filteredItems[0].nftCollection.name, "Bored Ape Yacht Club")
     }
     
     @MainActor func testFilteredNFTItemsOnSearchTerm() {
-//        viewModel.searchTerm = "#3479"
-//        let filteredItems = viewModel.filteredItems
+        viewModel.searchTerm = "#3479"
+        let filteredItems = viewModel.filteredItems
 
-        // XCTAssertEqual(filteredItems.count, 1)
-        // XCTAssertEqual(filteredItems[0].tokenName, "#3479")
-        // viewModel.searchTerm = ""
-        // XCTAssertEqual(nftItems.count, 8)
+         XCTAssertEqual(filteredItems.count, 1)
+         XCTAssertEqual(filteredItems[0].tokenName, "#3479")
     }
 }

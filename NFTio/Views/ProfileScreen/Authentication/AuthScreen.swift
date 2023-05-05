@@ -10,8 +10,10 @@ import SwiftUI
 struct AuthScreen: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @State var username: String = ""
-    @State var email: String = "test42@mail.com"
-    @State var password: String = "Test123!"
+//    @State var email: String = "test42@mail.com"
+//    @State var password: String = "Test123!"
+    @State var email: String = ""
+    @State var password: String = ""
     @State var rePassword: String = ""
     @State var isLogin: Bool = true
     @State var showPassword = false
