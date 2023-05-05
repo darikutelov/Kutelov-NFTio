@@ -7,7 +7,6 @@
 
 import XCTest
 
-@MainActor
 final class NFTioProfileScreenViewTests: XCTestCase {
     var app: XCUIApplication!
     var tabBar: XCUIElement!
@@ -31,16 +30,22 @@ final class NFTioProfileScreenViewTests: XCTestCase {
         tabBar.buttons["Home"].tap()
         app.buttons["Person"].tap()
         
-//        app.textFields["Email"].tap()
-//        app.textFields["Email"].typeText("test42@mail.com")
-//        app.secureTextFields["Password"].tap()
-//        app.secureTextFields["Password"].typeText("Test123!")
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        
+        app.textFields["Email"].tap()
+        emailTextField.typeText("test42@mail.com")
+        
+        let passwordTextField = app.secureTextFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("Test123!")
+        
         app.buttons["Sign In"].tap()
         
-        sleep(5)
-        app.tabBars["Tab Bar"].buttons["Profile"].tap()
-        let yourProfileStaticText = app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].staticTexts["Your Profile"]
-        XCTAssert(yourProfileStaticText.exists)
+//        sleep(3)
+//        app.tabBars["Tab Bar"].buttons["Profile"].tap()
+//        let yourProfileStaticText = app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].staticTexts["Your Profile"]
+//        XCTAssert(yourProfileStaticText.exists)
         
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

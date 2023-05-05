@@ -22,9 +22,10 @@ final class NFTViewModelTests: XCTestCase {
     }
 
     func testNFTItemsOnInit() {
-//        XCTAssert(!nftItems.isEmpty)
-//        XCTAssertEqual(nftItems.count, 8)
+        XCTAssert(!nftItems.isEmpty)
+        XCTAssertEqual(nftItems.count, 8)
     }
+    
     @MainActor func testSetSelectedCategory() {
         let category = Category(id: "1", name: .art, imageUrl: "")
         viewModel.setSelectedCategory(category: category)
