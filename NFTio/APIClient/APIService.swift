@@ -129,10 +129,18 @@ final class APIService {
         
         guard (200..<300).contains(httpResponse.statusCode) else {
             let serverErrorMessage = String(data: data, encoding: .utf8)
+            print(serverErrorMessage)
             throw APIServiceError.invalidResponse(
                 serverErrorMessage ?? Constants.Text.ErrorMessages.badRequest
             )
         }
+
+        do {
+                try decoder.decode(T.self, from: data)
+            } catch let error {
+                print(error)
+            }
+        
         
         // Decode data returned from the server
         guard let decodedData = try? decoder.decode(T.self, from: data) else {

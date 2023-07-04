@@ -23,8 +23,8 @@ struct CategoryListView: View {
                         alignment: .top,
                         spacing: Constants.Spacing.medium
                     ) {
-                        if let categories = viewModel.categories {
-                            ForEach(categories) {category in
+                        if !viewModel.categories.isEmpty {
+                            ForEach(viewModel.categories) {category in
                                 NavigationLink(value: category
                                 ) {
                                     CategoryCellView(category: category)

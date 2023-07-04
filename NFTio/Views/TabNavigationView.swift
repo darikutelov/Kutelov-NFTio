@@ -58,7 +58,7 @@ struct TabNavigationView: View {
             }
             .onAppear {
                 //            selectedTab = 0
-                hasSeenWelcomeScreen = true
+                // hasSeenWelcomeScreen = true
                 setTabBarUI()
                 if !networkMonitor.isConnected {
                     showNetworkAlert = true
