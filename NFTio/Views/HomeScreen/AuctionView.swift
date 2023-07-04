@@ -19,11 +19,11 @@ struct AuctionView: View {
                 .padding(.bottom, Constants.Spacing.small)
             ) {
                 if let featuredNFT = nftViewModel.featuredNFT,
-                   let auctionExpiryDate = nftViewModel.featuredNFT?.auctionExpiryDate,
-                   let sortedBids = featuredNFT.bids.sorted(by: {
-                       $0.price.priceInCryptoCurrency < $1.price.priceInCryptoCurrency
-                   }),
-                   let bestBidPrice = sortedBids[0].price.priceInCryptoCurrency {
+                   let auctionExpiryDate = nftViewModel.featuredNFT?.auctionExpiryDate {
+                    let sortedBids = featuredNFT.bids.sorted(by: {
+                        $0.price.priceInCryptoCurrency < $1.price.priceInCryptoCurrency
+                    })
+                    let bestBidPrice = sortedBids[0].price.priceInCryptoCurrency
                     RoundedImageView(imageUrlAsString: Constants.Api.Images.nftItemsBaseUrl + featuredNFT.imageUrl)
                         .scaledToFit()
                     

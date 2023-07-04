@@ -85,8 +85,7 @@ struct BuyNowCheckoutView: View {
                             }.transition(.slide)
                         case .bankCard:
                             if let amount = viewModel.totalAmountAfterDiscount,
-                               let usdAmount = amount * Constants.ExchangeRates.usdToEth,
-                               let formattedAmount = Formatter.withSeparator.string(from: usdAmount as NSNumber) {
+                               let formattedAmount = Formatter.withSeparator.string(from: amount * Constants.ExchangeRates.usdToEth as NSNumber) {
                                 Text("Your card will be charged \(formattedAmount).")
                                     .font(.subheadline)
                                     .padding()

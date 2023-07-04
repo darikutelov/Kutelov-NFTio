@@ -16,7 +16,6 @@ struct LaunchScreen: View {
     var body: some View {
         ZStack {
             Color(backgroundColor)
-           
                 VStack {
                     Image(Constants.Text.LaunchScreen.appIcon)
                         .cornerRadius(Constants.Spacing.small)
