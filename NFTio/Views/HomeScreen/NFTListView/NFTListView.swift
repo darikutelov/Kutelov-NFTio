@@ -28,7 +28,7 @@ struct NFTListView: View {
                     columns: columns,
                     spacing: Constants.Spacing.standard
                 ) {
-                    ForEach($nftViewModel.filteredItems) { nftItem in
+                    ForEach($nftViewModel.popularItems) { nftItem in
                         NavigationLink(value: nftItem.wrappedValue) {
                             NFTCellView(
                                 nft: nftItem

@@ -23,7 +23,7 @@ final class UserDataManager {
                 endpoint: .users,
                 pathComponents: ["login"]
             )
-            let savedUser = try await APIService.shared.saveData(
+            let savedUser = try await APIService.shared.postData(
                 requestUrl,
                 bodyData: userCredentials
             )
@@ -57,7 +57,7 @@ final class UserDataManager {
                 endpoint: .users,
                 pathComponents: ["register"]
             )
-            let savedUser = try await APIService.shared.saveData(
+            let savedUser = try await APIService.shared.postData(
                 requestUrl,
                 bodyData: userCredentials
             )
@@ -79,6 +79,25 @@ final class UserDataManager {
     
     public func logoutUser() {
         currerntUser = nil
+    }
+    
+    public func updateUser(user: User) async throws {
+        do {
+            let requestUrl = RequestUrl(
+                endpoint: .users,
+                pathComponents: ["update"]
+            )
+            let _ = try await APIService.shared.postData(
+                requestUrl,
+                bodyData: user
+            )
+            
+            saveUserToLocalStorage(user)
+            Log.general.debug("User: \(user.email) updated!")
+
+        } catch let error {
+            throw error
+        }
     }
     
     // MARK: - Persist user data to local storage

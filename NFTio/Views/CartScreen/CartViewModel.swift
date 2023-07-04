@@ -7,12 +7,18 @@
 
 import Foundation
 
+@MainActor
 final class CartViewModel: ObservableObject {
-    @Published var cartItems: [ShoppingCartItem] = ShoppingCartDataManager().shoppingCartItems
+    @Published var cartItems: [ShoppingCartItem] = ShoppingCartDataManager().shoppingCartItems {
+        didSet {
+            ShoppingCartDataManager().shoppingCartItems = cartItems
+        }
+    }
+    
     @Published var promoCodeDiscount: PromoCode?
     
     var seasonalDiscount: SeasonalDiscount? = SeasonalDiscount(
-        seasonName: "Eastern",
+        seasonName: "Summer",
         discountPercentage: 0.05
     )
     

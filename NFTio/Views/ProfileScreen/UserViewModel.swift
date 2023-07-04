@@ -5,20 +5,49 @@
 //  Created by Dariy Kutelov on 29.03.23.
 //
 
-import Foundation
 import SwiftUI
+import PhotosUI
+import CoreTransferable
 
 final class UserViewModel: ObservableObject {
-    @Published var user: User?
+    @MainActor @Published var user: User?
+    
     private let userDataManager = UserDataManager()
-    @State var isLoading = false
-    /// Error Message
+    
+    @MainActor @State var isLoading = false
+    
     @MainActor @Published var errorMessage = ""
     
+    @MainActor @Published var myNftItems: [MyINFItem] = []
+    
+    @MainActor @Published private(set) var imageState: ImageState = .empty
+    
+    @MainActor @Published var imageSelection: PhotosPickerItem? {
+        didSet {
+            if let imageSelection {
+                let progress = loadTransferable(from: imageSelection)
+                imageState = .loading(progress)
+            } else {
+                imageState = .empty
+            }
+        }
+    }
+    
     init() {
-        if let currentUser = userDataManager.getUserFromLocalStorage() {
-            self.user = currentUser
-            // (Fetch user by id and update local storage and view model) (todo)
+        Task {
+            await MainActor.run {
+                if let currentUser = userDataManager.getUserFromLocalStorage() {
+                    self.user = currentUser
+                }
+            }
+            
+            do {
+                try await fetchMyNftItems()
+            } catch let error {
+                await MainActor.run {
+                    errorMessage = error.localizedDescription
+                }
+            }
         }
     }
     
@@ -29,7 +58,6 @@ final class UserViewModel: ObservableObject {
         }
         
         do {
-            
             user = try await userDataManager.loginUser(
                 email: email,
                 password: password
@@ -87,8 +115,115 @@ final class UserViewModel: ObservableObject {
         }
     }
     
-    public func logoutUser() {
-        user = nil
-        userDataManager.logoutUser()
+    @MainActor public func logoutUser() {
+         user = nil
+         userDataManager.logoutUser()
+    }
+    
+    @MainActor public func updateUser() async throws {
+        guard var currentUser = self.user else { return }
+        
+        if let avatarImageUrl = ProfileImage.profileImageFileName {
+            currentUser.avatarUrl = avatarImageUrl
+            user?.avatarUrl = avatarImageUrl
+        }
+        print(currentUser)
+        Task {
+            do {
+                try await userDataManager.updateUser(user: currentUser)
+                
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    @MainActor public func fetchMyNftItems() async throws {
+        guard let user = user,
+              let userId = user.id else { return }
+        
+        let requestUrl = RequestUrl(endpoint: .users, pathComponents: [userId, "nftItems"])
+        
+        do {
+            let fetchedNftItems = try await APIService.shared.fetchData(requestUrl, expecting: [MyINFItem].self)
+            self.myNftItems = fetchedNftItems
+        } catch let error {
+            throw error
+        }
+    }
+}
+
+// MARK: - User Avatar
+
+extension UserViewModel {
+    enum ImageState {
+        case empty
+        case loading(Progress)
+        case success(Image)
+        case failure(Error)
+    }
+    
+    enum TransferError: Error {
+        case importFailed
+    }
+    
+    struct ProfileImage: Transferable {
+        let image: Image
+        static var profileImageFileName: String?
+        
+        static var transferRepresentation: some TransferRepresentation {
+            DataRepresentation(importedContentType: .image) { data in
+            #if canImport(AppKit)
+                guard let nsImage = NSImage(data: data) else {
+                    throw TransferError.importFailed
+                }
+                let image = Image(nsImage: nsImage)
+                return ProfileImage(image: image)
+            #elseif canImport(UIKit)
+                guard let uiImage = UIImage(data: data) else {
+                    throw TransferError.importFailed
+                }
+                let image = Image(uiImage: uiImage)
+                
+                // Upload Image to server
+                let requestUrl = RequestUrl(endpoint: .users, pathComponents: ["images"])
+                
+                Task {
+                    do {
+                        if let uploadedImageFileName = try await APIService
+                            .shared
+                            .uploadImage(imageData: data, requestUrl: requestUrl) {
+                            profileImageFileName = uploadedImageFileName
+                        }
+                    } catch let error {
+                        print(error)
+                    }
+                }
+                
+                return ProfileImage(image: image)
+            #else
+                throw TransferError.importFailed
+            #endif
+            }
+        }
+    }
+    
+    private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
+        return imageSelection.loadTransferable(type: ProfileImage.self) { result in
+            DispatchQueue.main.async {
+                guard imageSelection == self.imageSelection else {
+                    print("Failed to get the selected item.")
+                    return
+                }
+                switch result {
+                case .success(let profileImage?):
+                    self.imageState = .success(profileImage.image)
+                case .success(nil):
+                    self.imageState = .empty
+                case .failure(let error):
+                    self.imageState = .failure(error)
+                }
+            }
+        }
     }
 }

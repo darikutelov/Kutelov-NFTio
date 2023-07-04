@@ -26,14 +26,14 @@ struct MediumInfoSectionView: View {
             }
             .padding(.vertical)
             
-            VStack {
+            VStack(alignment: .leading) {
                 switch selectedTab {
                 case .details:
-                    DetailsTabView()
+                    DetailsTabView(nft: nft)
                         .transition(.slide)
                 case .bids:
                     BidsTabView()
-                        .transition(.slide)
+                        .transition(.backslide)
                 }
             }
             .padding(.vertical)

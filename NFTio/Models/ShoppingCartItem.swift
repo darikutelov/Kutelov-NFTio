@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ShoppingCartItem {
+struct ShoppingCartItem: Codable {
     let nftItem: NFT
     var quantity: UInt
 }

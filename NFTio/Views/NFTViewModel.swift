@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 final class NFTViewModel: ObservableObject {
     // MARK: - Properties
     /// A manager to load and save data locally
@@ -14,7 +15,15 @@ final class NFTViewModel: ObservableObject {
     /// Store all NFT categories
     @Published var categories: [Category]
     /// Store all NFT collections
-    @Published var nftCollections: [NFTCollection]
+    @Published var nftCollections: [NFTCollection]? {
+        didSet {
+            if self.nftDataManager.nftCollections.count >= Constants.Collections.numberOfCollectionsOnHomePage {
+                homePageCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
+                
+            }
+        }
+    }
+    @Published var homePageCollections: [NFTCollection]?
     /// Store all nft items
     private var nftItems: [NFT]
     /// Store selected category and update filteredNftItems upon selection
@@ -35,15 +44,20 @@ final class NFTViewModel: ObservableObject {
             updateFilteredItems()
         }
     }
-    @State var isLoading = false
     /// Store filtered items by search term
     @Published var filteredItems = [NFT]()
+    
+    /// Store filtered items by search term
+    @Published var popularItems = [NFT]()
+    
     /// Error flag
-    @MainActor @Published var showErrorAlert = false
+    @Published var showErrorAlert = false
     /// Error Message
-    @MainActor @Published var errorMessage = ""
+    @Published var errorMessage = ""
     
     @Published var selectedNFT: NFT?
+    
+    @Published var featuredNFT: NFT?
     
     // MARK: - Init
     
@@ -52,8 +66,12 @@ final class NFTViewModel: ObservableObject {
         self.categories = self.nftDataManager.categories
         self.filteredItems = self.nftItems
         
+        if !nftItems.isEmpty {
+            self.featuredNFT = nftItems[0]
+        }
+        
         if nftDataManager.nftCollections.count >= Constants.Collections.numberOfCollectionsOnHomePage {
-            self.nftCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
+            self.homePageCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
         } else {
             self.nftCollections = [NFTCollection]()
         }
@@ -98,23 +116,19 @@ final class NFTViewModel: ObservableObject {
         
         toggleNftItemLike(itemId: nftItemId)
         nftDataManager.nftItems = nftItems
-        
+        let bodyData = nftItems[index]
         Task {
             let requestUrl = RequestUrl(
                 endpoint: .nftItems,
                 pathComponents: [nftItemId]
             )
             do {
-                let _ = try await APIService.shared.saveData(
+                let _ = try await APIService.shared.postData(
                     requestUrl,
-                    bodyData: nftItems[index]
+                    bodyData: bodyData
                 )
             } catch let error {
-                print(error)
-                
-                await MainActor.run {
-                    errorMessage = "Error! You may try to like an item without being signed in"
-                }
+                setError(message: error.localizedDescription)
             }
         }
     }
@@ -135,50 +149,38 @@ final class NFTViewModel: ObservableObject {
     
     public func fetchNftItems() async {
         do {
-            isLoading = true
             let requestUrl = RequestUrl(endpoint: .nftItems)
             let data = try await APIService.shared.fetchData(
                 requestUrl, expecting: NFTItemsResponse.self
             )
             
-            await MainActor.run {
-                nftItems = data.nftItems
-                filteredItems = data.nftItems
-            }
+            nftItems = data.nftItems
+            filteredItems = data.nftItems
             
             nftDataManager.nftItems = data.nftItems
-            isLoading = false
-        } catch APIServiceError.failedToConnectToServer(let message) {
-            Task { @MainActor in
-                showErrorAlert = true
-                errorMessage = message
-                try await Task.sleep(nanoseconds: 2_000_000_000)
-                showErrorAlert = false
-                errorMessage = ""
+            
+            if !filteredItems.isEmpty {
+                self.featuredNFT = nftItems[0]
             }
-        } catch {
+            
+        } catch APIServiceError.failedToConnectToServer(let message) {
+            setError(message: message)
+        } catch let error {
+            setError(message: error.localizedDescription)
             print("error")
         }
     }
     
-    private func fetchCollections() async {
-        isLoading = true
-        defer {
-            isLoading = false
-        }
-        
+    func fetchCollections() async {
         do {
             let requestUrl = RequestUrl(endpoint: .collections)
             let data = try await APIService.shared.fetchData(
                 requestUrl, expecting: NFTCollectionsResponse.self
             )
             
-            await MainActor.run {
-                nftCollections = data.nftCollections
-            }
-            
+            nftCollections = data.nftCollections
             nftDataManager.nftCollections = data.nftCollections
-            
+            homePageCollections = Array(self.nftDataManager.nftCollections[..<Constants.Collections.numberOfCollectionsOnHomePage])
         } catch let error {
             switch error {
             case APIServiceError.responseDecodingFailed(let message):
@@ -220,6 +222,17 @@ final class NFTViewModel: ObservableObject {
             self.nftItems[currentIndex] = newValue
         }
     }
+    
+    private func setError(message: String) {
+        Task {
+            showErrorAlert = true
+            errorMessage = message
+            
+            try await Task.sleep(nanoseconds: 3_000_000_000)
+            showErrorAlert = false
+            errorMessage = ""
+        }
+    }
 }
 
 // MARK: - NFT Item bids
@@ -238,22 +251,20 @@ extension NFTViewModel {
         )
         
         do {
-            let _ = try await APIService.shared.saveData(
+            let _ = try await APIService.shared.postData(
                 requestUrl,
                 bodyData: bid
             )
             
-            await MainActor.run {
-                // updates nft items
-                nftItems[index].bids.append(bid)
-                // update selectedNFT to update view
-                self.selectedNFT = nftItems[index]
-                // updates filtered items
-                updateFilteredItems()
-                // persist changes to local storage
-                nftDataManager.nftItems = nftItems
-            }
-            
+            // updates nft items
+            nftItems[index].bids.append(bid)
+            // update selectedNFT to update view
+            self.selectedNFT = nftItems[index]
+            // updates filtered items
+            updateFilteredItems()
+            featuredNFT = nftItems[0]
+            // persist changes to local storage
+            nftDataManager.nftItems = nftItems
         } catch let error {
             throw error
         }

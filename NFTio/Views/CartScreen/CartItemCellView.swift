@@ -32,10 +32,6 @@ struct CartItemCellView: View {
             }
             .padding(.leading, Constants.Spacing.small)
         }
-        .background(
-            RoundedRectangle(cornerRadius: Constants.General.standardCornerRadius)
-                .fill(Color(Constants.Colors.cardBackground))
-        )
     }
 }
 

@@ -16,7 +16,7 @@ struct NFT: Hashable, Identifiable, Codable {
     let id: String
     let tokenName: String
     let description: String?
-    let imageUrl: String
+    var imageUrl: String
     var likes: Int
     let creator: String
     let category: Category
@@ -43,10 +43,36 @@ extension NFT {
     }
 }
 
+extension NFT {
+    struct InfoField: Identifiable {
+        let id = UUID()
+        let label: String
+        let text: String
+    }
+    
+    func createInfoFieldsArray() -> [InfoField] {
+        return [
+            InfoField(label: "Blockchain", text: self.price.cryptoCurrency.rawValue),
+            InfoField(label: "Creator", text: self.creator),
+            InfoField(label: "Likes", text: "\(self.likes)"),
+            InfoField(label: "Quantity", text: "\(self.quantity)"),
+            InfoField(label: "Category", text: self.category.name.rawValue),
+            InfoField(label: "Collection", text: self.nftCollection.name),
+            InfoField(label: "Contract address", text: self.contractAddress)
+        ]
+    }
+}
+
 /// Data structure for price of NFT itme
 struct Price: Codable {
+    let id: String?
     let cryptoCurrency: CryptoCurrency
     let priceInCryptoCurrency: Decimal
+    
+    enum CodingKeys: String, CodingKey {
+            case id = "_id"
+            case cryptoCurrency, priceInCryptoCurrency
+        }
 }
 
 /// Data structure for a bit in NFT auction
@@ -64,4 +90,10 @@ enum CryptoCurrency: String, CaseIterable, Codable {
     case basicAttentionToken = "BAT"
     case ash = "ASH"
     case cube = "CUBE"
+}
+
+// Data model to fetch only my NFT items in user model
+struct MyINFItem: Codable, Identifiable, Hashable {
+    let id: String
+    let imageUrl: String
 }

@@ -18,7 +18,7 @@ struct CheckoutItemListView: View {
             ForEach(checkoutItems, id: \.self.nftItem.id) {
                 CartItemCellView(shoppingCartItem: $0)
                     .padding()
-                    .background(Color.white)
+                    .background(Color(Constants.Colors.cardBackground))
                     .cornerRadius(Constants.General.standardCornerRadius)
             }
         }

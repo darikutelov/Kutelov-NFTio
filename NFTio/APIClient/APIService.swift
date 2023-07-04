@@ -62,38 +62,29 @@ final class APIService {
         
         do {
             (data, response) = try await session.data(from: url)
-        } catch {
-//            if let error = error as? URLError {
-//                switch error.code {
-//                case .notConnectedToInternet:
-//                    print("my no internet connection")
-//                default:
-//                    print("general error")
-//                }
-//            }
-            throw APIServiceError.failedToConnectToServer("Failed to connect to the server!")
+        } catch let error {
+            try handleServerError(error)
+            throw APIServiceError.failedToConnectToServer(
+                Constants.Text.ErrorMessages.BadConnection
+            )
         }
         
         guard let httpResponse = response as? HTTPURLResponse,
               (200..<300).contains(httpResponse.statusCode) else {
-            throw APIServiceError.requestFailed("Bad request")
+            throw APIServiceError.requestFailed(Constants.Text.ErrorMessages.badRequest)
         }
         
-//        do {
-//            let buffer = try decoder.decode(type.self, from: data)
-//        } catch let error {
-//            print(error)
-//        }
-       
         guard let decodedData = try? decoder.decode(type.self, from: data) else {
-            throw APIServiceError.responseDecodingFailed("Error in decoding data!")
+            throw APIServiceError.responseDecodingFailed(
+                Constants.Text.ErrorMessages.decodingError
+            )
         }
         
         return decodedData
     }
     
     ///  Universal function to post any data type for the project needs
-    public func saveData<T: Codable>(_ requestUrl: RequestUrl,
+    public func postData<T: Codable>(_ requestUrl: RequestUrl,
                                      bodyData: T) async throws -> T? {
         var encodedBodyData: Data
         var response: URLResponse
@@ -102,7 +93,7 @@ final class APIService {
         guard let url = requestUrl.url else {
             throw APIServiceError.failedToCreateUrl
         }
-        
+
         /// Create post request
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -120,23 +111,34 @@ final class APIService {
             encodedBodyData = try encoder.encode(bodyData)
             request.httpBody = encodedBodyData
             (data, response) = try await session.data(for: request)
+        } catch let error {
+            // Handles URLError errors: no connection and server is down
+            try handleServerError(error)
             
-        } catch {
-            throw APIServiceError.failedToConnectToServer("Failed to send data to the server!")
+            // Fallback for non URLErrors
+            throw APIServiceError.failedToConnectToServer(
+                Constants.Text.ErrorMessages.BadConnection
+            )
         }
         
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw APIServiceError.invalidResponse("No proper response from the server")
+            throw APIServiceError.invalidResponse(
+                Constants.Text.ErrorMessages.responseError
+            )
         }
         
         guard (200..<300).contains(httpResponse.statusCode) else {
             let serverErrorMessage = String(data: data, encoding: .utf8)
-            throw APIServiceError.invalidResponse(serverErrorMessage ?? "Bad Request")
+            throw APIServiceError.invalidResponse(
+                serverErrorMessage ?? Constants.Text.ErrorMessages.badRequest
+            )
         }
         
         // Decode data returned from the server
         guard let decodedData = try? decoder.decode(T.self, from: data) else {
-            throw APIServiceError.responseDecodingFailed("Error in decoding data!")
+            throw APIServiceError.responseDecodingFailed(
+                Constants.Text.ErrorMessages.decodingError
+            )
         }
         
         // If post type is User (register, login) get auth token from the cookie and attach it to the user instance
@@ -144,10 +146,10 @@ final class APIService {
            var user = decodedData as? User {
             Self.authToken = token
             user.authToken = token
-
+            
             return user as? T
         }
-
+        
         return decodedData
     }
     
@@ -161,5 +163,85 @@ final class APIService {
         }
         
         return authCookie.value
+    }
+    
+    // Handles URLError errors: no connection and server is down
+    private func handleServerError(_ error: Error) throws {
+        if let error = error as? URLError {
+            switch error.code {
+            // Error is triggered if there is no internet connection when the request is made
+            case .notConnectedToInternet:
+                print(Constants.Text.ErrorMessages.noInternetConnection)
+                throw APIServiceError.failedToConnectToServer(
+                    Constants.Text.ErrorMessages.noInternetConnection
+                )
+            // Error is triggered when the server is down
+            case .cannotConnectToHost:
+                print(Constants.Text.ErrorMessages.noConnectionWithHost)
+                throw APIServiceError.failedToConnectToServer(
+                    Constants.Text.ErrorMessages.noConnectionWithHost
+                )
+            default:
+                print(Constants.Text.ErrorMessages.BadConnection)
+                throw APIServiceError.failedToConnectToServer(
+                    Constants.Text.ErrorMessages.BadConnection
+                )
+            }
+        }
+    }
+}
+
+extension APIService {
+    func uploadImage(imageData: Data, requestUrl: RequestUrl) async throws -> String? {
+        var response: URLResponse
+        var data: Data
+        
+        guard let url = requestUrl.url else {
+            throw APIServiceError.failedToCreateUrl
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let boundary = UUID().uuidString
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        let body = NSMutableData()
+        
+        body.append("--\(boundary)\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"nft\"; filename=\"\(UUID().uuidString).jpg\"\r\n".data(using: .utf8)!)
+        body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
+        body.append(imageData)
+        body.append("\r\n".data(using: .utf8)!)
+        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        
+        request.httpBody = body as Data
+        
+        do {
+            (data, response) = try await session.data(for: request)
+        } catch let error {
+            try handleServerError(error)
+            
+            throw APIServiceError.failedToConnectToServer(
+                Constants.Text.ErrorMessages.imageUploadFailed
+            )
+        }
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200..<300).contains(httpResponse.statusCode) else {
+            throw APIServiceError.requestFailed(Constants.Text.ErrorMessages.badRequest)
+        }
+        
+        struct FileName: Codable {
+            let fileName: String
+        }
+        
+        guard let decodedData = try? decoder.decode(FileName.self, from: data) else {
+            throw APIServiceError.responseDecodingFailed(
+                Constants.Text.ErrorMessages.decodingError
+            )
+        }
+  
+        return decodedData.fileName
     }
 }

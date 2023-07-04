@@ -24,23 +24,20 @@ struct CollectionListView: View {
                     alignment: .leading,
                     spacing: Constants.Spacing.small
                 ) {
-                    ForEach($viewModel.nftCollections.wrappedValue) {collection in
+                    ForEach(
+                        $viewModel.homePageCollections.wrappedValue ?? [NFTCollection]()
+                        ) {collection in
                         NavigationLink(value: collection) {
                             collection.view
                         }
                     }
+                    
+                    Spacer()
                 }
                 .navigationDestination(for: NFTCollection.self) { collection in
                     CollectionView(selectedCollection: collection)
                 }
                 
-            }
-            HStack {
-                Spacer()
-                Text(Constants.Text.Home.seeAllLabel)
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-                    .foregroundColor(Color(Constants.Colors.primary))
             }
         }
     }

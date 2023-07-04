@@ -10,9 +10,14 @@ import SwiftUI
 struct TabNavigationView: View {
     @AppStorage(Constants.Text.TabView.userdefaultsKey) var selectedTab = 0
     @AppStorage(Constants.Text.LaunchScreen.hasSeenWelcomeScreen) private var hasSeenWelcomeScreen = false
+    
+    // Environment Objects
     @EnvironmentObject var cartViewModel: CartViewModel
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var nftViewModel: NFTViewModel
+    @EnvironmentObject var networkMonitor: NetworkMonitor
+    
+    @State private var showNetworkAlert = false
     
     var body: some View {
         ZStack {
@@ -52,15 +57,26 @@ struct TabNavigationView: View {
                 }
             }
             .onAppear {
-    //            selectedTab = 0
+                //            selectedTab = 0
                 hasSeenWelcomeScreen = true
                 setTabBarUI()
+                if !networkMonitor.isConnected {
+                    showNetworkAlert = true
+                }
             }
-            .alert(isPresented: $nftViewModel.showErrorAlert) {
-                Alert(
-                    title: Text("Error!"),
-                    message: Text($nftViewModel.errorMessage.wrappedValue),
-                    dismissButton: .default(Text("Got it!")))
+            .onChange(of: networkMonitor.isConnected) { connection in
+                showNetworkAlert = connection == false
+            }
+            // Error notification from NWPathMonitor
+            .sheet(isPresented: $showNetworkAlert) {
+                NoNetworkNotificationView(
+                    showNetworkAlert: $showNetworkAlert,
+                    errorMessage: Constants.Text.ErrorMessages.noInternetConnection
+                )
+            }
+            // Errors notification from APIService
+            .popover(isPresented: $nftViewModel.showErrorAlert) {
+                ErrorNotificationView(errorMessage: nftViewModel.errorMessage)
             }
         }
         .edgesIgnoringSafeArea(.all)

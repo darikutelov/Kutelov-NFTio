@@ -69,7 +69,6 @@ final class NFTDataManager {
         guard let jsonFileURL = getJsonDataUrl(
             fileName: dataModel.rawValue
         ) else {
-            print(Constants.Text.ErrorMessages.JSONFileNotFound)
             return
         }
         
@@ -135,17 +134,5 @@ final class NFTDataManager {
         } catch let error {
             print(error)
         }
-    }
-    
-    // MARK: - NFT methods
-    
-    func addNew(nftItem: NFT) {
-        self.nftItems.append(nftItem)
-    }
-    
-    func fetchNftItems() async throws -> [NFT] {
-        let seconds = 2.0
-        try await Task.sleep(nanoseconds: UInt64(seconds * Double(NSEC_PER_SEC)))
-        return nftItems
     }
 }

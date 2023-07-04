@@ -45,13 +45,7 @@ struct SearchScreenView: View {
                 displayMode: .always
             ),
             prompt: Constants.Text.SearchScreen.searchLabel
-        ) {
-            if viewModel.searchTerm.isEmpty {
-                ForEach(viewModel.nftNameCointaining(), id: \.self) { name in
-                    Text(name).searchCompletion(name)
-                }
-            }
-        }
+        )
         .onDisappear {
             viewModel.searchTerm = ""
         }

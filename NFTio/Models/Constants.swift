@@ -30,7 +30,9 @@ enum Constants {
         public static let xxlarge = CGFloat(36.0)
         public static let xxxlarge = CGFloat(64.0)
         public static let superLarge = CGFloat(92.0)
+        public static let megaLarge = CGFloat(156.0)
         public static let minCardSize = CGFloat(350.0)
+        public static let maxWidth = CGFloat(400.0)
     }
     enum ImageFileNames {
         public static let onboardingBackground = "onboarding-background"
@@ -56,6 +58,10 @@ enum Constants {
             Color.init(hex: "73F90A"),
             Color.init(hex: "EFDB22")
         ]
+        public static let placeholderGradientColors = [
+             Color("CambridgeBlue"),
+             Color("CambridgeBlue").opacity(0.7)
+        ]
         public static let buttonBackgroundGradientColors = [
             Color(red: 1.0, green: 1.0, blue: 1.0, opacity: 0.4),
             Color(red: 1.0, green: 1.0, blue: 1.0, opacity: 0.0)
@@ -70,22 +76,24 @@ enum Constants {
     }
     enum Api {
         // swiftlint: disable all
-        // public static let baseUrl = "https://cryptic-oasis-81288.herokuapp.com/api/v1/"
-        public static let baseUrl = "http://localhost:8000/api/v1/"
+        public static let baseUrl = "https://cryptic-oasis-81288.herokuapp.com/api/v1/"
+        // public static let baseUrl = "http://localhost:8000/api/v1/"
         enum Images {
             public static let categoryBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1647330626/nftio/categories/"
             public static let collectionBaseUrl = "https://res.cloudinary.com/dariku/image/upload/h_150,c_scale,q_auto:good/v1678552863/nftio/collections/"
             public static let nftItemsBaseUrl = "https://res.cloudinary.com/dariku/image/upload/v1679847173/nftio/nftItems/"
+            public static let userBaseUrl = "https://res.cloudinary.com/dariku/image/upload/v1679847173/nftio/users/"
         }
         // swiftlint: enable all
         public static let authTokenCookieName = "AuthToken"
         public static let currentUser = "currentUser"
+        public static let currentCart = "currentCart"
     }
     enum NFTItems {
         public static let numberOfNftItemsOnHomePage = 8
     }
     enum Collections {
-        public static let numberOfCollectionsOnHomePage = 5
+        public static let numberOfCollectionsOnHomePage = 4
     }
     
     enum ExchangeRates {

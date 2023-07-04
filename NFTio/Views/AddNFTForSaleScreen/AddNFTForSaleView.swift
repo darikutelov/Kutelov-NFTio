@@ -17,16 +17,24 @@ struct AddNFTForSaleView: View {
                 Color(uiColor: .secondarySystemBackground)
                 VStack {
                     Spacer()
-                        .frame(height: Constants.Spacing.xxxlarge)
-                    Text(Constants.Text.AddNFT.title.uppercased())
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color(Constants.Colors.secondary))
+                        .frame(height: Constants.Spacing.superLarge)
                     NFTFormView()
                 }
             }
             .edgesIgnoringSafeArea(.all)
             .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Spacer()
+                        Text(Constants.Text.AddNFT.title)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(Constants.Colors.secondary))
+                            .accessibilityIdentifier(Constants.Text.AddNFT.title)
+                        Spacer()
+                    }
+                    .padding(.trailing, -Constants.Spacing.xlarge)
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         if userViewModel.user != nil {

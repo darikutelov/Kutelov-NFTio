@@ -32,17 +32,6 @@ struct StandardInputField: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .padding()
-            .foregroundColor(Color(Constants.Colors.secondary))
-            .frame(minHeight: 50.0)
-            .overlay(
-                RoundedRectangle(cornerRadius: Constants.General.standardCornerRadius)
-                    .stroke(error ? Color(.red) : Color(Constants.Colors.secondary), lineWidth: 1.0)
-            )
-            .background(
-                RoundedRectangle(cornerRadius: Constants.General.standardCornerRadius)
-                    .fill(Color(.white).opacity(0.9))
-            )
-            .frame(maxWidth: 400)
+            .foregroundColor(error ? Color(.red) : Color(Constants.Colors.primaryText))
     }
 }

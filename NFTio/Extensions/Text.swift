@@ -14,13 +14,16 @@ extension Constants {
             public static let loading = "Loading ..."
         }
         enum Home {
-            public static let welcome = String(localized: "Welcome", comment: "Welcome message on home screen")
+            public static let welcome = String(localized: "Welcome!", comment: "Welcome message on home screen")
             public static let categoriesLabel = "Categories"
             public static let collectionsLabel = "Collections"
             public static let volumeLabel = "Price"
             public static let seeAllLabel = "See All"
-            public static let nftListLabel = "Trending NFTs"
+            public static let nftListLabel = "Popular NFTs"
             public static let nftItems = "NFT Itmes"
+            public static let featuredAuction = "Featured NFT Auction"
+            public static let listedPrice = "Price"
+            public static let bestBidPrice = "Best bid"
         }
         enum NFTItems {
             public static let nftItems = "NFT Itmes"
@@ -28,8 +31,11 @@ extension Constants {
         enum IconNames {
             public static let arrowBack = "arrow.backward"
             public static let person = "person"
+            public static let personFilled = "person.fill"
             public static let togglePower = "togglepower"
-            
+            public static let pencilIcon = "pencil.circle.fill"
+            public static let squarePencilIcon = "square.and.pencil"
+            public static let dolarSignSquare = "dollarsign.square"
         }
         enum LaunchScreen {
             public static let appIcon = "app-icon"
@@ -61,7 +67,7 @@ extension Constants {
             public static let appName = String(localized: "NFTio", comment: "App name")
         }
         enum Checkout {
-            public static let screenTitle = "Buy Now"
+            public static let screenTitle = "Checkout"
             public static let checkoutButton = "complete purchase"
             public static let totalAmount = "total amount"
             public static let amountToPay = "amount to pay"
@@ -83,12 +89,20 @@ extension Constants {
         }
         enum ErrorMessages {
             public static let JSONFileNotFound = "JSON file not found!"
+            public static let noInternetConnection = "No internet connection. The data that you see may be not full and outdated!"
+            public static let noConnectionWithHost = "Can not connect to the host!"
+            public static let BadConnection = "Failed to connect to the server!"
+            public static let responseError = "No proper response from the server"
+            public static let decodingError = "Error in decoding data!"
+            public static let badRequest = "Bad request"
+            public static let imageUploadFailed = "Failed to upload image!"
         }
         
         enum Auth {
             public static let signIn = "Sign In"
             public static let signInIcon = "arrow.right.square"
             public static let register = "Register"
+            public static let logout = "Sign Out"
             public static let registerIcon = "square.and.pencil"
             public static let backToSignIn = "Back To Sign In"
             public static let backToSignInIcon = "arrow.left.square"
@@ -99,12 +113,22 @@ extension Constants {
             public static let rePasswordFieldLabel = "Repeat Password"
             public static let visiblePasswordIcon = "eye.slash"
             public static let notVisiblePasswordIcon = "eye"
+            public static let title = "Your Profile"
+            public static let editTitle = "Edit Your Profile"
+            public static let editButtonLabel = "Update"
+            public static let myNFTItemsTitle = "My NFT Items"
         }
         
         enum AddNFT {
-            public static let title = "Add Your NFT for Sale"
+            public static let title = "Add NFT for Sale"
             public static let buttonLabel = "Add NFT"
             public static let buttonIcon = "square.and.arrow.down"
+        }
+        
+        enum Cart {
+            public static let title = "Your Cart"
+            public static let emptyMessage = "No NFT items in cart!"
+            public static let checkoutButtonLabel = "Checkout"
         }
     }
     // swiftlint:enable all
